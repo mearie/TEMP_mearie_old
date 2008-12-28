@@ -1,0 +1,20 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>testing mearieflo</title>
+</head>
+<body>
+<h1>new.mearie.org &mdash; testbed for <a href="http://mearie.org/stuffs/mearieflo/">mearieflo</a></h1>
+<p>powered by <img src="makoLogo.png" /></p>
+
+<pre>
+image binary:
+<%
+data = open('makoLogo.png','rb').read().encode('hex')
+%>
+% for i in xrange(0, len(data), 32*2):
+	${data[i:i+32*2]}
+% endfor
+</pre>
+</body>
+</html>
