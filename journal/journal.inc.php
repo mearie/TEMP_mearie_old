@@ -18,7 +18,7 @@ class MearieJournalLayout extends MearieMainLayout {
 $SITE = new MearieJournalLayout($_SERVER['REQUEST_URI']);
 
 function mearie_create_journal() {
-	$base = (defined('MEARIE_JOURNAL_ADMIN') ? '/journal/admin/' : '/journal/');
+	$base = (defined('MEARIE_JOURNAL_ADMIN') ? '/admin/journal/' : '/journal/');
 	return new MearieJournal(mearie_db(), $base, 'journal_');
 }
 

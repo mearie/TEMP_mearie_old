@@ -16,4 +16,8 @@ RedirectPermanent /favicon.ico http://mearie.org/res/img/icon.ico
 	Order deny,allow
 	Deny from all
 </Files>
+<Files ~ "\.hg">
+	Order deny,allow
+	Deny from all
+</Files>
 

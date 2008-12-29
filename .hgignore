@@ -1,0 +1,19 @@
+syntax: glob
+
+# temporary caches
+img/.thumb
+
+# dynamic
+*.db
+img/journal
+
+# old, unused
+res/old
+res/orig
+res/*/*.old
+
+# no need to versioning
+documents/2008-*-incident.ko.html
+stuffs/still-alive
+files/projects
+
