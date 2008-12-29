@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/* mearie.org subversion repository stylesheet
+ * Copyright (c) 2005-2008, Kang Seonghoon.
+ * See http://mearie.org/copyright for license information.
+ */
+
+@import url(global.css);
+
+/**********/
+/* LAYOUT */
+/**********/
+
+.revision {
+	font-weight: normal;
+	font-size: 80%;
+	color: #bbb;
+	white-space: nowrap;
+}
+
+#entries {
+	background-color: #E6E8EA;
+	padding-top: 1px;
+	padding-bottom: 11px;
+}
+#entries ul {
+	list-style: none;
+	padding: 0;
+	margin: -1px 0;
+}
+#entries li {
+}
+#entries li .link {
+	float: left;
+	display: block;
+	width: 200px;
+	border: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: normal;
+}
+#entries li .link span {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0;
+}
+#entries li.updir .link {
+	background-color: #9A905A;
+	width: 620px;
+	color: #EBEAE5;
+}
+#entries li.dir .link {
+	background-color: #6E7E92;
+	color: #E6E8EA;
+}
+#entries li.file .link {
+	background-color: white;
+	color: #434D59;
+}
+#entries li.updir .link:hover {
+	background-color: #B8AF80;
+}
+#entries li.dir .link:hover {
+	background-color: #95A1AF;
+}
+#entries li.file .link:hover {
+	background-color: #F3F4F5;
+}
+#entries.extview li {
+	clear: left;
+}
+#entries.extview li .info {
+	float: left;
+	display: block;
+	padding-top: 5px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: normal;
+	color: black;
+}
+#entries.extview li .log {
+	clear: left;
+	margin: 5px -1px;
+	padding: 10px 10px 5px 10px;
+}
+pre {
+	/*overflow: auto;*/
+	white-space: normal;
+	text-align: left;
+}
+

@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* mearie.org index page stylesheet
+ * Copyright (c) 2005-2008, Kang Seonghoon.
+ * See http://mearie.org/copyright for license information.
+ */
+
+@import url(global.css);
+
+
+/**********/
+/* LAYOUT */
+/**********/
+
+/* latest section */
+#latest {
+	background: white;
+	margin: 20px 0px;
+	padding: 0 5px;
+	border-top: 2px solid #e6e6e6;
+	border-bottom: 2px solid #e6e6e6;
+}
+#latest h2 {
+	display: none;
+}
+

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* mearie.org subversion repository stylesheet for Internet Explorer
+ * Copyright (c) 2005-2007, Kang Seonghoon aka lifthrasiir.
+ *
+ * This file is in public domain; you can use this file freely,
+ * but this doesn't necessarily mean you could also use
+ * documents using this stylesheet.
+ */
+
+@import url(global.ie.css);
+
+
+/**********/
+/* LAYOUT */
+/**********/
+
+/*
+* html #entries ul {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+* html #entries li a.link {
+	padding: 0 !important;
+	margin: 3px !important;
+}
+
+/*
+#index-wrap {
+	padding-left: 0;
+	padding-right: 0;
+	margin-top: 0;
+}
+#index li a.link {
+	width: 199px;
+	margin-right: 0;
+}
+#index li .info {
+	margin-left: 15em;
+}
+#index li.updir a.link {
+	width: 608px;
+}
+#index li .log {
+	/* we have to use difference layout... too bad. * /
+	margin: 0.4em 0 0.2em 2em;
+	border: 3px solid #F3F4F5;
+}
+*/
+
+
+/********************/
+/* OBJECT AND MEDIA */
+/********************/
+
+img {
+	/* copied from global.ie.css due to crossdomain policy of IE */
+	behavior: url('http://svn.mearie.org/*res*/js/pngbehavior.htc');
+}
+

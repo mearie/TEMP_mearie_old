@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+/* mearie.org global stylesheet for MSIE 6/7
+ * Copyright (c) 2005-2008, Kang Seonghoon.
+ * See http://mearie.org/copyright for license information.
+ */
+
+
+/****************/
+/* COMMON STYLE */
+/****************/
+
+/* font settings: fucking MSIE doesn't ignore comments in the value!!!! */
+body, input, select {
+	font-family: "Trebuchet MS", "Verdana", "돋움", "Dotum", sans-serif;
+}
+#wrap.lang-ko, .lang-ko input, .lang-ko select {
+	font-family: "맑은 고딕", "Malgun Gothic", "돋움", "Dotum", sans-serif;
+}
+#wrap.lang-ja, .lang-ja input, .lang-ja select {
+	font-family: "メイリオ", "Meiryo", "MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", sans-serif;
+}
+#footer {
+	font-family: "Century Gothic", sans-serif;
+}
+code, pre, var, samp, tt, textarea {
+	font-family: "Lucida Console", "돋움체", "DotumChe", monospace;
+}
+
+
+/**********/
+/* LAYOUT */
+/**********/
+
+* html .toc {
+	margin-top: 0.5em;
+	margin-right: -4px;
+	position: relative; /* overflow emulation */
+	left: 4px;
+}
+* html .toc li {
+	width: 0;
+}
+* html .toc a {
+	padding: 3px 6px !important;
+	background-position: top left;
+}
+* html .toc a:hover, * html .toc a:focus {
+	margin-right: 4px;
+}
+
+* html #header {
+	background-image: url(../img/blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mearie.org/res/img/header-alt.png', sizingMethod='crop');
+}
+* html #sitename a {
+	background-image: url(../img/blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mearie.org/res/img/sitename.png', sizingMethod='crop');
+	cursor: pointer; /* overriding transparency-based cursor */
+}
+
+
+/**********/
+/* INLINE */
+/**********/
+
+/* emphasis */
+em.lang-ko, .lang-ko em {
+	font-style: normal;
+	font-weight: inherit;
+	font-size: 120%;
+	vertical-align: baseline;
+}
+em.lang-en, .lang-en em {
+	font-style: italic;
+	font-weight: inherit;
+	font-size: inherit;
+	vertical-align: baseline;
+}
+strong.lang-ko, .lang-ko strong {
+	font-style: inherit;
+	font-weight: bold;
+	font-size: 120%;
+	vertical-align: baseline;
+}
+strong.lang-en, .lang-en strong {
+	font-style: inherit;
+	font-weight: bold;
+	font-size: inherit;
+	vertical-align: baseline;
+}
+
+
+/*****************/
+/* BLOCK STYLING */
+/*****************/
+
+#body hr {
+	margin: 10px 0 15px 0;
+	width: 640px;
+}
+* html div.message, * html div.warning, * html div.note {
+	margin: 1em 0;
+}
+
+
+/********************/
+/* OBJECT AND MEDIA */
+/********************/
+
+img {
+	/* PNG correction behavior for MSIE 5.5 and 6 */
+	behavior: url('/res/js/pngbehavior.htc');
+}
+
+
+/*********/
+/* FORMS */
+/*********/
+
+fieldset {
+	padding: 0 5px 5px 5px;
+}
+legend {
+	margin: 0;
+	padding: 0;
+}
+input {
+	vertical-align: middle;
+}
+

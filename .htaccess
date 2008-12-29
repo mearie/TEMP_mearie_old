@@ -1,0 +1,19 @@
+Options +MultiViews -Indexes
+DirectoryIndex index
+LanguagePriority en ko ja
+ForceLanguagePriority Prefer Fallback
+
+AddType application/x-httpd-php .html
+
+php_value include_path .:/usr/share/php:/usr/share/pear:/home/tokigun/mearie/res/inc
+php_value auto_prepend_file /home/tokigun/mearie/prepend.inc.php
+php_value auto_append_file /home/tokigun/mearie/append.inc.php
+php_flag magic_quotes_gpc off
+
+RedirectPermanent /favicon.ico http://mearie.org/res/img/icon.ico
+
+<Files ~ "\.inc\.">
+	Order deny,allow
+	Deny from all
+</Files>
+

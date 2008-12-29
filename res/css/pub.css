@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* mearie.org pub; stylesheet
+ * Copyright (c) 2005-2008, Kang Seonghoon.
+ * See http://mearie.org/copyright for license information.
+ */
+
+@import url(global.css);
+
+
+/**********/
+/* LAYOUT */
+/**********/
+
+#sitename {
+	width: 340px;
+	margin-left: -30px;
+}
+#sitename a {
+	width: 340px;
+	background: url(../img/sitename-pub.png) top left no-repeat;
+}
+#tagline {
+	background-image: url(../img/cover-pub.jpg);
+}
+.subpages {
+	margin-top: 3em;
+}
+
+
+/**********/
+/* INLINE */
+/**********/
+
+a.deadlink {
+	color: #942;
+	border-bottom-color: #942;
+}
+

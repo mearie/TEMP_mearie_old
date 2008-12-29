@@ -1,0 +1,36 @@
+# vim: syn=apache
+
+SetEnvIf Cookie "(^| )mearielang=([^;]+)" prefer-language=$2
+SetEnvIf Request_URI ^/-(en|ko|ja)-/ prefer-language=$1
+AliasMatch ^/-(en|ko|ja)-/(.*)$ /home/tokigun/mearie/$2
+AliasMatch ^/img/-([0-9]+)x([0-9]+)-/(.*)$ /home/tokigun/mearie/service/thumbnail
+AliasMatch ^/service/src/(.*\.php)$ /home/tokigun/mearie/.self/$1
+<Location ~ "^/service/src/">
+	Order allow,deny
+	Allow from all
+	ForceType application/x-httpd-php-source
+</Location>
+
+ErrorDocument 401 /res/inc/error401
+ErrorDocument 403 /res/inc/error403
+ErrorDocument 404 /res/inc/error404
+ErrorDocument 500 /res/inc/error500
+<Location ~ "^/-en-/">
+	ErrorDocument 401 /res/inc/error401.en
+	ErrorDocument 403 /res/inc/error403.en
+	ErrorDocument 404 /res/inc/error404.en
+	ErrorDocument 500 /res/inc/error500.en
+</Location>
+<Location ~ "^/-ko-/">
+	ErrorDocument 401 /res/inc/error401.ko
+	ErrorDocument 403 /res/inc/error403.ko
+	ErrorDocument 404 /res/inc/error404.ko
+	ErrorDocument 500 /res/inc/error500.ko
+</Location>
+<Location ~ "^/-ja-/">
+	ErrorDocument 401 /res/inc/error401.ja
+	ErrorDocument 403 /res/inc/error403.ja
+	ErrorDocument 404 /res/inc/error404.ja
+	ErrorDocument 500 /res/inc/error500.ja
+</Location>
+

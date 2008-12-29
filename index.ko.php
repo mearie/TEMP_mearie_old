@@ -1,0 +1,55 @@
+<?php
+$SITE->css = 'index';
+$SITE->startForce();
+?>
+<title>메아리</title>
+
+<ul class="toc">
+	<li><a href="about/">대하여</a></li>
+	<li><a href="projects/">프로젝트들</a></li>
+	<li><a href="documents/">문서들</a></li>
+	<li><a href="journal/">메아리 저널</a></li>
+	<li><a href="stuffs/">이것 저것</a></li>
+</ul>
+
+<p><strong>메아리<!--((-->메아리는 대화에 적절하지 않습니다. 대화를 위해서는 다른 곳을 찾아 주시길 바랍니다. 감사합니다.<!--))-->에 오신 것을 환영합니다!</strong> 메아리는 저, <a href="/about/kang-seonghoon">강 성훈</a>의 개인 도메인이자 홈페이지로, 제가 만들고 행하는 이런 저런 것들을 위해 쓰입니다.</p>
+
+<div id="latest">
+	<h2>최근 바뀐 점</h2>
+	<dl>
+		<dt>2008년 11월 16일</dt>
+		<dd><a href="/projects/vlaah-python">vlaah-python</a> 라이브러리를 공개합니다.</dd>
+		<dt>2008년 11월 9일</dt>
+		<dd><a href="http://yurr.net/tokignu/2008/11/08_%EC%BD%94%EC%8A%A4%EB%AA%A8%EC%8A%A4_%EC%84%9C%EC%9A%B8_%EB%B2%88%EA%B0%9C">신촌 번개</a>에 힘입어서 <a href="/about/kang-seonghoon">소개 페이지</a>의 사진을 갈아 치웠습니다.</dd>
+		<dt>2008년 4월 14일</dt>
+		<dd>새 디자인으로 바꿨습니다.</dd>
+		<dt>2007년 12월 13일</dt>
+		<dd><a href="/stuffs/">이것 저것</a> 추가했습니다. (…)</dd>
+		<dt>2007년 11월 30일</dt>
+		<dd><a href="/documents/mscmangle">Microsoft C++의 이름 변경 체계</a> 문서를 옮겨 왔습니다. 네, 아직 한국어 버전은 없습니다… (계획은 하고 있습니다만)</dd>
+		<dt>2007년 11월 18일</dt>
+		<dd><a href="/projects/versert/">버섯</a> 페이지를 옮겨 왔습니다.</dd>
+		<dt>2007년 8월 29일</dt>
+		<dd>첫 페이지를 바꿨습니다. <em>이제 임시 사이트가 아닙니다!</em> (앗싸)</dd>
+		<dt>2007년 8월 2일</dt>
+		<dd><a href="journal/">메아리 저널</a>을 시범적으로 열었습니다.</dd>
+	</dl>
+</div>
+
+<!--
+<fieldset>
+	<legend>사이트 검색</legend>
+	<form action="http://www.google.com/cse">
+		<input type="hidden" name="cx"  value="017879559261112115196:ygyuirvfnku" />
+		<input type="text" name="q" size="25" />
+		<input type="submit" name="sa" value="검색" />
+		(<a href="http://google.co.kr/">구글</a> 맞춤검색을 사용합니다.)
+	</form>
+</fieldset>
+-->
+
+<div class="gallery noborder centered">
+	<a href="http://ruree.net/"><img src="http://ruree.net/banner.png" width="200" height="40" alt="루리넷에서 호스팅합니다." /></a>
+</div>
+<!--FOOTNOTE-->
+
