@@ -2,9 +2,9 @@
 
 SetEnvIf Cookie "(^| )mearielang=([^;]+)" prefer-language=$2
 SetEnvIf Request_URI ^/-(en|ko|ja)-/ prefer-language=$1
-AliasMatch ^/-(en|ko|ja)-/(.*)$ /home/tokigun/mearie/$2
-AliasMatch ^/img/-([0-9]+)x([0-9]+)-/(.*)$ /home/tokigun/mearie/service/thumbnail
-AliasMatch ^/service/src/(.*\.php)$ /home/tokigun/mearie/.self/$1
+AliasMatch ^/-(en|ko|ja)-/(.*)$ /home/lifthrasiir/mearie/$2
+AliasMatch ^/img/-([0-9]+)x([0-9]+)-/(.*)$ /home/lifthrasiir/mearie/service/thumbnail
+AliasMatch ^/service/src/(.*\.php)$ /home/lifthrasiir/mearie/.self/$1
 <Location ~ "^/service/src/">
 	Order allow,deny
 	Allow from all

@@ -1,7 +1,7 @@
 # vim: syn=apache
 
-AliasMatch ^/img/-([0-9]+)x([0-9]+)-/(.*)$ /home/tokigun/mearie/pub/-thumbnail-
-#Alias /res/ /home/tokigun/mearie/res/
+AliasMatch ^/img/-([0-9]+)x([0-9]+)-/(.*)$ /home/lifthrasiir/mearie/pub/-thumbnail-
+#Alias /res/ /home/lifthrasiir/mearie/res/
 
 ErrorDocument 401 /res/inc/error401
 ErrorDocument 403 /res/inc/error403

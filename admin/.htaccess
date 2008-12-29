@@ -1,6 +1,6 @@
 AuthType Digest
 AuthName "mearie.org journal"
 AuthDigestProvider file
-AuthUserFile /home/tokigun/mearie/res/auth.db
+AuthUserFile /home/lifthrasiir/mearie/res/auth.db
 Require valid-user
 

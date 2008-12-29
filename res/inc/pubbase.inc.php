@@ -1,5 +1,5 @@
 <?php
-define('MEARIE_DOCROOT', '/home/tokigun/mearie/pub/');
+define('MEARIE_DOCROOT', '/home/lifthrasiir/mearie/pub/');
 require_once 'lib.inc.php';
 require_once 'layout.inc.php';
 

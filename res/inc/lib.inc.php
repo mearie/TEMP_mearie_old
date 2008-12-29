@@ -1,7 +1,7 @@
 <?php
 define('MEARIE_GENERATOR', 'mearieflo 20081108');
 
-if (!defined('MEARIE_DOCROOT')) define('MEARIE_DOCROOT', '/home/tokigun/mearie/');
+if (!defined('MEARIE_DOCROOT')) define('MEARIE_DOCROOT', '/home/lifthrasiir/mearie/');
 if (!defined('MEARIE_RESROOT')) define('MEARIE_RESROOT', MEARIE_DOCROOT.'res/');
 if (!defined('MEARIE_IMGROOT')) define('MEARIE_IMGROOT', MEARIE_DOCROOT.'img/');
 
