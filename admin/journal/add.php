@@ -6,7 +6,7 @@ $isokay = null;
 if (isset($_POST['url'])) {
 	$tags = (trim($_POST['tags']) ? array_map('trim', explode(',', $_POST['tags'])) : array());
 	$data = array(
-		'url' => $_POST['url'],
+		'url' => trim($_POST['url']),
 		'title' => $_POST['title'],
 		'tags' => $tags,
 		'contents' => $_POST['contents'],
