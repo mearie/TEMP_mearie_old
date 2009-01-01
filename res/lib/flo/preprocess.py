@@ -13,7 +13,7 @@ import os, os.path
 class Preprocessor(object):
     def __init__(self, base):
         self.base = base
-        self.lookup = TemplateLookup(directories=[base],
+        self.lookup = TemplateLookup(directories=['/',base],
                 input_encoding='utf-8', output_encoding='utf-8',
                 encoding_errors='replace')
 

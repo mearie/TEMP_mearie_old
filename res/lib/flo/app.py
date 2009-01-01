@@ -5,7 +5,7 @@ One of most important piece of entire mearieflo code.
 
 from __future__ import absolute_import, division, with_statement
 
-#from . import resolve
+from . import resolve
 from . import preprocess
 
 import os, os.path
@@ -13,13 +13,8 @@ import mimetypes
 
 class Application(object):
     def __init__(self, base):
-        self.base = base
+        self.resolver = resolve.Resolver(base)
         self.preproc = preprocess.Preprocessor(base)
-
-    def resolve_url(self, path):
-        path = os.path.normpath(path.lstrip('/'))
-        if path.startswith('..'): path = ''
-        return os.path.join(self.base, path)
 
     def resolve_type(self, path):
         mimetype = mimetypes.guess_type(os.path.basename(path))
@@ -31,20 +26,14 @@ class Application(object):
 
     def __call__(self, environ, start_response):
         try:
-            path = self.resolve_url(environ['PATH_INFO'])
-            if os.path.isdir(path):
-                path = os.path.join(path, 'index')
-            if os.path.splitext(path)[1] == '':
-                path += '.html'
-
-            if not os.path.exists(path):
+            path = self.resolver.resolve(environ['PATH_INFO'])
+            if path is None:
                 start_response('404 Not Found', [('Content-Type', 'text/plain')])
                 return ['cannot resolve path: ' + environ['PATH_INFO']]
 
             mimetype, encoding = self.resolve_type(path)
             if mimetype == 'text/html': # preprocessed
-                relpath = path[len(self.base):]
-                data = [self.preproc.process(relpath)]
+                data = [self.preproc.process(path)]
                 size = len(data[0])
             else:
                 if 'wsgi.file_wrapper' in environ:
