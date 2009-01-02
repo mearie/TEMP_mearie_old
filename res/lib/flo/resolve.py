@@ -9,7 +9,7 @@ import os, os.path
 
 class Resolver(object):
     def __init__(self, base):
-        self.base = base
+        self.base = os.path.normpath(base)
 
     def canonicalize(self, path):
         path = os.path.normpath(path.lstrip('/'))
@@ -17,12 +17,38 @@ class Resolver(object):
         return os.path.join(self.base, path)
 
     def resolve(self, path):
-        path = self.canonicalize(path)
-        if os.path.isdir(path):
-            path = os.path.join(path, 'index')
-        if os.path.splitext(path)[1] == '':
-            path += '.html'
+        assert path.startswith('/')
 
-        if not os.path.exists(path): return None
-        return path
+        scriptbase = self.base
+        if not os.path.isdir(scriptbase): return (None, path)
+
+        pos = 0
+        while pos < len(path):
+            npos = path.find('/', pos+1)
+            if npos < 0: npos = len(path)
+            component = path[pos+1:npos]
+            pos = npos
+            if component:
+                if component == '..':
+                    newbase = os.path.split(scriptbase)[0]
+                else:
+                    newbase = os.path.join(scriptbase, component)
+                if not newbase.startswith(self.base): return (None, path)
+                if not os.path.isdir(newbase): break
+                scriptbase = newbase
+        else:
+            component = 'index' # default filename
+
+        assert os.path.isdir(scriptbase)
+        prefix = component + '.'
+        trail = path[pos:]
+
+        for name in os.listdir(scriptbase):
+            fullname = os.path.join(scriptbase, name)
+            if not os.path.isfile(fullname): continue
+            if name == component or name.startswith(prefix):
+                # TODO negotiation
+                return (fullname, trail)
+
+        return (None, path)
 

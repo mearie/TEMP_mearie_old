@@ -26,7 +26,7 @@ class Application(object):
 
     def __call__(self, environ, start_response):
         try:
-            path = self.resolver.resolve(environ['PATH_INFO'])
+            path, trail = self.resolver.resolve(environ['PATH_INFO'])
             if path is None:
                 start_response('404 Not Found', [('Content-Type', 'text/plain')])
                 return ['cannot resolve path: ' + environ['PATH_INFO']]
