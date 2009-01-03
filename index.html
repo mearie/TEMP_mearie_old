@@ -1,7 +1,11 @@
 <%inherit file="layout.html" />
-<%! title = u'testing mearieflo. hurray!' %>
+<%!
+title = u'testing mearieflo. hurray!'
+lang = 'en'
+%>
 <h1>new.mearie.org &mdash; testbed for <a href="http://mearie.org/stuffs/mearieflo/">mearieflo</a></h1>
 <p>powered by <img src="/makoLogo.png" /></p>
+<p>path: <strong>${context.trail|h}</strong></p>
 
 <pre>
 image binary:

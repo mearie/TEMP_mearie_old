@@ -1,9 +1,15 @@
-<html>
+<%!
+lang = 'ko'
+title = u'메아리 3.0 테스트'
+%><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${next.attr.lang|h}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>${next.attr.title or u'메아리 3.0 테스트'|h}</title>
+	<meta http-equiv="Content-Language" content="${next.attr.lang|h}" />
+	<title>${next.attr.title|h}</title>
 </head>
 <body>
 ${next.body()}
 </body>
 </html>
+## vim: syn=mako
