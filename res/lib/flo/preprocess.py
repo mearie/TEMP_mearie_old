@@ -8,8 +8,6 @@ from .context import Context
 from mako.template import Template
 from mako.lookup import TemplateLookup
 from mako.exceptions import html_error_template
-from mako.util import FastEncodingBuffer
-import os, os.path
 
 class Preprocessor(object):
     def __init__(self, base):
@@ -20,11 +18,7 @@ class Preprocessor(object):
 
     def process(self, path, **kwargs):
         template = self.lookup.get_template(path)
-        buf = FastEncodingBuffer(unicode=False, encoding=self.outencoding,
-                errors='replace')
-        context = Context(buf, **kwargs)
-        template.render_context(context)
-        data = context._pop_buffer().getvalue()
+        data = template.render(flo=Context(**kwargs))
         return data
 
     def process_error(self):

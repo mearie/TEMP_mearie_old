@@ -3,13 +3,13 @@
 
 from __future__ import absolute_import, division, with_statement
 
-from mako.runtime import Context as ContextBase
+from . import __version__
 
-class Context(ContextBase):
-    def __init__(self, buffer, data={}, **kwargs):
-        ContextBase.__init__(self, buffer, **data)
-        for k, v in kwargs.iteritems():
-            setattr(self, k, v)
+class Context(object):
+    generator = 'mearieflo ' + __version__
+
+    def __init__(self, trail=''):
+        self.subpath = trail
 
     def flush(self):
         pass # TODO
