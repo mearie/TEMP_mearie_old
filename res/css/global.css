@@ -23,12 +23,27 @@ body {
 	margin: 0 auto;
 	width: 800px;
 	text-align: left;
+	color: #262626;
 }
 h1 {
 	font-size: 240%;
+	color: #508bbf;
 }
 h2 {
 	font-size: 180%;
+}
+
+a {
+	color: #708c29;
+	text-decoration: none;
+	border-bottom: 1px solid #708c29;
+}
+a:visited {
+	border-bottom-style: dotted;
+}
+a:hover, a:focus {
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
 }
 
 blockquote {
