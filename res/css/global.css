@@ -13,3 +13,25 @@ body, input, select {
 	font-family: "Linux Libertine", "Georgia", "바탕", "AppleMyungjo", "UnBatang", "은 바탕", serif;
 }
 
+html {
+	background: #3264a6;
+	text-align: center;
+}
+body {
+	font-size: 0.83em;
+	background: white;
+	margin: 0 auto;
+	width: 800px;
+	text-align: left;
+}
+h1 {
+	font-size: 240%;
+}
+h2 {
+	font-size: 180%;
+}
+
+blockquote {
+	background: #d2d6d9;
+}
+
