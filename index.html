@@ -2,18 +2,14 @@
 <%!
 title = u'testing mearieflo. hurray!'
 lang = 'en'
+css = 'index'
 %>
 <h1>new.mearie.org &mdash; testbed for <a href="http://mearie.org/stuffs/mearieflo/">mearieflo</a></h1>
 <p>powered by <img src="/makoLogo.png" /></p>
 <p>path: <strong>${flo.subpath|h}</strong></p>
-
-<pre>
-image binary:
-<%
-data = open('makoLogo.png','rb').read().encode('hex')
-%>
-% for i in xrange(0, len(data), 32*2):
-	${data[i:i+32*2]}
-% endfor
-</pre>
+<h2>한글 테스트.</h2>
+<blockquote>
+	<p>메아리 [명사] 울려 퍼져 가던 소리가 산이나 절벽 같은 데에 부딪쳐 되울려오는 소리. ≒산명(山鳴)&middot;산울림.</p>
+	<p>메아리 플로는 메아리를 돌리는 웹 서버 어댑터입니다. 프레임워크랑은 다릅니다. 달라요.</p>
+</blockquote>
 ## vim: syn=mako
