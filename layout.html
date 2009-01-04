@@ -1,8 +1,4 @@
-<%!
-lang = 'ko'
-css = 'global'
-title = u'메아리 3.0 테스트'
-%><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${next.attr.lang|h}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,9 +7,29 @@ title = u'메아리 3.0 테스트'
 	<meta name="author" content="Kang Seonghoon" />
 	<meta name="generator" content="${flo.generator|h}" />
 	<link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.css" type="text/css" />
+	<!--[if IE]><link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.ie.css" type="text/css" /><![endif]-->
 </head>
 <body>
+${self.header()}
 ${next.body()}
+${self.footer()}
 </body>
 </html>
+
+<%!
+# default variables
+lang = 'ko'
+css = 'global'
+title = u'메아리 3.0 테스트'
+%>
+
+<%def name="header()">
+<div id="header">
+	<h1><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리:" /></a> ${next.attr.title|h}</h1>
+</div>
+</%def>
+
+<%def name="footer()">
+</%def>
+
 ## vim: syn=mako
