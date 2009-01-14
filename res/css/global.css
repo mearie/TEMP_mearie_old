@@ -44,10 +44,12 @@ h1 {
 }
 h2 {
 	font-size: 180%;
+	margin: 1em 1em 1em 3.3em;
+	color: #508bbf;
 }
 p {
 	font-size: 110%;
-	margin: 1em 0.3em;
+	margin: 1em 0.3em 1em 7.5em;
 	text-align: justify;
 }
 
