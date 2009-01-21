@@ -24,15 +24,12 @@ title = u'메아리 3.0 테스트'
 %>
 
 <%def name="header()">
-<div id="header">
-	<h1><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리:" /></a> ${next.attr.title|h}</h1>
-</div>
+<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리:" /></a></p>
+<h1>${next.attr.title|h}</h1>
 </%def>
 
 <%def name="footer()">
-<div id="footer">
-	<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
-</div>
+<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
 </%def>
 
 ## vim: syn=mako
