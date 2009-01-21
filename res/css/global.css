@@ -41,17 +41,17 @@ body {
 h1 {
 	font-size: 240%;
 	color: #508bbf;
-	margin: 0 1em 1em 1.5em;
+	margin: 0 0.45em 1em 1.5em;
 	padding-top: 1.6em;
 }
 h2 {
 	font-size: 180%;
-	margin: 1em 1em 1em 3.3em;
+	margin: 1em 0.6em 1em 3.3em;
 	color: #508bbf;
 }
 h3 {
 	font-size: 150%;
-	margin: 1em 1em 1em 5.5em;
+	margin: 1em 0.72em 1em 5.5em;
 	color: #508bbf;
 }
 p {
