@@ -10,8 +10,10 @@
 }
 
 body, input, select {
-	font-family: "Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia",
-		"Batang", "바탕", "AppleMyungjo", "UnBatang", "은 바탕", serif;
+	font-family:
+		"Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia",
+		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
+		"AppleMyungjo", "UnBatang", "은 바탕", serif;
 }
 
 html {
@@ -62,7 +64,9 @@ p {
 }
 address {
 	font-size: 100%;
-	margin: 1em 1em 0 8.3em;
+	font-style: normal;
+	margin: 3em 1em 0 8.3em;
+	color: #508bbf;
 }
 
 a {
