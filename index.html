@@ -1,18 +1,13 @@
 <%inherit file="layout.html" />
 <%!
-title = u'메아리 3.0 테스트: 메인 페이지'
-lang = 'ko'
+title = u'메아리'
 css = 'index'
 %>
 <h1>메아리</h1>
-<p><strong>메아리[mearie.org]</strong>는 <a href="/about/kang-seonghoon">강 성훈</a>의 개인 홈페이지입니다. 지금 보시는 페이지는 새 메아리 사이트의 디자인과 기반 프로그램(<a href="/about/mearieflo">메아리 플로</a>)을 테스트하기 위해 사용됩니다.</p>
-<p><a href="http://hg.mearie.org/mearie.org/3.x/">머큐리얼 저장소</a>에서 현재 작업 중인 코드를 볼 수 있습니다.</p>
-<p>path: <strong>${flo.trail|h}</strong></p>
-<h2>한글 테스트.</h2>
-<blockquote>
-	<p>메아리 [명사] 울려 퍼져 가던 소리가 산이나 절벽 같은 데에 부딪쳐 되울려오는 소리. ≒산명(山鳴)&middot;산울림.</p>
-	<p>메아리 플로는 메아리를 돌리는 웹 서버 어댑터입니다. 프레임워크랑은 다릅니다. 달라요.</p>
-</blockquote>
-<p><abbr title="Microsoft Internet Explorer">MSIE</abbr>는 (뭐 웬만한 경우 얘가 문제지만) 글꼴 fallback 알고리즘이 그야말로 거지같다. CSS 2.1의 15장 2절에서는 <em>명시적으로</em> 대응되는 글꼴을 하나의 문자 별로 처리할 것을 지정하고 있으나, MSIE는 처음으로 발견된 글꼴을 그대로 사용해 버린다. 운영체제들이 기본으로 지원하는 글꼴들로 충분히 approximate할 수 있는 경우에도 MSIE는 거지같이 반응한다.</p>
-<p>powered by <img src="/makoLogo.png" /></p>
+<div id="introduction">
+	<p><strong><a href="/about/">메아리</a>는 <a href="/about/kang-seonghoon">강 성훈</a>의 개인 홈페이지입니다.</strong> 저는 <a href="/projects/">소프트웨어</a>를 만들고, <a href="/documents/">이런 저런 글</a>을 쓰며, 제가 하는 일에 대해 <a href="/journal/">주절주절</a>거리고 그 밖에 <a href="/stuffs/">다양한 일</a>을 합니다. 하여튼 여기에 들어 가는 줄은 바탕체/나눔명조 모두 세 줄로 통일되어야 합니다. 젠장.</p>
+</div>
+<img src="/res/img/cover.jpg" width="800" height="400" alt="" id="cover" />
+<p>메아리 3.0은 현재 공사 중입니다. <a href="http://mearie.org/">원래 메아리</a>를 이용해 주세요.</p>
+
 ## vim: syn=mako
