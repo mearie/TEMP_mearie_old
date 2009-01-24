@@ -45,6 +45,8 @@ class Resolver(object):
                 scriptbase = newbase
         else:
             component = 'index' # default filename
+            if not path.endswith('/'):
+                context.perm_redirect(path + '/')
 
         assert os.path.isdir(scriptbase)
         prefix = component + '.'

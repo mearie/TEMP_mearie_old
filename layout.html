@@ -11,7 +11,9 @@
 </head>
 <body>
 ${self.header()}
+<div id="content">
 ${next.body()}
+</div>
 ${self.footer()}
 </body>
 </html>
@@ -24,7 +26,7 @@ title = u'메아리 3.0 테스트'
 %>
 
 <%def name="header()">
-<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리:" /></a></p>
+<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리" /></a></p>
 </%def>
 
 <%def name="footer()">
