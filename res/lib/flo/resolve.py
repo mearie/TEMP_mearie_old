@@ -3,6 +3,8 @@
 
 from __future__ import absolute_import, division, with_statement
 
+from .context import Context
+
 from mako.lookup import TemplateLookup
 
 import os, os.path
@@ -16,11 +18,15 @@ class Resolver(object):
         if path.startswith('..'): path = ''
         return os.path.join(self.base, path)
 
-    def resolve(self, path):
+    def resolve(self, app, path):
         assert path.startswith('/')
 
+        context = Context(app)
+        context.path = path
+
         scriptbase = self.base
-        if not os.path.isdir(scriptbase): return (None, path)
+        if not os.path.isdir(scriptbase):
+            context.not_found()
 
         pos = 0
         while pos < len(path):
@@ -33,7 +39,8 @@ class Resolver(object):
                     newbase = os.path.split(scriptbase)[0]
                 else:
                     newbase = os.path.join(scriptbase, component)
-                if not newbase.startswith(self.base): return (None, path)
+                if not newbase.startswith(self.base):
+                    context.not_found()
                 if not os.path.isdir(newbase): break
                 scriptbase = newbase
         else:
@@ -48,7 +55,9 @@ class Resolver(object):
             if not os.path.isfile(fullname): continue
             if name == component or name.startswith(prefix):
                 # TODO negotiation
-                return (fullname, trail)
+                context.path = fullname
+                context.trail = trail
+                return context
 
-        return (None, path)
+        context.not_found()
 

@@ -5,8 +5,9 @@ One of most important piece of entire mearieflo code.
 
 from __future__ import absolute_import, division, with_statement
 
+from .context import Context, HttpError
 from .resolve import Resolver
-from .preprocess import Preprocessor
+from .process import Preprocessor
 
 import sys
 import os, os.path
@@ -27,27 +28,30 @@ class Application(object):
 
     def __call__(self, environ, start_response):
         try:
-            path, trail = self.resolver.resolve(environ['PATH_INFO'])
-            if path is None:
-                start_response('404 Not Found', [('Content-Type', 'text/plain')])
-                return ['cannot resolve path: ' + environ['PATH_INFO']]
+            context = self.resolver.resolve(self, environ['PATH_INFO'])
 
-            mimetype, encoding = self.resolve_type(path)
+            mimetype, encoding = self.resolve_type(context.path)
             if mimetype == 'text/html': # preprocessed
-                data = [self.preproc.process(path, trail=trail)]
+                data = [self.preproc.process(context)]
                 size = len(data[0])
             else:
                 if 'wsgi.file_wrapper' in environ:
-                    data = environ['wsgi.file_wrapper'](open(path, 'rb'))
+                    data = environ['wsgi.file_wrapper'](open(context.path, 'rb'))
                 else:
-                    data = [open(path, 'rb').read()]
-                size = os.stat(path).st_size
+                    data = [open(context.path, 'rb').read()]
+                size = os.stat(context.path).st_size
 
-            headers = [('Content-Type', mimetype), ('Content-Length', str(size))]
+            context.headers['Content-Type'] = mimetype
+            context.headers['Content-Length'] = str(size)
             if encoding is not None:
-                headers.append(('Content-Encoding', encoding))
-            start_response('200 OK', headers)
+                context.headers['Content-Encoding'] = encoding
+            start_response(context.header_line, context.headers.items())
             return data
+        except HttpError, (status, context):
+            message = context.header_line
+            context.headers['Content-Type'] = 'text/plain'
+            start_response(message, context.headers.items())
+            return [message]
         except:
             data = self.preproc.process_error()
             start_response('500 Internal Server Error',
