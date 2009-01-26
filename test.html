@@ -6,3 +6,13 @@
 <h3>매우 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 긴 H3</h3>
 <p>이런 저런 내용</p>
 
+<dl>
+% for k, v in flo.environ.iteritems():
+	% if k.startswith('HTTP_'):
+	<dt>${k|h}</dt>
+	<dd>${v|h}</dd>
+	% endif
+% endfor
+</dl>
+
+## vim: syn=mako

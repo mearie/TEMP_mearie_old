@@ -28,7 +28,7 @@ class Application(object):
 
     def __call__(self, environ, start_response):
         try:
-            context = self.resolver.resolve(self, environ['PATH_INFO'])
+            context = self.resolver.resolve(self, environ)
 
             mimetype, encoding = self.resolve_type(context.path)
             if mimetype == 'text/html': # preprocessed

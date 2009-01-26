@@ -18,11 +18,11 @@ class Resolver(object):
         if path.startswith('..'): path = ''
         return os.path.join(self.base, path)
 
-    def resolve(self, app, path):
-        assert path.startswith('/')
+    def resolve(self, app, environ):
+        context = Context(app, environ)
 
-        context = Context(app)
-        context.path = path
+        context.path = path = environ['PATH_INFO']
+        assert path.startswith('/')
 
         scriptbase = self.base
         if not os.path.isdir(scriptbase):

@@ -22,12 +22,13 @@ class HttpError(Exception):
 class Context(object):
     generator = 'mearieflo ' + __version__
 
-    def __init__(self, app):
+    def __init__(self, app, environ):
         self.app = app
         self.path = None
         self.trail = ''
         self.status = httplib.OK
         self.headers = odict()
+        self.environ = environ
 
     def flush(self):
         pass # TODO
