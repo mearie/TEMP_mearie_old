@@ -91,7 +91,7 @@ class Resolver(object):
         except ValueError:
             pass
         try:
-            acceptlangs = [(1000, (), [])]
+            acceptlangs = [(1000, ())]
             if 'HTTP_ACCEPT_LANGUAGE' in context.environ:
                 acceptlangs = parse_acceptlang(context.environ['HTTP_ACCEPT_LANGUAGE'])
         except ValueError:

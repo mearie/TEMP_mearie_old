@@ -43,7 +43,7 @@ class Application(object):
             start_response(context.header_line, context.headers.items())
             return data
         except HttpError, e:
-            message = context.header_line
+            message = e.header_line
             context.headers['Content-Type'] = 'text/plain'
             start_response(message, context.headers.items())
             return [message]
