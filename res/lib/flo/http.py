@@ -101,7 +101,10 @@ def parse_acceptlang(value):
     return parse_acceptlike(value, _parsefunc_lang, lambda lang: (-len(lang), lang))
 
 def match_accept(entries, type):
-    type, subtype = type.split('/')
+    if type is not None:
+        type, subtype = type.split('/')
+    else:
+        type = subtype = None
     for q, entry, params in entries:
         if entry[0] is not None and entry[0] != type: continue
         if entry[1] is not None and entry[1] != subtype: continue
@@ -109,7 +112,10 @@ def match_accept(entries, type):
     return 0
 
 def match_acceptlang(entries, lang):
-    lang = lang.lower().split('-')
+    if lang is not None:
+        lang = tuple(lang.lower().split('-'))
+    else:
+        lang = ()
     for q, entry in entries:
         if lang[:len(entry)] == entry[:len(lang)]: return q
     return 0

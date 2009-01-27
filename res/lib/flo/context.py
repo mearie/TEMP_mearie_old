@@ -19,6 +19,7 @@ class Context(object):
         self.status = httplib.OK
         self.headers = odict()
         self.environ = environ
+        self.prefered_lang = None
 
     def flush(self):
         pass # TODO
@@ -37,12 +38,20 @@ class Context(object):
         self.headers['Location'] = url
         raise HttpError(self.status)
 
-    def not_found(self):
-        self.status = httplib.NOT_FOUND
+    def unauthorized(self):
+        self.status = httplib.UNAUTHORIZED
         raise HttpError(self.status)
 
     def forbidden(self):
         self.status = httplib.FORBIDDEN
+        raise HttpError(self.status)
+
+    def not_found(self):
+        self.status = httplib.NOT_FOUND
+        raise HttpError(self.status)
+
+    def not_acceptable(self):
+        self.status = httplib.NOT_ACCEPTABLE
         raise HttpError(self.status)
 
     def gone(self):

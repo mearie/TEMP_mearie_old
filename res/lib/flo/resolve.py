@@ -1,22 +1,56 @@
-"""Path resolver.
+"""Resolver class, providing generic resolution process for mearieflo.
 """
 
 from __future__ import absolute_import, division, with_statement
 
 from .context import Context
+from .http import parse_accept, parse_acceptlang, match_accept, match_acceptlang
+from .util import is_langtag
 
 from mako.lookup import TemplateLookup
 
 import os, os.path
+import mimetypes
 
 class Resolver(object):
     def __init__(self, base):
         self.base = os.path.normpath(base)
+        self.typesdb = mimetypes.MimeTypes()
 
-    def canonicalize(self, path):
-        path = os.path.normpath(path.lstrip('/'))
-        if path.startswith('..'): path = ''
-        return os.path.join(self.base, path)
+        # TODO move to separate file
+        self.typesdb.add_type('text/plain', '.py')
+
+    def guess_type(self, name):
+        """guess_type(self, name) -> (Content-Type, Content-Encoding)"""
+        type, enc = self.typesdb.guess_type(name)
+        langdep = False
+        if type == 'text/html' or type == 'application/xhtml+xml':
+            langdep = True
+        return type, enc, langdep
+
+    def parse_filename(self, filename):
+        parts = filename.split('.')
+
+        type = 'application/octet-stream'
+        enc = None
+        lang = None
+        if len(parts) < 2:
+            name = filename
+        else:
+            guessedtype, guessedenc, langdep = self.guess_type(filename)
+            if guessedtype is not None:
+                # don't strip extension if guess is failed.
+                type = guessedtype
+                enc = guessedenc
+                parts.pop()
+
+            for i in xrange(len(parts)-1, 0, -1):
+                if langdep and lang is None and is_langtag(parts[i]):
+                    lang = parts[i]
+                    parts.pop(i)
+            name = '.'.join(parts)
+
+        return name, type, enc, lang
 
     def resolve(self, context):
         context.path = path = context.environ['PATH_INFO']
@@ -47,17 +81,46 @@ class Resolver(object):
                 context.perm_redirect(path + '/')
 
         assert os.path.isdir(scriptbase)
-        prefix = component + '.'
+        reqname, reqtype, reqenc, reqlang = self.parse_filename(component)
         trail = path[pos:]
 
-        for name in os.listdir(scriptbase):
-            fullname = os.path.join(scriptbase, name)
+        try:
+            accepts = [(1000, (None, None), [])]
+            if 'HTTP_ACCEPT' in context.environ:
+                accepts = parse_accept(context.environ['HTTP_ACCEPT'])
+        except ValueError:
+            pass
+        try:
+            acceptlangs = [(1000, (), [])]
+            if 'HTTP_ACCEPT_LANGUAGE' in context.environ:
+                acceptlangs = parse_acceptlang(context.environ['HTTP_ACCEPT_LANGUAGE'])
+        except ValueError:
+            pass
+
+        maxfname = None
+        maxq = 0
+        found = False
+        for fname in os.listdir(scriptbase):
+            fullname = os.path.join(scriptbase, fname)
             if not os.path.isfile(fullname): continue
-            if name == component or name.startswith(prefix):
-                # TODO negotiation
-                context.path = fullname
-                context.trail = trail
-                return context
+            name, type, enc, lang = self.parse_filename(fname)
+            if name == reqname:
+                found = True
+                q = match_accept(accepts, type) * match_acceptlang(acceptlangs, lang)
+                if maxq < q:
+                    maxq = q
+                    maxfname = fname
+
+        # TODO: Vary header
+
+        if maxq > 0:
+            context.path = os.path.join(scriptbase, maxfname)
+            _, context.content_type, context.content_enc, context.lang = \
+                    self.parse_filename(fname)
+            context.trail = trail
+            return context
+        elif found:
+            context.not_acceptable() # client explicitly rejects all candidates
 
         context.not_found()
 

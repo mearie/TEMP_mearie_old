@@ -1,6 +1,8 @@
 """WSGI application class.
 
-One of most important piece of entire mearieflo code.
+One of most important piece of entire mearieflo code. It resolves given URL
+and HTTP parameters via flo.resolve module, processes corresponding source file
+via flo.process module(s), and finally returns final data.
 """
 
 from __future__ import absolute_import, division, with_statement
