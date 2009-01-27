@@ -19,8 +19,7 @@ code, pre, var, samp, tt, textarea {
 	font-family:
 		"NanumGothic_Coding", "나눔고딕_코딩",
 		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
-		"돋움체", "DotumChe", "Luxi Mono",
-		monospace;
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
 }
 
 html {
@@ -96,18 +95,23 @@ ul, ol {
 	margin: 1em 0.6em 1em 7.5em;
 	padding: 0;
 }
-li {
-	font-size: 100%;
-	margin: 0.3em 0;
-}
 ul ul, ul ol, ol ul, ol ol {
 	font-size: 100%;
 	margin: 0.3em 0 0.3em 2em;
 }
-ul p, ol p {
+li {
+	font-size: 100%;
+	margin: 0.3em 0;
+}
+li p {
+	font-size: 100%;
 	margin-left: 0;
 }
+li pre {
+	font-size: 91%;
+}
 pre {
+	font-size: 100%;
 	background: black;
 	color: white;
 	padding: 0.3em 0.5em;
