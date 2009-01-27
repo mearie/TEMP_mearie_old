@@ -116,7 +116,7 @@ class Resolver(object):
         if maxq > 0:
             context.path = os.path.join(scriptbase, maxfname)
             _, context.content_type, context.content_enc, context.lang = \
-                    self.parse_filename(fname)
+                    self.parse_filename(maxfname)
             context.trail = trail
             return context
         elif found:
