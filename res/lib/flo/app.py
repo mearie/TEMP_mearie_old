@@ -20,23 +20,14 @@ class Application(object):
         self.resolver = Resolver(base)
         self.preproc = Preprocessor(base)
 
-    def resolve_type(self, path):
-        mimetype = mimetypes.guess_type(os.path.basename(path))
-        if mimetype is None:
-            if path.endswith('.py'):
-                return ('text/plain', None)
-            return ('application/octet-stream', None)
-        return mimetype
-
     def __call__(self, environ, start_response):
         context = Context(self, environ)
 
         try:
             self.resolver.resolve(context)
 
-            mimetype, encoding = self.resolve_type(context.path)
-            if mimetype == 'text/html': # preprocessed
-                data = [self.preproc.process(context)]
+            if context.content_type == 'text/html': # preprocessed
+                data = [self.preproc.process(context).strip()]
                 size = len(data[0])
             else:
                 if 'wsgi.file_wrapper' in environ:
@@ -45,10 +36,10 @@ class Application(object):
                     data = [open(context.path, 'rb').read()]
                 size = os.stat(context.path).st_size
 
-            context.headers['Content-Type'] = mimetype
+            context.headers['Content-Type'] = context.content_type
             context.headers['Content-Length'] = str(size)
-            if encoding is not None:
-                context.headers['Content-Encoding'] = encoding
+            if context.content_enc is not None:
+                context.headers['Content-Encoding'] = context.content_enc
             start_response(context.header_line, context.headers.items())
             return data
         except HttpError, e:
