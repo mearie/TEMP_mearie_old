@@ -118,5 +118,5 @@ def match_acceptlang(entries, lang):
         lang = ()
     for q, entry in entries:
         if lang[:len(entry)] == entry[:len(lang)]: return q
-    return 0
+    return 1 # merely acceptable, unless *;q=0 is explicitly given
 
