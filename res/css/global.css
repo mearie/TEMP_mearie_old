@@ -15,6 +15,13 @@ body, input, select {
 		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
 		"AppleMyungjo", "UnBatang", "은 바탕", serif;
 }
+code, pre, var, samp, tt, textarea {
+	font-family:
+		"NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono",
+		monospace;
+}
 
 html {
 	background: #3264a6;
@@ -83,7 +90,7 @@ address {
 	margin: 3em 1em 0 8.3em;
 	color: #508bbf;
 }
-ul {
+ul, ol {
 	font-size: 110%;
 	text-align: justify;
 	margin: 1em 0.6em 1em 7.5em;
@@ -93,9 +100,19 @@ li {
 	font-size: 100%;
 	margin: 0.3em 0;
 }
-ul ul {
+ul ul, ul ol, ol ul, ol ol {
 	font-size: 100%;
 	margin: 0.3em 0 0.3em 2em;
+}
+ul p, ol p {
+	margin-left: 0;
+}
+pre {
+	background: black;
+	color: white;
+	padding: 0.3em 0.5em;
+	margin: 1em 0;
+	overflow: auto;
 }
 
 a {
