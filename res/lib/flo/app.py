@@ -27,8 +27,10 @@ class Application(object):
         return mimetype
 
     def __call__(self, environ, start_response):
+        context = Context(self, environ)
+
         try:
-            context = self.resolver.resolve(self, environ)
+            self.resolver.resolve(context)
 
             mimetype, encoding = self.resolve_type(context.path)
             if mimetype == 'text/html': # preprocessed
@@ -47,7 +49,7 @@ class Application(object):
                 context.headers['Content-Encoding'] = encoding
             start_response(context.header_line, context.headers.items())
             return data
-        except HttpError, (status, context):
+        except HttpError, e:
             message = context.header_line
             context.headers['Content-Type'] = 'text/plain'
             start_response(message, context.headers.items())

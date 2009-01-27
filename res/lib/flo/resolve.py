@@ -18,10 +18,8 @@ class Resolver(object):
         if path.startswith('..'): path = ''
         return os.path.join(self.base, path)
 
-    def resolve(self, app, environ):
-        context = Context(app, environ)
-
-        context.path = path = environ['PATH_INFO']
+    def resolve(self, context):
+        context.path = path = context.environ['PATH_INFO']
         assert path.startswith('/')
 
         scriptbase = self.base

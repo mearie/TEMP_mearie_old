@@ -4,7 +4,26 @@
 from __future__ import absolute_import, division, with_statement
 
 import re
+import httplib
 
+
+class HttpError(Exception):
+    def __init__(self, status, reason=None):
+        if reason is None: reason = httplib.responses[status]
+        Exception.__init__(self, status, reason)
+
+    @property
+    def header_line(self):
+        status, reason = self.args
+        return '%d %s' % (status, reason)
+
+    def __repr__(self):
+        status, reason = self.args
+        return '%s(httplib.%s, %r)' % (self.__class__.__name__,
+                httplib.responses[status].upper().replace(' ','_').replace('-','_'),
+                reason)
+
+
 _TOKEN_RE = re.compile(r'''
         ["(),/:;<=>?@\[\\\]{}] | # separators
         [!#$%&'*+\-.0-9A-Z^_`a-z|~]+ | # token
@@ -23,7 +42,7 @@ def parse_acceptlike(value, parsefunc, keyfunc, moreparams=False):
     tokens = tokenize(value)
 
     i = 0
-    types = []
+    entries = []
     while i < len(tokens):
         entry, i = parsefunc(tokens, i)
 
@@ -49,15 +68,15 @@ def parse_acceptlike(value, parsefunc, keyfunc, moreparams=False):
         i += 1
 
         if moreparams:
-            types.append((q, entry, params))
+            entries.append((q, entry, params))
         else:
-            types.append((q, entry))
+            entries.append((q, entry))
 
     if moreparams:
-        types.sort(key=lambda (q,e,p): (-q, keyfunc(e), -len(p), p))
+        entries.sort(key=lambda (q,e,p): (-q, keyfunc(e), -len(p), p))
     else:
-        types.sort(key=lambda (q,e): (-q, keyfunc(e)))
-    return types
+        entries.sort(key=lambda (q,e): (-q, keyfunc(e)))
+    return entries
 
 def _parsefunc_type(tokens, i):
     if tokens[i+1] != '/': raise ValueError, 'expected "/"'
@@ -70,7 +89,7 @@ def _parsefunc_type(tokens, i):
 def _parsefunc_lang(tokens, i):
     token = tokens[i]
     if token == '*': token = ''
-    return tuple(token.split('-')), i+1
+    return tuple(token.lower().split('-')), i+1
 
 def parse_accept(value):
     """Parses Accept header. Returns a list of (q, (type, subtype), params)."""
@@ -80,4 +99,18 @@ def parse_accept(value):
 def parse_acceptlang(value):
     """Parse Accept-Language header. Returns a list of (q, (lang, sublang, ...))."""
     return parse_acceptlike(value, _parsefunc_lang, lambda lang: (-len(lang), lang))
+
+def match_accept(entries, type):
+    type, subtype = type.split('/')
+    for q, entry, params in entries:
+        if entry[0] is not None and entry[0] != type: continue
+        if entry[1] is not None and entry[1] != subtype: continue
+        return q
+    return 0
+
+def match_acceptlang(entries, lang):
+    lang = lang.lower().split('-')
+    for q, entry in entries:
+        if lang[:len(entry)] == entry[:len(lang)]: return q
+    return 0
 

@@ -5,19 +5,9 @@ from __future__ import absolute_import, division, with_statement
 
 from . import __version__
 from .util import odict
+from .http import HttpError
 
 import httplib
-
-class HttpError(Exception):
-    def __init__(self, status, context):
-        Exception.__init__(self, status, context)
-        context.status = status
-
-    def __repr__(self):
-        status, context = self.args
-        return '%s(httplib.%s, %r)' % (self.__class__.__name__,
-                httplib.responses[status].upper().replace(' ','_').replace('-','_'),
-                context)
 
 class Context(object):
     generator = 'mearieflo ' + __version__
@@ -38,22 +28,28 @@ class Context(object):
         return '%d %s' % (self.status, httplib.responses[self.status])
 
     def perm_redirect(self, url):
+        self.status = httplib.MOVED_PERMANENTLY
         self.headers['Location'] = url
-        raise HttpError(httplib.MOVED_PERMANENTLY, self)
+        raise HttpError(self.status)
 
     def temp_redirect(self, url):
+        self.status = httplib.TEMPORARY_REDIRECT
         self.headers['Location'] = url
-        raise HttpError(httplib.TEMPORARY_REDIRECT, self)
+        raise HttpError(self.status)
 
     def not_found(self):
-        raise HttpError(httplib.NOT_FOUND, self)
+        self.status = httplib.NOT_FOUND
+        raise HttpError(self.status)
 
     def forbidden(self):
-        raise HttpError(httplib.FORBIDDEN, self)
+        self.status = httplib.FORBIDDEN
+        raise HttpError(self.status)
 
     def gone(self):
-        raise HttpError(httplib.GONE, self)
+        self.status = httplib.GONE
+        raise HttpError(self.status)
 
     def internal_error(self):
-        raise HttpError(httplib.INTERNAL_SERVER_ERROR, self)
+        self.status = httplib.INTERNAL_SERVER_ERROR
+        raise HttpError(self.status)
 
