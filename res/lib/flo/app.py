@@ -40,17 +40,17 @@ class Application(object):
             context.headers['Content-Length'] = str(size)
             if context.content_enc is not None:
                 context.headers['Content-Encoding'] = context.content_enc
-            start_response(context.header_line, context.headers.items())
-            return data
         except HttpError, e:
-            message = e.header_line
+            context.status = e.status
             context.headers['Content-Type'] = 'text/plain'
-            start_response(message, context.headers.items())
-            return [message]
+            data = [e.header_line]
         except:
             data = self.preproc.process_error()
             start_response('500 Internal Server Error',
                     [('Content-Type', 'text/html'), ('Content-Length', str(len(data)))],
                     sys.exc_info())
             return [data]
+
+        start_response(context.header_line, context.headers.items())
+        return data
 

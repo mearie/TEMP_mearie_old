@@ -13,6 +13,14 @@ class HttpError(Exception):
         Exception.__init__(self, status, reason)
 
     @property
+    def status(self):
+        return self.args[0]
+
+    @property
+    def reason(self):
+        return self.args[1]
+
+    @property
     def header_line(self):
         status, reason = self.args
         return '%d %s' % (status, reason)
