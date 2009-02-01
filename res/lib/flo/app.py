@@ -9,7 +9,7 @@ from __future__ import absolute_import, division, with_statement
 
 from .context import Context, HttpError
 from .resolve import Resolver
-from .process import Processor, mako
+from .process import Processor, mako, html_sanitize
 
 import sys
 import os, os.path
@@ -25,6 +25,7 @@ class Application(object):
 
     def init_processor(self):
         self.processor.add(10, mako.MakoProcessor(self.base))
+        self.processor.add(100, html_sanitize.HTMLSanitizer(self.base))
 
     def __call__(self, environ, start_response):
         context = Context(self, environ)

@@ -7,8 +7,6 @@ from mako.template import Template
 from mako.lookup import TemplateLookup
 from mako.exceptions import html_error_template
 
-from .util import merge_sorted
-
 class Processor(object):
     def __init__(self):
         self.priorities = {}
