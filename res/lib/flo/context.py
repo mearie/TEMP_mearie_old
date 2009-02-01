@@ -20,6 +20,8 @@ class Context(object):
         self.headers = odict()
         self.environ = environ
         self.prefered_lang = None
+        self.content_type = None
+        self.content_enc = None
 
     def flush(self):
         pass # TODO
