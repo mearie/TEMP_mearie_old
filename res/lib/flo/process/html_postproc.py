@@ -46,7 +46,7 @@ class ReferencesInserter(object):
                 refname = str(nextnum)
                 nextnum += 1
             if el.hasChildNodes():
-                references.append((refname, el.childNodes[:]))
+                references.append((refname, el))
 
             reflink = xml.createElement('a')
             reflink.setAttribute('class', 'ref-link')
@@ -63,16 +63,15 @@ class ReferencesInserter(object):
 
             refs = xml.createElement('div')
             refs.setAttribute('class', 'references')
-            for refname, children in references:
+            for refname, refel in references:
                 ref = xml.createElement('div')
                 ref.setAttribute('class', 'reference')
                 ref.setAttribute('id', 'ref:' + refname)
                 refnum = xml.createElement('span')
                 refnum.setAttribute('class', 'ref-label')
-                refnum.appendChild(xml.createTextNode('[' + refname + ']'))
+                refnum.appendChild(xml.createTextNode('[' + refname + '] '))
                 ref.appendChild(refnum)
-                ref.appendChild(xml.createTextNode(' '))
-                for child in children:
+                for child in refel.childNodes[:]:
                     ref.appendChild(child)
                 refs.appendChild(ref)
             el.parentNode.replaceChild(refs, el)
