@@ -15,6 +15,11 @@
 % endfor
 </dl>
 
-<foo />
+<p>테스트<ref>이런</ref><ref>저런</ref>로 주석<ref name="footnote">테스트<ref>주석 안의 주석</ref></ref>을 테스트하고 있습니다.</p>
+<references/>
+<p>어익후.<ref name="test"/>이건 뒤에 떠야 함<ref name="test">어익후우우</ref> 앞에 있는 건?<ref name="footnote"/> 뒤에 있는 건?<ref name="last"/></p>
+<references>
+	<ref name="last">이건...</ref>
+</references>
 
 ## vim: syn=mako

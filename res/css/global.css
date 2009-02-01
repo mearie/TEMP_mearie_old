@@ -132,3 +132,31 @@ a:hover, a:focus {
 	border-bottom-width: 2px;
 }
 
+.ref-link {
+	vertical-align: super;
+	font-size: 80%;
+}
+.references {
+	font-size: 100%;
+	color: #262626;
+	margin: 1em 0;
+}
+.reference {
+	display: block;
+	margin: 0.5em 1em 0.5em 8.2em;
+	color: #4c4c4c;
+}
+.ref-label {
+	float: left;
+	display: block;
+	width: 7em;
+	margin-left: -7.5em;
+	text-align: right;
+}
+.reference:target .ref-label {
+	font-weight: bold;
+}
+.reference:target .ref-label:before {
+	content: '» ';
+}
+
