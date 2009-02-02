@@ -9,7 +9,9 @@ from __future__ import absolute_import, division, with_statement
 
 from .context import Context, HttpError
 from .resolve import Resolver
-from .process import Processor, mako as proc_mako, html_postproc as proc_htmlpost
+from .process import Processor, \
+        mako as proc_mako, html_postproc as proc_htmlpost, \
+        html_sanitize as proc_htmlsanitize
 
 import sys
 import os, os.path
@@ -25,8 +27,9 @@ class Application(object):
 
     def init_processor(self):
         self.processor.add(0, proc_mako.MakoProcessor(self.base))
+        self.processor.add(10, proc_htmlsanitize.HTMLSanitizer())
 
-        self.processor.add(100, proc_htmlpost.HTMLTreeReader())
+        self.processor.add(100, proc_htmlpost.HTMLTreeReader(self.base))
         self.processor.add(110, proc_htmlpost.ReferencesInserter())
         self.processor.add(120, proc_htmlpost.ImageFramer())
         self.processor.add(199, proc_htmlpost.HTMLTreeWriter())

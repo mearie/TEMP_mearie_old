@@ -8,6 +8,7 @@ from .util import odict
 from .http import HttpError
 
 import httplib
+import os.path
 
 class Context(object):
     generator = 'mearieflo ' + __version__
@@ -22,6 +23,10 @@ class Context(object):
         self.prefered_lang = None
         self.content_type = None
         self.content_enc = None
+
+    def as_file(self):
+        path = os.path.join(self.app.base, self.path)
+        return open(path, 'r')
 
     def flush(self):
         pass # TODO

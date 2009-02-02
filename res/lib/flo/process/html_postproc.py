@@ -4,6 +4,7 @@
 from __future__ import absolute_import, division, with_statement
 
 from xml.dom.minidom import parse, parseString
+import os
 
 # This internal type should not be final media type!
 _HTMLTREETYPE = 'application/prs.mearieflo.xml-dom-tree'
@@ -12,10 +13,12 @@ class HTMLTreeReader(object):
     input_type = ['text/html', 'application/xhtml+xml']
     output_type = _HTMLTREETYPE
 
+    def __init__(self, base):
+        self.base = base
+
     def __call__(self, context, data):
         if data is None:
-            path = os.path.join(self.base, context.path)
-            return parse(open(path, 'r'))
+            return parse(context.as_path())
         else:
             return parseString(data)
 
@@ -59,22 +62,24 @@ class ReferencesInserter(object):
 
         def process_reflist(xml, el, nextnum, references=references):
             nextnum = process(xml, el, nextnum)
-            if not references: return
 
-            refs = xml.createElement('div')
-            refs.setAttribute('class', 'references')
-            for refname, refel in references:
-                ref = xml.createElement('div')
-                ref.setAttribute('class', 'reference')
-                ref.setAttribute('id', 'ref:' + refname)
-                refnum = xml.createElement('span')
-                refnum.setAttribute('class', 'ref-label')
-                refnum.appendChild(xml.createTextNode('[' + refname + '] '))
-                ref.appendChild(refnum)
-                for child in refel.childNodes[:]:
-                    ref.appendChild(child)
-                refs.appendChild(ref)
-            el.parentNode.replaceChild(refs, el)
+            if references:
+                refs = xml.createElement('div')
+                refs.setAttribute('class', 'references')
+                for refname, refel in references:
+                    ref = xml.createElement('div')
+                    ref.setAttribute('class', 'reference')
+                    ref.setAttribute('id', 'ref:' + refname)
+                    refnum = xml.createElement('span')
+                    refnum.setAttribute('class', 'ref-label')
+                    refnum.appendChild(xml.createTextNode('[' + refname + '] '))
+                    ref.appendChild(refnum)
+                    for child in refel.childNodes[:]:
+                        ref.appendChild(child)
+                    refs.appendChild(ref)
+                el.parentNode.replaceChild(refs, el)
+            else:
+                el.parentNode.removeChild(el)
 
             del references[:]
             return nextnum
