@@ -10,7 +10,7 @@ import htmlentitydefs
 _ENTITY_LIST = dict((name, unichr(code).encode('utf-8'))
                     for name, code in htmlentitydefs.name2codepoint.items()
                     if code >= 128)
-_CDATA_RE = re.compile(r'<![CDATA[(.*?)]]>')
+_CDATA_RE = re.compile(r'<!\[CDATA\[(.*?)\]\]>', re.S)
 _ENTITY_RE = re.compile(r'&(%s);' % '|'.join(_ENTITY_LIST.keys()))
 
 class HTMLSanitizer(object):
