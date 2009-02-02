@@ -115,6 +115,7 @@ class ImageFramer(object):
             el.removeAttribute('class')
             el.setAttribute('alt', '')
             frame.appendChild(el)
+            frame.appendChild(xml.createTextNode(' '))
             for child in el.childNodes[:]:
                 el.removeChild(child)
                 frame.appendChild(child)
