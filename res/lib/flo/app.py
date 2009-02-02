@@ -27,7 +27,8 @@ class Application(object):
         self.processor.add(0, proc_mako.MakoProcessor(self.base))
 
         self.processor.add(100, proc_htmlpost.HTMLTreeReader())
-        self.processor.add(101, proc_htmlpost.ReferencesInserter())
+        self.processor.add(110, proc_htmlpost.ReferencesInserter())
+        self.processor.add(120, proc_htmlpost.ImageFramer())
         self.processor.add(199, proc_htmlpost.HTMLTreeWriter())
 
     def __call__(self, environ, start_response):

@@ -94,3 +94,25 @@ class ReferencesInserter(object):
         process(xml, xml, 1)
         return xml
 
+class ImageFramer(object):
+    input_type = [_HTMLTREETYPE]
+    output_type = _HTMLTREETYPE
+
+    def __call__(self, context, xml):
+        assert xml is not None
+
+        for el in xml.getElementsByTagName('img'):
+            if not el.hasChildNodes(): continue
+            frame = xml.createElement('div')
+            el.parentNode.replaceChild(frame, el)
+            frame.setAttribute('class', 'image-frame ' + el.getAttribute('class'))
+            frame.setAttribute('style', 'width:%spx' % el.getAttribute('width'))
+            el.removeAttribute('class')
+            el.setAttribute('alt', '')
+            frame.appendChild(el)
+            for child in el.childNodes[:]:
+                el.removeChild(child)
+                frame.appendChild(child)
+
+        return xml
+
