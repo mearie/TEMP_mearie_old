@@ -4,8 +4,8 @@
 from __future__ import absolute_import, division, with_statement
 
 from .context import Context
-from .http import parse_accept, parse_acceptlang, match_accept, match_acceptlang
-from .util import is_langtag
+from .http import is_langtag, parse_accept, parse_acceptlang, \
+        match_accept, match_acceptlang
 
 from mako.lookup import TemplateLookup
 
@@ -99,6 +99,7 @@ class Resolver(object):
 
         maxfname = None
         maxq = 0
+        mini = 9999
         found = False
         for fname in os.listdir(scriptbase):
             fullname = os.path.join(scriptbase, fname)
@@ -106,9 +107,13 @@ class Resolver(object):
             name, type, enc, lang = self.parse_filename(fname)
             if name == reqname:
                 found = True
-                q = match_accept(accepts, type) * match_acceptlang(acceptlangs, lang)
-                if maxq < q:
+                typeq, typei = match_accept(accepts, type)
+                langq, langi = match_acceptlang(acceptlangs, lang)
+                q = typeq * langq
+                i = typei + langi
+                if (maxq, -mini) < (q, -i):
                     maxq = q
+                    mini = i
                     maxfname = fname
 
         # TODO: Vary header

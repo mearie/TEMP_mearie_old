@@ -3,7 +3,6 @@
 
 from __future__ import absolute_import, division, with_statement
 
-import re
 from itertools import izip, imap
 from copy import deepcopy
 
@@ -143,15 +142,4 @@ class odict(dict):
 
     __copy__ = copy
     __iter__ = iterkeys
-
-
-_LANGTAG_RE = re.compile(r'''
-        ^(?:
-            [a-z]{2,3}(?:-[a-z0-9]{2,8})* | # usual language tag
-            [ix](?:-[a-z0-9]{1,8})+         # grandfathered(i-) or private use(x-)
-        )$''', re.X | re.I)
-
-def is_langtag(tag):
-    """Returns true if given tag is likely an IETF language subtag."""
-    return _LANGTAG_RE.search(tag) is not None
 

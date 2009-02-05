@@ -44,7 +44,18 @@ def tokenize(value):
     as defined in RFC 2616 section 2.2."""
     return _TOKEN_RE.findall(value)
 
-def parse_acceptlike(value, parsefunc, keyfunc, moreparams=False):
+
+_LANGTAG_RE = re.compile(r'''
+        ^(?:
+            [a-z]{2,3}(?:-[a-z0-9]{2,8})* | # usual language tag
+            [ix](?:-[a-z0-9]{1,8})+         # grandfathered(i-) or private use(x-)
+        )$''', re.X | re.I)
+
+def is_langtag(tag):
+    """Returns true if given tag is likely an IETF language subtag."""
+    return _LANGTAG_RE.search(tag) is not None
+
+def parse_acceptlike(value, parsefunc, moreparams=False):
     """Parse Accept and Accept-* header ("Accept-like"). It handles most practical
     cases correctly, but doesn't fully conform as it can accept some wrong header."""
     tokens = tokenize(value)
@@ -80,10 +91,12 @@ def parse_acceptlike(value, parsefunc, keyfunc, moreparams=False):
         else:
             entries.append((q, entry))
 
+    # XXX assumes list.sort is stable (which is true for CPython 2.3+, but that's
+    # implementation detail)
     if moreparams:
-        entries.sort(key=lambda (q,e,p): (-q, keyfunc(e), -len(p), p))
+        entries.sort(key=lambda (q,e,p): q, reverse=True)
     else:
-        entries.sort(key=lambda (q,e): (-q, keyfunc(e)))
+        entries.sort(key=lambda (q,e): q, reverse=True)
     return entries
 
 def _parsefunc_type(tokens, i):
@@ -101,30 +114,29 @@ def _parsefunc_lang(tokens, i):
 
 def parse_accept(value):
     """Parses Accept header. Returns a list of (q, (type, subtype), params)."""
-    return parse_acceptlike(value, _parsefunc_type,
-            lambda (t,st): (t is None, t, st is None, st), moreparams=True)
+    return parse_acceptlike(value, _parsefunc_type, moreparams=True)
 
 def parse_acceptlang(value):
     """Parse Accept-Language header. Returns a list of (q, (lang, sublang, ...))."""
-    return parse_acceptlike(value, _parsefunc_lang, lambda lang: (-len(lang), lang))
+    return parse_acceptlike(value, _parsefunc_lang)
 
 def match_accept(entries, type):
     if type is not None:
         type, subtype = type.split('/')
     else:
         type = subtype = None
-    for q, entry, params in entries:
+    for i, (q, entry, params) in enumerate(entries):
         if entry[0] is not None and entry[0] != type: continue
         if entry[1] is not None and entry[1] != subtype: continue
-        return q
-    return 0
+        return q, i
+    return 0, 0
 
 def match_acceptlang(entries, lang):
     if lang is not None:
         lang = tuple(lang.lower().split('-'))
     else:
         lang = ()
-    for q, entry in entries:
-        if lang[:len(entry)] == entry[:len(lang)]: return q
-    return 1 # merely acceptable, unless *;q=0 is explicitly given
+    for i, (q, entry) in enumerate(entries):
+        if lang[:len(entry)] == entry: return q, i
+    return 1, 0 # merely acceptable, unless *;q=0 is explicitly given
 
