@@ -19,6 +19,7 @@ class Context(object):
         self.trail = ''
         self.status = httplib.OK
         self.headers = odict()
+        self.conf = None
         self.environ = environ
         self.prefered_lang = None
         self.content_type = None

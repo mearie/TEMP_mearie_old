@@ -84,6 +84,7 @@ blockquote address:before {
 	content: '— ';
 }
 address {
+	clear: both;
 	font-size: 100%;
 	font-style: normal;
 	margin: 3em 1em 0 8.3em;

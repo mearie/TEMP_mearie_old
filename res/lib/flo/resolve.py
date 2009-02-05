@@ -3,6 +3,7 @@
 
 from __future__ import absolute_import, division, with_statement
 
+from .conf import Config
 from .context import Context
 from .http import is_langtag, parse_accept, parse_acceptlang, \
         match_accept, match_acceptlang
@@ -81,6 +82,8 @@ class Resolver(object):
                 context.perm_redirect(path + '/')
 
         assert os.path.isdir(scriptbase)
+        context.conf = Config(self.base, scriptbase)
+
         reqname, reqtype, reqenc, reqlang = self.parse_filename(component)
         trail = path[pos:]
 
