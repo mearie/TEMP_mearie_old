@@ -1,0 +1,26 @@
+<h1>테스트</h1>
+
+<h1>매우 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 긴 H1</h1>
+<h2>매우 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 긴 H2</h2>
+<h3>매우 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 길고 긴 H3</h3>
+<p>이런 저런 내용</p>
+
+<dl>
+% for k, v in flo.environ.iteritems():
+	% if k.startswith('HTTP_'):
+	<dt>${k|h}</dt>
+	<dd>${v|h}</dd>
+	% endif
+% endfor
+</dl>
+
+<p>테스트<ref>이런</ref><ref>저런</ref>로 주석<ref name="footnote">테스트<ref>주석 안의 주석</ref></ref>을 테스트하고 있습니다.</p>
+<references/>
+<p>어익후.<ref name="test"/>이건 뒤에 떠야 함<ref name="test">어익후우우</ref> 앞에 있는 건?<ref name="footnote"/> 뒤에 있는 건?<ref name="last"/></p>
+<references>
+	<ref name="last">이건...</ref>
+</references>
+
+<p>현재 사이트 이름: <strong>${flo.conf['global', 'sitename']}</strong></p>
+
+## vim: syn=mako

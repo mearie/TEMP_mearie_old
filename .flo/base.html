@@ -1,0 +1,40 @@
+<%
+contentlang = next.attr.lang or flo.lang or 'ko'
+%>\
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${contentlang|h}">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Language" content="${contentlang|h}"/>
+	<title>${next.attr.title|h}</title>
+	<meta name="author" content="Kang Seonghoon"/>
+	<meta name="generator" content="${flo.generator|h}"/>
+	<link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.css" type="text/css"/>
+	<!--[if IE]><link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.ie.css" type="text/css"/><![endif]-->
+</head>
+<body>\
+${self.header()}\
+<div id="content">\
+${next.body()}\
+<references/>\
+</div>\
+${self.footer()}\
+</body>
+</html>
+
+<%!
+# default variables
+lang = None
+css = 'global'
+title = u'메아리'
+%>
+
+<%def name="header()">
+<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리 처음으로" title="메아리 처음으로"/></a></p>
+</%def>
+
+<%def name="footer()">
+<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
+</%def>
+
+## vim: syn=mako: FLO_NOBASE
