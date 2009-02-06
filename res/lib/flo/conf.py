@@ -3,11 +3,13 @@
 All configurations, datas such as SQLite database, caches etc. is saved in
 .flo directory, which can contain the following things:
 
+- root: Empty, present only if this directory is site root.
 - local.conf: Configures basic things like default language.
 - local.py: Extended configuration with Python script.
 - base.html: Base template inherited by other pages.
 - http###.html: HTTP error/redirection templates.
 - rewrite.conf: Configures URL-to-path mapping.
+- types.conf: Additional media type definition.
 - models/*.py: Database schema definition.
 - db/*.db: SQLite database, created according the schema.
 - cache/#/##/*: Temporary caches, organized with SHA-1 hash.
@@ -20,16 +22,31 @@ import ConfigParser as configparser
 
 class Config(object):
     def __init__(self, base, dir):
-        self.base = os.path.join(base, '')
-        self.flodir = os.path.join(dir, '.flo')
-        assert self.flodir[:len(self.base)] == self.base
+        # append a slash if there is no trailing slash.
+        self.base = os.path.normpath(base).rstrip(os.sep) + os.sep
+        self.dir = os.path.normpath(dir).rstrip(os.sep) + os.sep
+        assert self.dir[:len(self.base)] == self.base
+        self.dirdepth = self.dir[len(self.base):].count(os.sep)
 
         self.localconf = None
         self.encoding = None
 
+    def paths(self, *trail):
+        dir = self.dir
+        yield os.path.join(dir, *trail)
+        for i in xrange(self.dirdepth):
+            dir = os.path.join(dir, '..')
+            yield os.path.join(dir, *trail)
+
+    def flo_paths(self):
+        return self.paths('.flo')
+
+    def error_paths(self, status):
+        return self.paths('.flo', 'http%03d.html' % status)
+
     def read_localconf(self):
         self.localconf = configparser.SafeConfigParser()
-        self.localconf.read(os.path.join(self.flodir, 'local.conf'))
+        self.localconf.read(os.path.join(self.dir, '.flo', 'local.conf'))
 
         try:
             self.encoding = self.localconf.get('global', 'encoding')

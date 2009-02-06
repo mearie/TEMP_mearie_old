@@ -20,8 +20,8 @@ import traceback
 
 class Application(object):
     def __init__(self, base):
-        self.base = base
-        self.resolver = Resolver(base)
+        self.base = os.path.abspath(base)
+        self.resolver = Resolver(self.base)
         self.processor = Processor()
         self.init_processor()
 
@@ -38,33 +38,49 @@ class Application(object):
         context = Context(self, environ)
 
         try:
-            self.resolver.resolve(context)
-
-            processed = self.processor.process(context)
-            if processed is None: # not preprocessed, verbatim
-                if 'wsgi.file_wrapper' in environ:
-                    data = environ['wsgi.file_wrapper'](open(context.path, 'rb'))
-                else:
-                    data = [open(context.path, 'rb').read()]
-                size = os.stat(context.path).st_size
-            else:
-                data = [processed]
-                size = len(processed)
-
-            context.headers['Content-Type'] = context.content_type
-            context.headers['Content-Length'] = str(size)
-            if context.content_enc is not None:
-                context.headers['Content-Encoding'] = context.content_enc
+            try:
+                self.resolver.resolve(context)
+                processed = self.processor.process(context)
+            except HttpError:
+                raise # no need to set exception information.
+            except:
+                context.exc_info = sys.exc_info()
+                context.internal_error()
         except HttpError, e:
             context.status = e.status
-            context.headers['Content-Type'] = 'text/plain'
-            data = [e.header_line]
-        except:
-            data = traceback.format_exc()
-            start_response('500 Internal Server Error',
-                    [('Content-Type', 'text/plain'), ('Content-Length', str(len(data)))],
-                    sys.exc_info())
-            return [data]
+
+            # default error page.
+            context.content_type = 'text/plain'
+            context.content_enc = None
+            data = 'HTTP ' + context.header_line + '\n(No custom error page is supplied.)\n\n'
+            if context.exc_info is not None:
+                data += ''.join(traceback.format_exception(*context.error_excinfo))
+
+            if context.conf is not None:
+                for path in context.conf.error_paths(e.status):
+                    try:
+                        data = open(path, 'rb').read()
+                        context.content_type = 'text/html'
+                        context.content_enc = None
+                        break
+                    except: pass
+
+            processed = self.processor.process(context, data)
+
+        if processed is None: # not preprocessed, verbatim
+            if 'wsgi.file_wrapper' in environ:
+                data = environ['wsgi.file_wrapper'](open(context.path, 'rb'))
+            else:
+                data = [open(context.path, 'rb').read()]
+            size = os.stat(context.path).st_size
+        else:
+            data = [processed]
+            size = len(processed)
+
+        context.headers['Content-Type'] = context.content_type or 'application/octet-stream'
+        context.headers['Content-Length'] = str(size)
+        if context.content_enc is not None:
+            context.headers['Content-Encoding'] = context.content_enc
 
         start_response(context.header_line, context.headers.items())
         return data

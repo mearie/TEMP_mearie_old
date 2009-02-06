@@ -19,11 +19,14 @@ class Context(object):
         self.trail = ''
         self.status = httplib.OK
         self.headers = odict()
+
         self.conf = None
         self.environ = environ
+        self.content_type = self.content_enc = None
+        self.exc_info = None
+
+        self.lang = None
         self.prefered_lang = None
-        self.content_type = None
-        self.content_enc = None
 
     def as_file(self):
         path = os.path.join(self.app.base, self.path)
@@ -31,6 +34,10 @@ class Context(object):
 
     def flush(self):
         pass # TODO
+
+    @property
+    def server_host(self):
+        return self.environ['HTTP_HOST']
 
     @property
     def header_line(self):
