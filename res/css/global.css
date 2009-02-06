@@ -90,13 +90,13 @@ address {
 	margin: 3em 1em 0 8.3em;
 	color: #508bbf;
 }
-ul, ol {
+ul, ol, dl {
 	font-size: 110%;
 	text-align: justify;
 	margin: 1em 0.6em 1em 7.5em;
 	padding: 0;
 }
-ul ul, ul ol, ol ul, ol ol {
+ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol, dl dl {
 	font-size: 100%;
 	margin: 0.3em 0 0.3em 2em;
 }
@@ -104,11 +104,20 @@ li {
 	font-size: 100%;
 	margin: 0.3em 0;
 }
-li p {
+dt {
+	font-size: 100%;
+	color: #508bbf;
+	margin: 0.3em 0 0.3em -2em;
+}
+dd {
+	font-size: 100%;
+	margin: 0.3em 0;
+}
+li p, dd p {
 	font-size: 100%;
 	margin-left: 0;
 }
-li pre {
+li pre, dd pre {
 	font-size: 91%;
 }
 pre {
