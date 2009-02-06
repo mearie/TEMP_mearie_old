@@ -18,7 +18,13 @@ class MakoProcessor(object):
         self.inencoding = inencoding
         self.outencoding = outencoding
         self.lookup = FloLookup(directories=['/', base], input_encoding=self.inencoding,
-                output_encoding=self.outencoding, encoding_errors='replace')
+                output_encoding=self.outencoding, encoding_errors='replace',
+                preprocessor=self.preprocess)
+
+    def preprocess(self, data):
+        if '<%inherit' not in data and 'FLO_NOBASE' not in data:
+            data = '<%inherit file="/.flo/base.html"/>' + data
+        return data
 
     def __call__(self, context, data):
         if data is None:
