@@ -99,6 +99,31 @@ class ReferencesInserter(object):
         process(xml, xml, 1)
         return xml
 
+class MathReplacer(object):
+    input_type = [_HTMLTREETYPE]
+    output_type = _HTMLTREETYPE
+
+    def __call__(self, context, xml):
+        assert xml is not None
+
+        for el in xml.getElementsByTagName('m'):
+            size = 1
+            try:
+                size += int(el.getAttribute('size'))
+                if size < -4: size = -4
+                if size > +4: size = +4
+            except:
+                pass
+
+            span = xml.createElement('span')
+            el.parentNode.replaceChild(span, el)
+            span.setAttribute('class', 'math math-size%d' % size)
+            for child in el.childNodes[:]:
+                el.removeChild(child)
+                span.appendChild(child)
+
+        return xml
+
 class ImageFramer(object):
     input_type = [_HTMLTREETYPE]
     output_type = _HTMLTREETYPE

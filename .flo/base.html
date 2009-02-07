@@ -11,6 +11,9 @@ contentlang = next.attr.lang or flo.lang or 'ko'
 	<meta name="generator" content="${flo.generator|h}"/>
 	<link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.css" type="text/css"/>
 	<!--[if IE]><link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.ie.css" type="text/css"/><![endif]-->
+	## dummy comment is to avoid singleton element created during DOM transformation.
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"><!--dummy--></script>
+	<script type="text/javascript" src="/res/js/global.js"><!--dummy--></script>
 </head>
 <body>\
 ${self.header()}\
