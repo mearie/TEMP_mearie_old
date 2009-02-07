@@ -107,7 +107,7 @@ li {
 dt {
 	font-size: 100%;
 	color: #508bbf;
-	margin: 0.3em 0 0.3em -2em;
+	margin: 0.3em 0 0.3em -2.1em;
 }
 dd {
 	font-size: 100%;
@@ -144,6 +144,9 @@ a:hover, a:focus {
 small {
 	font-size: 90%;
 }
+img.math {
+	vertical-align: middle;
+}
 
 .center {
 	text-align: center;
@@ -155,13 +158,12 @@ small {
 }
 .references {
 	font-size: 100%;
-	color: #262626;
 	margin: 2em 0;
 }
 .reference {
 	display: block;
 	margin: 0.5em 1em 0.5em 8.2em;
-	color: #4c4c4c;
+	color: #5f5f5f;
 }
 .ref-label {
 	float: left;
