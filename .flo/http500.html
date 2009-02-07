@@ -1,0 +1,14 @@
+<%! title = u'500 Internal Server Error — 메아리' %>
+<h1>에러: HTTP 500 Internal Server Error</h1>
+<p>메아리에서 이 문서를 처리하다 문제가 생겼습니다. 다음은 자세한 내용입니다. (이 내용을 <a href="/about/contact">보내 주시면</a> 문제를 해결하는데 도움이 됩니다.)</p>
+<pre>
+<%
+import traceback
+context.write(''.join(traceback.format_exception(*flo.exc_info)))
+%>\
+</pre>
+<p>입력한 주소는 다음과 같습니다:</p>
+<blockquote>
+	<p><code>http://${flo.server_host|h}${flo.url|h}</code></p>
+</blockquote>
+## vim: syn=mako

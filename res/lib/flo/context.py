@@ -15,7 +15,7 @@ class Context(object):
 
     def __init__(self, app, environ):
         self.app = app
-        self.path = None
+        self.url = self.path = None
         self.trail = ''
         self.status = httplib.OK
         self.headers = odict()

@@ -49,23 +49,26 @@ class Application(object):
         except HttpError, e:
             context.status = e.status
 
-            # default error page.
-            context.content_type = 'text/plain'
-            context.content_enc = None
-            data = 'HTTP ' + context.header_line + '\n(No custom error page is supplied.)\n\n'
-            if context.exc_info is not None:
-                data += ''.join(traceback.format_exception(*context.error_excinfo))
+            if context.conf is None:
+                errpaths = []
+            else:
+                errpaths = context.conf.error_paths(e.status)
 
-            if context.conf is not None:
-                for path in context.conf.error_paths(e.status):
-                    try:
-                        data = open(path, 'rb').read()
-                        context.content_type = 'text/html'
-                        context.content_enc = None
-                        break
-                    except: pass
-
-            processed = self.processor.process(context, data)
+            for path in errpaths:
+                try:
+                    context.content_type = 'text/html'
+                    context.content_enc = None
+                    processed = self.processor.process(context, open(path, 'rb').read())
+                    break
+                except: pass
+            else:
+                # default error page.
+                context.content_type = 'text/plain'
+                context.content_enc = None
+                processed = 'HTTP ' + context.header_line + \
+                        '\n(No custom error page is supplied, or all caused internal error.)\n\n'
+                if context.exc_info is not None:
+                    processed += ''.join(traceback.format_exception(*context.exc_info))
 
         if processed is None: # not preprocessed, verbatim
             if 'wsgi.file_wrapper' in environ:
