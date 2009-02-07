@@ -54,7 +54,7 @@ class Resolver(object):
         return name, type, enc, lang
 
     def resolve(self, context):
-        context.path = path = context.environ['PATH_INFO']
+        context.url = path = context.environ['PATH_INFO']
         assert path.startswith('/')
 
         scriptbase = self.base
