@@ -16,12 +16,12 @@ contentlang = next.attr.lang or flo.lang or 'ko'
 	<script type="text/javascript" src="/res/js/global.js"><!--dummy--></script>
 </head>
 <body>\
-${self.header()}\
+${self.header(contentlang)}\
 <div id="content">\
 ${next.body()}\
 <references/>\
 </div>\
-${self.footer()}\
+${self.footer(contentlang)}\
 </body>
 </html>
 
@@ -32,11 +32,15 @@ css = 'global'
 title = u'메아리'
 %>
 
-<%def name="header()">
+<%def name="header(lang)">
+% if lang == 'ko':
 <p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리 처음으로" title="메아리 처음으로"/></a></p>
+% else:
+<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="Go to mearie.org front page." title="Go to mearie.org front page."/></a></p>
+% endif
 </%def>
 
-<%def name="footer()">
+<%def name="footer(lang)">
 <address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
 </%def>
 

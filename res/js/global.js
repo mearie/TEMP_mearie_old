@@ -2,6 +2,7 @@
 // Copyright (c) 2005-2009, Kang Seonghoon.
 // See http://mearie.org/copyright for license information.
 
+// replaces <m> elements in the original text.
 $(function() {
 	$('span.math').each(function() {
 		var size = 1; // by default
