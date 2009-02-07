@@ -145,6 +145,10 @@ small {
 	font-size: 90%;
 }
 
+.center {
+	text-align: center;
+}
+
 .ref-link {
 	vertical-align: super;
 	font-size: 80%;
@@ -152,7 +156,7 @@ small {
 .references {
 	font-size: 100%;
 	color: #262626;
-	margin: 1em 0;
+	margin: 2em 0;
 }
 .reference {
 	display: block;
