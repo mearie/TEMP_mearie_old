@@ -9,7 +9,7 @@
 <p>hangeul.vim은 vim 7.0 이상을 요구하며, autocmd와 iconv 옵션이 켜져 있어야 합니다. 다른 한글 입력 방법을 꺼야 할 필요는 딱히 없지만, 기반 터미널에서 어떤 형태로든 한글을 제대로 출력해야 합니다. 한자 입력이 필요할 경우에는 별도의 파일을 더 받아야 합니다.</p>
 
 <h2>설치</h2>
-<p>먼저 hangeul.vim의 <a href="http://svn.mearie.org/snippets/vim/hangeul.vim">최신 버전</a>을 받아서 플러그인 디렉토리에 복사합니다. 플러그인 디렉토리는 보통 <code>~/.vim/plugin</code>에 있으며, 자세한 사항은 <code>:h add-global-plugin</code>을 참고하십시오.</p>
+<p>먼저 hangeul.vim의 <a href="http://hg.mearie.org/hangeul.vim/raw-file/tip/hangeul.vim">최신 버전</a>을 받아서 플러그인 디렉토리에 복사합니다. 플러그인 디렉토리는 보통 <code>~/.vim/plugin</code>에 있으며, 자세한 사항은 <code>:h add-global-plugin</code>을 참고하십시오.</p>
 <p>그리고 vimrc 파일(보통 <code>~/.vimrc</code>에 있음)에 다음을 추가합니다.</p>
 <pre>let hangeul_enabled = 1</pre>
 <p>이제 vim을 재시작하고, 상태 표시줄에 <code>{Eng}</code>라는 표시가 나오는 것을 확인합니다. (상태 표시줄이 없다면 넘어 가도 됩니다.) 입력 모드로 들어 가서 한글이 잘 입력되는지 확인해 보십시오. <em>한영 전환 글쇠는 기본적으로 <code>&lt;C-\&gt;&lt;Space&gt;</code>입니다.</em></p>

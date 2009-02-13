@@ -9,7 +9,7 @@ $SITE->startForce();
 	<li><a href="about/kang-seonghoon">About</a></li>
 	<li><a href="projects/">Projects</a></li>
 	<li><a href="documents/">Documents</a></li>
-	<li><a href="http://svn.mearie.org/">Subversion repos.</a></li>
+	<li><a href="http://hg.mearie.org/">Mercurial repos.</a></li>
 </ul>
 
 <p><strong>Welcome to mearie.org!</strong> This is a personal domain and website of <a href="about/kang-seonghoon">Kang Seonghoon</a>.</p>
@@ -17,6 +17,8 @@ $SITE->startForce();
 <div id="latest">
 	<h2>Latest changes</h2>
 	<dl>
+		<dt>February 13, 2009</dt>
+		<dd>I started to use <a href="http://www.selenic.com/mercurial">Mercurial</a> instead of Subversion. Please use <a href="http://hg.mearie.org/">my Mercurial repository</a> from now on.</dd>
 		<dt>April 14, 2008</dt>
 		<dd>Updated to new design.</dd>
 		<dt>November 30, 2007</dt>
