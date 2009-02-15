@@ -160,9 +160,11 @@ code {
 	color: white;
 	padding: 1px 2px;
 	margin: 0 2px;
+	font-size: 91%;
 }
 samp, var, kbd {
 	font-style: normal;
+	font-size: 91%;
 }
 
 .center {
