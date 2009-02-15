@@ -144,6 +144,13 @@ a:hover, a:focus {
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 }
+em {
+	font-style: normal;
+	text-decoration: underline;
+}
+strong {
+	font-weight: bold;
+}
 small {
 	font-size: 90%;
 }
