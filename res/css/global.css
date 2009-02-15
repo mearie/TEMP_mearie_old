@@ -15,7 +15,7 @@ body, input, select {
 		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
 		"AppleMyungjo", "UnBatang", "은 바탕", serif;
 }
-code, pre, var, samp, tt, textarea {
+code, pre, var, samp, kbd, tt, textarea {
 	font-family:
 		"NanumGothic_Coding", "나눔고딕_코딩",
 		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
@@ -56,13 +56,15 @@ h1 {
 }
 h2 {
 	font-size: 180%;
-	margin: 1em 0.36em 0.5em 3.3em;
 	color: #508bbf;
+	clear: both;
+	margin: 1em 0.36em 0.5em 3.3em;
 }
 h3 {
 	font-size: 150%;
-	margin: 1em 0.45em 0.5em 5.5em;
 	color: #508bbf;
+	clear: both;
+	margin: 1em 0.45em 0.5em 5.5em;
 }
 p {
 	font-size: 110%;
@@ -144,8 +146,23 @@ a:hover, a:focus {
 small {
 	font-size: 90%;
 }
+h1 small, h2 small, h3 small {
+	font-size: 80%;
+}
+.image-frame small, .infobox small {
+	color: #bfcee5;
+}
 img.math {
 	vertical-align: middle;
+}
+code {
+	background: #444;
+	color: white;
+	padding: 1px 2px;
+	margin: 0 2px;
+}
+samp, var, kbd {
+	font-style: normal;
 }
 
 .center {
@@ -194,9 +211,6 @@ img.bordered, .image-frame {
 .image-frame img {
 	margin-bottom: 0.5em;
 }
-.image-frame small {
-	color: #bfcee5;
-}
 img.left, .image-frame.left {
 	float: left;
 	clear: left;
@@ -214,5 +228,30 @@ img.bordered.left, .image-frame.left {
 img.bordered.right, .image-frame.right {
 	margin-right: 0;
 	border-right: 0;
+}
+
+.infobox {
+	background: #3264a6;
+	color: white;
+	line-height: 1.3;
+	float: right;
+	clear: right;
+	margin: 0 0 1em 1em;
+	border: #3264a6 solid 0.5em;
+	border-top-width: 0.8em;
+	border-bottom-width: 0.3em;
+	border-right: 0;
+	width: 16em;
+	font-size: 100%;
+}
+.infobox dt {
+	margin: 0 0.2em 0.4em 0.2em;
+	float: left;
+	clear: left;
+	color: white;
+	font-weight: bold;
+}
+.infobox dd {
+	margin: 0 0.2em 0.4em 6em;
 }
 
