@@ -10,7 +10,7 @@
 	<dt>언어</dt><dd>${lang}</dd>
 	<dt>최신 버전</dt><dd>${ver}${' <small>('+date+')</small>' if date else ''}</dd>
 	<dt>라이선스</dt><dd>${license}</dd>
-</dl>
+</dl>\
 % endif
 ${caller.body()}
 </%def>
@@ -36,8 +36,15 @@ ${caller.body()}
 </%self:project>
 
 <h2 class="clear">인터넷과 웹</h2>
-<%self:project name="Tinicube" url="tinicube/"/>
-<%self:project name="${u'메아리 플로'}" trail="(flo)" url="mearieflo/"/>
+<%self:project name="Tinicube" url="tinicube/"
+	lang="${u'파이썬'}" ver="G2 0.1.7" date="2007-03-03" license="GNU GPL 2+">
+<p>Tinicube는 파이썬 기반의 <abbr>IRC</abbr> 봇입니다. 한 때 ‘프레이야’라는 이름의 봇을 돌리기 위해 사용했습니다.</p>
+</%self:project>
+<%self:project name="${u'메아리 플로'}" trail="(flo)" url="mearieflo/"
+	lang="${u'파이썬'}" ver="${u'(개발 중)'}" license="MIT">
+<p>메아리 ‘플로’는 <a href="/">메아리</a>를 돌리는 데 쓰이는 웹 서버 어댑터 프레임워크로, 개인 홈페이지와 같이 정적인 내용과 동적인 내용이 얽힌 사이트를 최소한의 코드와 노력만으로 관리할 수 있도록 설계된 일종의 웹 서버입니다.</p>
+<p>플로는 웹 서버처럼 동작하지만 <a href="http://wsgi.org/"><abbr>WSGI</abbr></a>에 맞춰서 만들어져 있으므로 다른 웹 서버에 붙을 수도 있습니다. 실제로 메아리는 <a href="http://httpd.apache.org/">아파치 웹 서버</a>와 <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 모듈 기반으로 작동합니다.</p>
+</%self:project>
 
 <h2 class="clear">시스템 소프트웨어</h2>
 ##<%self:project name="SNMPlex" url="snmplex/"/>
@@ -45,15 +52,17 @@ ${caller.body()}
 
 <h2 class="clear">게임</h2>
 <%self:project name="${u'앙골모아'}" trail="(Angolmois)" url="angolmois/"
-	lang="C, <abbr>SDL</abbr>" ver="1.0" date="2007-04-15" license="GNU GPL 2+">
-<p>앙골모아는 C 파일 하나로 이루어진 간단한 멀티플랫폼 <abbr>BMS</abbr> 플레이어입니다.</p>
+	lang="C" ver="1.0" date="2007-04-15" license="GNU GPL 2+">
+<p>앙골모아는 C 파일 하나로 이루어진 간단한 멀티플랫폼 <abbr>BMS</abbr> 플레이어, 즉 리듬 게임입니다. <a href="http://libsdl.org/"><abbr>SDL</abbr></a>을 사용하며 최소한(?)의 코드로 모든 필요한 리소스와 알고리즘을 구현하도록 구성되어 있습니다.</p>
 </%self:project>
 <%self:project name="theseit project" url="http://theseit.ruree.net/"/>
 
 <h2 class="clear">프로그래밍 언어</h2>
 <%self:project name="${u'버섯'}" trail="(Versert)" url="versert/">
-<p>버섯은 Funge와 유사한 난해한 프로그래밍 언어로, 스택이 없는 것이 특징입니다.</p>
+<p>버섯은 Funge와 유사한 <a href="http://ko.wikipedia.org/wiki/%EB%82%9C%ED%95%B4%ED%95%9C_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4">난해한 프로그래밍 언어</a>로, 스택이 없는 것이 특징입니다.</p>
 </%self:project>
-<%self:project name="${u'나루'}" trail="${u'프로그래밍 언어'}" url="naru/"/>
+<%self:project name="${u'나루'}" trail="${u'프로그래밍 언어'}" url="naru/">
+<p>나루(naru)는 표현력과 사용성에 촛점을 맞춘 동적 프로그래밍 언어입니다.</p>
+</%self:project>
 
 ## vim: syn=mako
