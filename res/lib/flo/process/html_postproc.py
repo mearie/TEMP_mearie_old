@@ -193,7 +193,7 @@ class AbbreviationFiller(object):
                     line = line.split(None, 1)
                     if len(line) == 2:
                         key = line[0].decode('utf-8').lower()
-                        value = line[1].decode('utf-8')
+                        value = line[1].decode('utf-8').rstrip()
                         if key not in acronyms: acronyms[key] = value
             except: pass
         return acronyms

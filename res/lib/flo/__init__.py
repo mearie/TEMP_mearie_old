@@ -25,5 +25,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 Please see http://mearie.org/projects/flo/ for more information.
 """
 
-__version__ = '20090127'
+__version__ = '20090216'
 
