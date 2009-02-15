@@ -57,13 +57,11 @@ h1 {
 h2 {
 	font-size: 180%;
 	color: #508bbf;
-	clear: both;
 	margin: 1em 0.36em 0.5em 3.3em;
 }
 h3 {
 	font-size: 150%;
 	color: #508bbf;
-	clear: both;
 	margin: 1em 0.45em 0.5em 5.5em;
 }
 p {
@@ -129,6 +127,9 @@ pre {
 	padding: 0.3em 0.5em;
 	margin: 1em 0;
 	overflow: auto;
+}
+.clear {
+	clear: both;
 }
 
 a {
