@@ -46,7 +46,8 @@ class Config(object):
 
     def read_localconf(self):
         self.localconf = configparser.SafeConfigParser()
-        self.localconf.read(os.path.join(self.dir, '.flo', 'local.conf'))
+        for path in self.paths('.flo', 'local.conf'):
+            self.localconf.read(path)
 
         try:
             self.encoding = self.localconf.get('global', 'encoding')
@@ -54,24 +55,33 @@ class Config(object):
             self.encoding = 'utf-8'
 
     def __getitem__(self, key):
-        if self.localconf is None: self.read_localconf()
+        if self.localconf is None:
+            self.read_localconf()
 
         try:
             sect, opt = key
-            type = unicode
+            opttype = unicode
+            optdefault = None
         except ValueError:
-            sect, opt, type = key
+            sect, opt, opttype = key
+            if type(opttype) is not type:
+                optdefault = opttype
+                opttype = type(opttype)
 
-        if type is str:
-            return self.localconf.get(sect, opt)
-        elif type is unicode:
-            return self.localconf.get(sect, opt).decode(self.encoding)
-        elif type is int or type is long:
-            return self.localconf.getint(sect, opt)
-        elif type is float:
-            return self.localconf.getfloat(sect, opt)
-        elif type is bool:
-            return self.localconf.getboolean(sect, opt)
-        else:
-            assert False
+        try:
+            if issubclass(opttype, str):
+                return self.localconf.get(sect, opt)
+            elif issubclass(opttype, unicode):
+                return self.localconf.get(sect, opt).decode(self.encoding)
+            elif issubclass(opttype, (int, long)):
+                return self.localconf.getint(sect, opt)
+            elif issubclass(opttype, float):
+                return self.localconf.getfloat(sect, opt)
+            elif issubclass(opttype, bool):
+                return self.localconf.getboolean(sect, opt)
+            else:
+                assert False
+        except configparser.NoOptionError:
+            if optdefault is None: raise
+            return optdefault
 

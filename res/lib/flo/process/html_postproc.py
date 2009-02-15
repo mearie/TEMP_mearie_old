@@ -10,6 +10,9 @@ import os
 _HTMLTREETYPE = 'application/prs.mearieflo.xml-dom-tree'
 
 class HTMLTreeReader(object):
+    """Parses pseudo-(X)HTML to DOM tree. It returns the internal media type
+    and should be followed by HTMLTreeWriter later."""
+
     input_type = ['text/html', 'application/xhtml+xml']
     output_type = _HTMLTREETYPE
 
@@ -23,6 +26,8 @@ class HTMLTreeReader(object):
             return parseString(data)
 
 class HTMLTreeWriter(object):
+    """Converts DOM tree to (X)HTML back."""
+
     input_type = [_HTMLTREETYPE]
     output_type = 'text/html'
 
@@ -35,6 +40,12 @@ class HTMLTreeWriter(object):
             xml.unlink()
 
 class ReferencesInserter(object):
+    """Processes ref/fn and references/footnotes pseudo-element to actual
+    (X)HTML. The former introduces a link to actual footnote, and the latter
+    prints all previous footnotes into container.
+    
+    Input format should be DOM tree."""
+
     input_type = [_HTMLTREETYPE]
     output_type = _HTMLTREETYPE
 
@@ -100,6 +111,12 @@ class ReferencesInserter(object):
         return xml
 
 class MathReplacer(object):
+    """Processes m pseudo-element to actual (X)HTML. m pseudo-element should
+    contain valid LaTeX equation, as if contained in $...$ block. It prints
+    placeholder span element to be converted in the client side.
+
+    Input format should be DOM tree."""
+
     input_type = [_HTMLTREETYPE]
     output_type = _HTMLTREETYPE
 
@@ -125,6 +142,13 @@ class MathReplacer(object):
         return xml
 
 class ImageFramer(object):
+    """Processes non-singleton img element to valid (X)HTML. When img element
+    has child nodes it is interpreted to the image's description (as like
+    XHTML2) and converted to container and actual image.
+
+    Input format should be DOM tree. If img doesn't have correct width attribute,
+    it should be filled before this processor."""
+
     input_type = [_HTMLTREETYPE]
     output_type = _HTMLTREETYPE
 
@@ -144,6 +168,46 @@ class ImageFramer(object):
             for child in el.childNodes[:]:
                 el.removeChild(child)
                 frame.appendChild(child)
+
+        return xml
+
+class AbbreviationFiller(object):
+    """Fills title attribute of abbr element if none. It reads predefined
+    acronyms from .flo/acronyms.conf which contains acronym and description
+    separated by whitespaces first.
+
+    .flo/acronyms.conf can contain a comment line starting with # or ;.
+    If multiple acronym.conf are present, inner line takes precedence.
+
+    Input format should be DOM tree."""
+
+    input_type = [_HTMLTREETYPE]
+    output_type = _HTMLTREETYPE
+
+    def read_acronyms(self, context):
+        acronyms = {}
+        for path in context.conf.paths('.flo', 'acronyms.conf'):
+            try:
+                for line in open(path, 'r'):
+                    if line.startswith('#') or line.startswith(';'): continue
+                    line = line.split(None, 1)
+                    if len(line) == 2:
+                        key = line[0].decode('utf-8').lower()
+                        value = line[1].decode('utf-8')
+                        if key not in acronyms: acronyms[key] = value
+            except: pass
+        return acronyms
+
+    def __call__(self, context, xml):
+        assert xml is not None
+        acronyms = None
+
+        for el in xml.getElementsByTagName('abbr'):
+            if el.getAttribute('title') == '':
+                if acronyms is None:
+                    acronyms = self.read_acronyms(context)
+                text = el.childNodes[0].nodeValue
+                el.setAttribute('title', acronyms.get(text.lower(), u''))
 
         return xml
 
