@@ -35,7 +35,9 @@ class HTMLTreeWriter(object):
         assert xml is not None
 
         try:
-            return xml.toxml(encoding='utf-8')
+            data = xml.toxml().encode('utf-8')
+            assert data.startswith('<?xml version="1.0" ?>')
+            return data[22:]
         finally:
             xml.unlink()
 

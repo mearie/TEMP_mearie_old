@@ -8,4 +8,7 @@
 body, input, select {
 	font-family: "NanumMyeongjo", "나눔명조", "Batang", "바탕", serif;
 }
+* html .ref-label {
+	margin-left: -3.6em;
+}
 
