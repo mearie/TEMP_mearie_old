@@ -8,8 +8,6 @@ from .context import Context
 from .http import is_langtag, parse_accept, parse_acceptlang, \
         match_accept, match_acceptlang
 
-from mako.lookup import TemplateLookup
-
 import os, os.path
 import mimetypes
 

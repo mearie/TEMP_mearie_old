@@ -41,7 +41,17 @@ title = u'메아리'
 </%def>
 
 <%def name="footer(lang)">
-<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
+<div id="pageinfo">
+<%!
+import subprocess
+def gethgrev(path, tmpl):
+	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
+	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+%>
+	<hr/>
+	<p>${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> (rev <strong>{node|short}</strong>)')}</p>
+	<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
+</div>
 </%def>
 
 ## vim: set syn=mako: FLO_NOBASE
