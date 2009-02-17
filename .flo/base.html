@@ -49,7 +49,9 @@ def gethgrev(path, tmpl):
 	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
 %>
 	<hr/>
+% if flo.status == 200:
 	<p>${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> (rev <strong>{node|short}</strong>)')}</p>
+% endif
 	<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
 </div>
 </%def>

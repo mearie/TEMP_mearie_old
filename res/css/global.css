@@ -49,7 +49,6 @@ body {
 }
 #pageinfo {
 	margin: 4em 0.5em 0 0.5em;
-	padding: 0 0 2em 0;
 	color: #508bbf;
 	border-top: 1px solid #3264a6;
 }
@@ -58,7 +57,7 @@ body {
 }
 #pageinfo p {
 	font-size: 150%;
-	margin: 0.5em 0 0.5em 5.3em;
+	margin: 0.5em 0 0 5.3em;
 }
 #pageinfo address {
 	clear: both;
