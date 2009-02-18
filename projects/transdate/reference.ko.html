@@ -1,0 +1,78 @@
+<%! title = u'레퍼런스 — 메아리 프로젝트: transdate' %>
+<h1>transdate 레퍼런스</h1>
+<p><a href="/projects/transdate">transdate</a>의 기능은 두 가지 방법, 즉 개별 함수와 lunardate라는 하나의 큰 클래스로 제공됩니다. 둘이 제공하는 기능은 거의 유사합니다.</p>
+
+<h2 id="functions">함수</h2>
+<dl>
+	<dt id="sol2lun-func"><strong>sol2lun</strong>(<var>year</var>, <var>month</var>, <var>day</var>, <var>leap</var>=False)</dt>
+	<dd>양력 날짜를 받아서 음력 날짜를 나타내는 <code>(<var>year</var>, <var>month</var>, <var>day</var>, <var>leap</var>)</code> 튜플로 반환합니다. 입력의 <var>leap</var>는 lun2sol과의 호환성을 위한 것으로 무시되며, 출력의 <var>leap</var>는 윤달일 때 True, 아니면 False로 설정됩니다. 잘못된 날짜거나 범위를 벗어 나면 ValueError를 냅니다.</dd>
+
+	<dt id="lun2sol-func"><strong>lun2sol</strong>(<var>year</var>, <var>month</var>, <var>day</var>, <var>leap</var>=False)</dt>
+	<dd>음력 날짜를 받아서 양력 날짜를 나타내는 <code>(<var>year</var>, <var>month</var>, <var>day</var>, False)</code> 튜플로 반환합니다. 입력의 <var>leap</var>는 윤달일 때 True, 아니면 False로 설정해야 합니다. 잘못된 날짜거나 범위를 벗어 나면 ValueError를 냅니다.</dd>
+
+	<dt id="getganzistr-func"><strong>getganzistr</strong>(<var>index</var>, <var>locale</var>=None)</dt>
+	<dd>간지의 번호(0&ndash;59)를 입력하면 <var>locale</var>에 대응하는 언어로 대응되는 문자열 표기를 반환합니다. <var>locale</var>은 <code>'ko'</code>(한국어), <code>'ja'</code>(일본어), <code>'zh'</code>(중국어) 중 하나이며, 생략되면 기본 로캘을 사용합니다.<pre><![CDATA[
+>>> import transdate
+>>> print transdate.getganzistr(34, 'ko')
+무술
+]]></pre></dd>
+
+	<dt id="strftime-func"><strong>strftime</strong>(<var>format</var>, <var>t</var>=None)</dt>
+	<dd>기본 라이브러리의 time.strftime과 유사한 역할을 합니다. <var>format</var>에는 strftime이 지원하는 지정자와 더불어 다음 지정자를 추가로 쓸 수 있습니다.<ul>
+		<li><code>%LC</code>: 음력 년도의 세기 부분. (2007이면 20)</li>
+		<li><code>%Ld</code>: 음력 날짜. [01-30]</li>
+		<li><code>%Le</code>: <code>%Ld</code>와 같으나 앞에 붙는 0은 공백으로 치환됨.</li>
+		<li><code>%LF</code>: <code>%LY-%Lm-%Ld</code>와 동일함.</li>
+		<li><code>%Lj</code>: 음력 해에서 몇 번째 날짜인가? [001-390]</li>
+		<li><code>%Ll</code>: 윤달이면 1, 윤달이 아니면 0.</li>
+		<li><code>%Lm</code>: 음력 달. [01-12]</li>
+		<li><code>%Ly</code>: 음력 년도에서 세기를 뺀 두 자리. [00-99]</li>
+		<li><code>%LY</code>: 네 자리 음력 년도.</li>
+	</ul></dd>
+</dl>
+
+<h2 id="lunardate-class">lunardate 클래스</h2>
+<p>이 클래스는 datetime.date와 호환되며, 거의 유사한 인터페이스를 지니고 있습니다. 다음은 lunardate에만 있는 속성 및 메소드입니다.</p>
+<dl>
+	<dt id="lunardate-ctor">생성자: <strong>lunardate</strong>(<var>year</var>, <var>month</var>, <var>day</var>, <var>leap</var>=False)</dt>
+	<dd>지정된 음력 날짜에 해당하는 lunardate 객체를 만듭니다. 인자의 의미는 lun2sol 함수와 같습니다.</dd>
+
+	<dt id="lunardate.lunaryear"><strong>lunaryear</strong></dt>
+	<dt id="lunardate.lunarmonth"><strong>lunarmonth</strong></dt>
+	<dt id="lunardate.lunarday"><strong>lunarday</strong></dt>
+	<dt id="lunardate.lunarleap"><strong>lunarleap</strong></dt>
+	<dd>datetime.date 클래스의 year, month, day 속성과 같지만, 음력 날짜를 반환합니다. lunarleap는 윤달일 때 True를 반환합니다.</dd>
+
+	<dt id="lunardate.tosolardate"><strong>tosolardate</strong>()</dt>
+	<dd>해당 객체와 같은 날짜인 datetime.date 객체를 반환합니다.</dd>
+
+	<dt id="lunardate.min">클래스 속성: <strong>min</strong></dt>
+	<dt id="lunardate.max">클래스 속성: <strong>max</strong></dt>
+	<dd>datetime.date 클래스의 min, max 속성과 같지만, lunardate 객체를 대신 반환합니다. 현재 min은 양력 1881년 1월 30일(음력 1월 1일), max는 양력 2051년 2월 10일(음력 12월 29일)로 설정되어 있습니다.</dd>
+
+	<dt id="lunardate.replace"><strong>replace</strong>(<var>year</var>=None, <var>month</var>=None, <var>day</var>=None, <var>leap</var>=None)</dt>
+	<dd>dateime.date 클래스의 replace 메소드와 같지만, 인자로 음력 날짜를 받아 들입니다.</dd>
+
+	<dt id="lunardate.fromsolardate">클래스 메소드: <strong>fromsolardate</strong>(<var>solardate</var>)</dt>
+	<dd>datetime.date 객체인 <var>solardate</var>와 같은 날짜인 lunardate 객체를 만들어서 반환합니다.</dd>
+
+	<dt id="lunardate.today">클래스 메소드: <strong>today</strong>()</dt>
+	<dt id="lunardate.fromtimestamp">클래스 메소드: <strong>fromtimestamp</strong>(<var>timestamp</var>)</dt>
+	<dt id="lunardate.fromordinal">클래스 메소드: <strong>fromordinal</strong>(<var>ordinal</var>)</dt>
+	<dd>datetime.date 클래스의 today, fromtimestamp, ordinal 메소드와 같지만, lunardate 객체를 대신 반환합니다.</dd>
+
+	<dt id="lunardate.getganzi"><strong>getganzi</strong>()</dt>
+	<dd>육십간지를 나타내는 <code>(<var>year_ganzi</var>, <var>month_ganzi</var>, <var>day_ganzi</var>)</code> 튜플을 반환합니다. 각각 년, 월, 일에 해당하는 육십간지의 번호(0부터 59까지의 정수)이며, <a href="#getganzistr-func"><strong>getganzistr</strong></a> 함수를 써서 문자열로 바꿀 수 있습니다.</dd>
+
+	<dt id="lunardate.getganzistr"><strong>getganzistr</strong>(<var>locale</var>=None)</dt>
+	<dd><a href="#lunardate.getganzi"><strong>getganzi</strong></a> 메소드와 같으나 <a href="#getganzistr-func"><strong>getganzistr</strong></a> 함수를 사용하여 문자열로 바뀐 튜플을 반환합니다.</dd>
+
+	<dt id="lunardate.strftime"><strong>strftime</strong>(<var>format</var>)</dt>
+	<dd><a href="#strftime-func">strftime</a> 함수를 사용하여 음력 날짜를 포매팅합니다.</dd>
+</dl>
+<p>그 외에 datetime.timedelta와의 연산도 제공됩니다.</p>
+
+<h2>기타</h2>
+<p>lunardate와 짝이 되는 solardate 클래스가 제공됩니다. 이 클래스는 단순히 datetime.date의 별명입니다. 또한 datetime.timedelta 클래스도 편의를 위해 제공됩니다.</p>
+
+## vim: syn=mako

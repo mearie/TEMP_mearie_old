@@ -156,6 +156,10 @@ a:hover, a:focus {
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 }
+code a, pre a {
+	color: #b8c694;
+	border-bottom-color: #b8c694;
+}
 em {
 	font-style: normal;
 	text-decoration: underline;
