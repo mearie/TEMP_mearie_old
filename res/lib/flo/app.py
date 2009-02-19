@@ -9,9 +9,7 @@ from __future__ import absolute_import, division, with_statement
 
 from .context import Context, HttpError
 from .resolve import Resolver
-from .process import Processor, \
-        mako as proc_mako, html_postproc as proc_htmlpost, \
-        html_sanitize as proc_htmlsanitize
+from .process import Processor
 
 import sys
 import os, os.path
@@ -26,15 +24,23 @@ class Application(object):
         self.init_processor()
 
     def init_processor(self):
-        self.processor.add(0, proc_mako.MakoProcessor(self.base))
-        self.processor.add(10, proc_htmlsanitize.HTMLSanitizer())
+        from .process.mako import MakoProcessor
+        self.processor.add(0, MakoProcessor(self.base))
 
-        self.processor.add(100, proc_htmlpost.HTMLTreeReader(self.base))
-        self.processor.add(110, proc_htmlpost.ReferencesInserter())
-        self.processor.add(120, proc_htmlpost.ImageFramer())
-        self.processor.add(130, proc_htmlpost.MathReplacer())
-        self.processor.add(140, proc_htmlpost.AbbreviationFiller())
-        self.processor.add(199, proc_htmlpost.HTMLTreeWriter())
+        from .process.html_sanitize import HTMLSanitizer
+        self.processor.add(10, HTMLSanitizer())
+
+        # XML tree operations
+        from .process.xmltree import XMLTreeReader, XMLTreeWriter
+        from .process.references import ReferenceProcessor
+        from .process.html_postproc import ImageFramer, MathReplacer, \
+                AbbreviationFiller
+        self.processor.add(100, XMLTreeReader(self.base))
+        self.processor.add(110, ReferenceProcessor())
+        self.processor.add(120, ImageFramer())
+        self.processor.add(120, MathReplacer())
+        self.processor.add(120, AbbreviationFiller())
+        self.processor.add(199, XMLTreeWriter())
 
     def __call__(self, environ, start_response):
         context = Context(self, environ)
