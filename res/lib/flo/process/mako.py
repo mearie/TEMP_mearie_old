@@ -3,11 +3,42 @@
 
 from __future__ import absolute_import, division, with_statement
 
-from mako.template import Template
-from mako.lookup import TemplateLookup
+import os.path, posixpath
 
-class FloLookup(TemplateLookup):
-    pass # TODO?
+from mako.template import Template
+from mako.lookup import TemplateCollection
+
+class FloLookup(TemplateCollection):
+    """Custom lookup class for path-dependent template lookup.
+    """
+
+    def __init__(self, base, **template_args):
+        TemplateCollection.__init__(self)
+        self.base = base
+        self.template_args = template_args
+
+    def preprocess(self, data):
+        if '<%inherit' not in data and 'FLO_NOBASE' not in data:
+            data = '<%inherit file=".flo/base.html"/>' + data
+        return data
+
+    def get_template(self, uri):
+        return Template(uri=uri, filename=uri, lookup=self, module_filename=None,
+                preprocessor=self.preprocess, **self.template_args)
+
+    def filename_to_uri(self, uri, filename):
+        raise NotImplemented()
+
+    def adjust_uri(self, uri, relativeto):
+        relativeto = os.path.normpath(posixpath.dirname(relativeto))
+        if uri.startswith('.flo/'):
+            while relativeto.startswith(self.base):
+                filename = os.path.join(relativeto, uri)
+                if os.path.exists(filename): return filename
+                relativeto = os.path.split(relativeto)[0]
+            assert False
+        else:
+            return os.path.join(os.path.normpath(relativeto), uri)
 
 class MakoProcessor(object):
     input_type = ['text/html', 'application/xhtml+xml']
@@ -17,14 +48,8 @@ class MakoProcessor(object):
         self.base = base
         self.inencoding = inencoding
         self.outencoding = outencoding
-        self.lookup = FloLookup(directories=['/', base], input_encoding=self.inencoding,
-                output_encoding=self.outencoding, encoding_errors='replace',
-                preprocessor=self.preprocess)
-
-    def preprocess(self, data):
-        if '<%inherit' not in data and 'FLO_NOBASE' not in data:
-            data = '<%inherit file="/.flo/base.html"/>' + data
-        return data
+        self.lookup = FloLookup(base, input_encoding=self.inencoding,
+                output_encoding=self.outencoding, encoding_errors='replace')
 
     def __call__(self, context, data):
         if data is None:
