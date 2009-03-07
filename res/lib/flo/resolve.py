@@ -87,8 +87,12 @@ class Resolver(object):
                     newbase = os.path.split(scriptbase)[0]
                 else:
                     newbase = os.path.join(scriptbase, component)
+                context.path = newbase
+
+                # prohibits the access to parents of document root.
                 if not newbase.startswith(self.base):
                     context.not_found()
+
                 if not os.path.isdir(newbase): break
                 scriptbase = newbase
         else:
