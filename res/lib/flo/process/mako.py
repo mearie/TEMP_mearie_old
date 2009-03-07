@@ -26,6 +26,10 @@ class FloLookup(TemplateCollection):
         return Template(uri=uri, filename=uri, lookup=self, module_filename=None,
                 preprocessor=self.preprocess, **self.template_args)
 
+    def make_template(self, uri, data):
+        return Template(uri=uri, filename=uri, text=data, lookup=self, module_filename=None,
+                preprocessor=self.preprocess, **self.template_args)
+
     def filename_to_uri(self, uri, filename):
         raise NotImplemented()
 
@@ -55,8 +59,7 @@ class MakoProcessor(object):
         if data is None:
             template = self.lookup.get_template(context.path)
         else:
-            template = Template(uri=context.path, text=data, lookup=self.lookup,
-                    module_filename=None, **self.lookup.template_args)
+            template = self.lookup.make_template(context.path, data)
         data = template.render(flo=context)
         return data
 
