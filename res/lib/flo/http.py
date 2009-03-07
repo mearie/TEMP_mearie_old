@@ -33,9 +33,9 @@ class HttpError(Exception):
 
 
 _TOKEN_RE = re.compile(r'''
-        ["(),/:;<=>?@\[\\\]{}] | # separators
+        [(),/:;<=>?@\[\\\]{}] | # separators
         [!#$%&'*+\-.0-9A-Z^_`a-z|~]+ | # token
-        "(?:[^"]|\\.)+" # quoted-string
+        "(?:\\.|[^"])+" # quoted-string
     ''', re.S | re.X)
 _QUOTEDCHAR_RE = re.compile(r'\\(.)', re.S)
 

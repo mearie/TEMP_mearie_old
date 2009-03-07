@@ -10,12 +10,16 @@ if __name__ == '__main__':
 
 from . import __version__
 from .app import Application
+from .test import main as test_main
 
 import sys
 import getopt
 from wsgiref.simple_server import make_server
 
 
+def cmd_test(appname, args):
+    test_main(argv=[appname] + args)
+
 def cmd_serve(args):
     port = 8080
 
@@ -36,6 +40,9 @@ def cmd_serve(args):
     except KeyboardInterrupt:
         pass # don't cause traceback
 
+def cmd_help(args):
+    print 'TODO'
+
 
 def main(args):
     if len(args) < 2:
@@ -47,6 +54,8 @@ def main(args):
     try:
         if cmd == 'serve':
             return cmd_serve(args[2:])
+        elif cmd == 'test':
+            return cmd_test(args[0], args[2:])
         else: #if cmd == 'help':
             return cmd_help(args[2:])
     except getopt.GetoptError, err:
