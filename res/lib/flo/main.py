@@ -13,8 +13,9 @@ from .app import Application
 
 import sys
 import getopt
-import wsgiref.simple_server
+from wsgiref.simple_server import make_server
 
+
 def cmd_serve(args):
     port = 8080
 
@@ -29,12 +30,13 @@ def cmd_serve(args):
         args = ['.'] # implicit path
 
     app = Application(args[0])
-    server = wsgiref.simple_server.make_server('', port, app)
+    server = make_server('', port, app)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         pass # don't cause traceback
 
+
 def main(args):
     if len(args) < 2:
         print >>sys.stderr, 'mearieflo %s' % __version__

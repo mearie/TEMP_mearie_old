@@ -36,8 +36,16 @@ class Context(object):
         pass # TODO
 
     @property
+    def method(self):
+        return self.environ['REQUEST_METHOD']
+
+    @property
     def server_host(self):
         return self.environ['HTTP_HOST']
+
+    @property
+    def query(self):
+        return self.environ['QUERY_STRING']
 
     @property
     def header_line(self):

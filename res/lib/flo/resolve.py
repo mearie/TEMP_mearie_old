@@ -51,6 +51,23 @@ class Resolver(object):
 
         return name, type, enc, lang
 
+    def select_candidate(self, candidates, accepts, acceptlangs):
+        maxfname = None
+        maxq = 0
+        mini = 9999
+        for fname, name, type, enc, lang in candidates:
+            typeq, typei = match_accept(accepts, type)
+            langq, langi = match_acceptlang(acceptlangs, lang)
+            q = typeq * langq
+            i = typei + langi
+            if (maxq, -mini) < (q, -i):
+                maxq = q
+                mini = i
+                maxfname = fname
+
+        if maxq > 0: return maxfname
+        return None
+
     def resolve(self, context):
         context.url = path = context.environ['PATH_INFO']
         assert path.startswith('/')
@@ -98,34 +115,31 @@ class Resolver(object):
         except ValueError:
             pass
 
-        maxfname = None
-        maxq = 0
-        mini = 9999
-        found = False
+        # search for candidates.
+        candidates = []
         for fname in os.listdir(scriptbase):
             fullname = os.path.join(scriptbase, fname)
             if not os.path.isfile(fullname): continue
             name, type, enc, lang = self.parse_filename(fname)
             if name == reqname:
-                found = True
-                typeq, typei = match_accept(accepts, type)
-                langq, langi = match_acceptlang(acceptlangs, lang)
-                q = typeq * langq
-                i = typei + langi
-                if (maxq, -mini) < (q, -i):
-                    maxq = q
-                    mini = i
-                    maxfname = fname
+                candidates.append((fname, name, type, enc, lang))
 
-        # TODO: Vary header
+        varies = []
+        if len(set((type, enc) for _, _, type, enc, _ in candidates)) > 1:
+            varies.append('Accept')
+        if len(set(lang for _, _, _, _, lang in candidates)) > 1:
+            varies.append('Accept-Language')
+        if varies:
+            context.headers['Vary'] = ', '.join(varies)
 
-        if maxq > 0:
-            context.path = os.path.join(scriptbase, maxfname)
+        selected = self.select_candidate(candidates, accepts, acceptlangs)
+        if selected is not None:
+            context.path = os.path.join(scriptbase, selected)
             _, context.content_type, context.content_enc, context.lang = \
-                    self.parse_filename(maxfname)
+                    self.parse_filename(selected)
             context.trail = trail
             return context
-        elif found:
+        elif candidates:
             context.not_acceptable() # client explicitly rejects all candidates
 
         context.not_found()
