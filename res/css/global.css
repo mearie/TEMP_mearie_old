@@ -186,6 +186,12 @@ code {
 	margin: 0 2px;
 	font-size: 91%;
 }
+pre code {
+	background: none;
+	padding: 0;
+	margin: 0;
+	font-size: inherit;
+}
 samp, var, kbd {
 	font-style: normal;
 	font-size: 91%;
