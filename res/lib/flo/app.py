@@ -28,8 +28,6 @@ class Application(object):
         self.processor = Processor(self)
 
         self.init_processor()
-        self.cachemgr = CacheManager(type='memory')
-        self.cache = self.cachemgr.get_cache('woah')
 
     def init_processor(self):
         from .process.mako import MakoProcessor
@@ -59,7 +57,8 @@ class Application(object):
         try:
             try:
                 self.resolver.resolve(context)
-                processed = self.cache.get_value(context.path,
+                cache = self.get_cache('flopage', type='memory')
+                processed = cache.get_value(context.path,
                         createfunc=lambda: self.processor.process(context), expiretime=60)
             except HttpError:
                 raise # no need to set exception information.
