@@ -7,6 +7,8 @@ via flo.process module(s), and finally returns final data.
 
 from __future__ import absolute_import, division, with_statement
 
+from beaker.cache import CacheManager
+
 from .context import Context, HttpError
 from .resolve import Resolver
 from .process import Processor
@@ -26,6 +28,8 @@ class Application(object):
         self.processor = Processor(self)
 
         self.init_processor()
+        self.cachemgr = CacheManager(type='memory')
+        self.cache = self.cachemgr.get_cache('woah')
 
     def init_processor(self):
         from .process.mako import MakoProcessor
@@ -55,7 +59,8 @@ class Application(object):
         try:
             try:
                 self.resolver.resolve(context)
-                processed = self.processor.process(context)
+                processed = self.cache.get_value(context.path,
+                        createfunc=lambda: self.processor.process(context), expiretime=60)
             except HttpError:
                 raise # no need to set exception information.
             except:
