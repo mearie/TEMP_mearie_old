@@ -18,6 +18,7 @@ All configurations, datas such as SQLite database, caches etc. is saved in
 from __future__ import absolute_import, division, with_statement
 
 import os, os.path
+import mimetypes
 import ConfigParser as configparser
 
 class Config(object):
@@ -30,6 +31,10 @@ class Config(object):
 
         self.localconf = None
         self.encoding = None
+        self.localtypes = mimetypes.MimeTypes()
+
+        # TODO move to separate file
+        self.localtypes.add_type('text/plain', '.py')
 
     def paths(self, *trail):
         dir = self.dir
@@ -84,4 +89,7 @@ class Config(object):
         except configparser.NoOptionError:
             if optdefault is None: raise
             return optdefault
+
+    def guess_type(self, filename):
+        return self.localtypes.guess_type(filename)
 
