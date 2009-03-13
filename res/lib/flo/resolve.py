@@ -71,6 +71,9 @@ class Resolver(object):
         scriptbase = self.base
         if not os.path.isdir(scriptbase):
             context.not_found()
+        if os.sep != '/' and os.sep in path:
+            # simple sanity check for windows (or VMS?) systems.
+            context.forbidden()
 
         pos = 0
         while pos < len(path):
