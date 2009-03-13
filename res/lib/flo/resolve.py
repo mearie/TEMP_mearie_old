@@ -12,8 +12,9 @@ import os, os.path
 import mimetypes
 
 class Resolver(object):
-    def __init__(self, base):
-        self.base = os.path.normpath(base)
+    def __init__(self, app):
+        self.app = app
+        self.base = os.path.normpath(app.base)
         self.typesdb = mimetypes.MimeTypes()
 
         # TODO move to separate file
