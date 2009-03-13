@@ -16,11 +16,15 @@ import os, os.path
 import mimetypes
 import traceback
 
+from beaker.cache import CacheManager
+
 class Application(object):
     def __init__(self, base):
         self.base = os.path.abspath(base)
-        self.resolver = Resolver(self.base)
-        self.processor = Processor()
+        self.caches = CacheManager()
+        self.resolver = Resolver(self)
+        self.processor = Processor(self)
+
         self.init_processor()
 
     def init_processor(self):
@@ -41,6 +45,9 @@ class Application(object):
         self.processor.add(120, MathReplacer())
         self.processor.add(120, AbbreviationFiller())
         self.processor.add(199, XMLTreeWriter())
+
+    def get_cache(self, name, **kwargs):
+        return self.caches.get_cache(name, **kwargs)
 
     def __call__(self, environ, start_response):
         context = Context(self, environ)

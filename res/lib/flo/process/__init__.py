@@ -4,7 +4,8 @@
 from __future__ import absolute_import, division, with_statement
 
 class Processor(object):
-    def __init__(self):
+    def __init__(self, app):
+        self.app = app
         self.priorities = {}
 
     def add(self, priority, proc):
