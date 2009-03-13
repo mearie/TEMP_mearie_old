@@ -9,26 +9,21 @@ from .http import is_langtag, parse_accept, parse_acceptlang, \
         match_accept, match_acceptlang
 
 import os, os.path
-import mimetypes
 
 class Resolver(object):
     def __init__(self, app):
         self.app = app
         self.base = os.path.normpath(app.base)
-        self.typesdb = mimetypes.MimeTypes()
 
-        # TODO move to separate file
-        self.typesdb.add_type('text/plain', '.py')
-
-    def guess_type(self, name):
-        """guess_type(self, name) -> (Content-Type, Content-Encoding)"""
-        type, enc = self.typesdb.guess_type(name)
+    def guess_type(self, context, name):
+        """guess_type(self, context, name) -> (Content-Type, Content-Encoding)"""
+        type, enc = context.conf.guess_type(name)
         langdep = False
         if type == 'text/html' or type == 'application/xhtml+xml':
             langdep = True
         return type, enc, langdep
 
-    def parse_filename(self, filename):
+    def parse_filename(self, context, filename):
         parts = filename.split('.')
 
         type = 'application/octet-stream'
@@ -37,7 +32,7 @@ class Resolver(object):
         if len(parts) < 2:
             name = filename
         else:
-            guessedtype, guessedenc, langdep = self.guess_type(filename)
+            guessedtype, guessedenc, langdep = self.guess_type(context, filename)
             if guessedtype is not None:
                 # don't strip extension if guess is failed.
                 type = guessedtype
@@ -104,7 +99,7 @@ class Resolver(object):
         assert os.path.isdir(scriptbase)
         context.conf = Config(self.base, scriptbase)
 
-        reqname, reqtype, reqenc, reqlang = self.parse_filename(component)
+        reqname, reqtype, reqenc, reqlang = self.parse_filename(context, component)
         trail = path[pos:]
 
         try:
@@ -125,7 +120,7 @@ class Resolver(object):
         for fname in os.listdir(scriptbase):
             fullname = os.path.join(scriptbase, fname)
             if not os.path.isfile(fullname): continue
-            name, type, enc, lang = self.parse_filename(fname)
+            name, type, enc, lang = self.parse_filename(context, fname)
             if name == reqname:
                 candidates.append((fname, name, type, enc, lang))
 
@@ -141,7 +136,7 @@ class Resolver(object):
         if selected is not None:
             context.path = os.path.join(scriptbase, selected)
             _, context.content_type, context.content_enc, context.lang = \
-                    self.parse_filename(selected)
+                    self.parse_filename(context, selected)
             context.trail = trail
             return context
         elif candidates:
