@@ -3,7 +3,7 @@
 
 from __future__ import absolute_import, division, with_statement
 
-from .conf import Config
+from .conf import ConfigCache
 from .context import Context
 from .http import is_langtag, parse_accept, parse_acceptlang, \
         match_accept, match_acceptlang
@@ -14,6 +14,7 @@ class Resolver(object):
     def __init__(self, app):
         self.app = app
         self.base = os.path.normpath(app.base)
+        self.configcache = ConfigCache(app)
 
     def guess_type(self, context, name):
         """guess_type(self, context, name) -> (Content-Type, Content-Encoding)"""
@@ -100,7 +101,7 @@ class Resolver(object):
                 context.perm_redirect(path + '/')
 
         assert os.path.isdir(scriptbase)
-        context.conf = Config(self.base, scriptbase)
+        context.conf = self.configcache.get(scriptbase)
 
         reqname, reqtype, reqenc, reqlang = self.parse_filename(context, component)
         trail = path[pos:]
