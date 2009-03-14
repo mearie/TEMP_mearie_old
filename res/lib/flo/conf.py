@@ -35,7 +35,7 @@ class Config(object):
     def paths(self, *trail):
         conf = self
         while conf is not None:
-            yield os.path.join(self.dir, *trail)
+            yield os.path.join(conf.dir, *trail)
             conf = conf.parent
 
     def flo_paths(self):
