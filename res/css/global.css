@@ -29,7 +29,7 @@ html {
 body {
 	font-size: 0.83em;
 	background: white;
-	margin: 0 auto;
+	margin: 0 auto 4em auto;
 	padding: 0 0 0.5em 0;
 	width: 800px;
 	text-align: left;
@@ -47,23 +47,37 @@ body {
 #sitename a {
 	border-bottom: 0;
 }
-#pageinfo {
-	margin: 4em 0.5em 0 0.5em;
-	color: #508bbf;
-	border-top: 1px solid #3264a6;
+#footer {
+	clear: both;
+	margin: 4em 0 0 0;
+	color: #3264a6;
 }
-#pageinfo hr {
+#footer hr {
 	display: none;
 }
-#pageinfo p {
-	font-size: 150%;
-	margin: 0.5em 0 0 5.3em;
-}
-#pageinfo address {
+#footer p {
 	clear: both;
 	font-size: 100%;
 	font-style: normal;
-	margin: 0.5em 0 0.5em 7.9em;
+	text-align: center;
+	margin: 0.5em 0.5em 0 0.5em;
+}
+#footer .pageinfo {
+	float: left;
+	clear: none;
+	font-size: 90%;
+	color: white;
+	margin: 0;
+	padding: 0 0.5em;
+}
+#footer .toolbar {
+	clear: none;
+	font-size: 90%;
+	color: white;
+	text-align: right;
+	margin: 0;
+	padding: 0 0.5em;
+	background: #3264a6;
 }
 
 h1 {
@@ -156,9 +170,9 @@ a:hover, a:focus {
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 }
-code a, pre a {
-	color: #b8c694;
-	border-bottom-color: #b8c694;
+code a, pre a, .actions a, .image-frame a, .infobox a {
+	color: #cfd8b7;
+	border-bottom-color: #cfd8b7;
 }
 em {
 	font-style: normal;
