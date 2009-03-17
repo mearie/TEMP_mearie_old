@@ -170,7 +170,7 @@ a:hover, a:focus {
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 }
-code a, pre a, .actions a, .image-frame a, .infobox a {
+code a, pre a, .toolbar a, .image-frame a, .infobox a {
 	color: #cfd8b7;
 	border-bottom-color: #cfd8b7;
 }

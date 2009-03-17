@@ -1,12 +1,33 @@
+<%!
+MSG = {
+	'ko': {
+		'sitename': u'메아리',
+		'gotoindex': u'메아리 처음으로',
+		'treedesc': u'하위 페이지의 구조를 봅니다.',
+		'feeddesc': u'이 페이지의 변경 사항을 Atom 피드로 추적합니다.',
+		'feedalldesc': u'이 페이지와 하위 페이지들의 변경 사항을 Atom 피드로 추적합니다.',
+		'respdesc': u'이 페이지에 대한 의견을 보거나 작성합니다.',
+	},
+	'en': {
+		'sitename': u'mearie.org',
+		'gotoindex': u'Go to mearie.org front page.',
+		'treedesc': u'View the tree of subpages.',
+		'feeddesc': u'Track changes over this page via Atom feed.',
+		'feedalldesc': u'Track changes over this page and its subpages via Atom feed.',
+		'respdesc': u'View or post responses for this page.',
+	},
+}
+%>\
 <%
 contentlang = next.attr.lang or flo.lang or 'ko'
+
 %>\
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${contentlang|h}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="Content-Language" content="${contentlang|h}"/>
-	<title>${next.attr.title|h}</title>
+	<title>${next.attr.title or MSG[contentlang]['sitename']|h}</title>
 	<meta name="author" content="Kang Seonghoon"/>
 	<meta name="generator" content="${flo.generator|h}"/>
 	<link rel="stylesheet" media="screen" href="/res/css/${next.attr.css|u,h}.css" type="text/css"/>
@@ -29,15 +50,13 @@ ${self.footer(contentlang)}\
 # default variables
 lang = None
 css = 'global'
-title = u'메아리'
+title = None
 %>
 
 <%def name="header(lang)">
-% if lang == 'ko':
-<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="메아리 처음으로" title="메아리 처음으로"/></a></p>
-% else:
-<p id="sitename"><a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="Go to mearie.org front page." title="Go to mearie.org front page."/></a></p>
-% endif
+<p id="sitename">
+	<a href="/"><img src="/res/img/logo.png" width="101" height="103" alt="${MSG[lang]['gotoindex']}" title="${MSG[lang]['gotoindex']}"/></a>
+</p>
 </%def>
 
 <%def name="footer(lang)">
@@ -52,7 +71,12 @@ def gethgrev(path, tmpl):
 % if flo.status == 200:
 	<p class="pageinfo">${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> | rev <strong>{node|short}</strong>')}</p>
 % endif
-	<p class="toolbar"><a href="${flo.url|h}/+tree">Tree view</a> | <a href="${flo.url|h}/+feed">Atom Feed</a> | <a href="${flo.url|h}/+response">Responses</a></p>
+	<p class="toolbar">
+		<a href="${flo.url.rstrip('/')|h}/+tree" title="${MSG[lang]['treedesc']}">Tree view</a> |
+		<a href="${flo.url.rstrip('/')|h}/+feed" title="${MSG[lang]['feeddesc']}">Atom feed</a>
+		(<a href="${flo.url.rstrip('/')|h}/+feed" title="${MSG[lang]['feedalldesc']}">All</a>) |
+		<a href="${flo.url.rstrip('/')|h}/+response" title="${MSG[lang]['respdesc']}">Responses</a>
+	</p>
 	<p class="copyright"><a href="/copyright">Copyright</a> &copy; 1999&ndash;2009, Kang Seonghoon. Some Rights Reserved.</p>
 </div>
 </%def>
