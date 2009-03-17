@@ -41,7 +41,7 @@ title = u'메아리'
 </%def>
 
 <%def name="footer(lang)">
-<div id="pageinfo">
+<div id="footer">
 <%!
 import subprocess
 def gethgrev(path, tmpl):
@@ -50,9 +50,10 @@ def gethgrev(path, tmpl):
 %>
 	<hr/>
 % if flo.status == 200:
-	<p>${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> (rev <strong>{node|short}</strong>)')}</p>
+	<p class="pageinfo">${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> | rev <strong>{node|short}</strong>')}</p>
 % endif
-	<address>Copyright &copy; 1999&ndash;2009, Kang Seonghoon.</address>
+	<p class="toolbar"><a href="${flo.url|h}/+tree">Tree view</a> | <a href="${flo.url|h}/+feed">Atom Feed</a> | <a href="${flo.url|h}/+response">Responses</a></p>
+	<p class="copyright"><a href="/copyright">Copyright</a> &copy; 1999&ndash;2009, Kang Seonghoon. Some Rights Reserved.</p>
 </div>
 </%def>
 
