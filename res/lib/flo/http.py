@@ -68,13 +68,13 @@ def parse_acceptlike(value, parsefunc, moreparams=False):
         params = []
         q = 1000 # rescaled by 1000 (see section 3.9)
         while i < len(tokens) and tokens[i] == ';':
-            if tokens[i+2] != '=': raise ValueError, 'expected "="'
+            if tokens[i+2] != '=': raise ValueError('expected "="')
             if tokens[i+1] == 'q':
                 token = tokens[i+3]
                 q = int(token[:1] + token[2:].ljust(3, '0'))
-                if not 0 <= q <= 1000: raise ValueError, 'invalid q value'
+                if not 0 <= q <= 1000: raise ValueError('invalid q value')
             elif not moreparams:
-                raise ValueError, 'too many parameters'
+                raise ValueError('too many parameters')
             else:
                 name = tokens[i+1]
                 token = tokens[i+3]
@@ -83,7 +83,7 @@ def parse_acceptlike(value, parsefunc, moreparams=False):
                 params.append((name, token))
             i += 4
 
-        if i < len(tokens) and tokens[i] != ',': raise ValueError, 'expected ","'
+        if i < len(tokens) and tokens[i] != ',': raise ValueError('expected ","')
         i += 1
 
         if moreparams:
@@ -100,7 +100,7 @@ def parse_acceptlike(value, parsefunc, moreparams=False):
     return entries
 
 def _parsefunc_type(tokens, i):
-    if tokens[i+1] != '/': raise ValueError, 'expected "/"'
+    if tokens[i+1] != '/': raise ValueError('expected "/"')
     type = tokens[i]
     if type == '*': type = None
     subtype = tokens[i+2]

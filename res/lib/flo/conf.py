@@ -18,7 +18,9 @@ All configurations, datas such as SQLite database, caches etc. is saved in
 from __future__ import absolute_import, division, with_statement
 
 import os, os.path
+import re
 import copy
+import httplib
 import mimetypes
 import ConfigParser as configparser
 
@@ -28,9 +30,10 @@ class Config(object):
         self.dir = os.path.normpath(dir).rstrip(os.sep) + os.sep
         assert self.parent is None or self.dir.startswith(self.parent.dir)
 
-        self.localconf = None
-        self.localtypes = None
+        self.conf = None
+        self.types = None
         self.encoding = None
+        self.rules = None
 
     def paths(self, *trail):
         conf = self
@@ -44,37 +47,76 @@ class Config(object):
     def error_paths(self, status):
         return self.paths('.flo', 'http%03d.html' % status)
 
-    def read_localconf(self):
+    def read_conf(self):
         if self.parent is None:
-            self.localconf = configparser.SafeConfigParser()
+            self.conf = configparser.SafeConfigParser()
         else:
-            if self.parent.localconf is None:
-                self.parent.read_localconf()
-            self.localconf = copy.deepcopy(self.parent.localconf)
+            if self.parent.conf is None:
+                self.parent.read_conf()
+            self.conf = copy.deepcopy(self.parent.conf)
 
         path = os.path.join(self.dir, '.flo', 'local.conf')
-        self.localconf.read(path)
+        self.conf.read(path)
 
         try:
-            self.encoding = self.localconf.get('global', 'encoding')
+            self.encoding = self.conf.get('global', 'encoding')
         except:
             self.encoding = 'utf-8'
 
-    def read_localtypes(self):
+    def read_types(self):
         if self.parent is None:
-            self.localtypes = mimetypes.MimeTypes()
+            self.types = mimetypes.MimeTypes()
         else:
-            if self.parent.localtypes is None:
-                self.parent.read_localtypes()
-            self.localtypes = copy.deepcopy(self.parent.localtypes)
+            if self.parent.types is None:
+                self.parent.read_types()
+            self.types = copy.deepcopy(self.parent.types)
 
         path = os.path.join(self.dir, '.flo', 'types.conf')
         if os.path.exists(path):
-            self.localtypes.read(path)
+            self.types.read(path)
+
+    def read_rules(self):
+        self.rules = []
+
+        path = os.path.join(self.dir, '.flo', 'rewrite.conf')
+        if os.path.exists(path):
+            curpass = []
+            for lineno, line in enumerate(open(path, 'rtU'), start=1):
+                line = line.strip()
+                if not line or line[0] == '#' or line[0] == ';': continue
+
+                line = line.split()
+                if line[0] == '-':
+                    if curpass: self.rules.append(curpass)
+                    curpass = []
+                    continue
+
+                if len(line) == 2:
+                    pattern, repl = line
+                    code = 0
+                elif len(line) == 3:
+                    pattern, repl, code = line
+                    try:
+                        code = int(code)
+                        if code not in httplib.responses: raise ValueError
+                    except:
+                        raise ValueError('Invalid HTTP code at line %d' % lineno)
+                else:
+                    raise ValueError('Invalid rule at line %d' % lineno)
+
+                if pattern == '-':
+                    raise ValueError('Empty pattern at line %d' % lineno)
+                pattern = re.compile(pattern)
+                if repl == '-':
+                    repl = ''
+
+                curpass.append((pattern, repl, code))
+
+            if curpass: self.rules.append(curpass)
 
     def __getitem__(self, key):
-        if self.localconf is None:
-            self.read_localconf()
+        if self.conf is None:
+            self.read_conf()
 
         try:
             sect, opt = key
@@ -88,15 +130,15 @@ class Config(object):
 
         try:
             if issubclass(opttype, str):
-                return self.localconf.get(sect, opt)
+                return self.conf.get(sect, opt)
             elif issubclass(opttype, unicode):
-                return self.localconf.get(sect, opt).decode(self.encoding)
+                return self.conf.get(sect, opt).decode(self.encoding)
             elif issubclass(opttype, (int, long)):
-                return self.localconf.getint(sect, opt)
+                return self.conf.getint(sect, opt)
             elif issubclass(opttype, float):
-                return self.localconf.getfloat(sect, opt)
+                return self.conf.getfloat(sect, opt)
             elif issubclass(opttype, bool):
-                return self.localconf.getboolean(sect, opt)
+                return self.conf.getboolean(sect, opt)
             else:
                 assert False
         except configparser.NoOptionError:
@@ -104,9 +146,29 @@ class Config(object):
             return optdefault
 
     def guess_type(self, filename):
-        if self.localtypes is None:
-            self.read_localtypes()
-        return self.localtypes.guess_type(filename)
+        if self.types is None:
+            self.read_types()
+        return self.types.guess_type(filename)
+
+    def rewrite_url(self, url):
+        """rewrite_url(url) -> (HTTP code, rewritten URL)
+
+        Rewrites given URL relative to current directory. Rewritten URL is
+        assumed to be relative to current directory but also can be absolute
+        URL -- its interpretation is up to caller."""
+
+        if self.rules is None:
+            self.read_rules()
+
+        for curpass in self.rules:
+            for pattern, repl, code in curpass:
+                url, substd = pattern.subn(repl, url, count=1)
+                if substd > 0:
+                    if code: # terminates all rewriting
+                        return code, url
+                    else: # terminates current pass only
+                        break
+        return httplib.OK, url
 
 class ConfigCache(object):
     def __init__(self, app):
@@ -124,5 +186,5 @@ class ConfigCache(object):
         return self.cache.get(path, createfunc=lambda: self.load(path))
 
     def forget(self, path):
-        raise NotImplemented # how to?
+        raise NotImplemented() # how to?
 
