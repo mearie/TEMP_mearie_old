@@ -5,10 +5,12 @@ from __future__ import absolute_import, division, with_statement
 
 from .conf import ConfigCache
 from .context import Context
-from .http import is_langtag, parse_accept, parse_acceptlang, \
+from .http import HttpError, is_langtag, parse_accept, parse_acceptlang, \
         match_accept, match_acceptlang
 
 import os, os.path
+import posixpath
+import urlparse
 
 class Resolver(object):
     def __init__(self, app):
@@ -72,29 +74,57 @@ class Resolver(object):
         scriptbase = self.base
         if not os.path.isdir(scriptbase):
             context.not_found()
+
         if os.sep != '/' and os.sep in path:
             # simple sanity check for windows (or VMS?) systems.
             context.forbidden()
+        if '/.flo/' in path:
+            # internal directory should not be visible, unless rewriting rule
+            # explicitly maps other URL to it.
+            context.not_found()
+
+        # discard /./s and /../s. it also hopefully eliminates possible local
+        # filesystem exploit using excessive /../s.
+        assert posixpath.normpath('/foo/../../bar') == '/bar'
+        path = posixpath.normpath(path)
 
         pos = 0
         while pos < len(path):
+            conf = self.configcache.get(scriptbase)
+            httpcode, newpath = conf.rewrite_url(path[pos+1:])
+            newpath = urlparse.urljoin(path[:pos+1], newpath)
+
+            if not 200 <= httpcode < 300:
+                context.status = httpcode
+                if 300 <= httpcode < 400:
+                    context.headers['Location'] = newpath
+                raise HttpError(httpcode)
+
+            if not newpath.startswith('/'):
+                raise ValueError('External URL is not allowed for internal redirection')
+
+            if path != newpath:
+                # minimizes total number of URL rewriting by using common prefix;
+                # for example, if in the directory "/foo/bar", URL "/foo/bar/quux/blah"
+                # is rewritten to "/foo/quux/blah", we can immediately check rewriting
+                # rules for "/foo/quux" because "/", "/foo" is already checked.
+                pos = posixpath.commonprefix([path, newpath]).rfind('/')
+                path = newpath
+                scriptbase = os.path.join(self.base, *path[1:pos].split('/'))
+
             npos = path.find('/', pos+1)
             if npos < 0: npos = len(path)
             component = path[pos+1:npos]
             pos = npos
-            if component:
-                if component == '..':
-                    newbase = os.path.split(scriptbase)[0]
-                else:
-                    newbase = os.path.join(scriptbase, component)
-                context.path = newbase
 
-                # prohibits the access to parents of document root.
-                if not newbase.startswith(self.base):
-                    context.not_found()
+            if not component: continue
 
-                if not os.path.isdir(newbase): break
-                scriptbase = newbase
+            assert component != '.' and component != '..'
+            newbase = os.path.join(scriptbase, component)
+            context.path = newbase
+
+            if not os.path.isdir(newbase): break
+            scriptbase = newbase
         else:
             component = 'index' # default filename
             if not path.endswith('/'):
@@ -107,17 +137,13 @@ class Resolver(object):
         trail = path[pos:]
 
         try:
+            accepts = parse_accept(context.environ['HTTP_ACCEPT'])
+        except (ValueError, KeyError):
             accepts = [(1000, (None, None), [])]
-            if 'HTTP_ACCEPT' in context.environ:
-                accepts = parse_accept(context.environ['HTTP_ACCEPT'])
-        except ValueError:
-            pass
         try:
+            acceptlangs = parse_acceptlang(context.environ['HTTP_ACCEPT_LANGUAGE'])
+        except (ValueError, KeyError):
             acceptlangs = [(1000, ())]
-            if 'HTTP_ACCEPT_LANGUAGE' in context.environ:
-                acceptlangs = parse_acceptlang(context.environ['HTTP_ACCEPT_LANGUAGE'])
-        except ValueError:
-            pass
 
         # search for candidates.
         candidates = []

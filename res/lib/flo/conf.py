@@ -32,7 +32,6 @@ class Config(object):
 
         self.conf = None
         self.types = None
-        self.encoding = None
         self.rules = None
 
     def paths(self, *trail):
@@ -59,9 +58,9 @@ class Config(object):
         self.conf.read(path)
 
         try:
-            self.encoding = self.conf.get('global', 'encoding')
+            self.internal_encoding = self.conf.get('global', 'encoding')
         except:
-            self.encoding = 'utf-8'
+            self.internal_encoding = 'utf-8'
 
     def read_types(self):
         if self.parent is None:
@@ -132,7 +131,7 @@ class Config(object):
             if issubclass(opttype, str):
                 return self.conf.get(sect, opt)
             elif issubclass(opttype, unicode):
-                return self.conf.get(sect, opt).decode(self.encoding)
+                return self.conf.get(sect, opt).decode(self.internal_encoding)
             elif issubclass(opttype, (int, long)):
                 return self.conf.getint(sect, opt)
             elif issubclass(opttype, float):
@@ -162,9 +161,12 @@ class Config(object):
 
         for curpass in self.rules:
             for pattern, repl, code in curpass:
-                url, substd = pattern.subn(repl, url, count=1)
-                if substd > 0:
+                result = pattern.match(url)
+                if result is not None:
+                    url = result.expand(repl)
                     if code: # terminates all rewriting
+                        if not 200 <= code < 600:
+                            raise ValueError('invalid HTTP status code %d' % code)
                         return code, url
                     else: # terminates current pass only
                         break
