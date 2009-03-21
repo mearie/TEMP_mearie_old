@@ -85,8 +85,11 @@ class Resolver(object):
 
         # discard /./s and /../s. it also hopefully eliminates possible local
         # filesystem exploit using excessive /../s.
-        assert posixpath.normpath('/foo/../../bar') == '/bar'
-        path = posixpath.normpath(path)
+        assert posixpath.normpath('/foo/../../bar/') == '/bar'
+        if path.endswith('/'):
+            path = posixpath.normpath(path) + '/'
+        else:
+            path = posixpath.normpath(path)
 
         pos = 0
         while pos < len(path):
