@@ -1,4 +1,10 @@
 <%!
+import subprocess
+
+def gethgrev(path, tmpl):
+	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
+	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+
 MSG = {
 	'ko': {
 		'sitename': u'메아리',
@@ -17,11 +23,10 @@ MSG = {
 		'respdesc': u'View or post responses for this page.',
 	},
 }
-%>\
-<%
-contentlang = next.attr.lang or flo.lang or 'ko'
 
+############################################################
 %>\
+<% contentlang = next.attr.lang or flo.lang or 'ko' %>\
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${contentlang|h}">
 <head>
@@ -60,23 +65,25 @@ title = None
 </%def>
 
 <%def name="footer(lang)">
-<div id="footer">
-<%!
-import subprocess
-def gethgrev(path, tmpl):
-	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
-	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+<%
+prefix = flo.url.rstrip('/')
 %>
+<div id="footer">
 	<hr/>
 % if flo.status == 200:
 	<p class="pageinfo">${gethgrev(flo.path, 'Last modified in <strong>{date|isodate}</strong> | rev <strong>{node|short}</strong>')}</p>
 % endif
 	<p class="toolbar">
-		<a href="${flo.url.rstrip('/')|h}/+tree" title="${MSG[lang]['treedesc']}">Tree view</a> |
-		<a href="${flo.url.rstrip('/')|h}/+feed" title="${MSG[lang]['feeddesc']}">Atom feed</a>
-		(<a href="${flo.url.rstrip('/')|h}/+feed" title="${MSG[lang]['feedalldesc']}">All</a>) |
-		<a href="${flo.url.rstrip('/')|h}/+response" title="${MSG[lang]['respdesc']}">Responses</a>
+		<a href="${prefix|h}/+tree" title="${MSG[lang]['treedesc']}">Tree view</a> |
+		<a href="${prefix|h}/+feed" title="${MSG[lang]['feeddesc']}">Atom feed</a>
+		(<a href="${prefix|h}/+feed" title="${MSG[lang]['feedalldesc']}">All</a>) |
+		<a href="${prefix|h}/+response" title="${MSG[lang]['respdesc']}">Responses</a>
 	</p>
+	<form action="http://www.google.com/cse"><p>
+		<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
+		<input type="text" name="q" size="20"/>
+		<input type="submit" name="sa" value="구글 검색"/>
+	</p></form>
 	<p class="copyright"><a href="/copyright">Copyright</a> &copy; 1999&ndash;2009, Kang Seonghoon. Some Rights Reserved.</p>
 </div>
 </%def>
