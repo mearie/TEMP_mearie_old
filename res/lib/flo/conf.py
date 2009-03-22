@@ -17,6 +17,8 @@ All configurations, datas such as SQLite database, caches etc. is saved in
 
 from __future__ import absolute_import, division, with_statement
 
+from .util import nenumerate
+
 import os, os.path
 import re
 import copy
@@ -80,7 +82,7 @@ class Config(object):
         path = os.path.join(self.dir, '.flo', 'rewrite.conf')
         if os.path.exists(path):
             curpass = []
-            for lineno, line in enumerate(open(path, 'rtU'), start=1):
+            for lineno, line in nenumerate(open(path, 'rtU'), start=1):
                 line = line.strip()
                 if not line or line[0] == '#' or line[0] == ';': continue
 

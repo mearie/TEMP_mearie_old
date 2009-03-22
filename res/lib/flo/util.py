@@ -3,8 +3,17 @@
 
 from __future__ import absolute_import, division, with_statement
 
-from itertools import izip, imap
+import sys
+from itertools import count, izip, imap
 from copy import deepcopy
+
+
+# compatibility functions
+if sys.hexversion < 0x20600f0:
+    def nenumerate(sequence, start=0):
+        return izip(count(start), sequence)
+else:
+    nenumerate = enumerate
 
 
 missing = object()
