@@ -39,12 +39,15 @@ class Application(object):
         from .process.references import ReferenceProcessor
         from .process.html_postproc import ImageFramer, MathReplacer, \
                 AbbreviationFiller
-        self.processor.add(100, XMLTreeReader(self.base))
+        self.processor.add(100, XMLTreeReader())
         self.processor.add(110, ReferenceProcessor())
         self.processor.add(120, ImageFramer())
         self.processor.add(120, MathReplacer())
         self.processor.add(120, AbbreviationFiller())
         self.processor.add(199, XMLTreeWriter())
+
+        from .process.xhtml_compat import XHTMLTypeConverter
+        self.processor.add(900, XHTMLTypeConverter())
 
     def get_cache(self, name, **kwargs):
         return self.caches.get_cache(name, **kwargs)

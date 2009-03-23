@@ -14,8 +14,10 @@ _CDATA_RE = re.compile(r'<!\[CDATA\[(.*?)\]\]>', re.S)
 _ENTITY_RE = re.compile(r'&(%s);' % '|'.join(_ENTITY_LIST.keys()))
 
 class HTMLSanitizer(object):
-    input_type = ['text/html', 'application/xhtml+xml']
-    output_type = 'text/html'
+    def accepts(self, context, type):
+        if type == 'text/html' or type == 'application/xhtml+xml':
+            return type
+        return None
 
     def __call__(self, context, data):
         if data is None:

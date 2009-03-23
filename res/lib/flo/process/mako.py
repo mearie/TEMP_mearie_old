@@ -45,15 +45,17 @@ class FloLookup(TemplateCollection):
             return os.path.join(os.path.normpath(relativeto), uri)
 
 class MakoProcessor(object):
-    input_type = ['text/html', 'application/xhtml+xml']
-    output_type = 'text/html'
-
     def __init__(self, base, inencoding='utf-8', outencoding='utf-8'):
         self.base = base
         self.inencoding = inencoding
         self.outencoding = outencoding
         self.lookup = FloLookup(base, input_encoding=self.inencoding,
                 output_encoding=self.outencoding, encoding_errors='replace')
+
+    def accepts(self, context, type):
+        if type == 'text/html' or type == 'application/xhtml+xml':
+            return type
+        return None
 
     def __call__(self, context, data):
         if data is None:

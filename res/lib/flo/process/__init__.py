@@ -14,8 +14,9 @@ class Processor(object):
     def process(self, context, data=None):
         for priority, procs in sorted(self.priorities.items()):
             for proc in procs:
-                if context.content_type not in proc.input_type: continue
+                resulttype = proc.accepts(context, context.content_type)
+                if resulttype is None: continue
                 data = proc(context, data)
-                context.content_type = proc.output_type
+                context.content_type = resulttype
         return data
 
