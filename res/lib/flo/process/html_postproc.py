@@ -3,17 +3,14 @@
 
 from __future__ import absolute_import, division, with_statement
 
-from .xmltree import XMLTREETYPE
+from .xmltree import XMLTreeProcessor
 
-class MathReplacer(object):
+class MathReplacer(XMLTreeProcessor):
     """Processes m pseudo-element to actual (X)HTML. m pseudo-element should
     contain valid LaTeX equation, as if contained in $...$ block. It prints
     placeholder span element to be converted in the client side.
 
     Input format should be XML tree."""
-
-    input_type = [XMLTREETYPE]
-    output_type = XMLTREETYPE
 
     def __call__(self, context, xml):
         assert xml is not None
@@ -36,16 +33,13 @@ class MathReplacer(object):
 
         return xml
 
-class ImageFramer(object):
+class ImageFramer(XMLTreeProcessor):
     """Processes non-singleton img element to valid (X)HTML. When img element
     has child nodes it is interpreted to the image's description (as like
     XHTML2) and converted to container and actual image.
 
     Input format should be XML tree. If img doesn't have correct width attribute,
     it should be filled before this processor."""
-
-    input_type = [XMLTREETYPE]
-    output_type = XMLTREETYPE
 
     def __call__(self, context, xml):
         assert xml is not None
@@ -66,7 +60,7 @@ class ImageFramer(object):
 
         return xml
 
-class AbbreviationFiller(object):
+class AbbreviationFiller(XMLTreeProcessor):
     """Fills title attribute of abbr element if none. It reads predefined
     acronyms from .flo/acronyms.conf which contains acronym and description
     separated by whitespaces first.
@@ -75,9 +69,6 @@ class AbbreviationFiller(object):
     If multiple acronym.conf are present, inner line takes precedence.
 
     Input format should be XML tree."""
-
-    input_type = [XMLTREETYPE]
-    output_type = XMLTREETYPE
 
     def read_acronyms(self, context):
         acronyms = {}

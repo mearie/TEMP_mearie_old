@@ -6,17 +6,19 @@ from __future__ import absolute_import, division, with_statement
 from xml.dom.minidom import parse, parseString
 
 # should not be final type.
-XMLTREETYPE = 'application/prs.mearieflo.xml-dom-tree'
+_TREETYPE_HTML = 'application/prs.mearieflo.xml-tree.html'
+_TREETYPE_XHTML = 'application/prs.mearieflo.xml-tree.xhtml'
 
 class XMLTreeReader(object):
     """Parses pseudo-(X)HTML to XML tree. It returns the internal media type
     and should be followed by HTMLTreeWriter later."""
 
-    input_type = ['text/html', 'application/xhtml+xml']
-    output_type = XMLTREETYPE
-
-    def __init__(self, base):
-        self.base = base
+    def accepts(self, context, type):
+        if type == 'text/html':
+            return _TREETYPE_HTML
+        if type == 'application/xhtml+xml':
+            return _TREETYPE_XHTML
+        return None
 
     def __call__(self, context, data):
         if data is None:
@@ -27,8 +29,12 @@ class XMLTreeReader(object):
 class XMLTreeWriter(object):
     """Converts XML tree to (X)HTML back."""
 
-    input_type = [XMLTREETYPE]
-    output_type = 'text/html'
+    def accepts(self, context, type):
+        if type == _TREETYPE_HTML:
+            return 'text/html'
+        if type == _TREETYPE_XHTML:
+            return 'application/xhtml+xml'
+        return None
 
     def __call__(self, context, xml):
         assert xml is not None
@@ -39,4 +45,13 @@ class XMLTreeWriter(object):
             return data[22:]
         finally:
             xml.unlink()
+
+class XMLTreeProcessor(object):
+    """Superclass of processors excepting XML tree. It implements accepts
+    method."""
+
+    def accepts(self, context, type):
+        if type == _TREETYPE_HTML or type == _TREETYPE_XHTML:
+            return type
+        return None
 

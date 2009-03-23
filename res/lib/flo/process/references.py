@@ -26,17 +26,14 @@ is rendered to something like following:
 
 from __future__ import absolute_import, division, with_statement
 
-from .xmltree import XMLTREETYPE
+from .xmltree import XMLTreeProcessor
 
-class ReferenceProcessor(object):
+class ReferenceProcessor(XMLTreeProcessor):
     """Processes ref/fn and references/footnotes pseudo-element to actual
     (X)HTML. The former introduces a link to actual footnote, and the latter
     prints all previous footnotes into container.
     
     Input format should be XML tree."""
-
-    input_type = [XMLTREETYPE]
-    output_type = XMLTREETYPE
 
     def __call__(self, context, xml):
         assert xml is not None
