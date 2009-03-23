@@ -5,7 +5,7 @@ from __future__ import absolute_import, division, with_statement
 
 from . import __version__
 from .util import odict
-from .http import HttpError
+from .http import HttpError, AcceptHeader, AcceptLangHeader
 
 import httplib
 import os.path
@@ -27,6 +27,8 @@ class Context(object):
 
         self.lang = None
         self.prefered_lang = None
+        self.accepts = AcceptHeader(environ.get('HTTP_ACCEPT', ''))
+        self.acceptlangs = AcceptLangHeader(environ.get('HTTP_ACCEPT_LANGUAGE', ''))
 
     def as_file(self):
         path = os.path.join(self.app.base, self.path)
