@@ -12,8 +12,7 @@ class XHTMLTypeConverter(object):
         self.convert_html = convert_html
 
     def accepts(self, context, type):
-        # XXX insufficient browser testing
-        if 'application/xhtml+xml' in context.environ.get('HTTP_ACCEPT', ''):
+        if context.accepts.match('application/xhtml+xml'):
             if self.convert_html and type == 'text/html':
                 return 'application/xhtml+xml'
         else:
