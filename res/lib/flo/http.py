@@ -44,7 +44,6 @@ def tokenize(value):
     as defined in RFC 2616 section 2.2."""
     return _TOKEN_RE.findall(value)
 
-
 _LANGTAG_RE = re.compile(r'''
         ^(?:
             [a-z]{2,3}(?:-[a-z0-9]{2,8})* | # usual language tag
@@ -55,6 +54,7 @@ def is_langtag(tag):
     """Returns true if given tag is likely an IETF language subtag."""
     return _LANGTAG_RE.search(tag) is not None
 
+
 def parse_acceptlike(value, parsefunc, moreparams=False):
     """Parse Accept and Accept-* header ("Accept-like"). It handles most practical
     cases correctly, but doesn't fully conform as it can accept some wrong header."""
@@ -112,31 +112,43 @@ def _parsefunc_lang(tokens, i):
     if token == '*': token = ''
     return tuple(token.lower().split('-')), i+1
 
-def parse_accept(value):
-    """Parses Accept header. Returns a list of (q, (type, subtype), params)."""
-    return parse_acceptlike(value, _parsefunc_type, moreparams=True)
+class AcceptHeader(object):
+    def __init__(self, value):
+        try:
+            self.entries = parse_acceptlike(value, _parsefunc_type, moreparams=True)
+        except ValueError:
+            self.entries = [(1000, (None, None), [])]
 
-def parse_acceptlang(value):
-    """Parse Accept-Language header. Returns a list of (q, (lang, sublang, ...))."""
-    return parse_acceptlike(value, _parsefunc_lang)
+    def match_with_index(self, type):
+        if type is not None:
+            type, subtype = type.split('/')
+        else:
+            type = subtype = None
+        for i, (q, entry, params) in enumerate(self.entries):
+            if entry[0] is not None and entry[0] != type: continue
+            if entry[1] is not None and entry[1] != subtype: continue
+            return q, i
+        return 0, 0
 
-def match_accept(entries, type):
-    if type is not None:
-        type, subtype = type.split('/')
-    else:
-        type = subtype = None
-    for i, (q, entry, params) in enumerate(entries):
-        if entry[0] is not None and entry[0] != type: continue
-        if entry[1] is not None and entry[1] != subtype: continue
-        return q, i
-    return 0, 0
+    def match(self, type):
+        return self.match_with_index(type)[0]
 
-def match_acceptlang(entries, lang):
-    if lang is not None:
-        lang = tuple(lang.lower().split('-'))
-    else:
-        lang = ()
-    for i, (q, entry) in enumerate(entries):
-        if lang[:len(entry)] == entry: return q, i
-    return 1, 0 # merely acceptable, unless *;q=0 is explicitly given
+class AcceptLangHeader(object):
+    def __init__(self, value):
+        try:
+            self.entries = parse_acceptlike(value, _parsefunc_lang)
+        except ValueError:
+            self.entries = [(1000, ())]
+
+    def match_with_index(self, lang):
+        if lang is not None:
+            lang = tuple(lang.lower().split('-'))
+        else:
+            lang = ()
+        for i, (q, entry) in enumerate(self.entries):
+            if lang[:len(entry)] == entry: return q, i
+        return 1, 0 # merely acceptable, unless *;q=0 is explicitly given
+
+    def match(self, type):
+        return self.match_with_index(type)[0]
 

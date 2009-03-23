@@ -5,8 +5,7 @@ from __future__ import absolute_import, division, with_statement
 
 from .conf import ConfigCache
 from .context import Context
-from .http import HttpError, is_langtag, parse_accept, parse_acceptlang, \
-        match_accept, match_acceptlang
+from .http import HttpError, is_langtag
 
 import os, os.path
 import posixpath
@@ -55,8 +54,8 @@ class Resolver(object):
         maxq = 0
         mini = 9999
         for fname, name, type, enc, lang in candidates:
-            typeq, typei = match_accept(accepts, type)
-            langq, langi = match_acceptlang(acceptlangs, lang)
+            typeq, typei = accepts.match_with_index(type)
+            langq, langi = acceptlangs.match_with_index(lang)
             q = typeq * langq
             i = typei + langi
             if (maxq, -mini) < (q, -i):
@@ -139,15 +138,6 @@ class Resolver(object):
         reqname, reqtype, reqenc, reqlang = self.parse_filename(context, component)
         trail = path[pos:]
 
-        try:
-            accepts = parse_accept(context.environ['HTTP_ACCEPT'])
-        except (ValueError, KeyError):
-            accepts = [(1000, (None, None), [])]
-        try:
-            acceptlangs = parse_acceptlang(context.environ['HTTP_ACCEPT_LANGUAGE'])
-        except (ValueError, KeyError):
-            acceptlangs = [(1000, ())]
-
         # search for candidates.
         candidates = []
         for fname in os.listdir(scriptbase):
@@ -165,7 +155,8 @@ class Resolver(object):
         if varies:
             context.headers['Vary'] = ', '.join(varies)
 
-        selected = self.select_candidate(candidates, accepts, acceptlangs)
+        selected = self.select_candidate(candidates, context.accepts,
+                context.acceptlangs)
         if selected is not None:
             context.path = os.path.join(scriptbase, selected)
             _, context.content_type, context.content_enc, context.lang = \
