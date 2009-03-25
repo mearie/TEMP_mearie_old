@@ -13,6 +13,7 @@ MSG = {
 		'feeddesc': u'이 페이지의 변경 사항을 Atom 피드로 추적합니다.',
 		'feedalldesc': u'이 페이지와 하위 페이지들의 변경 사항을 Atom 피드로 추적합니다.',
 		'respdesc': u'이 페이지에 대한 의견을 보거나 작성합니다.',
+		'search': u'구글 검색',
 	},
 	'en': {
 		'sitename': u'mearie.org',
@@ -21,6 +22,7 @@ MSG = {
 		'feeddesc': u'Track changes over this page via Atom feed.',
 		'feedalldesc': u'Track changes over this page and its subpages via Atom feed.',
 		'respdesc': u'View or post responses for this page.',
+		'search': u'Google Search',
 	},
 }
 
@@ -81,8 +83,8 @@ prefix = flo.url.rstrip('/')
 	</p>
 	<form action="http://www.google.com/cse"><p>
 		<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
-		<input type="text" name="q" size="20"/>
-		<input type="submit" name="sa" value="구글 검색"/>
+		<input type="text" name="q" size="25"/>
+		<input type="submit" name="sa" value="${MSG[lang]['search']}"/>
 	</p></form>
 	<p class="copyright"><a href="/copyright">Copyright</a> &copy; 1999&ndash;2009, Kang Seonghoon. Some Rights Reserved.</p>
 </div>
