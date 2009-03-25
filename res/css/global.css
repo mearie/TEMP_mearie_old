@@ -9,13 +9,20 @@
 	color: inherit;
 }
 
-body, input, select {
+body {
+	font-family: "Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+}
+code, pre, var, samp, kbd, tt, textarea {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", monospace;
+}
+:lang(ko) {
 	font-family:
 		"Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia",
 		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
 		"AppleMyungjo", "UnBatang", "은 바탕", serif;
 }
-code, pre, var, samp, kbd, tt, textarea {
+code:lang(ko), pre:lang(ko), var:lang(ko), samp:lang(ko), kbd:lang(ko),
+tt:lang(ko), textarea:lang(ko) {
 	font-family:
 		"NanumGothic_Coding", "나눔고딕_코딩",
 		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
