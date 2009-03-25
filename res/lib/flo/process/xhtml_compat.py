@@ -7,8 +7,10 @@ xhtml+xml if supported.
 
 from __future__ import absolute_import, division, with_statement
 
-class XHTMLTypeConverter(object):
-    def __init__(self, convert_html=True):
+from .common import BaseProcessor
+
+class XHTMLTypeConverter(BaseProcessor):
+    def __init__(self, app, convert_html=True):
         self.convert_html = convert_html
 
     def accepts(self, context, type):

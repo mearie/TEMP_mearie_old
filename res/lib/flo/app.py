@@ -9,7 +9,6 @@ from __future__ import absolute_import, division, with_statement
 
 from .context import Context, HttpError
 from .resolve import Resolver
-from .process import Processor
 
 import sys
 import os, os.path
@@ -23,33 +22,16 @@ class Application(object):
         self.base = os.path.abspath(base)
         self.caches = CacheManager()
         self.resolver = Resolver(self)
-        self.processor = Processor(self)
+        self.processors = {}
 
-        self.init_processor()
-
-    def init_processor(self):
-        from .process.mako import MakoProcessor
-        self.processor.add(0, MakoProcessor(self.base))
-
-        from .process.html_sanitize import HTMLSanitizer
-        self.processor.add(10, HTMLSanitizer())
-
-        # XML tree operations
-        from .process.xmltree import XMLTreeReader, XMLTreeWriter
-        from .process.references import ReferenceProcessor
-        from .process.html_postproc import ImageFramer, MathReplacer, \
-                AbbreviationFiller
-        from .process.html_workaround import HTMLLangWorkaround
-        self.processor.add(100, XMLTreeReader())
-        self.processor.add(110, ReferenceProcessor())
-        self.processor.add(120, ImageFramer())
-        self.processor.add(120, MathReplacer())
-        self.processor.add(120, AbbreviationFiller())
-        self.processor.add(190, HTMLLangWorkaround())
-        self.processor.add(199, XMLTreeWriter())
-
-        from .process.xhtml_compat import XHTMLTypeConverter
-        self.processor.add(900, XHTMLTypeConverter())
+    def processor_from_name(self, name): 
+        if name not in self.processors:
+            parts = name.split('.')
+            obj = __import__('.'.join(parts[:-1]))
+            for part in parts[1:]:
+                obj = getattr(obj, part)
+            self.processors[name] = obj(self)
+        return self.processors[name]
 
     def get_cache(self, name, **kwargs):
         return self.caches.get_cache(name, **kwargs)
@@ -60,7 +42,8 @@ class Application(object):
         try:
             try:
                 self.resolver.resolve(context)
-                processed = self.processor.process(context)
+                processor = context.conf.get_processor(self)
+                processed = processor.process(context)
             except HttpError:
                 raise # no need to set exception information.
             except:
@@ -78,9 +61,11 @@ class Application(object):
                 try:
                     context.content_type = 'text/html'
                     context.content_enc = None
-                    processed = self.processor.process(context, open(path, 'rb').read())
+                    processor = context.conf.get_processor(self)
+                    processed = processor.process(context, open(path, 'rb').read())
                     break
-                except: pass
+                except:
+                    context.exc_info = sys.exc_info()
             else:
                 # default error page.
                 context.content_type = 'text/plain'

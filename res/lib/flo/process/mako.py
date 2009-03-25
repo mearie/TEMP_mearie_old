@@ -3,6 +3,8 @@
 
 from __future__ import absolute_import, division, with_statement
 
+from .common import BaseHTMLProcessor
+
 import os.path, posixpath
 
 from mako.template import Template
@@ -44,18 +46,13 @@ class FloLookup(TemplateCollection):
         else:
             return os.path.join(os.path.normpath(relativeto), uri)
 
-class MakoProcessor(object):
-    def __init__(self, base, inencoding='utf-8', outencoding='utf-8'):
-        self.base = base
+class MakoProcessor(BaseHTMLProcessor):
+    def __init__(self, app, inencoding='utf-8', outencoding='utf-8'):
+        self.base = app.base
         self.inencoding = inencoding
         self.outencoding = outencoding
-        self.lookup = FloLookup(base, input_encoding=self.inencoding,
+        self.lookup = FloLookup(self.base, input_encoding=self.inencoding,
                 output_encoding=self.outencoding, encoding_errors='replace')
-
-    def accepts(self, context, type):
-        if type == 'text/html' or type == 'application/xhtml+xml':
-            return type
-        return None
 
     def __call__(self, context, data):
         if data is None:

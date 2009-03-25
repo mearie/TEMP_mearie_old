@@ -3,13 +3,15 @@
 
 from __future__ import absolute_import, division, with_statement
 
+from .common import BaseProcessor
+
 from xml.dom.minidom import parse, parseString
 
 # should not be final type.
 _TREETYPE_HTML = 'application/prs.mearieflo.xml-tree.html'
 _TREETYPE_XHTML = 'application/prs.mearieflo.xml-tree.xhtml'
 
-class XMLTreeReader(object):
+class XMLTreeReader(BaseProcessor):
     """Parses pseudo-(X)HTML to XML tree. It returns the internal media type
     and should be followed by HTMLTreeWriter later."""
 
@@ -26,7 +28,7 @@ class XMLTreeReader(object):
         else:
             return parseString(data)
 
-class XMLTreeWriter(object):
+class XMLTreeWriter(BaseProcessor):
     """Converts XML tree to (X)HTML back."""
 
     def accepts(self, context, type):
@@ -46,7 +48,7 @@ class XMLTreeWriter(object):
         finally:
             xml.unlink()
 
-class XMLTreeProcessor(object):
+class XMLTreeProcessor(BaseProcessor):
     """Superclass of processors excepting XML tree. It implements accepts
     method."""
 
