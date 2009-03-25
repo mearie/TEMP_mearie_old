@@ -12,7 +12,7 @@ $(function() {
 		var code = $(this).text();
 		$(this).replaceWith('<img src="http://l.wordpress.com/latex.php?latex=' +
 			encodeURIComponent(code) + '&amp;s=' + size + '&amp;bg=ffffff&amp;fg=000000" alt="' +
-			code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt') +
+			code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
 			'" class="' + this.className + '"/>')
 	});
 });
