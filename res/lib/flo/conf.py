@@ -17,6 +17,7 @@ All configurations, datas such as SQLite database, caches etc. is saved in
 
 from __future__ import absolute_import, division, with_statement
 
+from .process import Processor
 from .util import nenumerate
 
 import os, os.path
@@ -35,6 +36,7 @@ class Config(object):
         self.conf = None
         self.types = None
         self.rules = None
+        self.processor = None
 
     def paths(self, *trail):
         conf = self
@@ -51,6 +53,7 @@ class Config(object):
     def read_conf(self):
         if self.parent is None:
             self.conf = configparser.SafeConfigParser()
+            self.conf.optionxform = str # case-sensitive options
         else:
             if self.parent.conf is None:
                 self.parent.read_conf()
@@ -173,6 +176,20 @@ class Config(object):
                     else: # terminates current pass only
                         break
         return httplib.OK, url
+
+    def get_processor(self, app):
+        if self.processor is None:
+            if self.conf is None:
+                self.read_conf()
+
+            proc = Processor()
+            if self.conf.has_section('processors'):
+                for opt, value in self.conf.items('processors'):
+                    if value == '!': continue # overriden not to use this processor
+                    proc.add(int(value), app.processor_from_name(opt))
+            self.processor = proc
+
+        return self.processor
 
 class ConfigCache(object):
     def __init__(self, app):
