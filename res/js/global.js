@@ -9,10 +9,11 @@ $(function() {
 		var m = this.className.match(/\bmath-size([0-4]|-[1-4])\b/);
 		if (m) size = m[1];
 
-		var code = $(this).text().replace('&', '&amp;');
-		$(this).replaceWith('<img src="http://l.wordpress.com/latex.php?s=' +
-			size + '&latex=' + code + '" alt="' + code + '" class="' +
-			this.className + '"/>')
+		var code = $(this).text();
+		$(this).replaceWith('<img src="http://l.wordpress.com/latex.php?latex=' +
+			encodeURIComponent(code) + '&amp;s=' + size + '&amp;bg=ffffff&amp;fg=000000" alt="' +
+			code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt') +
+			'" class="' + this.className + '"/>')
 	});
 });
 
