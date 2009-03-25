@@ -65,6 +65,7 @@
 		<span class="revision"> (<abbr title="revision">r</abbr><xsl:value-of select="@rev" />)</span>
 	</xsl:if>
 </h1>
+<p><strong>Warning:</strong> Subversion repository is out of date. Use <a href="http://hg.mearie.org/">Mercurial repository</a> for recent changes. (Note that some older projects are not listed there.)</p>
 
 <div id="entries">
 	<ul class="extview"><!--
