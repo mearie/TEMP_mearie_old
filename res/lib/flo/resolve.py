@@ -74,6 +74,9 @@ class Resolver(object):
         if not os.path.isdir(scriptbase):
             context.not_found()
 
+        context.path = os.path.join(scriptbase, '')
+        context.conf = self.configcache.get(scriptbase)
+
         if os.sep != '/' and os.sep in path:
             # simple sanity check for windows (or VMS?) systems.
             context.forbidden()
@@ -92,8 +95,7 @@ class Resolver(object):
 
         pos = 0
         while pos < len(path):
-            conf = self.configcache.get(scriptbase)
-            httpcode, newpath = conf.rewrite_url(path[pos+1:])
+            httpcode, newpath = context.conf.rewrite_url(path[pos+1:])
             newpath = urlparse.urljoin(path[:pos+1], newpath)
 
             if not 200 <= httpcode < 300:
@@ -127,13 +129,13 @@ class Resolver(object):
 
             if not os.path.isdir(newbase): break
             scriptbase = newbase
+            context.conf = self.configcache.get(scriptbase)
         else:
             component = 'index' # default filename
             if not path.endswith('/'):
                 context.perm_redirect(path + '/')
 
         assert os.path.isdir(scriptbase)
-        context.conf = self.configcache.get(scriptbase)
 
         reqname, reqtype, reqenc, reqlang = self.parse_filename(context, component)
         trail = path[pos:]
