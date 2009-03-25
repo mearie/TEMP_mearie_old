@@ -12,7 +12,9 @@ class XHTMLTypeConverter(object):
         self.convert_html = convert_html
 
     def accepts(self, context, type):
-        if context.accepts.match('application/xhtml+xml'):
+        # detect explicit (not */*, like MSIE) intention for XHTML response.
+        if context.accepts.match('application/xhtml+xml') and \
+                'application/xhtml+xml' in context.environ.get('HTTP_ACCEPT', ''):
             if self.convert_html and type == 'text/html':
                 return 'application/xhtml+xml'
         else:
