@@ -5,9 +5,18 @@
  * See http://mearie.org/copyright for license information.
  */
 
-body, input, select {
+body {
+	font-family: "Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+}
+.lang-ko {
 	font-family: "NanumMyeongjo", "나눔명조", "Batang", "바탕", serif;
 }
+code.lang-ko, .lang-ko code, pre.lang-ko, .lang-ko pre, var.lang-ko, .lang-ko var,
+samp.lang-ko, .lang-ko samp, kbd.lang-ko, .lang-ko kbd, tt.lang-ko, .lang-ko tt,
+textarea.lang-ko, .lang-ko textarea {
+	font-family: "Andale Mono", "Lucida Console", "돋움체", "DotumChe", monospace;
+}
+
 * html .ref-label {
 	margin-left: -3.6em;
 }

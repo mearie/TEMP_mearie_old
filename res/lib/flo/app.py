@@ -39,11 +39,13 @@ class Application(object):
         from .process.references import ReferenceProcessor
         from .process.html_postproc import ImageFramer, MathReplacer, \
                 AbbreviationFiller
+        from .process.html_workaround import HTMLLangWorkaround
         self.processor.add(100, XMLTreeReader())
         self.processor.add(110, ReferenceProcessor())
         self.processor.add(120, ImageFramer())
         self.processor.add(120, MathReplacer())
         self.processor.add(120, AbbreviationFiller())
+        self.processor.add(190, HTMLLangWorkaround())
         self.processor.add(199, XMLTreeWriter())
 
         from .process.xhtml_compat import XHTMLTypeConverter
