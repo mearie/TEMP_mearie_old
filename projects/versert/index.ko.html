@@ -1,4 +1,8 @@
 <%! title = u'메아리 프로젝트: 버섯' %>
+<%!
+def pre(s):
+	return '<pre><![CDATA[' + s.strip('\n').replace(']]>',']]]>]<![CDATA[>') + ']]></pre>'
+%>
 <h1>버섯</h1>
 <p><strong>버섯</strong>(Versert)은 <a href="/">강 성훈</a>이 만든 <a href="http://ko.wikipedia.org/wiki/%EB%B9%84%ED%8E%80%EC%A7%80">비펀지</a> 비스무리한 난해한 프로그래밍 언어입니다.</p>
 
@@ -55,25 +59,25 @@
 
 <h2 id="examples">예제 코드</h2>
 <p>다음은 그 유명한 "Hello, world!" 프로그램입니다. 네. 조금 꼼수를 씁니다. -_-;</p>
-<pre><%text><![CDATA[
+<%text filter="pre">
 \"Hello, world!" program.
 \3+5*0~|}-2+0~|#/{~.00\ 
          @.~*5+2\#{|1~/
-]]></%text></pre>
+</%text>
 <p>꼼수를 쓰지 않는 정석 프로그램은 다음과 같습니다.</p>
-<pre><%text><![CDATA[
+<%text filter="pre">
 6~6*}2*~.{+7-~.~7+~..~3+~.~{8+~.~{4-~.~4*9-~.~8-~.~3+~.~6-~.~8-~.~{3-~.~2~5*~.@
-]]></%text></pre>
+</%text>
 <p>다음 프로그램은 EOF 문자가 나올 때까지 표준 입력을 읽어서 표준 출력으로 씁니다.</p>
-<pre><%text><![CDATA[
+<%text filter="pre">
 #/#.0~1\
 @\#+,~-/
-]]></%text></pre>
+</%text>
 <p>다음 프로그램은 자기 자신을 그대로 출력합니다. (Thanks to <a href="http://www.frox25.no-ip.org/~mtve/code/eso/">mtve</a>)</p>
-<pre><%text><![CDATA[
+<%text filter="pre">
 # #/ 0|   0~4+8*0~|}-0~|#/{~.00\
 " @\# -2+{|~0*8-4~0.~*5+2\#{|1~/
-]]></%text></pre>
+</%text>
 
 <h2 id="download">내려받기</h2>
 <p><a href="http://svn.mearie.org/esolang/versert/versert.c">참조 구현</a>은 ISO C로 작성되었으며, 컴파일하고 인자로 파일 이름을 넣어서 실행할 수 있습니다.</p>
