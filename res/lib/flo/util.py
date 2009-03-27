@@ -1,19 +1,92 @@
-"""Utilities.
+"""Utilities. Mainly for compatibility with older versions of Python.
 """
 
 from __future__ import absolute_import, division, with_statement
 
 import sys
+import collections
 from itertools import count, izip, imap
 from copy import deepcopy
+from operator import itemgetter
+from keyword import iskeyword
+
+__all__ = ['nenumerate', 'namedtuple', 'odict']
 
 
-# compatibility functions
 if sys.hexversion < 0x20600f0:
     def nenumerate(sequence, start=0):
         return izip(count(start), sequence)
 else:
     nenumerate = enumerate
+
+
+# copied from Python 2.6 standard library.
+if sys.hexversion < 0x20600f0:
+    def namedtuple(typename, field_names):
+        if isinstance(field_names, basestring):
+            field_names = field_names.replace(',', ' ').split()
+        field_names = tuple(map(str, field_names))
+        for name in (typename,) + field_names:
+            if not all(c.isalnum() or c=='_' for c in name):
+                raise ValueError('Type names and field names can only contain alphanumeric characters and underscores: %r' % name)
+            if iskeyword(name):
+                raise ValueError('Type names and field names cannot be a keyword: %r' % name)
+            if name[0].isdigit():
+                raise ValueError('Type names and field names cannot start with a number: %r' % name)
+        seen_names = set()
+        for name in field_names:
+            if name.startswith('_'):
+                raise ValueError('Field names cannot start with an underscore: %r' % name)
+            if name in seen_names:
+                raise ValueError('Encountered duplicate field name: %r' % name)
+            seen_names.add(name)
+
+        numfields = len(field_names)
+        argtxt = repr(field_names).replace("'", "")[1:-1]
+        reprtxt = ', '.join('%s=%%r' % name for name in field_names)
+        dicttxt = ', '.join('%r: t[%d]' % (name, pos) for pos, name in enumerate(field_names))
+        template = '''class %(typename)s(tuple):
+            '%(typename)s(%(argtxt)s)' \n
+            __slots__ = () \n
+            _fields = %(field_names)r \n
+            def __new__(cls, %(argtxt)s):
+                return tuple.__new__(cls, (%(argtxt)s)) \n
+            @classmethod
+            def _make(cls, iterable, new=tuple.__new__, len=len):
+                'Make a new %(typename)s object from a sequence or iterable'
+                result = new(cls, iterable)
+                if len(result) != %(numfields)d:
+                    raise TypeError('Expected %(numfields)d arguments, got %%d' %% len(result))
+                return result \n
+            def __repr__(self):
+                return '%(typename)s(%(reprtxt)s)' %% self \n
+            def _asdict(t):
+                'Return a new dict which maps field names to their values'
+                return {%(dicttxt)s} \n
+            def _replace(self, **kwds):
+                'Return a new %(typename)s object replacing specified fields with new values'
+                result = self._make(map(kwds.pop, %(field_names)r, self))
+                if kwds:
+                    raise ValueError('Got unexpected field names: %%r' %% kwds.keys())
+                return result \n
+            def __getnewargs__(self):
+                return tuple(self) \n\n''' % locals()
+        for i, name in enumerate(field_names):
+            template += '        %s = property(itemgetter(%d))\n' % (name, i)
+
+        namespace = dict(itemgetter=itemgetter, __name__='namedtuple_%s' % typename)
+        try:
+            exec template in namespace
+        except SyntaxError, e:
+            raise SyntaxError(e.message + ':\n' + template)
+        result = namespace[typename]
+
+        if hasattr(_sys, '_getframe'):
+            result.__module__ = _sys._getframe(1).f_globals['__name__']
+
+        return result
+else:
+    namedtuple = collections.namedtuple
 
 
 missing = object()
