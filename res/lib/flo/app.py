@@ -9,6 +9,7 @@ from __future__ import absolute_import, division, with_statement
 
 from .context import Context, HttpError
 from .resolve import Resolver
+from .http import make_httpdate, parse_httpdate
 
 import sys
 import os, os.path
@@ -76,17 +77,28 @@ class Application(object):
                     processed += ''.join(traceback.format_exception(*context.exc_info))
 
         if processed is None: # not preprocessed, verbatim
-            if 'wsgi.file_wrapper' in environ:
-                data = environ['wsgi.file_wrapper'](open(context.path, 'rb'))
+            st = os.stat(context.path)
+            lastmod = st.st_mtime
+            try:
+                reqlastmod = parse_httpdate(context.environ['HTTP_IF_MODIFIED_SINCE'])
+            except KeyError:
+                reqlastmod = None
+
+            if reqlastmod is not None and lastmod <= reqlastmod:
+                data = []
+                context.status = 304
             else:
-                data = [open(context.path, 'rb').read()]
-            size = os.stat(context.path).st_size
+                if 'wsgi.file_wrapper' in environ:
+                    data = environ['wsgi.file_wrapper'](open(context.path, 'rb'))
+                else:
+                    data = [open(context.path, 'rb').read()]
+                context.headers['Content-Length'] = str(st.st_size)
+                context.headers['Last-Modified'] = make_httpdate(st.st_mtime)
         else:
             data = [processed]
-            size = len(processed)
+            context.headers['Content-Length'] = str(len(processed))
 
         context.headers['Content-Type'] = context.content_type or 'application/octet-stream'
-        context.headers['Content-Length'] = str(size)
         if context.content_enc is not None:
             context.headers['Content-Encoding'] = context.content_enc
 

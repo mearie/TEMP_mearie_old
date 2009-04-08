@@ -5,6 +5,8 @@ from __future__ import absolute_import, division, with_statement
 
 import re
 import httplib
+import rfc822
+import time, calendar
 
 
 class HttpError(Exception):
@@ -53,6 +55,14 @@ _LANGTAG_RE = re.compile(r'''
 def is_langtag(tag):
     """Returns true if given tag is likely an IETF language subtag."""
     return _LANGTAG_RE.search(tag) is not None
+
+def make_httpdate(t):
+    return time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime(t))
+
+def parse_httpdate(s):
+    result = rfc822.parsedate(s) # ignore timezone. RFC 2616 3.3.1 mandates this to be GMT.
+    if result is None: return None
+    return calendar.timegm(result)
 
 
 def parse_acceptlike(value, parsefunc, moreparams=False):
