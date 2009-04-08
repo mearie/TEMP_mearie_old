@@ -10,10 +10,12 @@ $(function() {
 		if (m) size = m[1];
 
 		var code = $(this).text();
-		$(this).replaceWith('<img src="http://l.wordpress.com/latex.php?latex=' +
-			encodeURIComponent(code) + '&amp;s=' + size + '&amp;bg=ffffff&amp;fg=000000" alt="' +
-			code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
-			'" class="' + this.className + '"/>')
+		var img = document.createElement('img')
+		img.setAttribute('src', 'http://l.wordpress.com/latex.php?latex=' +
+			encodeURIComponent(code) + '&s=' + size + '&bg=ffffff&fg=000000');
+		img.setAttribute('alt', code);
+		img.className = this.className;
+		$(this).replaceWith(img);
 	});
 });
 
