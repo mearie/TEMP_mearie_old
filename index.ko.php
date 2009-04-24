@@ -18,9 +18,9 @@ $SITE->startForce();
 	<h2>최근 바뀐 점</h2>
 	<dl>
 		<dt>2009년 4월 24일</dt>
-		<dd><a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc2를 공개합니다.</dd>
+		<dd><a href="/projects/pyfunge/">PyFunge</a> 0.5-rc2를 공개합니다.</dd>
 		<dt>2009년 4월 15일</dt>
-		<dd><a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc1을 공개합니다. 5년만의 릴리즈입니다. 흠.</dd>
+		<dd><a href="/projects/pyfunge/">PyFunge</a> 0.5-rc1을 공개합니다. 5년만의 릴리즈입니다. 흠.</dd>
 		<dt>2009년 2월 13일</dt>
 		<dd>모든 개발 중인 소프트웨어들을 서브버전에서 <a href="http://www.selenic.com/mercurial/">머큐리얼</a>로 이전했습니다. 앞으로는 새 <a href="http://hg.mearie.org/">머큐리얼 저장소</a>를 사용해 주세요.</dd>
 		<dt>2008년 11월 16일</dt>
