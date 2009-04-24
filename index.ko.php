@@ -17,6 +17,8 @@ $SITE->startForce();
 <div id="latest">
 	<h2>최근 바뀐 점</h2>
 	<dl>
+		<dt>2009년 4월 24일</dt>
+		<dd><a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc2를 공개합니다.</dd>
 		<dt>2009년 4월 15일</dt>
 		<dd><a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc1을 공개합니다. 5년만의 릴리즈입니다. 흠.</dd>
 		<dt>2009년 2월 13일</dt>
@@ -27,16 +29,6 @@ $SITE->startForce();
 		<dd><a href="http://yurr.net/tokignu/2008/11/08_%EC%BD%94%EC%8A%A4%EB%AA%A8%EC%8A%A4_%EC%84%9C%EC%9A%B8_%EB%B2%88%EA%B0%9C">신촌 번개</a>에 힘입어서 <a href="/about/kang-seonghoon">소개 페이지</a>의 사진을 갈아 치웠습니다.</dd>
 		<dt>2008년 4월 14일</dt>
 		<dd>새 디자인으로 바꿨습니다.</dd>
-		<dt>2007년 12월 13일</dt>
-		<dd><a href="/stuffs/">이것 저것</a> 추가했습니다. (…)</dd>
-		<dt>2007년 11월 30일</dt>
-		<dd><a href="/documents/mscmangle">Microsoft C++의 이름 변경 체계</a> 문서를 옮겨 왔습니다. 네, 아직 한국어 버전은 없습니다… (계획은 하고 있습니다만)</dd>
-		<dt>2007년 11월 18일</dt>
-		<dd><a href="/projects/versert/">버섯</a> 페이지를 옮겨 왔습니다.</dd>
-		<dt>2007년 8월 29일</dt>
-		<dd>첫 페이지를 바꿨습니다. <em>이제 임시 사이트가 아닙니다!</em> (앗싸)</dd>
-		<dt>2007년 8월 2일</dt>
-		<dd><a href="journal/">메아리 저널</a>을 시범적으로 열었습니다.</dd>
 	</dl>
 </div>
 

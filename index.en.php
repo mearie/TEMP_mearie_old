@@ -17,18 +17,14 @@ $SITE->startForce();
 <div id="latest">
 	<h2>Latest changes</h2>
 	<dl>
+		<dt>April 24, 2009</dt>
+		<dd>Released <a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc2.</dd>
 		<dt>April 15, 2009</dt>
 		<dd>Released <a href="http://mearie.org/projects/pyfunge/">PyFunge</a> 0.5-rc1. This is a major release, implementing fully compliant Funge-98 standards and dozens of common fingerprints.</dd>
 		<dt>February 13, 2009</dt>
 		<dd>I started to use <a href="http://www.selenic.com/mercurial">Mercurial</a> instead of Subversion. Please use <a href="http://hg.mearie.org/">my Mercurial repository</a> from now on.</dd>
 		<dt>April 14, 2008</dt>
 		<dd>Updated to new design.</dd>
-		<dt>November 30, 2007</dt>
-		<dd><a href="/documents/mscmangle">Microsoft C++ Name Mangling Scheme</a> document has been moved here. Future revision is being planned.</dd>
-		<dt>November 18, 2007</dt>
-		<dd><a href="/projects/versert/">Versert</a> page has been moved here.</dd>
-		<dt>November 12, 2007</dt>
-		<dd>English page has been set up.</dd>
 	</dl>
 </div>
 
