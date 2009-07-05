@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* #8c7288 #514559 #75aabf #f2f2f2 #0a0a0e */
+
+body {
+	font-family:
+		"Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia",
+		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
+		"AppleMyungjo", "UnBatang", "은 바탕", serif;
+	font-size: 0.83em;
+	background: url(tile.jpg) top center repeat;
+	width: 800px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#menu {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	margin-left: -400px;
+	width: 144px;
+	text-align: right;
+	z-index: 10;
+	color: white;
+}
+#main {
+	position: absolute;
+	background: url(tile-main.jpg) top right repeat-y;
+	width: 640px;
+	min-height: 100%;
+	padding: 0.1px 16px 0.1px 144px;
+	z-index: 0;
+}
+
+p {
+	margin: 5px;
+}
+hr {
+	display: none;
+}
+
+.copyright {
+	color: #534;
+}
+

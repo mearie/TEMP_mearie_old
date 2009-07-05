@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+body {
+	font-family: "NanumMyeongjo", "나눔명조", "Batang", "바탕", serif;
+}
+
+* html #menu {
+	position: absolute;
+}
+* html #main {
+	height: 100%;
+}
+
+img {
+	behavior: url('pngbehavior.htc');
+}
+
