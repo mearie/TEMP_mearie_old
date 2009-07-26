@@ -3,14 +3,16 @@
 
 body {
 	font-family:
-		"Linux Libertine", "Palatino Linotype", "Book Antiqua", "Georgia",
-		"NanumMyeongjo", "나눔명조", "Batang", "바탕",
-		"AppleMyungjo", "UnBatang", "은 바탕", serif;
-	font-size: 0.83em;
-	background: url(tile.jpg) top center repeat;
+		"나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic",
+		"Lucida Grande", "AppleGothic", "Verdana", "돋움", "Dotum",
+		"Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim",
+		"Arial", "Helvetica", sans-serif;
+	font-size: 0.9em;
+	background: #534 url(tile.jpg) top center repeat;
 	width: 800px;
 	height: 100%;
 	margin: 0 auto;
+	line-height: 1.6;
 }
 
 #menu {
@@ -23,6 +25,18 @@ body {
 	z-index: 10;
 	color: white;
 }
+#menu h1 {
+	margin: 0;
+}
+#sitename img {
+	border: 0;
+}
+#sitename a {
+	background: none;
+}
+#sitename a:hover img, #sitename a:active img {
+	background: url(logo.png) top left no-repeat;
+}
 #main {
 	position: absolute;
 	background: url(tile-main.jpg) top right repeat-y;
@@ -32,6 +46,14 @@ body {
 	z-index: 0;
 }
 
+h1 {
+	font-size: 200%;
+	margin: 10px 5px;
+}
+h2 {
+	font-size: 160%;
+	margin: 10px 5px;
+}
 p {
 	margin: 5px;
 }
@@ -39,7 +61,29 @@ hr {
 	display: none;
 }
 
-.copyright {
+a {
 	color: #534;
+	text-decoration: underline;
+}
+a:hover, a:active {
+	background: #534;
+	color: white;
+	text-decoration: none;
+}
+
+.cover {
+	margin: 0;
+	padding: 0.3em;
+	font-size: 1.5em;
+	line-height: 1.2;
+	letter-spacing: 2px;
+	color: white;
+	background: #baa;
+	text-align: justify;
+}
+.copyright {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	color: #baa;
 }
 

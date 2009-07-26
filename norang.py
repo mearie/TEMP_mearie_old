@@ -10,17 +10,64 @@ import sys
 import os
 import os.path
 import shutil
+import ConfigParser as configparser
 
 import markdown
 import mako.lookup
 
+class Settings(object):
+    def __init__(self, filenames):
+        self.read_conf(filenames)
+
+    def read_conf(self, filenames):
+        self.conf = configparser.SafeConfigParser()
+        self.conf.read(filenames)
+
+        try:
+            self.internal_encoding = self.conf.get('global', 'encoding')
+        except:
+            self.internal_encoding = 'utf-8'
+
+    def __getitem__(self, key):
+        if self.conf is None:
+            self.read_conf()
+
+        try:
+            sect, opt = key
+            opttype = unicode
+            optdefault = None
+        except ValueError:
+            sect, opt, opttype = key
+            if type(opttype) is not type:
+                optdefault = opttype
+                opttype = type(opttype)
+
+        try:
+            if issubclass(opttype, str):
+                return self.conf.get(sect, opt)
+            elif issubclass(opttype, unicode):
+                return self.conf.get(sect, opt).decode(self.internal_encoding)
+            elif issubclass(opttype, (int, long)):
+                return self.conf.getint(sect, opt)
+            elif issubclass(opttype, float):
+                return self.conf.getfloat(sect, opt)
+            elif issubclass(opttype, bool):
+                return self.conf.getboolean(sect, opt)
+            else:
+                assert False
+        except configparser.NoOptionError:
+            if optdefault is None: raise
+            return optdefault
+
 class Processor(object):
-    def __init__(self, source, destination):
+    def __init__(self, source, destination, settings):
         self.source = source
         self.destination = destination
+        self.settings = settings
 
-        self.working = set([('directory', '/')])
+        self.working = set()
         self.working_data = {} 
+        self.requires = {}
         self.finished = set()
         self.created = set() # in the destination directory
 
@@ -32,10 +79,10 @@ class Processor(object):
                 format_exceptions=True)
 
     def as_source(self, path):
-        return os.path.join(self.source, path.lstrip('/'))
+        return os.path.join(self.source, os.path.normpath(path.lstrip('/')))
 
     def as_destination(self, path):
-        return os.path.join(self.destination, path.lstrip('/'))
+        return os.path.join(self.destination, os.path.normpath(path.lstrip('/')))
 
     def add(self, spec, data=None):
         if spec not in self.finished:
@@ -49,11 +96,11 @@ class Processor(object):
             if f.startswith('.'): continue
             realf = os.path.join(realpath, f)
             if os.path.isdir(realf):
-                self.add(('directory', os.path.join(path, f)))
+                self.add(('directory', path + '/' + f))
             elif f.endswith('.md'):
-                self.add(('markdown', os.path.join(path, f)))
+                self.add(('markdown', path + '/' + f))
             else:
-                self.add(('copy', os.path.join(path, f)))
+                self.add(('copy', path + '/' + f))
 
     def handle_markdown(self, path, data):
         tmpl = self.makoctx.get_template(path)
@@ -67,7 +114,11 @@ class Processor(object):
         self.add(('templated_html', targetpath), result)
 
     def handle_templated_html(self, path, data):
-        tmpl = self.makoctx.get_template(data['template'])
+        try:
+            template = data['template']
+        except KeyError:
+            template = self.settings['processor.templated_html', 'default_template']
+        tmpl = self.makoctx.get_template(template)
         html = tmpl.render(**data)
 
         target = self.as_destination(path)
@@ -87,6 +138,7 @@ class Processor(object):
         return getattr(self, 'handle_' + spec[0])(*spec[1:], data=data)
 
     def process(self):
+        self.add(('directory', ''))
         while self.working:
             spec = self.working.pop()
             data = self.working_data.pop(spec, None)
@@ -94,31 +146,16 @@ class Processor(object):
             self.handle(spec, data)
             self.finished.add(spec)
 
-
-def process_markdown(input, output, encoding='utf-8'):
-    text = open(input, 'r').read().decode(encoding)
-    html = md.convert(text)
-    #print md.Meta
-    open(output, 'w').write(html.encode(encoding))
-    md.reset()
-
-def process(source, destination):
-    for base, dirs, files in os.walk(root):
-        for name in files:
-            if not name.endswith('.txt'): continue
-            input = os.path.join(base, name)
-            output = os.path.join(base, name[:-4])
-            print >>sys.stderr, 'processing', input
-            process_markdown(input, output)
-
 def main(argv):
     if len(argv) < 3:
         print >>sys.stderr, 'norang %s' % __version__
         print >>sys.stderr, 'Type "%s --help" for usage.' % argv[0]
         return 1
 
-    #process(argv[1], argv[2])
-    Processor(argv[1], argv[2]).process()
+    source = argv[1]
+    destination = argv[2]
+    settings = Settings([os.path.join(source, 'norang.ini')])
+    Processor(source, destination, settings).process()
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

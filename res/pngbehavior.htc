@@ -1,50 +1,31 @@
 <public:component>
-<public:attach event="onpropertychange" onevent="propertyChanged()" />
+<public:attach event="onpropertychange" onevent="onpropertychange()" />
 <script>
-
-var supported = /MSIE (5\.5|6)/.test(navigator.userAgent) && navigator.platform == "Win32";
-var realSrc;
-var blankSrc = "blank.gif";
-
-if (supported) fixImage();
-
-function propertyChanged() {
-   if (!supported) return;
-
-   var pName = event.propertyName;
-   if (pName != "src") return;
-   // if not set to blank
-   if ( ! new RegExp(blankSrc).test(src))
-      fixImage();
-};
-
-function fixImage() {
-   // get src
-   var src = element.src;
-
-   // check for real change
-   if (src == realSrc) {
-      element.src = blankSrc;
-      return;
-   }
-
-   if ( ! new RegExp(blankSrc).test(src)) {
-      // backup old src
-      realSrc = src;
-   }
-
-   // test for png
-   if ( /\.png$/.test( realSrc.toLowerCase() ) ) {
-      // set blank image
-      element.src = blankSrc;
-      // set filter
-      element.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "',sizingMethod='scale')";
-   }
-   else {
-      // remove filter
-      element.runtimeStyle.filter = "";
-   }
+var realsrc, blanksrc = /*'/res/blank.gif'*/'/mearie/res/blank.gif';
+if (/MSIE (5\.5|6)/.test(navigator.userAgent) && navigator.platform == "Win32") {
+	fix();
 }
 
+function onpropertychange() {
+	if (supported && event.propertyName == 'src') {
+		if (!new RegExp(blanksrc).test(src)) fix();
+	}
+}
+
+function fix() {
+	var src = element.src;
+	if (src == realsrc) {
+		element.src = blanksrc;
+		return;
+	}
+
+	if (!new RegExp(blanksrc).test(src)) realsrc = src;
+	if (/\.png$/.test(realsrc.toLowerCase())) {
+		element.src = blanksrc;
+		element.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "',sizingMethod='scale')";
+	} else {
+		element.runtimeStyle.filter = '';
+	}
+}
 </script>
 </public:component>
