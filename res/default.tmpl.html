@@ -1,0 +1,96 @@
+## vim: set syn=mako: <%inherit dummy/>
+<%!
+import subprocess
+
+def gethgrev(path, tmpl):
+	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
+	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+
+%>
+
+<%def name="head(lang)">
+<meta http-equiv="Content-Language" content="${lang|h}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${self.attr.title|h} | ${MSG[lang]['sitename']}</title>
+<link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
+<!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
+</%def>
+
+<%def name="sidebar(lang)">
+<div class="slogan">
+	<a href="/"><img class="logo" src="/res/logo.png" width="117" height="117" alt="${MSG[lang]['gotoindex']}" /></a>
+</div>
+<ul class="menu">
+	<li><a href="/about/">대하여</a></li>
+	<li><a href="/projects/">소프트웨어</a><ul>
+		<li><a href="/projects/dokuwiki-custom/">DokuWiki-custom</a></li>
+		<li><a href="/projects/esotope/">esotope</a></li>
+		<li><a href="/projects/vim-hangeul/">hangeul.vim</a></li>
+		<li><a href="/projects/pyfunge/">PyFunge</a></li>
+		<li><a href="/projects/transdate/">transdate</a></li>
+		<li><a href="/projects/vlaah-python/">vlaah-python</a></li>
+		<li><a href="/projects/naru/">나루 프로그래밍 언어</a></li>
+		<li><a href="/projects/versert/">버섯 프로그래밍 언어</a></li>
+		<li><a href="/projects/angolmois/">앙골모아</a></li>
+	</ul></li>
+	<li><a href="/documents/">문서</a></li>
+	<li><a href="http://j.mearie.org/">저널</a></li>
+	<li><a href="/stuffs/">잡것</a></li>
+</ul>
+<%doc>
+<ul class="nav"><li lang="ko" class="current"><a href="index.ko">한국어</a></li><li lang="en"><a href="index.en">English</a></li><li lang="ja"><a href="index.ja">日本語</a></li></ul>
+</%doc>
+</%def>
+
+<%def name="bodypre(lang)">
+<h1>${self.attr.title|h}</h1>
+</%def>
+
+<%def name="bodypost(lang)">
+</%def>
+
+<%def name="meta(lang)">
+<div class="info">
+	${gethgrev(self.uri, 'rev {node|short}')}
+</div>
+<form action="http://www.google.com/cse" class="search">
+	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
+	<input type="text" name="q" size="30"/>
+	<input type="submit" name="sa" value="${MSG[lang]['search']}" class="button"/>
+</form>
+<div class="copyright">${MSG[lang]['copyright']|n}</div>
+</%def>
+
+<%
+try:
+    lang = self.attr.language
+except AttributeError:
+    for l in LANGUAGES:
+        if ('.%s.' % l) in self.uri: lang = l
+
+try:
+    filter = self.attr.filter
+except AttributeError:
+    filter = markdown
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang|h}">
+<head>
+${self.head(lang)}
+</head>
+<body>
+<div id="sitebody" lang="${lang|h}">
+${self.bodypre(lang)}
+${capture(self.body)|filter}
+${self.bodypost(lang)}
+</div>
+<hr/>
+<div id="siteside">
+${self.sidebar(lang)}
+</div>
+<div id="sitemeta">
+${self.meta(lang)}
+</div>
+</body>
+</html>
