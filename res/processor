@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+import os
+import sys
+import getopt
+import posixpath
+from mako.template import Template
+from mako.lookup import TemplateCollection
+
+class CustomLookup(TemplateCollection):
+    def __init__(self, base, default_template=None, **template_args):
+        TemplateCollection.__init__(self)
+        self.base = base
+        self.default_tmpl = default_template
+        self.template_args = template_args
+
+    def preprocess(self, data):
+        if self.default_tmpl is not None and '<%inherit' not in data:
+            # note: topmost template should contain <%doc><%inherit file=""/></%doc>
+            data = '<%inherit file="' + self.default_tmpl + '"/>' + data
+        return data
+
+    def get_template(self, uri):
+        return Template(uri=uri, filename=self.convert_to_path(uri), lookup=self,
+                module_filename=None, preprocessor=self.preprocess, **self.template_args)
+
+    def make_template(self, uri, data):
+        return Template(uri=uri, filename=self.convert_to_path(uri), text=data, lookup=self,
+                module_filename=None, preprocessor=self.preprocess, **self.template_args)
+
+    def filename_to_uri(self, uri, filename):
+        raise NotImplementedError
+
+    def adjust_uri(self, uri, relativeto):
+        if uri.startswith('/'):
+            return uri
+        else:
+            if relativeto is not None:
+                return posixpath.join(posixpath.dirname(relativeto), uri)
+            else:
+                return '/' + uri
+
+    def convert_to_path(self, uri):
+        return os.path.join(self.base, uri.lstrip('/'))
+
+def main(argv):
+    try:
+        opts, args = getopt.gnu_getopt(argv, 'o:b:t:', ['output=', 'base=', 'default-template='])
+    except getopt.GetoptError, e:
+        print >>sys.stderr, str(e)
+        return 1
+
+    outpath = None
+    basepath = os.getcwd()
+    deftmpl = None
+    for o, a in opts:
+        if o in ('-o', '--output'):
+            outpath = a
+        elif o in ('-b', '--base'):
+            basepath = a
+        elif o in ('-t', '--default-template'):
+            deftmpl = a
+        else:
+            assert False
+
+    runtime = __import__('mearie.runtime').runtime
+    rtsyms = [i for i in dir(runtime) if not i.startswith('_')]
+
+    lookup = CustomLookup(base=basepath, default_template=deftmpl,
+            input_encoding='utf-8', output_encoding='utf-8', format_exceptions=False,
+            imports=['from mearie.runtime import %s' % ','.join(rtsyms)])
+    tmpl = lookup.get_template(args[0])
+    result = tmpl.render().strip('\r\n')
+    if outpath is None:
+        sys.stdout.write(result)
+    else:
+        open(outpath, 'wb').write(result)
+
+    return 0
+
+if __name__ == '__main__':
+    raise SystemExit(main(sys.argv[1:]))
+
