@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+* {
+	color: inherit;
+}
+
+body, input, select, :lang(en) {
+	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
+}
+code, pre, var, samp, kbd, tt, textarea,
+code:lang(en), code:lang(en) *, pre:lang(en), pre:lang(en) *, var:lang(en), var:lang(en) *,
+samp:lang(en), samp:lang(en) *, kbd:lang(en), kbd:lang(en) *, tt:lang(en), tt:lang(en) *, textarea:lang(en) {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", "Luxi Mono", monospace;
+}
+:lang(ko) {
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+code:lang(ko), code:lang(ko) *, pre:lang(ko), pre:lang(ko) *, var:lang(ko), var:lang(ko) *,
+samp:lang(ko), samp:lang(ko) *, kbd:lang(ko), kbd:lang(ko) *, tt:lang(ko), tt:lang(ko) *, textarea:lang(ko) {
+	font-family: "NanumGothicCoding", "나눔고딕코딩", "NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
+}
+:lang(ja) {
+	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
+}
+
+/* design */
+body {
+	width: 960px;
+	font-weight: 100;
+	font-size: 0.9em;
+	margin: 0 auto;
+	color: #444;
+	background: #eee;
+	line-height: 1.5;
+	text-align: center;
+}
+hr {
+	display: none;
+}
+#sitebody {
+	width: 640px;
+	float: right;
+	text-align: left;
+	margin-right: 10px;
+	margin-bottom: 1em;
+}
+#siteside {
+	width: 300px;
+	float: left;
+	text-align: left;
+	margin-bottom: 1em;
+}
+#sitemeta {
+	clear: both;
+	margin: 0 auto;
+	text-align: left;
+	border-top: 2px solid #379;
+}
+#sitebody hr, #siteside hr, #sitemeta hr {
+	display: block;
+}
+.slogan {
+	margin: 0.4em 1em 0 0;
+}
+.logo {
+	float: left;
+}
+.menu {
+	list-style: none;
+	margin-top: 0.8em;
+	margin-left: 120px;
+	padding: 0;
+}
+.menu li {
+	margin: 0;
+	font-size: 133%;
+}
+.menu ul {
+	list-style: none;
+	margin-left: 1em;
+	padding: 0;
+}
+.menu li li {
+	font-size: 66%;
+}
+.menu li li li {
+	font-size: 100%;
+}
+.info {
+	width: 45%;
+	display: inline;
+	float: right;
+	text-align: right;
+	margin: 0.5em 1em;
+	font-size: 80%;
+	color: #379;
+}
+.search {
+	width: 45%;
+	margin: 0.5em 0.8em;
+}
+.copyright {
+	width: 45%;
+	color: #379;
+	font-size: 75%;
+	margin: 0.5em 1em;
+	text-align: left;
+}
+.copyright a {
+	color: #9ac;
+}
+
+.parents {
+	text-align: left;
+	margin-top: -2.5em;
+	padding: 0.5em;
+	/*border-bottom: 1em solid #a78;*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#967), to(#a78));
+}
+.parents img {
+	vertical-align: middle;
+}
+.nav {
+	display: inline;
+	list-style: none;
+	width: auto;
+	padding: 0.3em 0.5em;
+	border-top: 1px solid #c9a;
+	border-bottom: 1px solid #c9a;
+}
+.nav li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+.nav li.current {
+	font-weight: 700;
+}
+.nav li:nth-child(n+2):before {
+	content: ' · ';
+}
+
+/* block elements */
+h1 {
+	text-align: right;
+	font-size: 200%;
+	line-height: 0.8;
+	margin: 0.5em 0;
+	color: #379;
+}
+h2 {
+	text-align: left;
+	font-size: 150%;
+}
+h3, h4, h5, h6 {
+	text-align: left;
+}
+p {
+	color: #444;
+	margin: 1em auto;
+	text-align: justify;
+}
+ul {
+	list-style: square;
+	text-align: justify;
+	padding-left: 1.5em;
+	margin-left: 0;
+}
+ol {
+	text-align: justify;
+	padding-left: 1.5em;
+	margin-left: 0;
+}
+
+/* inline elements */
+a {
+	color: #379;
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: none;
+}
+strong {
+	font-weight: 700;
+}
+img {
+	border: 0;
+}
+input {
+	vertical-align: middle;
+	padding: 1px 3px;
+}
+

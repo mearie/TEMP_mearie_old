@@ -1,0 +1,4 @@
+<%! title = u'Kang Seonghoon' %>
+
+...is a mundane person. Nothing special.
+

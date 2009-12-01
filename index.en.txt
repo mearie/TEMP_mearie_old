@@ -1,0 +1,19 @@
+<%inherit file="/res/index.tmpl.html"/>
+<%! title = u'mearie.org' %>
+
+**mearie.org** is a personal domain and website of me, [Kang Seonghoon](/about/kang-seonghoon). I am a software developer engaged in several free and open source projects.
+
+
+Contents
+--------
+
+* [About mearie.org and Kang Seonghoon](about/)
+* [Software projects](projects/)
+* [Documents](documents/)
+* [Journal](journal/)
+
+There are also several dedicated domains:
+
+* [`cosmic.mearie.org`](http://cosmic.mearie.org/)
+* [`hg.mearie.org`](http://hg.mearie.org/)
+
