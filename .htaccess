@@ -1,0 +1,6 @@
+Options +MultiViews -Indexes
+DirectoryIndex index
+LanguagePriority en ko ja
+ForceLanguagePriority Prefer Fallback
+AddDefaultCharset utf-8
+

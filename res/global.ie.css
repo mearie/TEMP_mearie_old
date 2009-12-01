@@ -1,23 +1,30 @@
 @charset "utf-8";
 
-body {
-	font-family:
-		"나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic",
-		"돋움", "Dotum", "Arial", "Helvetica", sans-serif;
+body, input, select {
+	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+code, pre, var, samp, kbd, tt, textarea {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", "Luxi Mono", monospace;
+	font-family: "NanumGothicCoding", "나눔고딕코딩", "NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
+}
+:lang(ja) {
+	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
 }
 
-* html #menu {
-	position: absolute;
+ul.nav {
+	padding-right: 0;
 }
-* html #sitename a:hover img, * html #sitename a:active img {
-	background: none;
+ul.nav li {
+	margin-right: 0.5em;
 }
-* html #main {
-	height: 100%;
-}
-
-img {
-	/*behavior: url(/res/pngbehavior.htc);*/
-	behavior: url(/mearie/res/pngbehavior.htc);
+input.button {
+	height: 1.9em;
 }
 
