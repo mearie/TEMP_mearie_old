@@ -13,7 +13,7 @@ clean: ${TREE}
 	rm -f ${TARGETS} ${TYPEMAPS} ${RESOURCES}
 
 res/logo.png: res/logo-template.png ${SELF}
-	convert $< -fx 'a*#379+(1-a)*#eee' -channel A -fx 1 $@
+	convert $< -fx 'a^1.3*#379+(1-a^1.3)*#eee' -channel A -fx 1 $@
 
 %.html: %.txt
 	res/processor $< -b . -t /res/default.tmpl.html -o $@
