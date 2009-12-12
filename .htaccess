@@ -16,3 +16,7 @@ AddDefaultCharset utf-8
 	Order deny,allow
 	Deny from all
 </Files>
+<Files *.tmpl.html>
+	Order deny,allow
+	Deny from all
+</Files>
