@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="menu(lang)" filter="markdown">
+* [${lang(ko=u'대하여', en=u'About')}](/about/)
+	* [${lang(ko=u'강 성훈', en=u'Kang Seonghoon')}](/about/kang-seonghoon)
+	* [${lang(ko=u'메아리', en=u'mearie.org')}](/about/mearie)
+	* [${lang(ko=u'저작권', en=u'Copyright')}](/about/copyright)
+* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/)
+* [${lang(ko=u'문서', en=u'Documents')}](/documents/)
+* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/)
+* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/)
+</%def>
