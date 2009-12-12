@@ -11,14 +11,14 @@ def gethgrev(path, tmpl):
 <%def name="head(lang)">
 <meta http-equiv="Content-Language" content="${lang|h}" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${self.attr.title|h} | ${MSG[lang]['sitename']}</title>
+<title>${self.attr.title|h} | ${lang(ko=u'메아리', en=u'mearie.org')}</title>
 <link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
 <!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
 </%def>
 
 <%def name="sidebar(lang)">
 <div class="slogan">
-	<a href="/"><img class="logo" src="/res/logo.png" width="117" height="117" alt="${MSG[lang]['gotoindex']}" /></a>
+	<a href="/"><img class="logo" src="/res/logo.png" width="117" height="117" alt="${lang(ko=u'메아리 처음으로', en=u'Go to mearie.org front page.')}" /></a>
 </div>
 <div class="menu">
 ${self.menu(lang)}
@@ -28,14 +28,12 @@ ${self.menu(lang)}
 </%doc>
 </%def>
 
-<%def name="menu(lang)">
-<%text filter="markdown">
-* [대하여](/about/)
-* [소프트웨어](/projects/)
-* [문서](/documents/)
-* [저널](http://j.mearie.org/)
-* [잡것](/stuffs/)
-</%text>
+<%def name="menu(lang)" filter="markdown">
+* [${lang(ko=u'대하여', en=u'About')}](/about/)
+* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/)
+* [${lang(ko=u'문서', en=u'Documents')}](/documents/)
+* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/)
+* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/)
 </%def>
 
 <%def name="bodypre(lang)">
@@ -52,17 +50,20 @@ ${self.menu(lang)}
 <form action="http://www.google.com/cse" class="search">
 	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
 	<input type="text" name="q" size="30"/>
-	<input type="submit" name="sa" value="${MSG[lang]['search']}" class="button"/>
+	<input type="submit" name="sa" value="${lang(ko=u'구글 검색', en=u'Google Search')}" class="button"/>
 </form>
-<div class="copyright">${MSG[lang]['copyright']|n}</div>
+<div class="copyright">${lang(
+	ko=u'저작권자 © 1999–2009, 강 성훈. <a href="/about/copyright">저작권을 약간 가집니다.</a>',
+	en=u'Copyright © 1999–2009, Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
+)|n}</div>
 </%def>
 
 <%
 try:
-    lang = self.attr.language
+    lang = Language(self.attr.language)
 except AttributeError:
     for l in LANGUAGES:
-        if ('.%s.' % l) in self.uri: lang = l
+        if ('.%s.' % l) in self.uri: lang = Language(l)
 
 try:
     filter = self.attr.filter

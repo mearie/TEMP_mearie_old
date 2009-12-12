@@ -4,17 +4,23 @@ from mearie.markdown import markdown
 md = markdown
 
 LANGUAGES = ['en', 'ko', 'ja']
-MSG = {
-	'ko': {
-		'sitename': u'메아리',
-		'gotoindex': u'메아리 처음으로',
-		'copyright': u'저작권자 © 1999–2009, 강 성훈. <a href="/about/copyright">저작권을 약간 가집니다.</a>',
-		'search': u'구글 검색',
-	},
-	'en': {
-		'sitename': u'mearie.org',
-		'gotoindex': u'Go to mearie.org front page.',
-		'copyright': u'Copyright © 1999–2009, Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
-		'search': u'Google Search',
-	},
-}
+
+class Language(object):
+    def __init__(self, lang):
+        self.lang = lang
+        assert lang in LANGUAGES
+
+    def __call__(self, **strings):
+        try:
+            return strings[self.lang]
+        except KeyError:
+            for lang in LANGUAGES:
+                if lang in strings: return strings[lang]
+            else: raise
+
+    def __str__(self):
+        return self.lang
+
+    def __repr__(self):
+        return 'Language(%r)' % self.lang
+
