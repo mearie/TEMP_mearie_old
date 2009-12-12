@@ -20,26 +20,33 @@ def gethgrev(path, tmpl):
 <div class="slogan">
 	<a href="/"><img class="logo" src="/res/logo.png" width="117" height="117" alt="${MSG[lang]['gotoindex']}" /></a>
 </div>
-<ul class="menu">
-	<li><a href="/about/">대하여</a></li>
-	<li><a href="/projects/">소프트웨어</a><ul>
-		<li><a href="/projects/dokuwiki-custom/">DokuWiki-custom</a></li>
-		<li><a href="/projects/esotope/">esotope</a></li>
-		<li><a href="/projects/vim-hangeul/">hangeul.vim</a></li>
-		<li><a href="/projects/pyfunge/">PyFunge</a></li>
-		<li><a href="/projects/transdate/">transdate</a></li>
-		<li><a href="/projects/vlaah-python/">vlaah-python</a></li>
-		<li><a href="/projects/naru/">나루 프로그래밍 언어</a></li>
-		<li><a href="/projects/versert/">버섯 프로그래밍 언어</a></li>
-		<li><a href="/projects/angolmois/">앙골모아</a></li>
-	</ul></li>
-	<li><a href="/documents/">문서</a></li>
-	<li><a href="http://j.mearie.org/">저널</a></li>
-	<li><a href="/stuffs/">잡것</a></li>
-</ul>
+<div class="menu">
+${self.menu(lang)}
+</div>
 <%doc>
 <ul class="nav"><li lang="ko" class="current"><a href="index.ko">한국어</a></li><li lang="en"><a href="index.en">English</a></li><li lang="ja"><a href="index.ja">日本語</a></li></ul>
 </%doc>
+</%def>
+
+<%def name="menu(lang)">
+<%text filter="markdown">
+* [대하여](/about/)
+* [소프트웨어](/projects/)
+	* [DokuWiki-custom](/projects/dokuwiki-custom/)
+	* [esotope](/projects/esotope/)
+	* [hangeul.vim](/projects/vim-hangeul/)
+	* [PyFunge](/projects/pyfunge/)
+	* [transdate](/projects/transdate/)
+	* [vlaah-python](/projects/vlaah-python/)
+	* [나루 프로그래밍 언어](/projects/naru/)
+		* [레퍼런스](/projects/naru/references/)
+			* 어쩔씨구
+	* [버섯 프로그래밍 언어](/projects/versert/)
+	* [앙골모아](/projects/angolmois/)
+* [문서](/documents/)
+* [저널](http://j.mearie.org/)
+* [잡것](/stuffs/)
+</%text>
 </%def>
 
 <%def name="bodypre(lang)">
