@@ -72,24 +72,41 @@ hr {
 	float: left;
 }
 .menu {
-	list-style: none;
 	margin-top: 0.8em;
 	margin-left: 120px;
+	padding: 0;
+}
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.menu ul ul {
+	list-style: none;
+	margin-left: 1em;
+	padding: 0;
+}
+.menu ul ul ul {
+	border-left: 2px dotted #379;
+	margin-left: 0.2em;
+	padding-left: 0.8em;
+}
+.menu ul ul ul ul {
+	border-left: 0;
+	margin-left: 1em;
 	padding: 0;
 }
 .menu li {
 	margin: 0;
 	font-size: 133%;
 }
-.menu ul {
-	list-style: none;
-	margin-left: 1em;
-	padding: 0;
-}
 .menu li li {
 	font-size: 66%;
 }
 .menu li li li {
+	font-size: 90%;
+}
+.menu li li li li {
 	font-size: 100%;
 }
 .info {

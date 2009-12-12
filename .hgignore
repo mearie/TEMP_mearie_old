@@ -3,3 +3,4 @@ syntax: glob
 *.html
 Makefile.tree
 res/logo.png
+res/cache

@@ -4,17 +4,19 @@ HGREPO = .hg
 SELF = Makefile
 TREE = Makefile.tree
 RESOURCES = res/logo.png
+CACHEDIR = res/cache
 -include ${TREE}
 
 HG = hg -R ${HGREPO}/..
 CONVERT = convert
-PROCESSOR = res/processor
+PROCESSOR = res/processor -c ${CACHEDIR}
 GENERATOR = res/generator
 
 all: ${TREE} ${TARGETS} ${RESOURCES}
 
 clean: ${TREE}
 	rm -f ${TARGETS} ${RESOURCES}
+	rm -rf ${CACHEDIR}
 
 clean-all: clean
 	rm -f ${TREE}

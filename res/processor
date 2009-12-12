@@ -6,6 +6,9 @@ import posixpath
 from mako.template import Template
 from mako.lookup import TemplateCollection
 
+import mearie.cache
+import mearie.runtime
+
 class CustomLookup(TemplateCollection):
     def __init__(self, base, default_template=None, **template_args):
         TemplateCollection.__init__(self)
@@ -44,7 +47,8 @@ class CustomLookup(TemplateCollection):
 
 def main(argv):
     try:
-        opts, args = getopt.gnu_getopt(argv, 'o:b:t:', ['output=', 'base=', 'default-template='])
+        opts, args = getopt.gnu_getopt(argv, 'c:o:b:t:',
+                ['cache-dir=', 'output=', 'base=', 'default-template='])
     except getopt.GetoptError, e:
         print >>sys.stderr, str(e)
         return 1
@@ -53,7 +57,9 @@ def main(argv):
     basepath = os.getcwd()
     deftmpl = None
     for o, a in opts:
-        if o in ('-o', '--output'):
+        if o in ('-c', '--cache-dir'):
+            mearie.cache.CACHEDIR = a
+        elif o in ('-o', '--output'):
             outpath = a
         elif o in ('-b', '--base'):
             basepath = a
@@ -62,9 +68,7 @@ def main(argv):
         else:
             assert False
 
-    runtime = __import__('mearie.runtime').runtime
-    rtsyms = [i for i in dir(runtime) if not i.startswith('_')]
-
+    rtsyms = [i for i in dir(mearie.runtime) if not i.startswith('_')]
     lookup = CustomLookup(base=basepath, default_template=deftmpl,
             input_encoding='utf-8', output_encoding='utf-8', format_exceptions=False,
             imports=['from mearie.runtime import %s' % ','.join(rtsyms)])
