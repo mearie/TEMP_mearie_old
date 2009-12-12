@@ -9,7 +9,7 @@ CACHEDIR = res/cache
 
 HG = hg -R ${HGREPO}/..
 CONVERT = convert
-PROCESSOR = res/processor -c ${CACHEDIR}
+PROCESSOR = res/processor -c ${CACHEDIR} -b ${HGREPO}/..
 GENERATOR = res/generator
 
 all: ${TREE} ${TARGETS} ${RESOURCES}
@@ -25,7 +25,7 @@ res/logo.png: res/logo-template.png ${SELF}
 	${CONVERT} $< -fx 'a^1.3*#379+(1-a^1.3)*#eee' -channel A -fx 1 $@
 
 %.html: %.txt
-	${PROCESSOR} $< -b . -t /res/default.tmpl.html -o $@
+	${PROCESSOR} $< -o $@
 
 ${TREE}: ${HGREPO} ${SELF}
 	${GENERATOR} $</.. > $@
