@@ -4,3 +4,15 @@ LanguagePriority en ko ja
 ForceLanguagePriority Prefer Fallback
 AddDefaultCharset utf-8
 
+<Files *.ko.txt>
+	Order deny,allow
+	Deny from all
+</Files>
+<Files *.en.txt>
+	Order deny,allow
+	Deny from all
+</Files>
+<Files *.ja.txt>
+	Order deny,allow
+	Deny from all
+</Files>
