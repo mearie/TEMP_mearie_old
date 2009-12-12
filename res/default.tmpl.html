@@ -51,7 +51,7 @@ def gethgrev(path, tmpl):
 
 <%def name="meta(lang)">
 <div class="info">
-	${gethgrev(self.uri, 'rev {node|short}')}
+	${gethgrev(self.uri, 'rev {node|short}') or 'working copy'}
 </div>
 <form action="http://www.google.com/cse" class="search">
 	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
