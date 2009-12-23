@@ -6,12 +6,22 @@ def gethgrev(path, tmpl):
 	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
 	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
 
+# default values
+title = None
 %>
 
-<%def name="head(lang)">
+<%def name="region(lang)">
+${lang(ko=u'메아리', en=u'mearie.org')}
+</%def>
+
+<%def name="head(lang, title)">
 <meta http-equiv="Content-Language" content="${lang|h}" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${self.attr.title|h} | ${lang(ko=u'메아리', en=u'mearie.org')}</title>
+% if title:
+<title>${title|h} | ${self.region(lang)}</title>
+% else:
+<title>${self.region(lang)}</title>
+% endif
 <link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
 <!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
 </%def>
@@ -36,8 +46,12 @@ ${self.menu(lang)}
 * [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/)
 </%def>
 
-<%def name="bodypre(lang)">
-<h1>${self.attr.title|h}</h1>
+<%def name="bodypre(lang, title)">
+% if title:
+<h1>${title|h}</h1>
+% else:
+<h1>${capture(self.region, lang)|h}</h1>
+% endif
 </%def>
 
 <%def name="bodypost(lang)">
@@ -69,16 +83,21 @@ try:
     filter = self.attr.filter
 except AttributeError:
     filter = markdown
+
+try:
+    title = self.attr.title
+except AttributeError:
+    title = u''
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang|h}">
 <head>
-${self.head(lang)}
+${self.head(lang, title=title)}
 </head>
 <body>
 <div id="sitebody" lang="${lang|h}">
-${self.bodypre(lang)}
+${self.bodypre(lang, title=title)}
 ${capture(self.body)|filter}
 ${self.bodypost(lang)}
 </div>
