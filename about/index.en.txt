@@ -1,0 +1,4 @@
+[mearie.org](mearie) is a personal website of [Kang Seonghoon](kang-seonghoon). Kang Seonghoon is a South Korean (under)graduate student majored in computer science, and also a software developer engaged in several free and open source software projects. mearie.org is one of dozen websites hosted on [ruree.net](http://ruree.net/) server, and `mearie.org` domain is strictly dedicated to my creations and/or related thingies.
+
+*Mearie*, spelled 메아리 in Hangeul, means an echo in Korean. (You may note the romanization is not standard. This is intended.)
+

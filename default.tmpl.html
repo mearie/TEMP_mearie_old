@@ -10,6 +10,8 @@ def gethgrev(path, tmpl):
 title = None
 %>
 
+<%namespace name="m" file="/res/library.tmpl.html" import="*" />
+
 <%def name="region(lang)">
 ${lang(ko=u'메아리', en=u'mearie.org')}
 </%def>
@@ -67,8 +69,8 @@ ${self.menu(lang)}
 	<input type="submit" name="sa" value="${lang(ko=u'구글 검색', en=u'Google Search')}" class="button"/>
 </form>
 <div class="copyright">${lang(
-	ko=u'저작권자 © 1999–2009, 강 성훈. <a href="/about/copyright">저작권을 약간 가집니다.</a>',
-	en=u'Copyright © 1999–2009, Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
+	ko=u'저작권자 © 1999–2010 강 성훈. <a href="/about/copyright">저작권을 약간 가집니다.</a>',
+	en=u'Copyright © 1999–2010 Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
 )|n}</div>
 </%def>
 

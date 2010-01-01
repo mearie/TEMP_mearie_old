@@ -1,5 +1,4 @@
 <%inherit file="index.tmpl.html"/>
-<%! title = u'mearie.org' %>
 
 **mearie.org** is a personal domain and website of me, [Kang Seonghoon](/about/kang-seonghoon). I am a software developer engaged in several free and open source projects.
 
