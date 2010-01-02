@@ -1,4 +1,9 @@
 #!/bin/bash
 REPO=${1:-.}
-echo -n "TARGETS = "
-hg -R ${REPO} status -nmac | grep '\.\(en\|ko\|ja\)\.txt$' | sed ':a;s/\.txt$/.html/;N;s/\n/ /;ta'
+targets=
+while IFS= read src; do
+	dest=${src%.txt}.html
+	targets="$targets $dest"
+	res/processor -b "$REPO" "$src" -o "$dest" -D
+done < <(hg -R "$REPO" status -nmac | grep '\.\(en\|ko\|ja\)\.txt$')
+echo "TARGETS =$targets"
