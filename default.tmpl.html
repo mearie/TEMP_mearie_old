@@ -43,12 +43,19 @@ ${self.menu(lang)}
 </%def>
 
 <%def name="menu(lang)" filter="markdown">
-* [${lang(ko=u'대하여', en=u'About')}](/about/)
-* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/)
-* [${lang(ko=u'문서', en=u'Documents')}](/documents/)
-* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/)
-* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/)
+* [${lang(ko=u'대하여', en=u'About')}](/about/) ${capture(self.menu_about,lang)|indent}
+* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/) ${capture(self.menu_projects,lang)|indent}
+* [${lang(ko=u'문서', en=u'Documents')}](/documents/) ${capture(self.menu_documents,lang)|indent}
+* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/) ${capture(self.menu_journal,lang)|indent}
+* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/) ${capture(self.menu_stuffs,lang)|indent}
 </%def>
+
+## for other sections
+<%def name="menu_about(lang)"/>
+<%def name="menu_projects(lang)"/>
+<%def name="menu_documents(lang)"/>
+<%def name="menu_journal(lang)"/>
+<%def name="menu_stuffs(lang)"/>
 
 <%def name="bodypre(lang, title)">
 % if title:

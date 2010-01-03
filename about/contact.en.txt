@@ -1,4 +1,5 @@
 ## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
 <%! title = u'Contact' %>
 
 As of early 2010, my personal e-mail address is as follows:
