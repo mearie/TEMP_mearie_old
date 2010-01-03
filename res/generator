@@ -1,9 +1,10 @@
 #!/bin/bash
 REPO=${1:-.}
-targets=
-while IFS= read src; do
-	dest=${src%.txt}.html
-	targets="$targets $dest"
-	res/processor -b "$REPO" "$src" -o "$dest" -D
-done < <(hg -R "$REPO" status -nmac | grep '\.\(en\|ko\|ja\)\.txt$')
-echo "TARGETS =$targets"
+
+function lssrcs() {
+	hg -R "$1" status -nmac | grep '\.\(en\|ko\|ja\)\.txt$'
+}
+
+echo -n "TARGETS = "
+lssrcs "$REPO" | sed ':a;s/\.txt$/.html/;N;s/\n/ /;ta'
+lssrcs "$REPO" | sed 's/^\(.*\)\.txt$/\1.txt\t\1.html/' | "`dirname "$0"`/processor" -D -b "$REPO"
