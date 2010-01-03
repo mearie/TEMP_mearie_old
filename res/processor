@@ -53,26 +53,29 @@ class CustomLookup(TemplateCollection):
                 path = os.path.join(dir, name)
         return path
 
-def calculate_deps(lookup, filename):
+def calculate_deps(lookup, filename, cache):
     pending = set([lookup.convert_to_path(filename)])
     result = set()
     while pending:
         filename = pending.pop()
-        tmpl = lookup.get_template(filename)
-        lexer = Lexer(file(tmpl.filename).read(), tmpl.filename,
-                      disable_unicode=tmpl.disable_unicode,
-                      input_encoding=tmpl.input_encoding,
-                      preprocessor=tmpl.preprocessor)
-        node = lexer.parse()
-        class visitor(object):
-            def __init__(self, deps): self.deps = deps
-            def visitIncludeTag(self, tag): self.deps.add(tag.attributes['file'])
-            def visitInheritTag(self, tag): self.deps.add(tag.attributes['file'])
-            def visitNamespaceTag(self, tag):
-                if 'file' in tag.attributes: self.deps.add(tag.attributes['file'])
-        deps = set()
-        node.accept_visitor(visitor(deps))
-        deps = set(lookup.convert_to_path(lookup.adjust_uri(dep, filename)) for dep in deps)
+        if filename not in cache:
+            tmpl = lookup.get_template(filename)
+            lexer = Lexer(file(tmpl.filename).read(), tmpl.filename,
+                          disable_unicode=tmpl.disable_unicode,
+                          input_encoding=tmpl.input_encoding,
+                          preprocessor=tmpl.preprocessor)
+            node = lexer.parse()
+            class visitor(object):
+                def __init__(self, deps): self.deps = deps
+                def visitIncludeTag(self, tag): self.deps.add(tag.attributes['file'])
+                def visitInheritTag(self, tag): self.deps.add(tag.attributes['file'])
+                def visitNamespaceTag(self, tag):
+                    if 'file' in tag.attributes: self.deps.add(tag.attributes['file'])
+            deps = set()
+            node.accept_visitor(visitor(deps))
+            deps = set(lookup.convert_to_path(lookup.adjust_uri(dep, filename)) for dep in deps)
+            cache[filename] = deps
+        deps = cache[filename]
         pending.update(deps - result)
         result.update(deps)
     return result
@@ -87,10 +90,11 @@ def main(argv):
 
     outpath = None
     basepath = os.getcwd()
+    cachedir = None
     printdeps = False
     for o, a in opts:
         if o in ('-c', '--cache-dir'):
-            mearie.cache.CACHEDIR = a
+            cachedir = a
         elif o in ('-o', '--output'):
             outpath = a
         elif o in ('-b', '--base'):
@@ -105,13 +109,23 @@ def main(argv):
             input_encoding='utf-8', output_encoding='utf-8', format_exceptions=False,
             imports=['from mearie.runtime import %s' % ','.join(rtsyms)])
     if printdeps:
-        if not outpath:
-            print >>sys.stderr, 'Error: --print-dependency requires --output argument.'
+        if outpath or cachedir:
+            print >>sys.stderr, 'Error: --print-dependency cannot be used together '\
+                                'with --output or --cache-dir options.'
             return 1
-        deps = calculate_deps(lookup, args[0])
-        if deps: print '%s: %s' % (outpath, ' '.join(deps))
-        return 1
+        cache = {}
+        if args and args[0] != '-':
+            input = file(args[0])
+        else:
+            input = sys.stdin
+        for line in input:
+            line = line.rstrip('\r\n')
+            if not line: continue
+            src, dest = line.split('\t')
+            deps = calculate_deps(lookup, src, cache)
+            if deps: print '%s: %s' % (dest, ' '.join(deps))
     else:
+        if cachedir: mearie.cache.CACHEDIR = cachedir
         tmpl = lookup.get_template(args[0])
         result = tmpl.render(topmost=tmpl).strip('\r\n')
         if outpath is None:
