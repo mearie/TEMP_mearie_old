@@ -3,6 +3,10 @@
 from mearie.markdown import markdown
 md = markdown
 
+def indent(s):
+    if not s.strip(): return ''
+    return '\n\t' + s.strip('\r\n').replace('\n', '\n\t')
+
 LANGUAGES = ['en', 'ko', 'ja']
 
 class Language(object):

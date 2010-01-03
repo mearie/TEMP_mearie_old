@@ -1,4 +1,5 @@
 ## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
 <%! title = u'Kang Seonghoon' %>
 
 <%m:imgframe src="lifthrasiir-20081108.jpg" align="right">On 2008-11-08. (&copy; [Kim Joon-gi](http://www.flickr.com/photos/daybreaker12/3011869731/))</%m:imgframe>
