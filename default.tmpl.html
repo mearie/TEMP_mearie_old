@@ -69,8 +69,13 @@ ${self.menu(lang)}
 </%def>
 
 <%def name="meta(lang)">
+<% rev = gethgrev(self.uri, '{node|short}') %>
 <div class="info">
-	${gethgrev(self.uri, 'rev {node|short}') or 'working copy'}
+	% if rev:
+	rev <a href="http://hg.mearie.org/mearie.org/3.x/file/${rev}/${topmost.uri.lstrip('/')}">${rev}</a>
+	% else:
+	working copy
+	% endif
 </div>
 <form action="http://www.google.com/cse" class="search">
 	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
