@@ -87,24 +87,12 @@ hr {
 	padding: 0;
 }
 .menu ul ul ul {
-	border-left: 2px dotted #379;
-	margin-left: 0.2em;
-	padding-left: 0.8em;
-}
-.menu ul ul ul ul {
-	border-left: 0;
-	margin-left: 1em;
-	padding: 0;
+	margin-left: 1.2em;
 }
 .menu li {
 	margin: 0;
 	font-size: 133%;
 }
-/*
-.menu li p {
-	margin: 0;
-}
-*/
 .menu li li {
 	font-size: 66%;
 }
