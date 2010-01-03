@@ -199,6 +199,9 @@ a {
 a:visited {
 	text-decoration: none;
 }
+a:hover, a:active {
+	color: #973;
+}
 strong {
 	font-weight: 700;
 }
