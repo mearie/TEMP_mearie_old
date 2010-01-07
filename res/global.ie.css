@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*
 body, input, select {
 	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
 	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
@@ -16,6 +17,40 @@ code, pre, var, samp, kbd, tt, textarea {
 	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
 		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
 		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
+}
+*/
+
+.lang-en, .lang-en * {
+	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
+}
+code.lang-en, .lang-en code, code.lang-en *, pre.lang-en, .lang-en pre, pre.lang-en *,
+var.lang-en, .lang-en var, var.lang-en *, samp.lang-en, .lang-en samp, samp.lang-en *,
+kbd.lang-en, .lang-en kbd, kbd.lang-en *, tt.lang-en, .lang-en tt, tt.lang-en *,
+textarea.lang-en, .lang-en textarea {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", "Luxi Mono", monospace;
+}
+.lang-ko, .lang-ko * {
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+code.lang-ko, .lang-ko code, code.lang-ko *, pre.lang-ko, .lang-ko pre, pre.lang-ko *,
+var.lang-ko, .lang-ko var, var.lang-ko *, samp.lang-ko, .lang-ko samp, samp.lang-ko *,
+kbd.lang-ko, .lang-ko kbd, kbd.lang-ko *, tt.lang-ko, .lang-ko tt, tt.lang-ko *,
+textarea.lang-ko, .lang-ko textarea {
+	font-family: "NanumGothicCoding", "나눔고딕코딩", "NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
+}
+.lang-ja, .lang-ja * {
+	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
+}
+
+em.lang-ko, .lang-ko em {
+	font-style: normal;
+	text-decoration: underline;
 }
 
 ul.nav {
