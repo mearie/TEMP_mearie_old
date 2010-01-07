@@ -1,5 +1,9 @@
 // replaces <m> elements in the original text.
 $(function() {
+	$('[lang|=ko]').addClass('lang-ko');
+	$('[lang|=en]').addClass('lang-en');
+	$('[lang|=ja]').addClass('lang-ja');
+
 	$('span.math').each(function() {
 		var size = 1; // by default
 		var m = this.className.match(/\bmath-size([0-4]|-[1-4])\b/);
