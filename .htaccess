@@ -11,6 +11,7 @@ php_value auto_append_file /home/lifthrasiir/mearie/append.inc.php
 php_flag magic_quotes_gpc off
 
 RedirectPermanent /favicon.ico http://mearie.org/res/img/icon.ico
+RedirectPermanent /stuffs/still-alive http://cosmic.mearie.org/2008/09/still-alive
 
 <Files ~ "\.inc\.">
 	Order deny,allow
