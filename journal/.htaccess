@@ -1,0 +1,1 @@
+RedirectMatch ^/journal/?$ http://j.mearie.org/
