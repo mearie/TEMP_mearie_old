@@ -1,0 +1,41 @@
+@import url(global.css);
+
+.post {
+	border-right: 1em solid #69a;
+	margin: 1.5em 0;
+}
+.post:hover {
+	border-right-color: #379;
+}
+.post:hover h2 a {
+	background: #379;
+}
+.post h2 a {
+	float: right;
+	display: inline;
+	font-size: 60%;
+	font-weight: normal;
+	text-shadow: none;
+	background: #69a;
+	color: white;
+	padding: 0.2em 0.5em;
+}
+.post h2 a:hover, .post h2 a:active {
+	background: #973;
+	color: white;
+}
+.post h2.notitle {
+	font-size: 10%;
+}
+.post h2.notitle a {
+	font-size: 900%;
+}
+.post .postbody {
+	clear: right;
+	margin-right: 0.5em;
+}
+.post .postmore {
+	text-align: right;
+	margin-right: 0.5em;
+}
+

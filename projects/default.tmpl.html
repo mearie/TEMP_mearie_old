@@ -1,21 +1,29 @@
 ## vim: syn=mako
 <%inherit file="../default.tmpl.html"/>
 
-<%def name="menu(lang)">
-<%text filter="markdown">
-* [대하여](/about/)
-* [소프트웨어](/projects/)
-	* [DokuWiki-custom](/projects/dokuwiki-custom/)
-	* [esotope](/projects/esotope/)
-	* [hangeul.vim](/projects/vim-hangeul/)
-	* [PyFunge](/projects/pyfunge/)
-	* [transdate](/projects/transdate/)
-	* [vlaah-python](/projects/vlaah-python/)
-	* [나루 프로그래밍 언어](/projects/naru/)
-	* [버섯 프로그래밍 언어](/projects/versert/)
-	* [앙골모아](/projects/angolmois/)
-* [문서](/documents/)
-* [저널](http://j.mearie.org/)
-* [잡것](/stuffs/)
-</%text>
+<%def name="region(lang)">
+${lang(ko=u'메아리 프로젝트', en=u'mearie.org Projects')}
 </%def>
+
+<%def name="menu_projects(lang)">
+* [${lang(ko=u'앙골모아', en=u'Angolmois')}](/projects/angolmois/) ${capture(self.menu_projects_angolmois,lang)|indent}
+* [DokuWiki-custom](/projects/dokuwiki-custom/) ${capture(self.menu_projects_dwc,lang)|indent}
+* [esotope](/projects/esotope/) ${capture(self.menu_projects_esotope,lang)|indent}
+* [${lang(ko=u'나루 프로그래밍 언어', en=u'naru')}](/projects/naru/) ${capture(self.menu_projects_naru,lang)|indent}
+* [PyFunge](/projects/pyfunge/) ${capture(self.menu_projects_pyfunge,lang)|indent}
+* [transdate](/projects/transdate/) ${capture(self.menu_projects_transdate,lang)|indent}
+* [${lang(ko=u'버섯 프로그래밍 언어', en=u'Versert')}](/projects/versert/) ${capture(self.menu_projects_versert,lang)|indent}
+* [hangeul.vim](/projects/vim-hangeul/) ${capture(self.menu_projects_vimhangeul,lang)|indent}
+* [vlaah-python](/projects/vlaah-python/) ${capture(self.menu_projects_vlaahpy,lang)|indent}
+</%def>
+
+## for other sections
+<%def name="menu_projects_angolmois(lang)"/>
+<%def name="menu_projects_dwc(lang)"/>
+<%def name="menu_projects_esotope(lang)"/>
+<%def name="menu_projects_naru(lang)"/>
+<%def name="menu_projects_pyfunge(lang)"/>
+<%def name="menu_projects_transdate(lang)"/>
+<%def name="menu_projects_versert(lang)"/>
+<%def name="menu_projects_vimhangeul(lang)"/>
+<%def name="menu_projects_vlaahpy(lang)"/>
