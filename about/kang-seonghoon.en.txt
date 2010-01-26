@@ -10,6 +10,6 @@ Kang Seonghoon[^1] is a South Korean graduate student[^2] of [KAIST](http://kais
 
 See my official <del>[curriculum vitae](curriculum-vitae)</del> (not available currently), or [contact](contact) page for how to get in contact with me.
 
-[^1]: This is a Korean name (spelled 강 성훈), where the last name comes first and the first name follows it. I don't prefer any other form or transliteration, other than *Seonghoon Kang* occasionally found in research papers.
+[^1]: This is a Korean name (spelled <span lang="ko">강 성훈</span>), where the last name comes first and the first name follows it. I don't prefer any other form or transliteration, other than *Seonghoon Kang* occasionally found in research papers.
 [^2]: As of February 1, 2010.
 

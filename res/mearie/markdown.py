@@ -16,9 +16,11 @@ def markdown(text, opts=()):
         if returncode != 0:
             raise RuntimeError('pandoc failed with code %d' % returncode)
         html = popen.stdout.read().decode('utf-8')
-        html = re.sub(u'\n\s*>', ur'>', html)
-        html = re.sub(u'(</?(?:ul|ol|dl|div|blockquote|pre)(?!\w).*?>|</(?:h[1-6]|p|li)>)', ur'\1\n', html)
-        html = re.sub(u'&#(\d+);', lambda m: m.group(0) if int(m.group(1)) < 128 else unichr(int(m.group(1))), html)
+        html = re.sub(ur'\n\s*>', ur'>', html)
+        html = re.sub(ur'(&lt;)?(?<!<pre>)<code\b', lambda m: '<code' if m.group(1) else '<tt', html)
+        html = re.sub(ur'</code>(?!</pre>)(&gt;)?', lambda m: '</code>' if m.group(1) else '</tt>', html)
+        html = re.sub(ur'(</?(?:ul|ol|dl|div|blockquote|pre)(?!\w).*?>|</(?:h[1-6]|p|li)>)', ur'\1\n', html)
+        html = re.sub(ur'&#(\d+);', lambda m: m.group(0) if int(m.group(1)) < 128 else unichr(int(m.group(1))), html)
         set_cache(key, html)
     return html
 
