@@ -1,0 +1,55 @@
+## vim: syn=mako
+<%inherit file="mearie.tmpl.html"/>
+<%! title = u'mearie.org' %>
+
+As an website, mearie.org has several unusual characteristics.
+
+
+Domains
+-------
+
+There are two personal domains operated by Kang Seonghoon, which can be considered as integral parts of *broader* mearie.org. This includes the following websites:
+
+* **`mearie.org`** is a primary website, and contains *official* materials written and created by Kang Seonghoon.
+* **[`j.mearie.org`](http://j.mearie.org/)** hosts mearie.org journal. It is a sort of blog and only available in Korean.
+* **[`cosmic.mearie.org`](http://cosmic.mearie.org/)** is a companion to `mearie.org`, and contains lots of unofficial materials (i.e. subject to change wildly and considered experimental).
+* **[`hg.mearie.org`](http://hg.mearie.org/)** is a source code repository powered by [Mercurial](http://mercurial.selenic.com/). Several major projects are also mirrored in [bitbucket](http://bitbucket.org/lifthrasiir/).
+* **[`tokigun.net`](http://tokigun.net/)** was a precursor to mearie.org (called *TokigunStudio*). Its sole role is to maintain permalinks to it.
+
+
+Technical
+---------
+
+A software for mearie.org had quite strange requirements:
+
+* Should not force plain HTML, but should allow it if needed. I have no difficulty in writing plain HTML but it is hard to maintain.
+* Should be mainly static. I didn't use most dynamic features in many softwares and still they cause overheads to the server.
+* Should not use databases, unless it is just a cache. It has to be readable even if the software is gone.
+* Should be maintainable off-line. My laptop doesn't have stable Internet connection anyway, and I prefer to write long articles in [Vim](http://vim.org/).
+* Should be maintained in some VCS, and preferably in distributed VCS.
+* Should support bilingual environment.
+* Should have search engine friendly URLs, and still consise.
+* Should be scriptable.
+* Should be entirely composed of minimal number of free softwares.
+
+I have tested several methods to meet these requirements for years, and my current solution (as used in mearie.org) reflects them. Unfortunately I didn't find any other solutions; most BBSes, blogs and CMSes are rejected early. [werc](http://werc.cat-v.org/) was close but not perfect[^1].
+
+[^1]: werc uses a CGI script for serving all pages -- it would mean every request is translated to one process invocation, thus inefficient. Also I don't like its use of plan9port as it is not so universal (e.g. not present in several Linux distributions).
+
+Current mearie.org solution consists of two [Python](http://python.org/) scripts, [Mako](http://makotemplates.org/) templating engine, [Pandoc](http://johnmacfarlane.net/pandoc/), [ImageMagick](http://imagemagick.org/), [Mercurial](http://mercurial.selenic.com/) and Makefile. In detail:
+
+1. I write the plain (actually [Markdown](http://daringfireball.net/projects/markdown/)) text and add it to Mercurial repository.
+2. `make` builds the website automatically and incrementally.
+	- Makefile rebuilds itself via Python script if the repository has been changed. So newly added file should be handled automatically.
+	- Makefile also converts the plain text file into HTML file via Python script, which invokes Pandoc and Mako.
+	- Pandoc converts Markdown syntax. Since this is a bit slow, the results are cached for later use. (This is so efficient that I could use it in a navigation construction.)
+	- Mako does templating jobs and also allows some compile-time scripting in Python.
+	- Image and other resources are handled by custom Mako procedure on-demand.
+3. Web server serves compiled pages.
+	- Bilingual pages are handled by Apache's [`mod_negotiation`](http://httpd.apache.org/docs/2.2/mod/mod_negotiation.html). So I can easily make <`blah.en.txt`> and <`blah.ko.txt`> and link to just <`blah`> (note no <`.html`>!).[^2]
+	- Other than that, all pages are static and can be efficiently served.
+
+[^2]: There are similar ways for other servers. For example, [lighttpd](http://lighttpd.net/) users can use appropriate `mod_magnet` script for this.
+
+This solution is somewhat strange but works well. You can find the website source in [Mercurial repository](http://hg.mearie.org/mearie.org/3.x/). (Also linked far below of this page.)
+
