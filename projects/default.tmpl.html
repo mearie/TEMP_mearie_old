@@ -1,8 +1,8 @@
 ## vim: syn=mako
 <%inherit file="../default.tmpl.html"/>
 
-<%def name="region(lang)">
-${lang(ko=u'메아리 프로젝트', en=u'mearie.org Projects')}
+<%def name="nav(entry)">\
+${entry(ko=u'메아리 프로젝트', en=u'mearie.org Projects')}\
 </%def>
 
 <%def name="menu_projects(lang)">
@@ -15,6 +15,7 @@ ${lang(ko=u'메아리 프로젝트', en=u'mearie.org Projects')}
 * [${lang(ko=u'버섯 프로그래밍 언어', en=u'Versert')}](/projects/versert/) ${capture(self.menu_projects_versert,lang)|indent}
 * [hangeul.vim](/projects/vim-hangeul/) ${capture(self.menu_projects_vimhangeul,lang)|indent}
 * [vlaah-python](/projects/vlaah-python/) ${capture(self.menu_projects_vlaahpy,lang)|indent}
+* [${lang(ko=u'이상야릇한 코드들', en=u'Strange Codes')}](/projects/strange/) ${capture(self.menu_projects_strange,lang)|indent}
 </%def>
 
 ## for other sections
@@ -27,3 +28,4 @@ ${lang(ko=u'메아리 프로젝트', en=u'mearie.org Projects')}
 <%def name="menu_projects_versert(lang)"/>
 <%def name="menu_projects_vimhangeul(lang)"/>
 <%def name="menu_projects_vlaahpy(lang)"/>
+<%def name="menu_projects_strange(lang)"/>

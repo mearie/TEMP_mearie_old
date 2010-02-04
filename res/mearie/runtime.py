@@ -14,13 +14,15 @@ class Language(object):
         self.lang = lang
         assert lang in LANGUAGES
 
-    def __call__(self, **strings):
+    def __call__(self, default=None, **strings):
         try:
             return strings[self.lang]
         except KeyError:
             for lang in LANGUAGES:
                 if lang in strings: return strings[lang]
-            else: raise
+            else:
+                if default is not None: return default
+                raise
 
     def __str__(self):
         return self.lang

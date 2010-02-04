@@ -4,7 +4,7 @@
 
 
 Contents
---------
+========
 
 * [About mearie.org and Kang Seonghoon](about/)
 * [Software projects](projects/)

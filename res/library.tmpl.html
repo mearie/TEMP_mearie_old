@@ -7,6 +7,17 @@ def uri_to_path(c, uri):
 
 %>
 
+<%def name="indent()">\
+${capture(caller.body)|indent}
+</%def>
+
+<%def name="img(src, align='')">
+<%
+_, width, height = imagesize(uri_to_path(context, src))
+%>
+<img src="${src|h}" width="${width}" height="${height}" alt="${capture(caller.body)|h}" class="${align|h}" />\
+</%def>
+
 <%def name="imgframe(src, align='')">
 <%
 _, width, height = imagesize(uri_to_path(context, src))

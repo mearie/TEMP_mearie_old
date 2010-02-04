@@ -1,6 +1,7 @@
 ## vim: set syn=mako: <%inherit dummy/>
 <%!
 import subprocess
+import cgi
 
 def gethgrev(path, tmpl):
 	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
@@ -12,23 +13,44 @@ title = None
 
 <%namespace name="m" file="/res/library.tmpl.html" import="*" />
 
-<%def name="region(lang)">
-${lang(ko=u'메아리', en=u'mearie.org')}
+<%def name="nav(entry)">\
+${entry(ko=u'메아리', en=u'mearie.org')}\
 </%def>
+
+<%def name="navwrap(lang, title=None)">\
+<%
+body = caller.body # we keep this as caller may change!
+%>\
+% if title:
+${body(title)}\
+% endif
+${self.nav(lambda *args, **kwargs: body(lang(*args, **kwargs)))}\
+</%def>
+
+############################################################
 
 <%def name="head(lang, title)">
 <meta http-equiv="Content-Language" content="${lang|h}" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-% if title:
-<title>${title|h} | ${self.region(lang)}</title>
-% else:
-<title>${self.region(lang)}</title>
-% endif
+<title>${self.headtitle(lang, title)}</title>
 <link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
 <!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="/res/global.js"></script>
 </%def>
+
+<%def name="headtitle(lang, title)">\
+<% index = [0] %>\
+<%call expr="self.navwrap(lang, title)" args="text">\
+% if index[0] > 0:
+ | \
+% endif
+${text|h}\
+<% index[0] += 1 %>\
+</%call>\
+</%def>
+
+############################################################
 
 <%def name="sidebar(lang)">
 <div class="slogan">
@@ -38,16 +60,16 @@ ${lang(ko=u'메아리', en=u'mearie.org')}
 ${self.menu(lang)}
 </div>
 <%doc>
-<ul class="nav"><li lang="ko" class="current"><a href="index.ko">한국어</a></li><li lang="en"><a href="index.en">English</a></li><li lang="ja"><a href="index.ja">日本語</a></li></ul>
+<ul class="lang"><li lang="ko" class="current"><a href="index.ko">한국어</a></li><li lang="en"><a href="index.en">English</a></li><li lang="ja"><a href="index.ja">日本語</a></li></ul>
 </%doc>
 </%def>
 
 <%def name="menu(lang)" filter="markdown">
-* [${lang(ko=u'대하여', en=u'About')}](/about/) ${capture(self.menu_about,lang)|indent}
-* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/) ${capture(self.menu_projects,lang)|indent}
-* [${lang(ko=u'문서', en=u'Documents')}](/documents/) ${capture(self.menu_documents,lang)|indent}
-* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/) ${capture(self.menu_journal,lang)|indent}
-* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/) ${capture(self.menu_stuffs,lang)|indent}
+* [${lang(ko=u'대하여', en=u'About')}](/about/) ${capture(self.menu_about, lang)|indent}
+* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/) ${capture(self.menu_projects, lang)|indent}
+* [${lang(ko=u'문서', en=u'Documents')}](/documents/) ${capture(self.menu_documents, lang)|indent}
+* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/) ${capture(self.menu_journal, lang)|indent}
+* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/) ${capture(self.menu_stuffs, lang)|indent}
 </%def>
 
 ## for other sections
@@ -57,16 +79,26 @@ ${self.menu(lang)}
 <%def name="menu_journal(lang)"/>
 <%def name="menu_stuffs(lang)"/>
 
+############################################################
+
 <%def name="bodypre(lang, title)">
-% if title:
-<h1>${title|h}</h1>
-% else:
-<h1>${capture(self.region, lang)|h}</h1>
+<h1>${self.bodytitle(lang, title)}</h1>
+</%def>
+
+<%def name="bodytitle(lang, title)">\
+<% index = [0] %>\
+<%call expr="self.navwrap(lang, title)" args="text">\
+% if index[0] == 0:
+${text|h}\
 % endif
+<% index[0] += 1 %>\
+</%call>\
 </%def>
 
 <%def name="bodypost(lang)">
 </%def>
+
+############################################################
 
 <%def name="meta(lang)">
 <% rev = gethgrev(self.uri, '{node|short}') %>
@@ -87,6 +119,8 @@ ${self.menu(lang)}
 	en=u'Copyright © 1999–2010 Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
 )|n}</div>
 </%def>
+
+############################################################
 
 <%
 try:
