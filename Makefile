@@ -31,6 +31,6 @@ res/logo.png: res/logo-template.png ${SELF}
 	${PROCESSOR} $< -o $@
 
 ${TREE}: ${HGREPO} ${SELF}
-	${GENERATOR} $</.. > $@
+	${GENERATOR} $</.. > $@ || (rm $@; exit 1)
 	@echo 'Regenerated Makefile.tree. Try again.'
 

@@ -6,7 +6,7 @@ As an website, mearie.org has several unusual characteristics.
 
 
 Domains
--------
+=======
 
 There are two personal domains operated by Kang Seonghoon, which can be considered as integral parts of *broader* mearie.org. This includes the following websites:
 
@@ -17,8 +17,8 @@ There are two personal domains operated by Kang Seonghoon, which can be consider
 * **[`tokigun.net`](http://tokigun.net/)** was a precursor to mearie.org (called *TokigunStudio*). Its sole role is to maintain permalinks to it.
 
 
-Technical
----------
+Technical detail
+================
 
 A software for mearie.org had quite strange requirements:
 
