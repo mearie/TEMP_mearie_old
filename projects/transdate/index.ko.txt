@@ -1,0 +1,48 @@
+## vim: syn=mako
+
+**transdate**는 [파이썬](http://python.org/)용 양음력 변환 모듈입니다. 다음과 같은 기능을 지원합니다.
+
+* 1881년부터 2050년까지의 양음력 데이터를 제공합니다. 이 자료는 [한국천문연구원](http://kao.re.kr/)의 자료를 바탕으로 만들어졌기 때문에 정확성을 보장합니다.
+* 파이썬의 내장 datetime.date 클래스와 호환되는 lunardate 클래스를 제공합니다. 이와 대응되는 많은 함수와 메소드도 함께 제공합니다.
+
+실제로 사용하는 모습은 다음과 같습니다.
+
+	>>> from transdate import lunardate, timedelta
+	>>> # 내년 설날은 양력으로 언제인가?
+	... lunardate(2008, 1, 1).tosolardate()
+	datetime.date(2008, 2, 7)
+	>>> lunardate(2008, 1, 1) - timedelta(days=1)
+	transdate.lunardate(2007, 12, 30, False)
+	>>> # 추석이 일요일에 끼는 (몹쓸) 해는 어느 해인가?
+	... chuseoks = [lunardate(y, 8, 15) for y in xrange(2000, 2040)]
+	>>> print [date.timetuple()[:3] for date in chuseoks if date.weekday() == 6]
+	[(2005, 9, 18), (2008, 9, 14), (2012, 9, 30), (2015, 9, 27), (2032, 9, 19),
+	 (2035, 9, 16), (2039, 10, 2)]
+
+
+내려 받기
+=========
+
+transdate의 최신 버전은 *1.1.1*이며 [여기](http://hg.mearie.org/pytransdate/raw-file/pytransdate-1.1.1/transdate.py)에서 받을 수 있습니다. 유니코드가 지원되지 않는 파이썬에서도 사용해야 할 경우 [여기](http://hg.mearie.org/pytransdate/raw-file/pytransdate-1.1.1/transdate_nounicode.py)에서 다른 버전을 받으시길 바랍니다. (참고: 거의 모든 파이썬에는 유니코드가 활성화되어 있습니다.)
+
+다음 명령을 쓰면 머큐리얼에서 받을 수도 있습니다.
+
+	$ hg clone -r pytransdate-1.1.1 http://hg.mearie.org/pytransdate/
+
+
+To-Do List
+==========
+
+다음은 transdate 1.2에서 예정하고 있는 개선점입니다.
+
+* 중국어 간자체와 번자체의 구분 (현재는 아마도 번자체...)
+* 기본 로캘 감지하는 루틴을 개선
+* C 로캘을 위한 getganzistr
+* strftime에 간지를 출력하는 지정자 추가
+
+
+라이선스
+========
+
+transdate는 [강 성훈](/)이 만들었으며, [GNU LGPL 2.1 또는 그 이후의 버전](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)에 따라 자유로이 사용할 수 있습니다.
+

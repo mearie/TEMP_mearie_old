@@ -1,0 +1,12 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="nav(entry)">\
+${entry(u'PyFunge')}\
+${parent.nav(entry)}\
+</%def>
+
+<%def name="menu_projects_pyfunge(lang)">
+* [${lang(ko=u'레퍼런스', en=u'Documentation')}](http://packages.python.org/PyFunge/)
+</%def>
+
