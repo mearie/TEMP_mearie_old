@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="nav(entry)">\
+${entry(u'transdate')}\
+${parent.nav(entry)}\
+</%def>
+
+<%def name="menu_projects_transdate(lang)">
+* [${lang(ko=u'레퍼런스', en=u'Documentation')}](/projects/transdate/reference)
+</%def>
