@@ -46,7 +46,9 @@ hr {
 #sitebody {
 	display: inline;
 	width: 640px;
+	/*
 	min-height: 400px;
+	*/
 	float: right;
 	text-align: left;
 	margin-right: 10px;
@@ -226,6 +228,14 @@ pre {
 	color: #eee;
 	padding: 0.3em 0.5em;
 	overflow: auto;
+}
+.small pre {
+	font-size: 80%;
+	line-height: 1.4;
+}
+.extrasmall pre {
+	font-size: 50%;
+	line-height: 1.2;
 }
 blockquote {
 	margin: 0;
