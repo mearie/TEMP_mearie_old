@@ -1,12 +1,12 @@
 ## vim: syn=mako
 <%inherit file="../default.tmpl.html"/>
 
-<%def name="nav(entry)">
-${entry(ko=u'메아리 저널', en=u'mearie.org journal')}
+<%def name="nav(entry)">\
+${entry(ko=u'메아리 저널', en=u'mearie.org journal')}\
 </%def>
 
 <%def name="menu_journal(lang)">
 * [${lang(ko=u'소개', en=u'Introduction')}](/journal/about)
-* [${lang(ko=u'모아보기', en=u'Archives')}](http://j.mearie.org/archive)
+* [${lang(ko=u'모아보기', en=u'Archives')}](http://j.mearie.org/archive) ([${lang(ko=u'이전', en=u'Old')}](/journal/archive))
 * [${lang(ko=u'피드', en=u'Feed')}](http://j.mearie.org/rss)
 </%def>
