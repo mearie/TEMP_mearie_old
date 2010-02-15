@@ -2,10 +2,18 @@
 <%!
 import subprocess
 import cgi
+import os
+import time
 
-def gethgrev(path, tmpl):
-	cmd = ['hg', 'log', '-ql1', '--template', tmpl, '--', path]
-	return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+def gethgrev(path):
+	cmd = ['hg', 'log', '-ql1', '--template', '{node|short} {date|shortdate}', '--', path]
+	result = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+	if result:
+		rev, date = result.split()
+	else:
+		rev = None
+		date = time.strftime('%Y-%m-%d', time.localtime(os.stat(path).st_mtime))
+	return rev, date
 
 # default values
 title = None
@@ -101,12 +109,13 @@ ${text|h}\
 ############################################################
 
 <%def name="meta(lang)">
-<% rev = gethgrev(self.uri, '{node|short}') %>
+<% rev, date = gethgrev(self.uri) %>
 <div class="info">
+	${date}
 	% if rev:
-	rev <a href="http://hg.mearie.org/mearie.org/3.x/file/${rev}/${topmost.uri.lstrip('/')}">${rev}</a>
+	(rev <a href="http://hg.mearie.org/mearie.org/3.x/file/${rev}/${topmost.uri.lstrip('/')}"><tt>${rev}</tt></a>)
 	% else:
-	working copy
+	(working copy)
 	% endif
 </div>
 <form action="http://www.google.com/cse" class="search"><div>
