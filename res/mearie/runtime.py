@@ -7,6 +7,14 @@ def indent(s):
     if not s.strip(): return ''
     return '\n\t' + s.strip('\r\n').replace('\n', '\n\t')
 
+def uri_to_path(c, uri):
+    try:
+        lookup = c.lookup
+    except:
+        c = c.context
+        lookup = c.lookup
+    return lookup.convert_to_path(lookup.adjust_uri(uri, c['topmost'].uri)) 
+
 LANGUAGES = ['en', 'ko', 'ja']
 
 class Language(object):

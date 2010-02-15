@@ -30,6 +30,8 @@ res/logo.png: res/logo-template.png ${SELF}
 %.html: %.txt
 	${PROCESSOR} $< -o $@
 
+index.ko.html index.en.html: recent.json
+
 ${TREE}: ${HGREPO} ${SELF}
 	${GENERATOR} $</.. > $@ || (rm $@; exit 1)
 	@echo 'Regenerated Makefile.tree. Try again.'
