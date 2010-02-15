@@ -1,10 +1,6 @@
 ## vim: set syn=mako: <%inherit dummy/>
 <%!
 from mearie.image import imagesize
-
-def uri_to_path(c, uri):
-    return c.lookup.convert_to_path(c.lookup.adjust_uri(uri, c['topmost'].uri)) 
-
 %>
 
 <%def name="indent()">\

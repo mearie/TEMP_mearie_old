@@ -367,3 +367,29 @@ td p, td pre {
 	padding-left: 2em;
 }
 
+.mearie-news {
+	float: left;
+	width: 49%;
+}
+.mearie-activity {
+	float: right;
+	width: 49%;
+}
+.mearie-news h2, .mearie-activity h2 {
+	margin-top: 0;
+}
+.mearie-news ul {
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+.mearie-activity ul {
+	font-size: 90%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.mearie-news li, .mearie-activity li {
+	margin: 0.5em 0;
+}
+
