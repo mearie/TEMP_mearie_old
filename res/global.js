@@ -62,15 +62,14 @@ $(function() {
 
 	// fill "activity" section in index pages.
 	$('.mearie-activity noscript').each(function(i) {
-		var list = $('<ul/>');
+		var list = $('<ul style="display:none"/>');
 		$(this).replaceWith(list);
 		var waiting = $('<div style="text-align:center;padding:4em 0">' +
 			'<img src="/res/loading.gif" width="32" height="32" alt=""/></div>');
 		waiting.insertBefore(list);
 
+		var count = 0, start = 0, perreq = 10;
 		window['__friendfeedcallback'+i] = function(data) {
-			var count = 0;
-			waiting.remove();
 			$.each(data.entries, function(i, entry) {
 				var url = entry.rawLink, body = entry.rawBody, via = entry.via.url;
 				var shorten = true, iconurl, mainurl, region;
@@ -117,12 +116,23 @@ $(function() {
 						'" alt="" class="right"/>' + inner;
 				}
 				list.append('<li>' + inner + '</li>');
-				if (++count >= 5) return false;
+				if (++count >= 5) {
+					list.css('display', '');
+					waiting.remove();
+					return false;
+				}
 			});
+			if (count < 5) {
+				start += perreq;
+				invoke(start, perreq);
+			}
 		};
-		$.ajax({url: 'http://friendfeed-api.com/v2/feed/lifthrasiir?start=0&num=20&raw=1' +
-				'&maxcomments=0&maxlikes=0&callback=__friendfeedcallback'+i,
-			dataType: 'script'});
+		var invoke = function(start, num) {
+			$.ajax({url: 'http://friendfeed-api.com/v2/feed/lifthrasiir?start=' + start + '&num=' + num +
+					'&raw=1&maxcomments=0&maxlikes=0&callback=__friendfeedcallback'+i,
+				dataType: 'script'});
+		};
+		invoke(0, perreq);
 	});
 });
 
