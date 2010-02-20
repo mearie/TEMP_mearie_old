@@ -110,7 +110,7 @@ ${text|h}\
 
 <%def name="meta(lang)">
 <% rev, date = gethgrev(self.uri) %>
-<div class="info">
+<div class="tray">
 	${date}
 	% if rev:
 	(rev <a href="http://hg.mearie.org/mearie.org/3.x/file/${rev}/${topmost.uri.lstrip('/')}"><tt>${rev}</tt></a>)
