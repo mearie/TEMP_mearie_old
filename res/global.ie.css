@@ -1,5 +1,29 @@
 @charset "utf-8";
 
+* html #siteside {
+	float: left;
+	text-align: left;
+	margin: 0 0 1em 0;
+}
+ul.nav {
+	padding-right: 0;
+}
+ul.nav li {
+	margin-right: 0.5em;
+}
+* html pre {
+	padding-left: 4px;
+	padding-right: 4px;
+	width: 632px;
+}
+input.button {
+	height: 1.9em;
+}
+
+/* language fix
+ * - onload handler should convert lang="xx" attributes into class="lang-xx"
+ * - if lang is known in advance, use class="lang-xx" for first place
+ */
 .lang-en, .lang-en * {
 	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
 }
@@ -27,29 +51,24 @@ textarea.lang-ko, .lang-ko textarea {
 		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
 		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
 }
-
 em.lang-ko, .lang-ko em {
 	font-style: normal;
 	text-decoration: underline;
 }
 
-* html #siteside {
-	float: left;
-	text-align: left;
-	margin: 0 0 1em 0;
+/* external link fix
+ * - onload handler should convert href="http://..." attributes into class="external"
+ *   (except for *.mearie.org domains)
+ * - see global.css for rationale of disabling CSS rules entirely in IE7+
+ */
+a.external {
+	padding-left: 3px;
+	background: transparent url(link-external.png) top left no-repeat;
 }
-ul.nav {
-	padding-right: 0;
+.tray a.external, .copyright a.external {
+	background-image: url(link-external-m.png);
 }
-ul.nav li {
-	margin-right: 0.5em;
-}
-* html pre {
-	padding-left: 4px;
-	padding-right: 4px;
-	width: 632px;
-}
-input.button {
-	height: 1.9em;
+a.external:hover, a.external:active {
+	background-image: url(link-external-a.png);
 }
 

@@ -18,7 +18,7 @@
 	text-shadow: none;
 	background: #69a;
 	color: white;
-	padding: 0.2em 0.5em;
+	padding: 0.2em 0.5em !important;
 }
 .post h2 a:hover, .post h2 a:active {
 	background: #973;

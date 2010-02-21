@@ -137,38 +137,8 @@ hr {
 	margin: 0.5em 1em;
 	text-align: left;
 }
-.info a, .copyright a {
+.tray a, .copyright a {
 	color: #9ac;
-}
-
-.parents {
-	text-align: left;
-	margin-top: -2.5em;
-	padding: 0.5em;
-	/*border-bottom: 1em solid #a78;*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#967), to(#a78));
-}
-.parents img {
-	vertical-align: middle;
-}
-.nav {
-	display: inline;
-	list-style: none;
-	width: auto;
-	padding: 0.3em 0.5em;
-	border-top: 1px solid #c9a;
-	border-bottom: 1px solid #c9a;
-}
-.nav li {
-	display: inline;
-	margin: 0;
-	padding: 0;
-}
-.nav li.current {
-	font-weight: 700;
-}
-.nav li:nth-child(n+2):before {
-	content: ' · ';
 }
 
 /* block elements */
@@ -256,6 +226,36 @@ a:visited {
 }
 a:hover, a:active {
 	color: #973;
+}
+/* :not(.interwiki) is workaround for dokuwiki (where a.interwiki has lower specificity)
+ * IE7+ recognizes [href...] but not :not(), so to avoid partial application we put
+ * :not(...) everywhere and use javascript only in IE (i hope IE9 support :not()...) */
+a[href^="http://"]:not(.interwiki),
+a[href^="https://"]:not(.interwiki) {
+	padding-left: 3px;
+	background: transparent url(link-external.png) top left no-repeat;
+}
+.tray a[href^="http://"]:not(.interwiki),
+.tray a[href^="https://"]:not(.interwiki),
+.copyright a[href^="http://"]:not(.interwiki),
+.copyright a[href^="https://"]:not(.interwiki) {
+	background-image: url(link-external-m.png);
+}
+a[href^="http://"]:not(.interwiki):hover,
+a[href^="http://"]:not(.interwiki):active,
+a[href^="https://"]:not(.interwiki):hover,
+a[href^="https://"]:not(.interwiki):active {
+	background-image: url(link-external-a.png);
+}
+a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://new.mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://hg.new.mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://pub.new.mearie.org/"]:not(.interwiki),
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki) {
+	padding-left: 0;
+	background-image: none;
 }
 em:lang(ko) {
 	font-style: normal;
