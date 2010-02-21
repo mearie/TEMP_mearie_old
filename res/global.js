@@ -37,13 +37,23 @@ Date.prototype.setISO8601 = function(s) {
 	this.setTime(date.getTime() + (offset - date.getTimezoneOffset()) * 60000);
 };
 
-$(function() {
+jQuery.noConflict();
+jQuery(document).ready(function($) {
 	var lang = document.body.lang;
 
-	// language corrections for MSIE.
+	// CSS corrections for MSIE.
 	$('[lang|=ko]').addClass('lang-ko');
 	$('[lang|=en]').addClass('lang-en');
 	$('[lang|=ja]').addClass('lang-ja');
+	$('a[href^="http://"]' +
+		':not([href^="http://mearie.org/"])' +
+		':not([href^="http://new.mearie.org/"])' +
+		':not([href^="http://hg.mearie.org/"])' +
+		':not([href^="http://hg.new.mearie.org/"])' +
+		':not([href^="http://pub.mearie.org/"])' +
+		':not([href^="http://pub.new.mearie.org/"])' +
+		':not([href^="http://j.mearie.org/"])' +
+	':not(.interwiki), a[href^="https://"]:not(.interwiki)').addClass('external');
 
 	// replaces <m:math> calls in the original text.
 	$('span.math').each(function() {
