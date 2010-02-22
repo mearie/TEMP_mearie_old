@@ -173,6 +173,7 @@ h2 {
 }
 h3, h4, h5, h6 {
 	text-align: left;
+	color: #444;
 }
 p {
 	color: #444;
@@ -230,30 +231,35 @@ a:hover, a:active {
 /* :not(.interwiki) is workaround for dokuwiki (where a.interwiki has lower specificity)
  * IE7+ recognizes [href...] but not :not(), so to avoid partial application we put
  * :not(...) everywhere and use javascript only in IE (i hope IE9 support :not()...) */
-a[href^="http://"]:not(.interwiki),
-a[href^="https://"]:not(.interwiki) {
+a[href^="http://"]:not(.interwiki):not(.noicon),
+a[href^="https://"]:not(.interwiki):not(.noicon),
+a[href^="ftp://"]:not(.interwiki):not(.noicon),
+a[href^="irc://"]:not(.interwiki):not(.noicon),
+a[href^="mailto:"]:not(.interwiki):not(.noicon) {
 	padding-left: 3px;
 	background: transparent url(link-external.png) top left no-repeat;
 }
-.tray a[href^="http://"]:not(.interwiki),
-.tray a[href^="https://"]:not(.interwiki),
-.copyright a[href^="http://"]:not(.interwiki),
-.copyright a[href^="https://"]:not(.interwiki) {
+.tray a[href^="http://"]:not(.interwiki):not(.noicon), .copyright a[href^="http://"]:not(.interwiki):not(.noicon),
+.tray a[href^="https://"]:not(.interwiki):not(.noicon), .copyright a[href^="https://"]:not(.interwiki):not(.noicon),
+.tray a[href^="ftp://"]:not(.interwiki):not(.noicon), .copyright a[href^="ftp://"]:not(.interwiki):not(.noicon),
+.tray a[href^="irc://"]:not(.interwiki):not(.noicon), .copyright a[href^="irc://"]:not(.interwiki):not(.noicon),
+.tray a[href^="mailto:"]:not(.interwiki):not(.noicon), .copyright a[href^="mailto:"]:not(.interwiki):not(.noicon) {
 	background-image: url(link-external-m.png);
 }
-a[href^="http://"]:not(.interwiki):hover,
-a[href^="http://"]:not(.interwiki):active,
-a[href^="https://"]:not(.interwiki):hover,
-a[href^="https://"]:not(.interwiki):active {
+a[href^="http://"]:not(.interwiki):not(.noicon):hover, a[href^="http://"]:not(.interwiki):not(.noicon):active,
+a[href^="https://"]:not(.interwiki):not(.noicon):hover, a[href^="https://"]:not(.interwiki):not(.noicon):active,
+a[href^="ftp://"]:not(.interwiki):not(.noicon):hover, a[href^="ftp://"]:not(.interwiki):not(.noicon):active,
+a[href^="irc://"]:not(.interwiki):not(.noicon):hover, a[href^="irc://"]:not(.interwiki):not(.noicon):active,
+a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.interwiki):not(.noicon):active {
 	background-image: url(link-external-a.png);
 }
-a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://new.mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://hg.new.mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://pub.new.mearie.org/"]:not(.interwiki),
-a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki) {
+a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://new.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://hg.new.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://pub.new.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
 	background-image: none;
 }

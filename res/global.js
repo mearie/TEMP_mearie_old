@@ -53,7 +53,11 @@ jQuery(document).ready(function($) {
 		':not([href^="http://pub.mearie.org/"])' +
 		':not([href^="http://pub.new.mearie.org/"])' +
 		':not([href^="http://j.mearie.org/"])' +
-	':not(.interwiki), a[href^="https://"]:not(.interwiki)').addClass('external');
+		':not(.interwiki):not(.noicon), ' +
+	'a[href^="https://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="ftp://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="irc://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="mailto:"]:not(.interwiki):not(.noicon)').addClass('external');
 
 	// replaces <m:math> calls in the original text.
 	$('span.math').each(function() {
@@ -117,7 +121,7 @@ jQuery(document).ready(function($) {
 				var whenstr = when.getFullYear().zfill(4) + '-' + (when.getMonth()+1).zfill(2) +
 					'-' + when.getDate().zfill(2);
 				if (shorten) body = body.cut(120);
-				var inner = '<a href="' + mainurl + '">' +
+				var inner = '<a href="' + mainurl + '" class="noicon">' +
 					'<img src="' + iconurl + '" width="16" height="16" alt="' + region + '"/></a>&nbsp;' +
 					body + ' <small>(<a href="' + url + '">' + whenstr + '</a>)</small>';
 				if (entry.thumbnails && !entry.thumbnails[0].url.match(/^http:\/\/friendfeed.com/)) {
