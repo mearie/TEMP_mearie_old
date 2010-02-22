@@ -7,28 +7,42 @@
 .post:hover {
 	border-right-color: #379;
 }
-.post:hover h2 a {
-	background: #379;
+.post:hover h2 a.permalink {
+	background: #379 !important;
 }
-.post h2 a {
+.post h2 a.permalink {
 	float: right;
 	display: inline;
 	font-size: 60%;
 	font-weight: normal;
 	text-shadow: none;
-	background: #69a;
+	background: #69a !important;
 	color: white;
-	padding: 0.2em 0.5em !important;
+	padding: 0.4em 0.5em !important;
+	margin-left: 0.5em;
+	line-height: 1;
+	text-align: right;
 }
-.post h2 a:hover, .post h2 a:active {
-	background: #973;
+.post h2 a.permalink:hover, .post h2 a.permalink:active {
+	background: #973 !important;
 	color: white;
+}
+.post h2 a.permalink small {
+	display: block;
+	font-size: 80%;
 }
 .post h2.notitle {
 	font-size: 10%;
 }
 .post h2.notitle a {
 	font-size: 900%;
+}
+.post blockquote h2 {
+	font-size: 120%;
+	text-shadow: none;
+}
+.post blockquote h2 a.permalink {
+	font-size: 75%;
 }
 .post .postbody {
 	clear: right;
