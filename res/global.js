@@ -87,19 +87,19 @@ jQuery(document).ready(function($) {
 			$.each(data.entries, function(i, entry) {
 				var url = entry.rawLink, body = entry.rawBody, via = entry.via.url;
 				var shorten = true, iconurl, mainurl, region;
-				if (via.match(/^http:\/\/twitter\.com/)) {
+				if (via.match(/^http:\/\/twitter\.com\//)) {
 					if (lang == 'ko') return; // skip in korean pages
 					iconurl = 'http://twitter.com/favicon.ico';
 					mainurl = 'http://twitter.com/seonkay/';
 					region = (lang=='ko' ? '트위터' : 'Twitter');
 					shorten = false;
-				} else if (via.match(/^http:\/\/me2day\.net/)) {
+				} else if (via.match(/^http:\/\/me2day\.net\//)) {
 					if (lang != 'ko') return; // skip in non-korean pages
 					iconurl = 'http://me2day.net/favicon.ico';
 					mainurl = 'http://me2day.net/arachneng/';
 					region = (lang=='ko' ? '미투데이' : 'Me2day');
 					shorten = false;
-				} else if (via.match(/^http:\/\/\w+\.tumblr\.com/)) {
+				} else if (via.match(/^http:\/\/\w+\.tumblr\.com\//)) {
 					if (lang != 'ko') return; // skip in non-korean pages
 					iconurl = 'http://www.tumblr.com/favicon.ico';
 					mainurl = 'http://j.mearie.org/';
@@ -107,7 +107,11 @@ jQuery(document).ready(function($) {
 					if (body.length < 40) {
 						body = '<strong><a href="' + url + '">' + body + '</a></strong>';
 					}
-				} else if (via.match(/^http:\/\/hg\.mearie\.org/)) {
+					if (!url.match(/^http:\/\/j\.mearie\.org\//)) {
+						// tumblr "link" post doesn't give actual URL
+						url = null;
+					}
+				} else if (via.match(/^http:\/\/hg\.mearie\.org\//)) {
 					iconurl = 'http://mercurial.selenic.com/images/favicon.ico';
 					mainurl = via;
 					region = (lang=='ko' ? '머큐리얼 저장소' : 'Mercurial repository');
@@ -122,8 +126,8 @@ jQuery(document).ready(function($) {
 					'-' + when.getDate().zfill(2);
 				if (shorten) body = body.cut(120);
 				var inner = '<a href="' + mainurl + '" class="noicon">' +
-					'<img src="' + iconurl + '" width="16" height="16" alt="' + region + '"/></a>&nbsp;' +
-					body + ' <small>(<a href="' + url + '">' + whenstr + '</a>)</small>';
+					'<img src="' + iconurl + '" width="16" height="16" alt="' + region + '"/></a>&nbsp;' + body +
+					' <small>(' + (url ? '<a href="' + url + '">' + whenstr + '</a>' : whenstr) + ')</small>';
 				if (entry.thumbnails && !entry.thumbnails[0].url.match(/^http:\/\/friendfeed.com/)) {
 					var th = entry.thumbnails[0];
 					inner = '<img src="' + th.url + '" width="' + th.width + '" height="' + th.height +
