@@ -47,7 +47,6 @@ jQuery(document).ready(function($) {
 	$('[lang|=ja]').addClass('lang-ja');
 	$('a[href^="http://"]' +
 		':not([href^="http://mearie.org/"])' +
-		':not([href^="http://new.mearie.org/"])' +
 		':not([href^="http://hg.mearie.org/"])' +
 		':not([href^="http://hg.new.mearie.org/"])' +
 		':not([href^="http://pub.mearie.org/"])' +
