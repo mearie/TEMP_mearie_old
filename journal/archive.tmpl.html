@@ -2,6 +2,7 @@
 <%inherit file="default.tmpl.html"/>
 
 <%def name="menu_journal_archive(lang)">
+* [${lang(ko=u'최신 글들', en=u'Recent posts')}](http://j.mearie.org/archive)
 % for year in xrange(2010, 2003, -1):
 * [${lang(ko=u'%d년'%year, en=u'%d'%year)}](/journal/${year}/)
 % endfor

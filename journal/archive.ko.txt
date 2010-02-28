@@ -1,19 +1,15 @@
 ## vim: syn=mako
-<%! title = u'옛 글들' %>
+<%inherit file="archive.tmpl.html"/>
+<%! title = u'모아보기' %>
 
-(TODO [하나](http://sapzil.info/soojung/) [둘](http://tokigun.net/blog/) [셋](http://lifthrasiir.tistory.com/) [넷](http://mearie.org/journal/) [다섯](http://arachneng.egloos.com/) 이것들 다 하나로 합쳐야 함 orz)
+현재 다른 곳에 산재해 있는 옛 글들을 메아리로 완전히 옮기는 작업이 진행 중입니다. 작업이 끝나기 전까지는 다음 블로그 목록을 대신 사용해 주세요.
 
-
-(TODO 보존할 가치가 있는 글들?)
-===============================
-
-* 2009-11-16: [한국어 위키백과의 과거와 현재](http://arachneng.egloos.com/1945012)
-* 2009-10-26: [마음 속에서 묻어 버린 두 사람](http://arachneng.egloos.com/1719634) -- 지금은 B랑은 사실상 화해했다
-* 2009-07-07: [Tmax Window Uncovered](http://cosmic.mearie.org/2009/07/tmax-window/)
-* 2009-06: 괴혼온라인 FGT 후기 시리즈, [1](http://arachneng.egloos.com/1511001) [2](http://arachneng.egloos.com/1512286) [3-1](http://arachneng.egloos.com/1513432) [3-2](http://arachneng.egloos.com/1514941) [3-3](http://arachneng.egloos.com/1515059) [번외편](http://arachneng.egloos.com/1529116)
-* 2008-08-18: [옛 블로그를 보존하기](http://mearie.org/journal/2008/08/keeping-old-blogs) -- 아직도 하고 있다!
-* 2008-07-06: [기독교가 '아닌' 것](http://mearie.org/journal/2008/07/what-is-not-christanity)
-* 2008-04-25: [유니코드 정규화 알고리즘 간략한 정리](http://mearie.org/journal/2008/04/brief-note-on-unicode-normalization-algorithm)
-* 2007-11-06: [ACM ICPC Regional Contest 후기](http://mearie.org/journal/2007/11/acm-icpc-regional-contest-seoul) -- 그리고 2009년에 나갔다가 죽쒔음
-* 2006-11-21: [자정을 나타내는 몇 가지 방법](http://lifthrasiir.tistory.com/39) -- [ISO 8601](http://j.mearie.org/post/324789503/iso-8601) 얘기와 연결됨
+* [`my.blogin.com/tokigun`](http://my.blogin.com/tokigun) (2003-05)
+* `tokigun.enbee.com` (2004-08~2004-10, `sapzil.info/soojung`으로 모두 이전)
+* [`sapzil.info/soojung`](http://sapzil.info/soojung/) (2004-09~2005-09)
+* [`tokigun.net/blog`](http://tokigun.net/blog/) (2005-09~2006-09)
+* [`lifthrasiir.tistory.com`](http://lifthrasiir.tistory.com/) (2006-10~2007-04)
+* [`mearie.org/journal`](http://mearie.org/journal/) (2007-08~2009-01, 이전 완료)
+* [`arachneng.egloos.com`](http://arachneng.egloos.com/) (2008-07~2009-11)
+* [`j.mearie.org`](http://j.mearie.org/) (2009-11~, 이전 완료)
 
