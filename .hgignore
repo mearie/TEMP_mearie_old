@@ -1,18 +1,8 @@
 syntax: glob
-
-# temporary caches
-img/.thumb
-
-# dynamic
-*.db
-img/journal
-
-# old, unused
-res/old
-res/orig
-res/*/*.old
-
-# no need to versioning
-documents/2008-*-incident.ko.html
-files/projects
-
+*.pyc
+*.ko.html
+*.en.html
+*.ja.html
+Makefile.tree
+res/logo.png
+res/cache

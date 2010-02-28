@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'부재 공고'
+when = '2008-03-28T00:27:51+09:00'
+tags = [u'공지사항']
+original = 'http://mearie.org/journal/2008/03/lifthrasiir-is-away'
+%>
+
+개인적인 사정으로 (원체 안 쓰긴 했지만) 메아리 저널을 2주 정도 관리하지 않습니다. 이 기간동안은 IRC도 MSN도 못 하니 양해 바랍니다. 긴급한 연락은 제 지인들을 꼬셔서 휴대전화로 하시길 바랍니다.
+

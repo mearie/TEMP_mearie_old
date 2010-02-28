@@ -1,1 +1,0 @@
-../../res/inc/lib.inc.php

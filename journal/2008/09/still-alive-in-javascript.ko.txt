@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'포털 엔딩 자바스크립트 버전'
+when = '2008-09-15T18:55:59+09:00'
+tags = [u'자바스크립트', u'포털', u'삽질']
+original = 'http://mearie.org/journal/2008/09/still-alive-in-javascript'
+%>
+
+추석 기념 삽질입니다. 요즘 지쳐서 떨어지는 삽질력을 충전하기 위해 나흘 연휴의 반 정도를 투자해서 작업한 겁니다. 원본은 [여기](http://youtube.com/watch?v=RthZgszykLs&fmt=18)에 있군요.
+
+…뭐 말이 필요하겠습니까, 직접 봅시다.
+
+<p class="center">***[보러 가기](http://cosmic.mearie.org/2008/09/still-alive/)***</p>
+
+[서브버전 저장소](http://svn.mearie.org/2008/still-alive/)에 사용된 스크립트들을 모아 놓았습니다. [mplayer](http://mplayerhq.hu), [VIGRA](http://kogs-www.informatik.uni-hamburg.de/~koethe/vigra/), [파이썬](http://python.org/)이 활용되었으니 구경하실 분은 구경하셔도 됩니다.
+
+시간이 없어서 크레딧 부분(오른쪽 비어 있는 사각형)은 채우지 못 했는데 언젠가 기회가 되면 채워 볼까 합니다. 근데 이거 한 번 작업하려면 하드디스크 3.5GB를 잡아 먹으니 더 이상 작업할 기운이 없군요.
+

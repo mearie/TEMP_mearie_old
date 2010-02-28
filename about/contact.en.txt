@@ -1,0 +1,10 @@
+## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
+<%! title = u'Contact' %>
+
+As of early 2010, my personal e-mail address is as follows:
+
+<%m:math size="+2">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math>
+
+Every e-mail addresses ending with mearie.org is mine, but please use above address for contact. Anything else is temporary and subject to change.
+

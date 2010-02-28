@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'코드골프 오늘의 성과'
+when = '2007-12-09T08:07:06+09:00'
+tags = [u'코드골프', u'삽질']
+original = 'http://mearie.org/journal/2007/12/codegolf-2nd-place'
+%>
+
+<%m:img src="1209-codegolf-leaderboard.png" bordered="1" linkto="http://codegolf.com/leaderboard/overall/python">12월 9일 기준 코드골프 리더보드 (파이썬)</%m:img>
+
+**우왕ㅋ굳ㅋ 2등이네?**
+
+사실은 조금 뽀록이다. -_-; 25문제 다 푼 사람이 나 밖에 없어서 부수 이득을 본 셈. 3위로 내려간 히로 스즈키 씨는 암호를 잃어버렸는지 새로 나온 문제에서 다른 아이디로 등록하셨기도 하고.
+
+하여튼 최근 이틀동안 만사 제쳐 두고 (…이러면 안 되는데) 코드골프를 파서 이것 저것 기록 갱신해 놓았다. 지금껏 건들지도 못 하고 있던 [Game of Life](http://codegolf.com/conways-game-of-life)를 순식간에 아이디어가 떠 올라서 구현한 것도 그렇고. 그런데 이 문제는 아무래도 최적화를 제대로 안 하면 timeout이 너무 잘 나서 아쉽게도(?) 빠르지만 바이트 수가 훨씬 많은 걸로 올려야 했다. 으윽.
+
+언제 생각나는 대로 코드골프 관련해서도 좀 글을 올려 보겠다.
+

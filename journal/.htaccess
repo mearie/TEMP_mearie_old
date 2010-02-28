@@ -1,5 +1,0 @@
-RewriteEngine on
-RewriteBase /journal/
-RewriteRule ^([0-9]+/[0-9]+/?)$ archive/$1 [PT,L]
-RewriteRule ^([0-9]+/[0-9]+/.+)$ post/$1 [PT,L]
-

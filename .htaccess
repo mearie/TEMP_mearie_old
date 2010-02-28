@@ -2,23 +2,33 @@ Options +MultiViews -Indexes
 DirectoryIndex index
 LanguagePriority en ko ja
 ForceLanguagePriority Prefer Fallback
+AddDefaultCharset utf-8
 
-AddType application/x-httpd-php .html
+<Files *.ko.txt>
+	Order deny,allow
+	Deny from all
+</Files>
+<Files *.en.txt>
+	Order deny,allow
+	Deny from all
+</Files>
+<Files *.ja.txt>
+	Order deny,allow
+	Deny from all
+</Files>
+<Files *.tmpl.html>
+	Order deny,allow
+	Deny from all
+</Files>
 
-php_value include_path .:/usr/share/php:/usr/share/pear:/home/lifthrasiir/mearie/res/inc
-php_value auto_prepend_file /home/lifthrasiir/mearie/prepend.inc.php
-php_value auto_append_file /home/lifthrasiir/mearie/append.inc.php
-php_flag magic_quotes_gpc off
+# redirects
+RedirectPermanent /favicon.ico /res/icon.ico
 
-RedirectPermanent /favicon.ico http://mearie.org/res/img/icon.ico
+# permalinks
+RedirectPermanent /about/history /about/mearie
+RedirectPermanent /stuffs/mearieflo /about/mearie
 RedirectPermanent /stuffs/still-alive http://cosmic.mearie.org/2008/09/still-alive
-
-<Files ~ "\.inc\.">
-	Order deny,allow
-	Deny from all
-</Files>
-<Files ~ "\.hg">
-	Order deny,allow
-	Deny from all
-</Files>
+RedirectMatch 301 ^/journal/?$ http://j.mearie.org/
+RedirectMatch 301 ^/journal/feed(/.*)?$ http://j.mearie.org/rss
+RedirectMatch 301 ^/journal/tag(/.*)?$ http://j.mearie.org/
 

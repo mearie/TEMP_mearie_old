@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="nav(entry)">\
+${entry(ko=u'앙골모아', en=u'Angolmois')}\
+${parent.nav(entry)}\
+</%def>
+
+<%def name="menu_projects_angolmois(lang)">
+* [설명서](/projects/angolmois/manual)
+</%def>

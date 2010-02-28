@@ -1,6 +1,0 @@
-AuthType Digest
-AuthName "mearie.org journal"
-AuthDigestProvider file
-AuthUserFile /home/lifthrasiir/mearie/res/auth.db
-Require valid-user
-

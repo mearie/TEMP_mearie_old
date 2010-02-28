@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'인클챗에 대한 한 마디'
+when = '2007-08-09T23:40:18+09:00'
+tags = [u'인클챗', u'IRC']
+original = 'http://mearie.org/journal/2007/08/quotes-on-inklchat'
+%>
+
+아는 누군가가 [인클챗](http://barosl.com/inklchat/) 보고 말하길:
+
+> 뭔가 저기서 자동 업데이트 하나만 빼면 인클챗의 특징이라기보단 엑스챗의 특징인 것 같은 기분이 드는데...
+
+인클챗이 널리 퍼지려면 먼저 스크립트부터 강화해야 한다. 아예 mIRC 스크립트 호환 레이어를 만드는 건 어떨까.
+

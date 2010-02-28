@@ -1,0 +1,43 @@
+## vim: syn=mako
+<%! title = u'Text2PNG' %>
+
+<div class="small">
+<%text filter="indent">
+<?php error_reporting(0);extract($_GET);$B=split('-','--pJhD50QC4Qio-VFEYhhSqXEc
+4Xzfc7j4Z4/z/z4e8Yx4nPHPH/hjEYx/IRBIBkLDCSA-VFPkiRScIMWRiaCAxiBQCgjIoRQghChlGPFF
+FFFAkMYjGIYiUgGQEMJI-T+koSIaiFEgQqhAUYpBjAzlKMEMIQQoaRVpgxgxQJDGIqUKIoned7u/3l7e
+d59fxjJjHySA-RSjIMoSCFEgjS94TopGP4YqSl6CH34P0OIq0wYwYnEhUqiKJEYIYxGMjG0yYxjHRIxk
+qiJJGIA-RRwTSof/USED8MSReAgAAUpKUYIYQnhQ4iTLB9B8CSFSqIQkRfGI/kY3GTGMYzJFVUiixHJA
+-X4oUxIRCiRARBiSIQDH8MlJ/jBDCEMKGkSZYMIMgSQqVSiIiMYxGEjG0yYxjGHIqqkUhJIw-CgokxoR
+CSiSERRiiIkgxgJ9DFCKEEYUMogxooIogkhIRIkhCYxiMZGNlkxjGMGRIiUSCSA-SjwjOUhCUc77hOch
+zEgKBEBD4/z8D4f0fgxnIHIfEeIRIk/CX+d7o+Njkxd585vIiiTySA-IkojwEhIWAUEkA-IZJAf/7qAU
+Co-');$R='kMMOucMW?GM]MWu_?C?CgoMkCOcsQG?CMSMSMSMSMSMSMSMSMSMSMwA?Mk]KMkMQG?MU'.
+'MSMUMUMSMSMUMUMOMQMSMQMWMUMWMS?_MUMSMSMUMSM[MSMSMS?CE_?CiGEQ}CM{M?MyM?M{K{ACM'.
+'?MK?UM?KwO?M{M{ACACMwMyMOM{M{O?M{ACMy?E?C?E]K';function T($t,$d){return pack(N,
+strlen($d)).$t.$d.pack(N,crc32($t.$d));}$A=$g=$o=$r=array();for($i=14;--$i;$j=0)
+for($s=base64_decode($B[$i]);$j<strlen($s);$j++)$o[$i].=sprintf('%08b',ord($s{$j
+}));for(;$i<190;$i+=2){$v=ord($R{$i})*16+ord($R{$i+1})/2-1039;$a=($v/10)%11+2;$h
+=($v/110)%10+1;$q=array();$u=str_repeat(0,$l=$v%10+1);for($j=0;$j<14;$j++)if($j<
+$a||13<$j+$h)$q[$j]=$u;else{$q[$j]=substr($o[$j],$g[$j],$l);$g[$j]+=$l;}$A[]=$q;
+}$a=1;$i=$g=$h=$w=0;$d='';if(get_magic_quotes_gpc())$t=stripslashes($t);$t=strtr
+($e!=base64?$e!=hex?$e!=rot13?$e!=reverse?$t:strrev($t):str_rot13($t):pack('H*',
+$t):base64_decode($t),array("\r\n"=>"\n","\r"=>"\n"));while($i<strlen($t))if(($c
+=ord($t{$i++}))==10)$h+=14;else for($j=0;$j<14;$j++)$r[$h+$j].=$A[$c-32]?$A[$c+-
+32][$j].'0':sprintf('%08b',$j%11-1?$j%13?130:0:254);$h+=14;for($i=0;$i<$h;$w<($v
+=strlen($r[$i++]))&&($w=$v));for($i=0;$i<$h;$i++,$d.=chr($c<<((~$j+1)&7)))for($c
+=$j=0;$j<$w;$c=$c*2+$r[$i]{$j++})if($j%8<1){$d.=chr($c);$c=0;}$o=$r='';$l=strlen
+($d);header('Content-Type:image/png');$b=$b?$b:'255,255,255';for($i=0;$i<$l;$r.=
+'0000000'){$s=substr($d,$i,4096);$r.=($i+=4096)<$l?'010':110;for($j=0;$j<strlen(
+$s);$j++){$g+=$a+=$c=ord($s{$j});$c+=$c<144?48:256;for($n=8|$c>>8;$n--;$r.=($c>>
+$n)&1);}$a%=65521;$g%=65521;}$l=strlen($r);for($i=0;$i<$l;$o.=chr($c))for($c=$j=
+0;$i<$l&&$j<8;$c|=$r{$i++}<<$j++);$b=split(',',"$b,0");$f=$f?$f:'0,0,0';$f=split
+(',',"$f,255");echo"\x89PNG\r\n\x1a\n".T(IHDR,pack(NN,$w,$h)."\1\3\0\0\0").T(PL.
+TE,pack(CCCCCC,$b[0],$b[1],$b[2],$f[0],$f[1],$f[2])).T(tRNS,pack(CC,$b[3],$f[3])
+).T(IDAT,"\x78\1$o".pack(nn,$g,$a)).T(IEND,'')# by Kang Seonghoon (2005.1.12) ?>
+</%text>
+</div>
+
+<small>(2005-01-12)</small> 외부 의존성 없이 순수 PHP만으로 주어진 문자열을 PNG 파일로 만들어 주는 프로그램입니다. 난독화된 코드 치고는 굉장히 쓸만한 프로그램이라 할 수 있습니다.
+
+(TODO)
+

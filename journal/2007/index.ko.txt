@@ -1,0 +1,7 @@
+## vim: syn=mako
+<%inherit file="../archive.tmpl.html"/>
+<%! title = u'모아보기: 2007년' %>
+
+(2007년 4월 이전의 글은 준비중입니다.)
+
+<%call expr="self.build_archive(2007)"/>
