@@ -1,0 +1,52 @@
+## vim: syn=mako
+<%inherit file="default.tmpl.html"/>
+<%!
+from mearie.date import parse_iso8601, to_iso8601
+%>
+
+<%def name="menu_journal_archive(lang)">
+% for year in xrange(2010, 2003, -1):
+* [${lang(ko=u'%d년'%year, en=u'%d'%year)}](/journal/${year}/)
+% endfor
+</%def>
+
+<%def name="head(lang)">
+${parent.head(lang)}
+<%
+try:
+    whenpost, whenupdate = self.attr.when
+except:
+    whenpost = whenupdate = self.attr.when
+%>
+<meta name="date" content="${whenpost|h}"/>
+</%def>
+
+<%def name="bodypre(lang)">
+<h1>메아리 저널</h1>
+<div class="post">
+<%
+try:
+    whenpost, whenupdate = self.attr.when
+except:
+    whenpost = whenupdate = self.attr.when
+whenpost = parse_iso8601(whenpost)
+whenstr = lang(ko=u'%d년 %d월 %d일' % (whenpost.year, whenpost.month, whenpost.day))
+%>
+% if self.attr.title:
+<h2><a href="${self.uri}" class="permalink">${whenstr}</a> ${self.attr.title}</h2>
+% else:
+<h2 class="notitle"><a href="${self.uri}" class="permalink">${whenstr}</a></h2>
+% endif
+<div class="postbody">
+</%def>
+
+<%def name="bodypost(lang)">
+% if getattr(self.attr, 'original', None):
+<div class="message">
+	<p>이 글은 본래 <tt><a href="${self.attr.original|h}">${self.attr.original|h}</a></tt>에 썼던 것을 옮겨 온 것입니다.</p>
+</div>
+% endif
+</div>
+</div>
+</%def>
+

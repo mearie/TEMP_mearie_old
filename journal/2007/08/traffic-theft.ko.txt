@@ -1,0 +1,23 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'홍콩발 트래픽 도둑'
+when = '2007-08-07T09:43:03+09:00', '2007-08-08T17:35:22+09:00'
+tags = [u'서버', u'트래픽 도둑']
+original = 'http://mearie.org/journal/2007/08/traffic-theft'
+%>
+
+오늘 Webalizer 로그를 보다가 이상한 리퍼러가 있어서 뒤져 보니 홍콩의 모 게시판에서 어떤 사람이 내가 올렸던 [스쿨럼블](http://sapzil.info/soojung/entry.php?blogid=189) 그림 중 하나를 가져다가 자기 아바타로 쓰고 있었다. 7월 한 달동안 600메가바이트 정도의 트래픽을 잡아 먹었는데, 이 정도면 서버 운영에 큰 지장은 없지만 앞으로가 걱정되어서 슬쩍 다른 이미지로 교체해 넣었다.
+
+<%m:img src="http://pandora.sapzil.info/image/capture/SchoolRumble03_000291374__.jpg" width="320" height="240" align="center" bordered="1">변경된 텐마 이미지. 침을 흘리는 부분 추가.</%m:img>
+
+이래도 눈치를 못 챈다면 아이디어는 무궁무진하니 맛을 제대로 보여 줘야 겠다.
+
+<ins datetime="2007-08-08T17:00+09:00">아직도 안 고쳤길래 이미지를 미트스핀으로 교체했다. **맛 좀 봐라!**</ins>
+
+<div class="afternote">
+
+나중에야 하는 얘기지만, 이미지를 미트스핀으로 바꾼 그 날 몇 시간 뒤에 이미지의 주소가 바뀌었다. 그 쪽도 적잖게 놀랐겠지. <small>(2010-03-01)</small>
+
+</div>
+

@@ -1,0 +1,31 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'슬럼프의 단계'
+when = '2007-10-10T03:15:02+09:00'
+tags = [u'IRC 기록', u'생활']
+original = 'http://mearie.org/journal/2007/10/level-of-slump'
+%>
+
+	<****> 별 용건은 없는데 요즘 말이 너무 없는 것 같군
+	<****> 좆나 바쁘나요
+	<lifthrasiir> 뭐라고 해야 할까
+	<****> IRC에 대한 회의라거나
+	<lifthrasiir> 슬럼프 phase III
+	<****> 흠...
+	<****> 잘 이겨내길
+	<****> 이라고 말하면 별로 도움이 안 됩니다
+	<****> 그런데 벌써 페이즈 3이라니
+	<lifthrasiir> 이럴 때는
+	<lifthrasiir> 가만 냅두면 좋다.
+	<****> 1,2는 언제 왔지
+	<lifthrasiir> 이번 슬럼프는 I과 II가 비교적 짧게 지나가서
+	<lifthrasiir> 이틀 정도?
+	<****> 무..무섭...
+	<lifthrasiir> 근데 phase고 뭐고 하는 건 약간 농담이고
+	<lifthrasiir> III이 뭐랄까 이것 저것 귀찮다의 레벨이고 V가 만사 귀찮다의 레벨임
+	<****> 이건 뭐
+	<lifthrasiir> VI를 넘어 가면 막장
+
+현재 슬럼프 단계는 phase III + ½.
+
