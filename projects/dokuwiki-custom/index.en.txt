@@ -1,0 +1,8 @@
+## vim: syn=mako
+
+**DokuWiki-custom**(DWc) is a customized DokuWiki installation compiled and maintained by [Kang Seonghoon](/).
+
+While DokuWiki is an excellent wiki software, it lacks many advanced features available in other softwares, especially MediaWiki, and instead delegates them to plugins. DWc provides many necessary and/or convenient plugins in one place chosen by me so you don't have to.
+
+See [Bitbucket page](http://bitbucket.org/lifthrasiir/dokuwiki-custom/) for more information.
+
