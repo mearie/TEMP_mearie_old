@@ -1,14 +1,8 @@
 ## vim: syn=mako
-<%inherit file="default.tmpl.html"/>
+<%inherit file="archive.tmpl.html"/>
 <%!
 from mearie.date import parse_iso8601, to_iso8601
 %>
-
-<%def name="menu_journal_archive(lang)">
-% for year in xrange(2010, 2003, -1):
-* [${lang(ko=u'%d년'%year, en=u'%d'%year)}](/journal/${year}/)
-% endfor
-</%def>
 
 <%def name="head(lang)">
 ${parent.head(lang)}
