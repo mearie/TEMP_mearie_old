@@ -18,7 +18,7 @@ all: ${TREE}
 all: ${TARGETS} ${RESOURCES}
 
 clean: ${TREE}
-	rm -f ${TARGETS} ${RESOURCES}
+	rm -f ${TARGETS} ${RESOURCES} res/mearie/*.pyc
 	rm -rf ${CACHEDIR}
 
 clean-all: clean
