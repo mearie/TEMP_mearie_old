@@ -8,6 +8,7 @@ def indent(s):
     return '\n\t' + s.strip('\r\n').replace('\n', '\n\t')
 
 def uri_to_path(c, uri):
+    if '://' in uri: return None
     try:
         lookup = c.lookup
     except:

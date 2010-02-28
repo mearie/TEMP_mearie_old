@@ -5,16 +5,13 @@
 	text-align: left;
 	margin: 0 0 1em 0;
 }
-ul.nav {
-	padding-right: 0;
-}
-ul.nav li {
-	margin-right: 0.5em;
-}
 * html pre {
 	padding-left: 4px;
 	padding-right: 4px;
 	width: 632px;
+}
+* html .post pre {
+	width: 608px;
 }
 input.button {
 	height: 1.9em;

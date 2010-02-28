@@ -1,25 +1,37 @@
 ## vim: set syn=mako: <%inherit dummy/>
 <%!
-from mearie.image import imagesize
+from mearie.image import imagesize_adjust
 %>
 
 <%def name="indent()">\
 ${capture(caller.body)|indent}
 </%def>
 
-<%def name="img(src, align='')">
+<%def name="img(src, width=None, height=None, align='', bordered=False, link=False, linkto=None)">
 <%
-_, width, height = imagesize(uri_to_path(context, src))
+width, height = imagesize_adjust(uri_to_path(context, src), width, height)
 %>
-<img src="${src|h}" width="${width}" height="${height}" alt="${capture(caller.body)|h}" class="${align|h}" />\
+% if link or linkto:
+<a href="${linkto or src|h}" class="noicon">\
+% endif
+<img src="${src|h}" width="${width}" height="${height}" alt="${capture(caller.body)|h}" class="${align|h}${' bordered' if bordered else ''}" />\
+% if link or linkto:
+</a>\
+% endif
 </%def>
 
-<%def name="imgframe(src, align='')">
+<%def name="imgframe(src, width=None, height=None, align='', link=False, linkto=None)">
 <%
-_, width, height = imagesize(uri_to_path(context, src))
+width, height = imagesize_adjust(uri_to_path(context, src), width, height)
 %>
 <div class="image-frame bordered ${align|h}" style="width:${width}px">\
+% if link or linkto:
+<a href="${linkto or src|h}" class="noicon">\
+% endif
 <img src="${src|h}" width="${width}" height="${height}" alt="" class="bordered ${align|h}" />\
+% if link or linkto:
+</a>\
+% endif
 <div class="caption">${caller.body()}</div>\
 </div>\
 </%def>

@@ -216,6 +216,29 @@ blockquote {
 blockquote p {
 	color: #666;
 }
+.center {
+	text-align: center;
+}
+
+/* section */
+.message {
+	border: 0.3em solid #6a6;
+	margin: 1em 0;
+	font-size: 90%;
+}
+.message p {
+	margin: 0.3em;
+	color: #484;
+}
+.afternote {
+	border: 0.3em solid #888;
+	margin: 1em 0;
+	font-size: 90%;
+}
+.afternote p {
+	margin: 0.3em;
+	color: #666;
+}
 
 /* inline elements */
 a {
@@ -228,6 +251,29 @@ a:visited {
 a:hover, a:active {
 	color: #973;
 }
+em:lang(ko) {
+	font-style: normal;
+	text-decoration: underline;
+}
+strong {
+	font-weight: 700;
+}
+code {
+	background: #999;
+	color: white;
+	padding: 0.2em;
+}
+pre code {
+	background: none;
+	color: #eee;
+	padding: 0;
+}
+input {
+	vertical-align: baseline;
+	padding: 1px 3px;
+}
+
+/* inline: link labels */
 /* :not(.interwiki) is workaround for dokuwiki (where a.interwiki has lower specificity)
  * IE7+ recognizes [href...] but not :not(), so to avoid partial application we put
  * :not(...) everywhere and use javascript only in IE (i hope IE9 support :not()...) */
@@ -263,34 +309,13 @@ a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
 	background-image: none;
 }
-em:lang(ko) {
-	font-style: normal;
-	text-decoration: underline;
-}
-strong {
-	font-weight: 700;
-}
-code {
-	background: #999;
-	color: white;
-	padding: 0.2em;
-}
-pre code {
-	background: none;
-	color: #eee;
-	padding: 0;
-}
-input {
-	vertical-align: baseline;
-	padding: 1px 3px;
-}
 
 /* objects & media */
 img {
 	border: 0;
 	vertical-align: middle;
 }
-img.left, div.image-frame.left {
+img.left, .image-frame.left {
 	float: left;
 	clear: left;
 	margin: 0 1em 1em 0;
@@ -299,6 +324,10 @@ img.right, .image-frame.right {
 	float: right;
 	clear: right;
 	margin: 0 0 1em 1em;
+}
+img.center, .image-frame.center {
+	display: block;
+	margin: 0 auto;
 }
 img.bordered {
 	border: 4px solid #aaa;
@@ -329,6 +358,7 @@ img.noborder, .noborder img {
 	border-top: 2px solid #aaa;
 	padding: 2px 3px;
 	font-size: 90%;
+	text-align: left;
 }
 
 /* table */
@@ -374,6 +404,45 @@ td p, td pre {
 	padding-left: 2em;
 }
 
+/* nav */
+.nav {
+	list-style: none;
+	margin: 0.5em 0;
+	padding: 0;
+	float: right;
+	clear: right;
+}
+.nav.controls {
+	float: left;
+	clear: left;
+}
+.nav li {
+	float: left;
+	display: inline;
+	margin: 0 0 0 0.33em;
+	padding: 1px 0;
+}
+.nav.controls li {
+	margin: 0 0.33em 0 0;
+}
+.nav li a {
+	padding: 3px;
+	border: 1px solid #379;
+	text-decoration: none;
+}
+.nav li a:hover, .nav li a:active {
+	border-color: #973;
+}
+.nav li.highlight a {
+	background: #379;
+	color: #eee;
+}
+.nav li.highlight a:hover, .nav li.highlight a:active {
+	background: #973;
+	color: #eee;
+}
+
+/* index */
 .mearie-news {
 	float: left;
 	width: 49%;
@@ -398,5 +467,59 @@ td p, td pre {
 }
 .mearie-news li, .mearie-activity li {
 	margin: 0.5em 0;
+}
+
+/* journal post */
+.post {
+	border-right: 1em solid #69a;
+	margin: 1.5em 0;
+}
+.post:hover {
+	border-right-color: #379;
+}
+.post:hover h2 a.permalink {
+	background: #379 !important;
+}
+.post h2 a.permalink {
+	float: right;
+	display: inline;
+	font-size: 60%;
+	font-weight: normal;
+	text-shadow: none;
+	background: #69a !important;
+	color: white;
+	padding: 0.4em 0.5em !important;
+	margin-left: 0.5em;
+	line-height: 1;
+	text-align: right;
+}
+.post h2 a.permalink:hover, .post h2 a.permalink:active {
+	background: #973 !important;
+	color: white;
+}
+.post h2 a.permalink small {
+	display: block;
+	font-size: 80%;
+}
+.post h2.notitle {
+	font-size: 10%;
+}
+.post h2.notitle a {
+	font-size: 900%;
+}
+.post blockquote h2 {
+	font-size: 120%;
+	text-shadow: none;
+}
+.post blockquote h2 a.permalink {
+	font-size: 75%;
+}
+.post .postbody {
+	clear: right;
+	margin-right: 0.5em;
+}
+.post .postmore {
+	text-align: right;
+	margin-right: 0.5em;
 }
 
