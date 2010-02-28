@@ -1,0 +1,5 @@
+## vim: syn=mako
+
+* <small>(2006-07-20)</small> [Microsoft C++의 이름 변경(name mangling) 체계](mscmangle/) (영문)
+
+

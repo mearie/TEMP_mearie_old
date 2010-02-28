@@ -1,0 +1,59 @@
+## vim: syn=mako
+<%! title = u'CikiWiki' %>
+
+<div class="extrasmall">
+<%text filter="indent">
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define T for(
+#define O getenv(w+
+#define K printf(w+
+#define I(O,c,C)C ##c##O
+#define G(G,\
+        U)strcspn(G,#U)[G]=0;
+#define N(N)"<a; href=?"#N"=%s>%s</a>"
+typedef char _;
+                                                                                                                                _*          q,                                                                                                            p[                                                99          ],
+                                            a[                                                  99                          ]=  "_  ",  r[  99  *9            ],          b[    999]                      ,w                                          []  ="  ;}                                        %c} %s} <p  >}  </  b\
+                          >}             </i    >}                                              &g                           t{; } &l    t{; } &a               mp      {;    } <                       /u                                              l>} <h                  %d>}          <pre        >} <%s      %c>} \
+                                        </                    h%                                d>}                         </  pr  e>} <h  r>  <p                >}    QU    ER                      Y_        ST          RI                        NG} </  ul              ><    ul      ><    li    >}  RE  QU  ES  T_  M\
+ETHOD}  CONT      ENT_    LE  NGTH }    <h      1>  \"%s\"    </h1          ><ul          >} <  h1>"N(      S)"<    /h 1>}      Co          nt      en      t-    Ty    pe    :text/  html    {\n {\n }<        li          >"      N(      P)    "}      </      te      xt  ar    ea      ><    br        ><          i\
+np    ut;   ty        pe  =s  ub    mi  t>      </  fo    rm  >}          <h            r>      <f    or        m;  acti                            on      =?    >"    N(    E)    ";    or; sear    ch;   <input; na  me=S></for  m>}     <h    1>              "N(     P)    "</h  1>      <for  m"
+";    ac    ti   on=?E=%  s;  me    th  od      =p  os    t>  <t          ex            ta      re    a;   name=x;  ro                               ws    =2     5;  col     s=    80    >}  Fr      on        tP          ag       e}    ",                      *m    =(  "rb"   );      int   i,
+j,    s[    3]  ,u    ,v  ,l  =-    1,  c;      I(  LE    ,I  ,F)*        f,        *g; d(      _*    s,  _*    t)  { T                               --  s;      +*    ++    s;    u||   (*  t++     =*        s-          43        ?*  s:      32                ))  if    (u=   *s==    37    ){ T
+i=    j=    0;    ++i<3;  j=  j*    16  +(      4-  (*    s-    8)          /10?   ((     32|*  s)    -1    )/6-16  ?+                                 666:       (*    s|    32      )-87    :*      s-                                48        ))                  ++        s; j    >>    8?(s    -=
+                                          2,                                      u=                                                                            0)      :(                              *t                                      ++
+                                            =j                                                                                                                );          } *                             t=
+
+                                              0;                                                                                                  } y          (){                                                                                                            K(          c-
+                                          38  ?c  +-            60                                        ?c                             -62  ?2  :22  :3  *9  :32  ),                               c);                        }             e(                      _*  p,  _*  q)  { T a[  i=            1]                   =0;
+                                            *p; ++                i,                                      ++                            i)      sprintf      (a+i,"%"                              "0"   "2x"                   ,*            (p                    ++      )); g=      fopen(                a,    q); } o     (_
+                      *p          ){      *b  =0; e(                p,                      m);           if                          (g      ){  I(k, ee, fs) (g,  0,                    I(      END                          ,K_,           SEE                 ));     I(  ad  ,e, fr  )(  b,               01,        9*   99,
+I(      pen  ,eo,     fr          )(          a,      m,      g)    )[  b]=0x0;   }     }   main    () {  T q=w;      c=*q    ++; c>  32          &&(          w[j      ++      ]=        c-      59      ?c  -123?c    -125    ?c  :0:*q++   :32));     strcpy   (p         ,w+          448     );      +K   190        );  q=
+(O      85)   );  if(v=*q&&q  [1]== 61){              q[      2]    &&  d(   q+2  ,p    );  if    (+      *q    ==        69  ){ v    =2;                               if      (*    O 112)%v){  +K      354 ,p            ,p  ,p  );    m=  "r"   ;         o(  p);                             T q    =b;    c=      *q    ++;
+ y(    ));            I(          t,                   xi    ,e     )(  +K   240  ))    ;}  I(    ad,     re    ,f    )(r,1,  j=      I(                                  i,  o,          at      )(      (O   127))   ),stdin  )[  r]    =0; T     e(    "","r"  );                               j&&  g&&     I(    ts      ,e,
+  fg  )(      b,      99          ,g                    );  j=      I(  mp,  trc  ,s    )(  b,    p)      )G    (b   ,    \r  \n      )e                                  ("","a"         );      (j      &&      g)  &&    I(  tf, rin  ,fp  )(    g,  "%"   "s  \n"                               ,p  );      if            (q
+   =I(r      ,st                                         ,str      )(   r,"x="      )){ G(    q,    &)d(  q+    2,    (b)); } e(      p,                                   "wb"                   );      g?  fputs(   b,g):0;  }   if(+*q    ==    83    ){ K +  142                                 ,p        );    e(      "",
+            "r"                                                   );    T                                                               f=                                                          g;                              f&&                             I(s                                      ,et,               fg)
+                                                                (r,     99                                                                ,f                                                          );                            I(                                tr,                                   trs                   ,s
+
+    )(          b,
+p)  &&  +K  215 ,r  ,r                ))                      { G                                                                                                                     (r      ,\r                                             \n                              )o                    (r            );
+  } exit      (K 38)                  );    } } v||   *q&&d(    q,p                     );      v<      2&&o    (p); q=     b;    T K 160               ,p    ,p); *          b; v      =u      ){                                            c=                            *q      ++      ; if      (c-           10
+&&  c-  13  ){  if  (l                ){           T        u=    0;                  33==    c; u    --    )c        =*  q++;          if            (!u)          (c      +-    32      &&      c-                            42            )||                         (u      =--c    %3    ,c     =*q          ++
+    );          }       if      (u    -v          ||        !c    ){          s[2]      &&      +K    12    );        *s    &&          +K  17          );          *s  =s  [2    ]=      0;      K(    v<  0?63:v    -2    ?v  -1?1   :+70:  38),-v      ); if   (!  c)  I(        ak,   re    ,b      );    K(    u<
+                         0?    44     :u      -2?u        -1      ?c      -45?          1:      8:    50    :+     103      ),      -u);    {}          }       else    if  (l    ){      +u      ||    K(  l<0   ||  (l    >1  &&    !v      )?    8:        45  ==c)    );        T     u-   2||      K(    l<    2)*
+                          9+  98      );          (u    ==        1)    &&l             --      ;K    213   ))    ;}        if          (u      -1)if   (c          -+      95    &&      c-      39        ||    *q  -c    )   if    ((      !l    ||    u||45-  c)      ||        (i   =I(    pn     ,rs,           st)
+                          (q,"-"      ))          <3  )if         (c      >64&&         c<      91    ){   T i              =j          =v  =0;         ++         i&&  !j; (j    =(      (c      |+    32  )-    19  )/    26  -3    )||     (v    =c  &32   ?v  ?v      :1        :v    ?2    :v      ))    c=    *q
+                            ++;       q[    -1]=00;   K(v<2?5:   219          ),q-    i,q-i); *--q=c;  } else     y(     ); else  { K 77    );        q+= i;  } else{   +K    56,"        /"      +8    +(  s[c%3]      ^=01),    "i   b"[c%  3*    2]    ); q++  ;}      else    y(); l    =0; }     else   { *    q-
+                                      10                        ||                                                                                                                      c-      13    ||    ++                                                              q;                       l<0    ||      ++
+                                      l;                      } }                                                                                                                     exit    (K            282                                                               ,p,                  "ed"           "it"
+)); }
+</%text>
+</div>
+
+<small>(2005-05-23)</small> 본래 IOCCC 2005에 낼 목적으로 만든 CGI 위키 프로그램입니다. 물론, 깔끔하게 IOCCC 코드 요건을 충족하지 못 했기 때문에 (코드가 너무 김) 수상 같은 건 꿈도 꾸질 않았습니다.
+
+(TODO)
+

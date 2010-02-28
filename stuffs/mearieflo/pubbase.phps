@@ -1,1 +1,0 @@
-../../res/inc/pubbase.inc.php

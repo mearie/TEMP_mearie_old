@@ -1,0 +1,10 @@
+#!/bin/bash
+REPO=${1:-.}
+
+function lssrcs() {
+	hg -R "$1" status -nmac | grep '\.\(en\|ko\|ja\)\.txt$'
+}
+
+echo -n "TARGETS = "
+lssrcs "$REPO" | sed ':a;s/\.txt$/.html/;N;s/\n/ /;ta'
+lssrcs "$REPO" | sed 's/^\(.*\)\.txt$/\1.txt\t\1.html/' | "`dirname "$0"`/processor" -D -b "$REPO"

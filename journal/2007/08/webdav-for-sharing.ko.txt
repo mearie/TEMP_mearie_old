@@ -1,0 +1,26 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'파일 공유에 WebDAV 쓰기'
+when = '2007-08-02T13:59:52+09:00'
+tags = [u'서버', u'공유', u'WebDAV']
+original = 'http://mearie.org/journal/2007/08/webdav-for-sharing'
+%>
+
+나같이 노트북에 아파치 웹 서버를 깔아 쓰는 사람이라면 파일 공유를 FTP 없이 할 수도 있다. 다름 아닌 WebDAV를 쓰는 방법인데, 아파치의 mod_dav와 mod_dav_fs는 기본적으로 깔려 있기 때문에 약간의 설정만으로 사용할 수 있다.
+
+1. mod_dav와 mod_dav_fs에 대해서 LoadModule 선언을 추가한다.
+
+2. 적절한 위치(보통은 가상 호스트 설정이나 전역 설정)에 다음을 추가한다.
+
+		<Directory /tr>
+		    DAV On
+		    # 뭔가 더 필요하다면 Require valid-user 등을 넣어 꾸며도 됨.
+		</Directory>
+
+3. 해당하는 디렉토리를 만들고 웹서버가 접근할 권한을 준다.
+
+4. 웹 서버를 재시작한다. (<`apache2 -k graceful`> 같은 걸로)
+
+아는 사람은 별로 없지만, 윈도에는 기본적으로 WebDAV 클라이언트가 탐색기에 내장되어 있기 때문에 주소만 잘 입력하면 바로 쓸 수 있다. 예를 들어서 `http://example.com/tr/`로 연결하려면 탐색기에서 `\\example.com\tr\` 식으로 UNC 쓰듯이 쓰면 된다.
+
