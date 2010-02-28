@@ -20,3 +20,6 @@ AddDefaultCharset utf-8
 	Order deny,allow
 	Deny from all
 </Files>
+
+# redirects
+RedirectPermanent /favicon.ico /res/icon.ico
