@@ -1,0 +1,23 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'그냥 그렇고 그런 콜로콰이 패치'
+when = '2008-03-08T15:24:11+09:00'
+tags = [u'콜로콰이', u'개발', u'삽질']
+original = 'http://mearie.org/journal/2008/03/colloquy-patched'
+%>
+
+맥 오에스 텐에서는 [콜로콰이](http://colloquy.info/)를 IRC에 사용하고 있는데, 이게 한글 지원은 잘 되지만 이리 저리 귀찮은 것들이 있어서 주말 삽질-_-을 진행하였다. 그래서 만든 것이 콜로콰이 패치.
+
+<%m:img src="0308-colloquy-patched-pref.png" align="center">패치된 콜로콰이 환경설정 화면</%m:img>
+
+주된 변경점은 한글 입력하다가 엔터 칠 때 두 번 쳐야 하는 문제(라기보다는 사실 feature였지만…)랑, 실수로 Cmd-W 눌렀을 때 확인을 하도록 하는 설정을 만들었다는 것이다. 전자는 [jenix](http://jinhyung.org/) 님이 별도로 패치 만들어서 쓰기도 하셨지만 패치가 따로 없어서 그냥 새로 만들었다. -_-;
+
+서브버전 r3778을 기준으로 컴파일한 바이너리는 **<del>[여기](/files/Colloquy-r3778-lifthrasiir.tgz)</del>**에서 받을 수 있고, 변경점은 [서브버전](http://svn.mearie.org/snippets/colloquy/)에 올려 놓았으니 관심 있으신 분은 찾아 쓰시라. (Objective-C에 익숙하질 않아서 좀 삽질했다.)
+
+<div class="afternote">
+
+더 이상 콜로콰이를 쓰지 않으며 올라온 패치도 현재 버전과 상당히 동떨어져 있음을 감안하여 더 이상 바이너리는 제공하지 않는다. 돌아간다는 보장은 할 수 없지만, 만약 돌아 간다면 직접 Xcode로 패치 뒤 컴파일해서 사용해야 한다. <small>(2010-03-01)</small>
+
+</div>
+

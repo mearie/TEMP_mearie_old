@@ -32,6 +32,12 @@ res/logo.png: res/logo-template.png ${SELF}
 
 index.ko.html index.en.html: recent.json
 
+define JOURNAL_ARCHIVE
+$(1)index.ko.html: $$(wildcard $(1)*/*.ko.html)
+endef
+
+$(foreach path,$(wildcard journal/*/index.ko.txt),$(eval $(call JOURNAL_ARCHIVE,$(dir ${path}))))
+
 ${TREE}: ${HGREPO} ${SELF}
 	${GENERATOR} $</.. > $@ || (rm $@; exit 1)
 	@echo 'Regenerated Makefile.tree. Try again.'

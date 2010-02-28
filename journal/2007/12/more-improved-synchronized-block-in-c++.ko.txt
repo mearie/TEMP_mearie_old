@@ -1,0 +1,103 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'C++에서 synchronized() 블록 쓰기'
+when = '2007-12-10T13:34:20+09:00'
+tags = [u'C++', u'개발', u'theseit']
+original = 'http://mearie.org/journal/2007/12/more-improved-synchronized-block-in-c++'
+%>
+
+옛날에 리카넷에서 [synchronized block in C++](http://ricanet.com/new/view.php?id=blog/050807)라는 글을 보고 오 저런 것도 있구나 하면서 신기하다는 생각을 한 적이 있었습니다. (아 물론 그 때는 쓰레드 프로그래밍에 대해 감도 못 잡고 있었지만.) 거기에 대해서 이런 저런 얘기나 써 보겠습니다.
+
+<!--more-->
+
+동시성 제어를 위해 보통 임계 영역(critical section)을 씁니다. 임계 영역은 하나의 적절한 락(보통 상호 배제[mutual exclusion, mutex] 락을 많이 씁니다)을 공유하는 여러 쓰레드가 있을 때 한 순간에 한 코드 영역에 한 쓰레드만 들어 가게 하는 방법입니다. 락의 구현이 좀 그래서 그렇지, 요즘은 운영체제가 다 해 주기 때문에 코드 시작점에서 락을 취득하고 끝날 때 락을 풀어 주면 간단하게 구현할 수 있습니다. 이렇게요.
+
+	Mutex lock;
+	...
+	lock.acquire();
+	// do something here
+	lock.release();
+
+하지만 이 코드는 C++ 프로그래밍의 관점에서 볼 때 위험하기 짝이 없습니다. 예를 들어 임계 영역 안에서 예외가 발생해서 락을 풀지 않고 종료되어 버리면 안 될테니까요. 그래서 쓰는 방법이 RAII, 즉 변수를 블록이 끝날 때 자동으로 소멸되게 해서 락을 풀어 주는 겁니다.
+
+	Mutex lock;
+	...
+	{
+	    LockGuard guard(lock);
+	    // do something here
+	}
+
+자바의 synchronized() 블록의 역할이 바로 이것입니다. 물론 자바는 블록 나가면 바로 소멸되는 걸 보장해 주는 객체 시스템이 없으니 위와 같이 할 수는 없습니다만. 그럼 C++에서도 자바같은 문법을 쓸 수는 없을까? 해서 생각할 수 있는 것이 바로 이겁니다.
+
+	#define synchronized(lock) if (LockGuard __guard = (lock))
+
+얼핏 보면 잘못된 C++ 문법 같아 보이지만 사실은 적법한 구문입니다. if 안에서 그 블록 안에서만 적용되는 지역 변수를 선언하는 게 가능합니다! 물론 이렇게 선언된 변수는 bool이라거나 void*로 변환이 가능해야 if문에서 사용을 하겠지만 이건 이렇게 해결할 수 있습니다.
+
+	class LockGuard {
+	public:
+	    operator bool() const { return true; }
+	};
+
+위 코드의 변종은 여럿이 있는데, 한 가지 흥미로운 방법으로는 if 문 같은 조건문에서만 사용할 수 있게 하면서 부수 효과를 최소화하는 다음과 같은 방법이 있습니다. (위의 코드는 bool으로 묵시적 변환이 가능하겠죠.) 이건 LockGuard보다는 일상생활(?)에 자주 쓰이면서 if 문에서도 쓰여야 할 때 쓸만하겠습니다.
+
+	class LockGuard {
+	private:
+	    struct dummy_struct {};
+	    typedef void (dummy_struct::*dummy_memptr)();
+	public:
+	    operator dummy_memptr() const { return 0; }
+	};
+
+하여튼 이렇게 하면 대강 돌아는 가는 것 같습니다. 하지만! [improved synchronized block in C++](http://ricanet.com/new/view.php?id=blog/050811a)에서도 소개된 바와 같이, 이런 코드가 컴파일되면:
+
+	if (cond)
+	    synchronized(lock) func();
+	else
+	    func();
+
+사실은 이렇게 해석됩니다.
+
+	if (cond)
+	    if (LockGuard __guard = lock) func();
+	    else
+		func();
+
+물론 저는 모든 if 문 등등을 중괄호로 묶기 때문에 저런 문제가 별로 생기지는 않습니다만… 완벽을 기하기 위해서 고치는 게 좋을 것 같습니다. 한 가지 방법은 if 대신에 for를 쓰는 건데, 최적화되지 않았을 때 별도의 코드를 생성한다는 점에서 저는 별로 안 좋아합니다. (최적화되면 뭐 알아서 해 주겠죠.)
+
+	// assuming Mutex::acquire returns true, Mutex::release returns false
+	#define synchronized(lock) \\
+
+	    for (bool __yet = (lock).acquire(); __yet; __yet = (lock).release())
+
+위의 글에서 제시하고 있는 해결책은 else를 추가하는 것이었습니다. 즉,
+
+	// assuming Mutex::operator bool returns false
+	#define synchronized(lock) \\
+
+	    if (LockGuard __guard = (lock)) assert(0); else
+
+좀 이상해 보일 수는 있습니다만 __guard는 if 문의 참 부분과 거짓 부분 모두에서 유효합니다. 이러면 synchronized() 뒤의 블록이 항상 한 if에만 걸리는 게 보장되겠지요. 하지만 또 다른 문제가 있습니다.
+
+	int blah() {
+	    synchronized(lock) return value_;
+	}
+
+이러면 컴파일러가 에러(내지는 경고)를 뱉습니다. 왜냐하면 assert(0);가 항상 코드의 흐름을 끊는다는 걸 보장할 수 없거든요. 그래서 코드를 끊어 주는 방법이 하나 필요한데, theseit에서는 다음을 썼습니다.
+
+	#define synchronized(lock) \\
+
+	    if (LockGuard __guard = (lock)) { assert(0); throw 0; } else
+
+(throw는 아무 거나 던질 수 있음을 상기합시다. 보통 그렇겐 안 하지만.) 아마 제 생각에는 위의 코드가 앞에서 제시했던 for 코드보다 더 빨리 최적화될 거라 생각합니다. 보통 죽은 코드 제거(dead code elimination) 과정에서 저런 코드는 잘 감지되니까요.
+
+자, 거의 다 끝났습니다. 이 아이디어는 괜찮긴 한데, 만약 여러 라이브러리가 synchronized 매크로를 여럿 등록하고 있으면 어떻게 될까요? 매크로 충돌 문제는 생각만 해도 짜증이 나는군요. 그래서 theseit에서는 위의 매크로를 STARLIGHT_SYNCHRONIZED로 등록한 뒤, 다음과 같은 매크로를 추가로 씁니다.
+
+	#ifndef synchronized
+	#    define synchronized STARLIGHT_SYNCHRONIZED
+	#endif
+
+synchronized()가 아니라 synchronized를 등록했음을 유심히 살펴 봅시다. 이건 전처리기를 사용할 때 특히 많이 나타나는 문제인데, 만약 lock 쪽에 다른 매크로 확장이 있으면, 위의 코드는 그 매크로를 한 번만 확장하지만 synchronized()는 두 번 확장하게 됩니다. (자세한 건 [GNU CPP 문서](http://gcc.gnu.org/onlinedocs/cpp/Argument-Prescan.html)를 봅시다.) 그래서 단순히 매크로의 별명을 만들 때는 원하지 않는 결과를 방지하기 위해 이름만을 #define하곤 합니다.
+
+이 모든 내용이 적용된 코드는 [starlight/thread/autolock.h](http://svn.daybreaker.info/theseit/theseit/trunk/starlight/thread/autolock.h)에 구현되어 있습니다. 쓰다 보니까 참 복잡하군요….
+
