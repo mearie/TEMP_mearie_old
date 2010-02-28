@@ -39,3 +39,37 @@ def imagesize(filename):
         return
     return img_type, width, height
 
+def adjustsize(sx, sy, w, h):
+    try: outw = int(w)
+    except:
+        try: outw = float(w) * sx
+        except:
+            if str(w).endswith('%'): outw = int(w[:-1]) * 0.01 * sx
+            else: outw = None
+    try: outh = int(h)
+    except:
+        try: outh = float(h) * sy
+        except:
+            if str(h).endswith('%'): outh = int(h[:-1]) * 0.01 * sy
+            else: outh = None
+
+    if outw is None:
+        if outh is None:
+            outw = sx
+            outh = sy
+        else:
+            outw = outh * sx / sy
+    else:
+        outh = outw * sy / sx
+    return (int(round(outw)), int(round(outh)))
+
+def imagesize_adjust(filename, w, h):
+    size = imagesize(filename)
+    if not size:
+        try:
+            return (int(w), int(h))
+        except:
+            return '', ''
+    _, sx, sy = size
+    return adjustsize(sx, sy, w, h)
+

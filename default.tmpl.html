@@ -14,9 +14,6 @@ def gethgrev(path):
 		rev = None
 		date = time.strftime('%Y-%m-%d', time.localtime(os.stat(path).st_mtime))
 	return rev, date
-
-# default values
-title = None
 %>
 
 <%namespace name="m" file="/res/library.tmpl.html" import="*" />
@@ -25,22 +22,22 @@ title = None
 ${entry(ko=u'메아리', en=u'mearie.org')}\
 </%def>
 
-<%def name="navwrap(lang, title=None)">\
+<%def name="navwrap(lang)">\
 <%
 body = caller.body # we keep this as caller may change!
 %>\
-% if title:
-${body(title)}\
+% if self.attr.title:
+${body(self.attr.title)}\
 % endif
 ${self.nav(lambda *args, **kwargs: body(lang(*args, **kwargs)))}\
 </%def>
 
 ############################################################
 
-<%def name="head(lang, title)">
+<%def name="head(lang)">
 <meta http-equiv="Content-Language" content="${lang|h}" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${self.headtitle(lang, title)}</title>
+<title>${self.headtitle(lang)}</title>
 <link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
 <!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
 <link rel="shortcut icon" href="/res/icon.ico" type="image/vnd.microsoft.icon" />
@@ -48,9 +45,9 @@ ${self.nav(lambda *args, **kwargs: body(lang(*args, **kwargs)))}\
 <script type="text/javascript" src="/res/global.js"></script>
 </%def>
 
-<%def name="headtitle(lang, title)">\
+<%def name="headtitle(lang)">\
 <% index = [0] %>\
-<%call expr="self.navwrap(lang, title)" args="text">\
+<%call expr="self.navwrap(lang)" args="text">\
 % if index[0] > 0:
  | \
 % endif
@@ -90,13 +87,13 @@ ${self.menu(lang)}
 
 ############################################################
 
-<%def name="bodypre(lang, title)">
-<h1>${self.bodytitle(lang, title)}</h1>
+<%def name="bodypre(lang)">
+<h1>${self.bodytitle(lang)}</h1>
 </%def>
 
-<%def name="bodytitle(lang, title)">\
+<%def name="bodytitle(lang)">\
 <% index = [0] %>\
-<%call expr="self.navwrap(lang, title)" args="text">\
+<%call expr="self.navwrap(lang)" args="text">\
 % if index[0] == 0:
 ${text|h}\
 % endif
@@ -139,26 +136,21 @@ except AttributeError:
     for l in LANGUAGES:
         if ('.%s.' % l) in self.uri: lang = Language(l)
 
-try:
-    filter = self.attr.filter
-except AttributeError:
-    filter = markdown
-
-try:
-    title = self.attr.title
-except AttributeError:
-    title = u''
+if not getattr(self.attr, 'filter', None):
+    self.attr.filter = markdown
+if not getattr(self.attr, 'title', None):
+    self.attr.title = u''
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang|h}">
 <head>
-${self.head(lang, title=title)}
+${self.head(lang)}
 </head>
 <body lang="${lang|h}">
 <div id="sitebody" lang="${lang|h}">
-${self.bodypre(lang, title=title)}
-${capture(self.body)|filter}
+${self.bodypre(lang)}
+${capture(self.body)|self.attr.filter}
 ${self.bodypost(lang)}
 </div>
 <hr/>
