@@ -4,8 +4,7 @@
 from mearie.date import parse_iso8601, to_iso8601
 %>
 
-<%def name="head(lang)">
-${parent.head(lang)}
+<%def name="headmeta(lang)">
 <%
 try:
     whenpost, whenupdate = self.attr.when
@@ -36,8 +35,18 @@ whenstr = lang(ko=u'%d년 %d월 %d일' % (whenpost.year, whenpost.month, whenpos
 
 <%def name="bodypost(lang)">
 % if getattr(self.attr, 'original', None):
-<div class="message">
-	<p>이 글은 본래 <tt><a href="${self.attr.original|h}">${self.attr.original|h}</a></tt>에 썼던 것을 옮겨 온 것입니다.</p>
+<%
+originals = self.attr.original
+if isinstance(originals, (str, unicode)): originals = [originals]
+%>
+<div class="message original-url"><p>이 글은 본래 \
+% for i, url in enumerate(originals):
+% if i > 0:
+, \
+% endif
+<tt><a rel="alternate" href="${self.attr.original|h}">${self.attr.original|h}</a></tt>\
+% endfor
+에 썼던 것을 옮겨 온 것입니다.</p>
 </div>
 % endif
 </div>
