@@ -301,7 +301,6 @@ a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.i
 }
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
-a[href^="http://"][href^="http://hg.new.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://pub.new.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) {

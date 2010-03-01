@@ -48,7 +48,6 @@ jQuery(document).ready(function($) {
 	$('a[href^="http://"]' +
 		':not([href^="http://mearie.org/"])' +
 		':not([href^="http://hg.mearie.org/"])' +
-		':not([href^="http://hg.new.mearie.org/"])' +
 		':not([href^="http://pub.mearie.org/"])' +
 		':not([href^="http://pub.new.mearie.org/"])' +
 		':not([href^="http://j.mearie.org/"])' +

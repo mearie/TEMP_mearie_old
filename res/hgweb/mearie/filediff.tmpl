@@ -1,0 +1,57 @@
+{header}
+<title>File {file|escape} (diff) | Changeset {rev}:{node|short} | {repo|escape} | hg.mearie.org</title>
+<link rel="alternate" type="application/atom+xml" href="{url}atom-log" title="Atom feed for {repo|escape}"/>
+<link rel="alternate" type="application/rss+xml" href="{url}rss-log" title="RSS feed for {repo|escape}"/>
+</head>
+<body lang="en" class="lang-en">
+<div id="sitebody">
+<div class="title"><h1>Changeset {rev}:<tt>{node|short}</tt></h1> {repo|escape}</div>
+
+<h2>File <tt>{file|escape}</tt></h2>
+
+<table class="otherrevs"><tr>
+<td class="parent">{parent%filediffparent}</td>
+<td class="current"><a href="{url}rev/{node|short}{sessionvars%urlparameter}"><strong>{rev}:<tt>{node|short}</tt></strong></a></td>
+<td class="child">{child%filediffchild}</td>
+</table>
+
+<dl class="summary">
+<dt>Author:</dt><dd>{author|obfuscate}</dd>
+<dt>Committed on</dt><dd>{date|rfc822date} <em>({date|age} ago)</em></dd>
+<dt>Permission:</dt><dd><tt>{permissions|permissions}</tt></dd>
+</dl>
+<p>{desc|strip|escape|addbreaks}</p>
+
+{diff}
+
+</div> 
+<hr/> 
+<div id="siteside"> 
+<div class="slogan"> 
+	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="Go to mearie.org front page." /></a> 
+</div> 
+<div class="menu"> 
+	<p class="domain"><a href="/">hg.mearie.org</a></p> 
+	<ul>
+	<li><a href="{url}summary{sessionvars%urlparameter}">{repo|escape}</a><ul>
+	<li><a href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
+	<li><a href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
+	<li><a href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
+	<li><a href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
+	</ul></li>
+	<li><a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Current File</a><ul>
+	<li><a href="{url}raw-file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Raw File</a></li>
+	<li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Changelog</a></li>
+	<li><a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Annotate</a></li>
+	<li><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Diff</a></li>
+	</ul></li>
+	<li>Feeds: <a href="{url}rss-log">RSS</a> <a href="{url}atom-log">Atom</a></li>
+	<li><form action="{url}log">{sessionvars%hiddenformentry}Search: <input type="text" name="rev" size="8"/></form></li>
+	</ul></li>
+	</ul>
+</div> 
+</div> 
+{footer}

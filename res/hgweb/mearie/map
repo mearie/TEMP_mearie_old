@@ -1,0 +1,119 @@
+default = 'summary'
+mimetype = 'text/html; charset={encoding}'
+
+header = header.tmpl
+footer = footer.tmpl
+index = index.tmpl
+error = error.tmpl
+summary = summary.tmpl
+changelog = changelog.tmpl
+changeset = changeset.tmpl
+fileannotate = fileannotate.tmpl
+filediff = filediff.tmpl
+filelog = filelog.tmpl
+filerevision = filerevision.tmpl
+graph = graph.tmpl
+manifest = manifest.tmpl
+notfound = notfound.tmpl
+search = search.tmpl
+shortlog = shortlog.tmpl
+tags = tags.tmpl
+
+urlparameter = '{separator}{name}={value|urlescape}'
+hiddenformentry = '<input type="hidden" name="{name}" value="{value|escape}" />'
+archiveentry = '<a href="{url}archive/{node|short}{extension}">{type|escape}</a> '
+
+filerename = '<small> <tt>{file|escape}</tt></small>'
+
+# tags
+tagtag = '<span class="tagtag" title="{name}">{name}</span> '
+branchtag = '<span class="branchtag" title="{name}">{name}</span> '
+inbranchtag = '<span class="inbranchtag" title="{name}">{name}</span> '
+
+################################################################################
+
+# index.tmpl
+# /
+indexentry = '<tr class="parity{parity}"><th><a href="{url}{sessionvars%urlparameter}">{name|escape}</a></th><td><span class="contact">{contact|obfuscate}</span><br/>{description}</td><td class="moreinfo"><span class="age">{lastchange|age} ago</span> <span class="shortcuts"><span>|</span> {archives%indexarchiveentry} <a class="feed" href="{url}rss-log">RSS</a> <a class="feed" href="{url}atom-log">Atom</a></span></td></tr>\n'
+indexarchiveentry = '<a class="archive" href="{url}archive/{node|short}{extension}">{type|escape}</a> '
+
+# summary.tmpl (see also shortlog.tmpl and tags.tmpl)
+# /REPO
+branchentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="logtags"><span class="branchtag">{branch|escape}</span></span></a></td></tr>'
+
+# changelog.tmpl, changelogentry.tmpl
+# /REPO/log/REV
+naventry = '<li><a href="{url}log/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
+changelogentry = changelogentry.tmpl
+filedifflink = '<li><tt><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{file|escape}</a></tt></li>'
+fileellipses = '<li>...</li>'
+
+# changeset.tmpl (see also filediff.tmpl)
+# /REPO/rev/REV
+changesetparent = '<a href="{url}rev/{node|short}{sessionvars%urlparameter}">&larr; {rev}:<tt>{node|short}</tt></a> '
+changesetchild = '<a href="{url}rev/{node|short}{sessionvars%urlparameter}">{rev}:<tt>{node|short}</tt> &rarr;</a> '
+filenodelink = '<tr class="parity{parity}"><th><tt><a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{file|escape}</a></tt></th><td><ul class="nav"><li><a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">annotate</a></li><li><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">diff</a></li><li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">log</a></li></ul></td></tr>'
+filenolink = '<tr class="parity{parity}"><th><tt>{file|escape}</tt> <small>(removed)</small></th><td><ul class="nav"><li><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">diff</a></li><li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">log</a></li></ul></td></tr>'
+
+# fileannotate.tmpl
+# /REPO/annotate/REV/PATH/NAME
+fileannotateparent = '<a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">&larr; {rev}:<tt>{node|short}</tt>{rename%filerename}</a> '
+fileannotatechild = '<a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{rev}:<tt>{node|short}</tt> &rarr;</a> '
+annotateline = '<tr class="parity{parity}"><th><a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}#l{targetline}" title="{node|short}: {desc|escape|firstline}">{author|user}@{rev}</a></th><td><pre><a class="linenr" href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}</pre></td></tr>'
+
+# filediff.tmpl
+# /REPO/diff/REV/PATH/NAME
+filediffparent = '<a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">&larr; {rev}:<tt>{node|short}</tt>{rename%filerename}</a> '
+filediffchild = '<a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{rev}:<tt>{node|short}</tt> &rarr;</a> '
+diffblock = '<pre>{lines}</pre>'
+difflineplus = '<ins><a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}</ins>'
+difflineminus = '<del><a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}</del>'
+difflineat = '<span><a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}</span>'
+diffline = '<a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}'
+
+# filelog.tmpl
+# /REPO/log/REV/PATH/NAME
+filenaventry = '<li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{label|escape}</a></li>'
+filelogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>{rename%filelogrename}'
+filelogrename = '<tr class="light more"><td colspan="2"><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Renamed from <tt>{file|escape}</tt> at rev <tt>{node|short}</tt></a></td></tr>'
+
+# filerevision.tmpl
+# /REPO/file/REV/PATH/NAME
+filerevparent = '<a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">&larr; {rev}:<tt>{node|short}</tt>{rename%filerename}</a> '
+filerevchild = '<a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{rev}:<tt>{node|short}</tt> &rarr;</a> '
+fileline = '<a href="#{lineid}" id="{lineid}"> {linenumber}</a> {line|escape}'
+
+# graph.tmpl
+# /REPO/graph/REV
+navgraphentry = '<li><a href="{url}graph/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
+
+# manifest.tmpl
+# /REPO/file/REV/PATH
+direntry = '<tr class="dir parity{parity}"><td class="size"></td><td class="date">Directory</td><th><tt><a href="{url}file/{node|short}{path|urlescape}{sessionvars%urlparameter}">{basename|escape}/</a></tt></th><td></td></tr>'
+fileentry = '<tr class="file{permissions} parity{parity}"><td class="size">{size}</td><td class="date">{date|isodate}</td><th><tt><a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{basename|escape}</a></tt></th><td><ul class="nav"><li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">log</a></li><li><a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">annotate</a></li></ul></td></tr>'
+
+# search.tmpl
+# /REPO/log?rev=QUERY
+searchentry = changelogentry.tmpl
+
+# shortlog.tmpl
+# /REPO/shortlog/REV
+navshortentry = '<li><a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
+shortlogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>'
+
+# tags.tmpl
+# /REPO/tags
+tagentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="logtags"><span class="tagtag">{tag|escape}</span></span></a></td></tr>'
+
+
+## changelog & filelog parent/child link (unused)
+changelogparent = '<tr><th class="parent">parent {rev}:</th><td class="parent"><a href="{url}rev/{node|short}{sessionvars%urlparameter}">{node|short}</a></td></tr>'
+changelogchild = '<tr><th class="child">child {rev}:</th><td class="child"><a href="{url}rev/{node|short}{sessionvars%urlparameter}">{node|short}</a></td></tr>'
+filelogchild = '<tr><td align="right">child {rev}:&nbsp;</td><td><a href="{url}file{node|short}/{file|urlescape}{sessionvars%urlparameter}">{node|short}</a></td></tr>'
+filelogparent = '<tr><td align="right">parent {rev}:&nbsp;</td><td><a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{node|short}</a></td></tr>'
+
+## branch link (unused)
+changesetbranch = '<tr><td>branch</td><td>{name}</td></tr>'
+filerevbranch = '<tr><td>branch</td><td>{name}</td></tr>'
+
+## vim: syn=html
