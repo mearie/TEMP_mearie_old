@@ -49,7 +49,6 @@ jQuery(document).ready(function($) {
 		':not([href^="http://mearie.org/"])' +
 		':not([href^="http://hg.mearie.org/"])' +
 		':not([href^="http://pub.mearie.org/"])' +
-		':not([href^="http://pub.new.mearie.org/"])' +
 		':not([href^="http://j.mearie.org/"])' +
 		':not(.interwiki):not(.noicon), ' +
 	'a[href^="https://"]:not(.interwiki):not(.noicon), ' +
