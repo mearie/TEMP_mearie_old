@@ -234,8 +234,14 @@ blockquote {
 blockquote p {
 	color: #666;
 }
+.clear {
+	clear: both;
+}
 .center {
 	text-align: center;
+}
+.right {
+	text-align: right;
 }
 
 /* section */
@@ -275,6 +281,9 @@ em:lang(ko) {
 }
 strong {
 	font-weight: 700;
+}
+del {
+	color: #888;
 }
 code {
 	background: #999;
@@ -482,6 +491,12 @@ td p, td pre {
 }
 .mearie-news li, .mearie-activity li {
 	margin: 0.5em 0;
+}
+.mearie-neighbors {
+	clear: both;
+	text-align: right;
+	font-size: 80%;
+	margin: 0;
 }
 
 /* journal post */

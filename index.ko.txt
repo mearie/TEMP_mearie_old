@@ -2,7 +2,7 @@
 <%inherit file="index.tmpl.html"/>
 <%! import json %>
 
-**메아리**는 저, [강 성훈](/about/kang-seonghoon)의 개인 웹사이트이자 도메인입니다. 저는 자유 및 오픈 소스 소프트웨어 개발을 많이 하는 소프트웨어 개발자입니다.
+**메아리**는 저, [강 성훈](/about/kang-seonghoon)의 개인 웹사이트이자 도메인입니다. 저는 자유 및 오픈 소스 소프트웨어 개발을 많이 하는 소프트웨어 개발자이고, 즐거움과 귀차니즘을 인생 신조로 삼고 있는 평범한 대학원생입니다.
 
 <div class="mearie-news">
 최근 소식
@@ -23,4 +23,15 @@
 
 </noscript>
 </div>
+
+<p class="mearie-neighbors">
+이웃 사이트:
+[코스믹메아리](//cosmic.mearie.org/),
+[풉;](//pub.mearie.org/),
+[머큐리얼](//hg.mearie.org/),
+[서브버전](//svn.mearie.org/),
+[미투데이](http://me2day.net/arachneng/),
+[트위터](http://twitter.com/senokay/),
+[비트버킷](http://bitbucket.org/lifthrasiir/)
+</p>
 
