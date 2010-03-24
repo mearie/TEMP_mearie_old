@@ -8,8 +8,8 @@ CACHEDIR = res/cache
 
 HG = hg -R ${HGREPO}/..
 CONVERT = convert
-PROCESSOR = res/processor -c ${CACHEDIR} -b ${HGREPO}/..
-GENERATOR = res/generator
+PROCESSOR = bin/processor -c ${CACHEDIR} -b ${HGREPO}/..
+GENERATOR = bin/generator
 
 all: ${TREE}
 
@@ -18,7 +18,7 @@ all: ${TREE}
 all: ${TARGETS} ${RESOURCES}
 
 clean: ${TREE}
-	rm -f ${TARGETS} ${RESOURCES} res/mearie/*.pyc
+	rm -f ${TARGETS} ${RESOURCES} bin/mearie/*.pyc
 	rm -rf ${CACHEDIR}
 
 clean-all: clean
