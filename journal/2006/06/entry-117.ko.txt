@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'또 또 또 또'
+when = '2006-06-20T01:32:41+09:00'
+tags = [u'일상']
+original = 'http://tokigun.net/blog/entry.php?blogid=117'
+%>
+
+오늘 모 사이트에서 깽판 치는 놈들이 좀 있었다. 내가 이래서 커뮤니티 사이트에 몸 안 담길 잘 했지.
+
+제가 왜 이런 소리를 하는 지 도저히 알 수 없다면 저한테 (코멘트 말고...) 물어 보시면 친절하게 구수한 욕을 섞어 가면서 설명해 드릴 수 있습니다. KLDP는 아닙니다.
+

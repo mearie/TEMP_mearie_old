@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'서브버전 중독'
+when = '2006-06-18T22:52:03+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=116'
+%>
+
+[날뷁](http://daybreaker.info/)군을 꼬셔서 [개인 서브버전 저장소](http://svn.daybreaker.info/lifthrasiir/)를 만들었다. 옛날에 만든 프로그램들이나 필요한 파일들을 정리해서 계속 올리고 있는데 중독되고 있는 것 같다. -_-; ftp 같은 거 신경 쓸 필요 없이 더 편하게 올릴 수 있고 버전 관리도 덤으로 되니 이보다 좋을 수 없다.
+
+그런데... 한 가지 불만이 있다면, 왜 [TortoiseSVN](http://tortoisesvn.tigris.org/)에 있는 branch/tag 기능은 무조건 연결된 저장소를 고치게 설계된 거냐. 디렉토리 구조가 좀 꼬여서 branch할 때 파일 별로 일일이 복사해야 하는데 <`svn copy`>를 수동으로 하라는 건 매우 골치 아프다. orz (애초에 trunk를 따로 안 만든 게 잘못이지... 에구)
+
+<div class="afternote">
+
+문제의 저장소는 몇 년 뒤 [별도 도메인](http://svn.mearie.org/)으로 이전했다. 물론 모든 새 프로젝트는 [머큐리얼 저장소](http://hg.mearie.org/)에만 올라 온다. <small>(2010-03-25)</small>
+
+</div>
+

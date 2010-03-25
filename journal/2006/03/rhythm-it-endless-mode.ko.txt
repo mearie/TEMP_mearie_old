@@ -1,0 +1,21 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'오랜만에 리듬잇'
+when = '2006-03-19T01:58:43+09:00'
+tags = [u'일상']
+original = 'http://tokigun.net/blog/entry.php?blogid=69'
+%>
+
+	Total Notes : 33834
+	YELL :  21012
+	YeLL :  10298
+	SO.. :    991
+	FAIL :     91
+	FaiL :    222
+	MISS :    167
+
+endless mode로 41판 하고 뻗었다. (점수가 38만점이었던가...) 두 시간 반에 걸쳐서 휴식 없이 저 짓을 하니까 눈은 침침하고 손목 팔목 어깨가 뻐근해서 죽겠지만 이렇게 많이 한 적도 별로 없으니까 나쁘진 않다.
+
+이러고 나니까 개발자들이 서로 자기 일 하느라 신경을 못 쓰는 theseit를 다시 잡아야 하는데... 하는 생각만 든다. -_- 아, 혹시 theseit(멀티플랫폼 BMS 플레이어) 개발에 관심 있으신 분께서는 연락해 주시라. orz
+

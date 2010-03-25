@@ -1,0 +1,26 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'난감한 스팸 코멘트'
+when = '2005-10-18T07:38:39+09:00'
+tags = [u'삽질']
+original = 'http://tokigun.net/blog/entry.php?blogid=16'
+%>
+
+스패머들의 수법이 점점 다양해지고 있다. 내용은 그냥 뭐 잘 봤다는 얘기인데 이름과 홈페이지는 자기네 사이트들로 가게 되어 있는 코멘트가 수십 개 올라 와서 다 지웠는데, 생각해 보니 스팸 키워드는 다 등록되어 있는데 이름을 체크하지 않아서 못 잡아 냈다는 걸 알게 되었다.
+
+이런 경우까지 처리하게 하려면, classes/Comment.class.php에서 `Comment::writeComment`를 찾아서 다음과 같은 부분을,
+
+	if (Comment::isSpam($body)) {
+	  return;
+	}
+
+다음과 같이 고치면 되겠다.
+
+	if (Comment::isSpam($name) || Comment::isSpam($homepage) || Comment::isSpam($body)) {
+	  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 추가된 부분
+	  return;
+	}
+
+...음, 이거 cvs에 커밋해야 하려나.
+

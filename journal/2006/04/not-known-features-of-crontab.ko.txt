@@ -1,0 +1,29 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'등잔 밑이 어둡다'
+when = '2006-04-09T03:50:03+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=80'
+%>
+
+[Jeremy Zawodny - Vixie cron's @reboot](http://jeremy.zawodny.com/blog/archives/001021.html)
+
+crontab에 이런 기능도 있었다고 한다. 이런 걸 보고 한국에서는 "등잔 밑이 어둡다"라고 하는데, 정확한 표현이라 생각한다.
+
+	     Instead of the first five fields, one of eight special strings may
+	     appear:
+	
+	           string          meaning
+	           ------          -------
+	           @reboot         Run once, at startup.
+	           @yearly         Run once a year, "0 0 1 1 *".
+	           @annually       (sames as @yearly)
+	           @monthly        Run once a month, "0 0 1 * *".
+	           @weekly         Run once a week, "0 0 * * 0".
+	           @daily          Run once a day, "0 0 * * *".
+	           @midnight       (same as @daily)
+	           @hourly         Run once an hour, "0 * * * *".
+
+(나중에 보니까 맥 OS X에서는 `@AppleNotOnBattery`라는 확장도 제공하고 있었다.)
+

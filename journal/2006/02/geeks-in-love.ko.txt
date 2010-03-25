@@ -1,0 +1,66 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'Geeks in Love!'
+when = '2006-02-19T15:14:32+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=58'
+%>
+
+[Albino Black Sheep - Geeks in Love](http://albinoblacksheep.com/flash/geeks)
+
+오랜만에 정말 마음에 드는 노래(와 함께 뮤직 비디오)다. 원곡은 Lemon Demon의 [Geeks in Love](http://www.eviltrailmix.com/lemondemon/skippy.html). 발렌타인 데이 기념-_-이라던가.
+
+다음은 가사.
+
+<div lang="en">
+
+> Nobody's cool as we, nor quite as esoterically far out.  
+> We're so far out it's creepy.  
+> I don't think they'll ever get the groovy standards that we set for love,  
+> but they're not smart like we be.
+> 
+> They have no roses.  
+> Subconsciously they envy us a lot.  
+> They look down their noses and see a couple of dorks with more love than they have got.
+> 
+> When they see us holding hands, they wish that they were geeks in love.  
+> And when they hear our favorite bands, they wish that they were geeks in love.  
+> We rattle off our in-jokes while they wish that they were geeks in love.  
+> And while we make each other smile, they wish that they were geeks in...
+> 
+> La la la, la la la, la-lubbidy-da-diddy-love.  
+> La la la, la la la, ka-boominy-woah-nelly-love.  
+> La la la, la la la, ga-shibbidy-waffles-and-love.  
+> La la la, la la la la love.
+> 
+> As far as I can tell, while other lovers go through hell,  
+> we'll know we're too cool for damnation.  
+> We may not be cutting edge, but we won't take the mainstream pledge,  
+> for we don't need your admiration.
+> 
+> They may not show it.  
+> It doesn't fit their made-up little roles.  
+> They don't even know it, but jealousy abounds within their souls.
+> 
+> When they see us on the street, they wish that they were geeks in love.  
+> And when they hear us trick or treat, they wish that they were geeks in love.  
+> As we lock arms and skip away, they wish that they were geeks in love.  
+> And you can almost hear them say they wish that they were geeks in...
+> 
+> La la la, la la la, la-lubbidy-do-diddy-love.  
+> La la la, la la la, fa-doobidy-ding-dong-love.  
+> La la la, la la la, za-muppety-puppety-love.  
+> La la la, la la la, sha-peppity-bismol-love.  
+> La la la, la la la, a-bubbly-lava-lamp-love.  
+> La la la, la la la, ma-spockity-nimoy-love.  
+> La la la, la la la, da-ponkity-ponkity-love.  
+> La la la, la la la, geekity-geekity-geeks in love.  
+> 
+> *(Geeks in loooove.)*  
+> *(Geeks in loooove.)*  
+> *(Geeks in loooove.)*  
+> *(Geeks in loooove.)*
+
+</div>
+

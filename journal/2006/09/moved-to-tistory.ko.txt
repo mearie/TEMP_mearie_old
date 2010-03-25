@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'블로그 옮겼습니다;'
+when = '2006-09-18T13:44:48+09:00'
+tags = [u'소식']
+original = 'http://tokigun.net/blog/entry.php?blogid=139'
+%>
+
+[티스토리](http://lifthrasiir.tistory.com/)로 옮겼습니다. 이 블로그(나 이 블로그의 주소)는 그대로 유지되지만 토끼군 작업실 4 작업이 끝날 때까지 새로운 글이 올라올 것 같지는 않습니다. 피드버너를 쓰시는 분께서는 자동으로 링크가 옮겨지니 안 고치셔도 됩니다. :)
+

@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'위키백과에서 개그하기'
+when = '2005-11-01T21:03:18+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=19'
+%>
+
+음... 계획했던 글을 쓰다가 잠시 놀면서 쉬는 중에, 이걸 보고 토하는 줄 알았다.
+
+<%m:img src="http://tokigun.net/blog/contents/upload/20051101.wikipediababel.png" align="center" width="250" height="571">바벨 템플릿에 사용자 정의 상자를 달아서 개그하는 장면</%m:img>
+
+직접 보고 싶으신 분께서는 [위키백과](http://ko.wikipedia.org/wiki/%EC%82%AC%EC%9A%A9%EC%9E%90:Klutzy)를 참고하시길. 열심히 뒹굴어 준 덕분에 오늘 예정했던 글은 포기다. [klutzy](http://klutzy.x-y.net/) 이 녀석... orz
+
+아, 물론 글 못 쓴 게 저것 때문이라는 건 아니고... [이런 글](http://ko.wikipedia.org/wiki/UTF-8)을 편집하고 있었기 때문이라는 것은 비밀.
+

@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'축구 끝 >_<'
+when = '2006-06-24T06:16:32+09:00'
+tags = [u'일상']
+original = 'http://tokigun.net/blog/entry.php?blogid=122'
+%>
+
+이제는 더 이상 그 놈의 축구 얘기 안 봐도 되어서 행복하다. 뭐 그거랑 상관 없이 아무튼 피파는 나가 죽길 바란다. (내가 중계 보고 있었다면 분명 TV를 부쉈을 테니까 안 본 게 다행이랄까)
+

@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'앞으로 Feedburner를 사용하겠습니다.'
+when = '2006-05-12T20:34:43+09:00'
+tags = [u'소식']
+original = 'http://tokigun.net/blog/entry.php?blogid=94'
+%>
+
+2006년 5월 12일을 기점으로 이 블로그는 RSS 피드를 배달하는 데 [Feedburner](http://feedburner.com/)를 사용합니다. (블로그 오른쪽에 아이콘도 달아 봤습니다) 주된 이유는 홈페이지 체계가 바뀌어서 RSS 주소가 바뀔 경우를 대비하기 위해서입니다. 사용 중인 RSS 주소가 [http://feeds.feedburner.com/tokigun/blog](http://feeds.feedburner.com/tokigun/blog)이 아니라면 변경해 주세요.
+
+예전 주소는 혹시나 싶어서 계속 유지합니다만 권장하지 않습니다. 물론 utf-8을 읽을 수 없는 RSS 리더를 사용한다면 예전 주소를 계속 사용해야 할 것입니다. (Feedburner는 무조건 utf-8로 인코딩 변환을 하는 모양이더군요.) 예전 주소는 수시로 바뀔 수 있음을 유의해 주세요.
+
+<div class="afternote">
+
+현재는 피드버너를 사용하지 않는다. (어차피 피드버너 자체가 사라지기도 했고...) <a href="http://j.mearie.org/rss">새 블로그 RSS</a>를 사용하라. <small>(2010-03-25)</small>
+
+</div>
+

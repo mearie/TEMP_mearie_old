@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'허무 2'
+when = '2006-01-05T00:39:30+09:00'
+tags = [u'일상']
+original = 'http://tokigun.net/blog/entry.php?blogid=39'
+%>
+
+비밀번호를 까먹어서 대여섯 번 정도 눌러 보다가 제한 걸려서 더 이상 사용할 수 없는 카드를 오랜만에 한참 떨어진 은행에 가져다가 비밀번호 변경 신청을 해 놓고 나서 처리해 놓고 나서 ATM에서 계좌 조회를 해 보니 만원 밖에 안 남아 있더라는 황당한 일.
+
+...아 정말 허무해 orz
+

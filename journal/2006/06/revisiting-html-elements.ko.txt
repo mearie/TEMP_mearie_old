@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'HTML에 대한 착각'
+when = '2006-06-30T11:23:15+09:00'
+tags = [u'삽질']
+original = 'http://tokigun.net/blog/entry.php?blogid=126'
+%>
+
+나는 지금껏 [`ins`/`del` 엘리먼트](http://www.w3.org/TR/html4/struct/text.html#h-9.4)가 인라인 엘리먼트(`strong`이나 `em`처럼 텍스트에 흘러 가는 형태의 엘리먼트)라고 생각하고 있었다. 사실은 블록 엘리먼트도 될 수 있고 인라인 엘리먼트도 될 수 있는 것이었는데. :( 물론 인라인 엘리먼트 안에 들어 갔을 경우 그 안에는 인라인 엘리먼트가 들어 가야 한다는 제약이 있지만 (이런 거 SGML로 표현 못 하나?) 아무튼 생각보다 더 많이 활용할 수 있다는 걸 깨달았으니 다행이다.
+
+<div class="afternote">
+
+이전 글을 둘러 보면 알 수 있듯, 내가 당시에 그 존재를 몰랐음에도 옛날 글에 종종 `ins`/`del` 엘리먼트가 붙어 있는 걸 볼 수 있는데 그건 블로그 글을 모두 통합하는 과정에서 편집하면서 고친 것이다. <small>(2010-03-25)</small>
+
+</div>
+

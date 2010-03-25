@@ -1,0 +1,36 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'낚였다!'
+when = '2006-04-13T18:31:56+09:00'
+tags = [u'삽질']
+original = 'http://tokigun.net/blog/entry.php?blogid=83'
+%>
+
+rss 리더기 용으로 [bloglines](http://bloglines.com/)를 쓰고 있는데, (정확히는 옮기기도 귀찮고 엔트리 추가하기도 귀찮아서 몇 개를 함께 쓰고 있다.) 이틀인가 사흘 전부터 이런 화면이 뜨는 것이었다.
+
+<%m:img src="http://tokigun.net/blog/contents/upload/20060413.bloglines.plumber.png" align="center" bordered="1" width="370" height="347">bloglines 배관공(plumber) 아저씨</%m:img>
+
+해적인 척 하는 알 수 없는 아저씨는 bloglines가 뻗을 때마다 어김없이 등장해서 사람을 놀래키곤(?) 한다. 그런데 이게 하루 정도 그런 줄 알았더니 사흘이 지난 오늘까지도 계속 나오길래 뭔가 이상하다 싶어서 메시지를 보니까...
+
+> **Monday, December 19, 2005**  
+> Yarr! Bloglines is currently offline while we relocate to a new data center.  
+> We expect Bloglines to be back online by 8:00pm PST (4:00am UTC **December 20th**).  
+> <small>Thanks,  
+> The Bloglines <del>Plumber</del> Pirate</small>
+
+
+....**날짜가 한참 옛날이잖아!!!!!**
+
+제 아무리 크래킹 따위 당했더라도 천하의 bloglines가 저런 메시지를 방치해 놓고 있지는 않을 거라는 판단 하에 용감하게 첫 페이지로 들어 가 봤다.
+
+<%m:img src="http://tokigun.net/blog/contents/upload/20060413.bloglines.front.png" align="center" bordered="1" width="499" height="302">bloglines 첫 화면</%m:img>
+
+...잘 된다?
+
+결국 다음과 같은 이유로 메시지가 뜨고 있었다는 것을 밝혀 냈다.
+
+<%m:imgframe src="http://tokigun.net/blog/contents/upload/20060413.bloglines.reason.png" align="center" width="379" height="239">주소 뒤의 슬래쉬가 있으면 위의 메시지가 뜨고, 없으면 정상임 -_-;;</%m:imgframe>
+
+즉, 어떤 이유로 저 메시지가 한 번 뜬 후에, 브라우저 캐시에서 안 사라진 덕분에 (저런 페이지는 아무래도 서버 부하를 줄이기 위해서 캐시를 보존하도록 response를 보내곤 한다) 아직도 서버 죽었나 하고 생각하게 된 것이었다. bloglines 이런 시발라마... 제대로 낚였다. orz
+

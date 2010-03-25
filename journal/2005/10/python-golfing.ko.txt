@@ -1,0 +1,18 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'python golfing'
+when = '2005-10-06T23:58:48+09:00'
+tags = [u'삽질']
+original = 'http://tokigun.net/blog/entry.php?blogid=10'
+%>
+
+[nohmad](http://nohmad.sub-port.net/typo/articles/2005/10/06/programming-golf) 님께서 golfing 얘기를 하셨길래 (golfing이 뭔지는 그 쪽을 참고하시라) 심심해져서 ruby-talk 메일링 리스트를 보다가, [ruby-talk:159291](http://ruby-talk.org/cgi-bin/scat.rb/ruby/ruby-talk/159291)에 루비 골프 퀴즈가 있길래 파이썬으로(...) 풀어 보았다.
+
+	import sys;q={}
+	for w in sys.stdin:w=w.strip();q.setdefault(len(dict((i,0)for i in unicode(w).upper()\ 
+	    .translate(u'%91s'%'22233344455566677778889999'))),[]).append((len(w),w))
+	for k,v in q.items():print'%d: %s'%(k,max(v)[1])
+
+썩 짧은 코드는 아니다. 하긴 ruby-talk 쪽에서 [rubyquiz](http://rubyquiz.com)에 이미 있는 거 아니냐고 딴지 거는 사람도 있긴 한데;
+

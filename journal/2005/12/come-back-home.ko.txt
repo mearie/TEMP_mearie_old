@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'상경'
+when = '2005-12-24T14:59:00+09:00'
+tags = [u'일상']
+original = 'http://tokigun.net/blog/entry.php?blogid=35'
+%>
+
+이라고 해 봐야 1월 초에 다시 돌아 갈 거지만... 아무튼 집이다. 택배로 다섯 박스 부치고 집으로 올라 오는데 택시가 하도 안 와서 그 추운 바깥에서 한 시간 가까이 떨다가 콜택시 불러서 갔다. 덕분에 코감기 비스무리한 데 걸린 것 같으니 참 잘 하는 짓이다.
+
+시험 때문에 미루고 있던 작업들을 신경 써서 해야 겠다. 크리스마스? 그 놈의 태양신 명절 지켜서 뭐 하나. 잠이나 자야지. -_- (라고는 썼으나 일요일이다 보니까...)
+
+그래도 나는 성탄절 분위기 내야 겠다! 하시는 분은 [Santastic: Holiday Boots For Your Stockings](http://www.djbc.net/christmas/) 앨범을 들어 보실 것을 권장한다. [mash-up](http://en.wikipedia.org/wiki/Mash-up) 쪽을 좋아한다면 좋은 선택일 것이다. 좀 느리긴 하지만, 아무튼 다운로드는 공짜다. (저작권은 정확하게 모르겠네... free-to-use인가?)
+
