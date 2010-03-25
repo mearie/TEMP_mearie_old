@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'IOCCC 2005 수상작'
+when = '2005-11-09T08:17:22+09:00'
+tags = [u'소식']
+original = 'http://tokigun.net/blog/entry.php?blogid=20'
+%>
+
+[http://www.ioccc.org/whowon2005.html](http://www.ioccc.org/whowon2005.html)
+
+아직 소스 코드는 안 나왔지만, 프로그램들의 간략한 소개만 봐도 **야 이거 뭔가 괴악한데**라는 생각이 많이 들고 있다. -_-;;; 저 중에는 이미 공개된 코드가 조금 있는데, 하나만 소개하자면 [Stephen Sykes](http://www.stephensykes.com/) 씨의 [Commodore PET 에뮬레이터](http://www.stephensykes.com/IOCCC/2005_fixed/prog.c)(!)가 있다.
+
+...물론 내 이름이 있을 턱은 없다. 으윽. 언젠가는 입상하고 말테다 IOCCC -_-
+

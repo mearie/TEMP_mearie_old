@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'파이썬의 또 다른 활용법'
+when = '2006-05-11T01:55:05+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=93'
+%>
+
+[Pomp On Math & Puzzle - 290-conjecture proved!](http://pomp.egloos.com/1939888)
+
+290-conjecture라 불리는 [이차 형식](http://en.wikipedia.org/wiki/Quadratic_form)에 관련된 추측을 컴퓨터로 증명하는데 파이썬이 사용된 모양이다. [퍼키](http://openlook.org/) 님께서 좋아하실려나?
+
+> 자세한 증명 방법은 알 수가 없지만, modular form 이론을 써서 적당한 bound를 구한 다음, 컴퓨터를 무지막지하게 돌린 것 같다. 위 홈페이지에 가 보면, 논문 대신 6436개의 universal nonclassical quaternary form들을 비롯한 여러 결과들과 컴퓨터 프로그램의 소스 코드를 제공하고 있다. 수학 계산 패키지인 MAGMA, Pari/GP에 C++, Python까지 동원하고 있으니 대단한 프로젝트였을 듯.
+
+요즘 수학자들은 프로그래밍도 할 줄 알아야 한다. (symbolic calculation 지원하는 매쓰매티카나 매틀랩 같은 프로그램들 모르면 요즘 수학 하기가...) 이래 저래 모든 컴퓨터 사용자가 프로그래머가 될 날이 멀지 않은 것 같다.
+

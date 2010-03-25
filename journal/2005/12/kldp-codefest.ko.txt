@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'KLDP CodeFest'
+when = '2005-12-10T00:08:40+09:00'
+tags = [u'소식']
+original = 'http://tokigun.net/blog/entry.php?blogid=28'
+%>
+
+바로 오늘! 이번에도 좋은 시간이 되길...
+
+코드페스트가 뭔가 싶으신 분은 [KLDP 위키](http://wiki.kldp.org/wiki.php/CodeFest/20051210)를 참고하시라. 개인적으로 지금까지의 상황을 보면 좀 개선해야 할 건 있지만 행사 자체는 잘 진행되어 왔다고 생각한다.
+

@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'문득 든 생각'
+when = '2006-05-16T18:18:04+09:00'
+tags = [u'생각']
+original = 'http://tokigun.net/blog/entry.php?blogid=95'
+%>
+
+다들 알고 있는 거지만...
+
+<abbr title="미확인 비행 물체 (Unidentified Flying Object)">UFO</abbr>가 존재하느냐 아니냐는 논쟁의 대상이 아니다. UFO는 애초에 뭔지 알 수 없는 비행 물체(그게 뭐건간에)를 싸잡아서 가리키는 말이니 당연히 존재하는 것이다. 말을 하려면 UFO 중에 지적 외계 생명체로부터 온 게 있느냐 없냐를 따져야 겠지.
+

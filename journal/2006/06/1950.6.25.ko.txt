@@ -1,0 +1,11 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'1950.6.25'
+when = '2006-06-25T23:28:50+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=124'
+%>
+
+이 땅에서 그 일이 잊혀지기에는 너무나도 그 때의 상처가 컸다.
+

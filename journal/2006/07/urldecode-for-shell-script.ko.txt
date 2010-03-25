@@ -1,0 +1,69 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'urldecode for shell script'
+when = '2006-07-13T21:54:33+09:00'
+tags = [u'삽질']
+original = 'http://tokigun.net/blog/entry.php?blogid=136'
+%>
+
+목표: 유닉스 계열 쉘 스크립트나 명령줄에서 쓸 용도로, 표준 입력의 <`%B1%A4`> 같은 것들을 디코딩해서 표준 출력으로 보내려고 한다. 짧아서 alias에 바로 갖다 쓸 수 있으면 더욱 더 좋고, 웬만한 유닉스에서 다 돌아 가는 portable한 방법이라면 더할 나위 없다.
+
+
+선택 1
+-------
+
+언제나 그렇듯이 바로 생각할 수 있는 대안은 펄이다. 펄이 없는 유닉스 환경은 생각하기 힘들기 때문에 보통은 이걸로 충분할 것이다.
+
+	perl -pe 's/%([0-9a-f]{2})/pack('C',hex($1))/segi;'
+
+
+선택 1.5
+----------
+
+만약 펄이 싫다면 다른 언어를 써 보는 것도 괜찮겠다. php 4.3.0 이상 버전이라면,
+
+	php -r 'echo urldecode(file_get_contents("php://stdin"));'
+
+파이썬이라면,
+
+	python -c 'import sys,urllib;sys.stdout.write(urllib.unquote(sys.stdin.read()))'
+
+루비라면,
+
+	ruby -ruri -p -e '$_=URI.decode$_'
+
+뭐 등등 여러 가지 많을 것이다. (어째 예시로 든 언어들이 한결같이 표준 라이브러리에 urldecode 함수가 있는 듯. -_-a)
+
+
+선택 2
+-----------
+
+bash와 기본 유닉스 유틸리티만을 사용하는 방법이다. (&copy; 2004 [Huidae Cho](http://geni.ath.cx/unix.html#toc5), GNU GPL)
+
+	echo -e "$(sed 's/+/ /g; s/%/\\x/g')"
+
+이 방법의 가장 큰 문제는 echo -e는 bash에만 있다는 것이다. 뭐, 나처럼 bash만 쓰는 사람은 별 상관 없다 -_-;
+
+
+선택 3
+---------
+
+[Burnhard 님](http://burnhard.openlook.org/)에 따르면 urldecode를 한 방에 할 수 있는 다음과 같은 명령이 있다고 한다.
+
+	unvis -h
+
+반대로 urlencode는 <`vis -h`>로 된다. 그러나 안타깝게도 `vis`/`unvis`(1)은 BSD 계열에만 있으며, 그나마 <`-h`> 옵션은 NetBSD 3.0 이상에만 존재하는 것으로 보인다. OTL
+
+
+선택 4
+--------
+
+이런 삽질에 `awk`(1)가 빠지면 재미가 없을 것이다. -_-; 만약 가장 작은 코드를 추구한다거나 하는 ㅂㅌ짓을 하고 싶지 않다면, awk를 사용하는 [urldecode](http://gnosislivre.org/~aurium/cgi-bin/urldecode)(by Heiner Steven) 프로그램도 나쁘진 않을 듯 하다. 내가 보기에는 적어도 awk 프로그램은 호환성 있는 걸로 보이는데, 긴 텍스트의 경우 에러가 발생할 수도 있다 하니 주의가 필요하다.
+
+
+결론
+-------
+
+세상은 넓고 삽질할 거리는 넘쳐 난다. -_-;;; 혹시 좀 더 흥미롭고 쓸만한 방법을 찾으신 분께서는 지체 없이 연락해 주셨으면 한다.
+

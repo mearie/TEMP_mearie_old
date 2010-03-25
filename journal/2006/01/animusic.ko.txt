@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'Animusic'
+when = '2006-01-11T05:17:58+09:00'
+tags = [u'소식']
+original = 'http://tokigun.net/blog/entry.php?blogid=43'
+%>
+
+[PuzzletWiki](http://puzzlet.org/puzzlet/%EA%B3%B5%EB%8F%99%EA%B5%AC%EB%A7%A4)를 보고 뒤늦게 알게 되었다. [Animusic](http://animusic.com/)이라는 DVD 시리즈(이제 2편 나왔음)인데, 이름만 보고서는 Anymusic인가 Animation + Music인가 알기는 힘들다. 이 DVD 타이틀은 여러 개의 애니메이션을 담고 있는데, 이렇게 생겼다.
+
+<%m:imgframe src="http://tokigun.net/blog/contents/upload/20060111.animusic.pipedream.jpg" align="center" width="400" height="286" alt="Still shot of &quot;PIPE DREAM 2&quot; in Animusic 2">Animusic 2에 수록된 "PIPE DREAM 2"의 정지 화상. 공식 홈페이지에서 제공하는 바탕 화면을 축소하여 사용. &copy; 2005 Animusic</%m:imgframe>
+
+요컨대 음악과 함께 애니메이션으로 시각화된 모습을 볼 수 있는 것이다. (물론 임의의 음악이 가능하다는 건 아니고 제공되는 것만 가능하다. 보너스 샷이라던지 그런 것들도 있고...) 개인적으로는 수십 개의 공들이 화면을 어지럽히면서 눈을 즐겁게 하는 Pipe Dream 류가 맘에 든다.
+
+DVD는 20달러 정도에 살 수 있는데 혹시 관심 있으신 분께서는 PuzzletChung 님께 공동구매에 끼워 달라고 졸라 대시면 될지도 모르겠다;; 뭐 나는 애니메이션보다는 음악-_-에 더 관심이 많기 때문에 오디오 시디가 나오면 구매를 고려해 볼 것 같다.
+
+좀 더 자세히 보고 싶으신 분께서는 [ATI Developer](http://www.ati.com/developer/demos/r9700.html)에서 제공하는 [동영상](http://www2.ati.com/misc/demos/ATI-9700-animusic-Movie-v1.0.mpg)(34.0MB, 3:24)을 받아 보시는 것이 좋다. (공식 홈페이지에도 30초 미리보기가 있긴 한데 전체를 보는 게 좀 더 나을 것 같아서...) <del>ATI Radeon 9700 그래픽카드가 있다면</del> 실시간 데모를 받아서 직접 실행해 볼 수도 있다. (Radeon 9600에서 잘 돌아 가는 것을 확인했다. 아무래도 DirectX 9.0만 깔리면 다 되는 듯 -_-;;;;)
+

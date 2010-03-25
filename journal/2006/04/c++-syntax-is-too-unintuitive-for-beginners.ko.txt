@@ -1,0 +1,25 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'오묘한 C++ 문법'
+when = '2006-04-04T06:43:46+09:00'
+tags = [u'이야기']
+original = 'http://tokigun.net/blog/entry.php?blogid=76'
+%>
+
+언제나 그렇듯이 C++는 무진장 오묘한(?) 언어이다. 한 가지 예시로 내가 옛날에 혼란스러웠던 문법을 들어 보도록 하겠다. (다들 이거 쉬운 거 아니냐~ 하실 것 같은데 초보자 때는 이런 게 어려운 거다. -_-;)
+
+	void blah(const char *str);
+	void blah(char *const str);
+
+둘의 차이는 무엇인가? 물론 하나는 str의 내용물이 바뀔 수 없는 거고 다른 하나는 str이 다른 걸 가리키게 할 수 없다는 거야 당연하지만 어느 쪽이 어느 쪽이냐는 거다.
+
+아주 먼 옛날에는 <`char *const str`>가 내용물이 바뀔 수 없다는 걸로 생각했었다. 사실 이렇게 생각해 놓고서 <`const char *str`> 쓰는 코드가 왜 이리 많은 건지 궁금해하기도 했었다. 내가 좀 특이했던 것 같은데, 아무튼 물론 이건 틀렸다. 위의 두 줄을 그대로 영어로 직역하면 차이가 그대로 드러난다.
+
+	function blah returning void which argument is *pointer to const char* str
+	function blah returning void which argument is *const pointer to char* str
+
+즉 가장 가깝게 묶인(tightly bounded) 것부터 적용되는 것이다. 확실히 나온 순서의 "반대"로 연산자(?)들이 적용되는 건 사고를 방해한다. CN 님께서는 이를 두고 BCPL에서 물려 받은 나쁜 문법이라고 평하시지만 일단 문법이 이렇게 만들어졌으니 익숙해지는 수 밖에. 특히 제발 C/C++에서 포인터를 가르칠 때는 이런 방법이라도 제대로 가르치고(pointer to, reference to가 그렇게 어렵나?) 넘어 갔으면 좋겠다.
+
+나는 C/C++를 책 한 권(Teach yourself C++ in 21 days, 1997년판)으로 배운 뒤에, 나중에 이 언어들의 오묘함(?)을 깨닫고 뒤늦게서야 다시 공부하고 써 먹게 되었다. 당시 버전은 물론 대부분의 컴파일러들이 템플릿 따위는 깔끔하게 에러로 처리해 주는 시대였으니 그런 내용은 없었지만, -- 최신판에는 STL 쓰고 난리 치고 있다. -- 뭔 소린지 알아 먹을 수 없는 번역과 초보자용 프로그래밍 서적의 고질적인 문제들 때문에 나 같이 나중에 언어를 다시 배우는 사람들을 양산해 내고 말았다. 난감할 따름이다. :(
+
