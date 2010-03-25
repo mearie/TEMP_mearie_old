@@ -66,6 +66,12 @@ hr {
 	text-align: left;
 	margin: 0 0 1em 0;
 }
+#siteresp {
+	clear: both;
+	margin: 0 auto;
+	text-align: left;
+	border-top: 2px solid #379;
+}
 #sitemeta {
 	clear: both;
 	margin: 0 auto;
@@ -246,6 +252,7 @@ blockquote p {
 
 /* section */
 .message {
+	clear: both;
 	border: 0.3em solid #6a6;
 	margin: 1em 0;
 	font-size: 90%;
@@ -255,6 +262,7 @@ blockquote p {
 	color: #484;
 }
 .afternote {
+	clear: both;
 	border: 0.3em solid #888;
 	margin: 1em 0;
 	font-size: 90%;
@@ -282,7 +290,15 @@ em:lang(ko) {
 strong {
 	font-weight: 700;
 }
+abbr {
+	border-bottom: 1px dotted #444;
+	cursor: help;
+}
+ins {
+	text-decoration: underline;
+}
 del {
+	text-decoration: line-through;
 	color: #888;
 }
 code {
