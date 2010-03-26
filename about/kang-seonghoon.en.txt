@@ -8,7 +8,7 @@ Kang Seonghoon[^1] is a South Korean graduate student of [KAIST](http://kaist.ed
 
 *lifthrasiir* and *arachneng* are my current nicknames in use. Albeit out of usage now, I have used other nickname, *tokigun*, for years, so you may assume that this nickname also refers to me.
 
-See my official <del>[curriculum vitae](curriculum-vitae)</del> (not available currently), or [contact](contact) page for how to get in contact with me.
+See my official [curriculum vitae](curriculum-vitae), or [contact](contact) page for how to get in contact with me.
 
 [^1]: This is a Korean name (spelled <span lang="ko">강 성훈</span>), where the last name comes first and the first name follows it. I don't prefer any other form or transliteration, other than *Seonghoon Kang* occasionally found in research papers.
 
