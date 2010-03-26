@@ -482,7 +482,7 @@ td p, td pre {
 	color: #eee;
 }
 
-/* index */
+/* mearie specific: index */
 .mearie-news {
 	float: left;
 	width: 49%;
@@ -513,6 +513,36 @@ td p, td pre {
 	text-align: right;
 	font-size: 80%;
 	margin: 0;
+}
+
+/* mearie specific: cv */
+.mearie-cv {
+	border: 1px solid #888;
+	padding: 0 1em;
+	background: #fff;
+}
+.mearie-cv p {
+	color: #444;
+}
+.mearie-cv h2 {
+	text-shadow: none;
+}
+.mearie-cv dt {
+	font-weight: bold;
+	float: left;
+}
+.mearie-cv dd {
+	margin-left: 7.5em;
+}
+.mearie-cv small {
+	font-size: 100%;
+	font-style: italic;
+}
+.mearie-cv .summary p {
+	text-align: center;
+}
+.mearie-cv .summary strong {
+	font-size: 180%;
 }
 
 /* journal post */
