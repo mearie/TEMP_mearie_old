@@ -12,11 +12,28 @@ String.prototype.cut = function(width, trail) {
 		if (w > width) return this.substring(0, i) + trail;
 	}
 	return this;
-}
+};
+
+String.prototype.parseColor = function() {
+	var m;
+	if (m = this.match(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])$/)) {
+		return [parseInt(m[1],16)*17, parseInt(m[2],16)*17, parseInt(m[3],16)*17, 255];
+	} else if (m = this.match(/^#([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/)) {
+		return [parseInt(m[1],16), parseInt(m[2],16), parseInt(m[3],16), 255];
+	} else if (m = this.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)) {
+		return [parseInt(m[1]), parseInt(m[2]), parseInt(m[3]), 255];
+	} else if (m = this.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)$/)) {
+		return [parseInt(m[1]), parseInt(m[2]), parseInt(m[3]), parseInt(m[4])];
+	} else if (this == 'transparent') {
+		return [0, 0, 0, 0];
+	} else {
+		return null;
+	}
+};
 
 Number.prototype.zfill = function(n) {
 	return this.toString().zfill(n);
-}
+};
 
 Date.prototype.setISO8601 = function(s) {
 	var m = s.match(/^(\d{4})(-(\d\d)(-(\d\d)(T(\d\d):(\d\d)(:(\d\d)(\.\d+)?)?)?)?)?(Z|([-+])(\d\d):(\d\d))?$/);
@@ -62,10 +79,31 @@ jQuery(document).ready(function($) {
 		var m = this.className.match(/\bmath-size([0-4]|-[1-4])\b/);
 		if (m) size = m[1];
 
+		var getStyleColor = function(el, prop, ieprop) {
+			while (true) {
+				if (el.currentStyle) { // IE
+					var s = el.currentStyle[ieprop];
+				} else if (window.getComputedStyle) { // Mozilla etc.
+					var s = document.defaultView.getComputedStyle(el, null).getPropertyValue(prop);
+				} else {
+					return null;
+				}
+
+				var color = s.parseColor();
+				if (!color) throw Error('getStyleError failed: ' + s);
+				if (color[3] == 255) break; // opaque
+				el = el.parentNode;
+			}
+			return (color[0].toString(16).zfill(2) + color[1].toString(16).zfill(2) +
+				color[2].toString(16).zfill(2));
+		};
+		var fg = getStyleColor(this, 'color', 'color') || '444444';
+		var bg = getStyleColor(this, 'background-color', 'backgroundColor') || 'eeeeee';
+
 		var code = $(this).text();
 		var img = document.createElement('img');
 		img.setAttribute('src', 'http://l.wordpress.com/latex.php?latex=' +
-			encodeURIComponent(code) + '&s=' + size + '&bg=eeeeee&fg=444444');
+			encodeURIComponent(code) + '&s=' + size + '&bg=' + bg + '&fg=' + fg);
 		img.setAttribute('alt', code);
 		img.className = this.className;
 		$(this).replaceWith(img);
