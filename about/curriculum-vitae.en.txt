@@ -37,9 +37,8 @@ Employment
 ============
 
 2008
-:	[NexG, Inc.](http://www.nexg.net/), Software developer
-
-:	<small>I worked for NexG, Inc. as a substitute of mandatory military service. I maintained a command-line framework for routing daemons and wrote several networking softwares for SNMP (all versions), TACACS+, SSH, SSL.</small>
+:	[NexG, Inc.](http://www.nexg.net/), Software developer  
+	<small>I worked for NexG, Inc. as a substitute of mandatory military service. I maintained a command-line framework for routing daemons, and wrote several networking softwares for SNMP (all versions), TACACS+, SSH and SSL almost from scratch.</small>
 
 
 Open-Source Development
@@ -66,20 +65,20 @@ Skills
 I have experiences ranging from low-level system softwares to high-level Web softwares, and can combine them in an efficient manner if needed.
 
 Languages
-:	Extensively used C, C++, PHP, Python, Javascript, Shell script (bash).  
-	Also able to use D, Ruby and read a few others.
+:	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
+	Able to use D, Ruby and several others.
 
 Platforms
-:	Microsoft Windows, Linux (x86, ARM, MIPS), Mac OS X  
-	Also prefers cross-platform and modern Web environments.
+:	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
+	Good knowledge of general *NIX, cross-platform environments and modern Web development; some knowledge of Win32 API and Cocoa.
 
 Tools
 :	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial
 
 Miscellaneous
-:	* Linux server administration with Apache, LightTPD, MySQL, PostgreSQL.
-	* Ability to write a standard-compliant and usability-enabled CSS/(X)HTML.
-	* Hobby reverse engineering.
+:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL.
+	* Ability to write a standard-compliant and accessible CSS/(X)HTML.
+	* Hobby reverse engineering and software analysis.
 
 I'm a native speaker of Korean, and have working knowledge of oral and written English.
 
@@ -88,9 +87,8 @@ Awards
 ========
 
 2007
-:	ACM International Collegiate Programming Contest, Seoul Regional, 10th place.
-
-:	<small>Participated with Cha, Hojeong and Lee, Bupjae. Deserved a special prize.</small>
+:	ACM International Collegiate Programming Contest, Seoul Regional, 10th place.  
+	<small>Participated with Cha, Hojeong and Lee, Bupjae. Deserved a special prize.</small>
 
 2001
 :	Korea Olympiad in Informatics, Silver prize.
@@ -111,6 +109,9 @@ Other Activities
 
 2008--
 :	A regular participant of [LangDev](http://langdev.net/), a forum for programming language designers and implementors.
+
+2006--2008
+:	Served as one of [Korean Wikipedia](http://ko.wikipedia.org/) administrator.
 
 </blockquote>
 
