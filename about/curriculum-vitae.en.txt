@@ -23,13 +23,13 @@ Phone: +82-10-4702-2740
 Education
 ==========
 
-2010--
+2010–
 :	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master's Program
 
-2005--2009
+2005–2009
 :	Korea Advanced Institute of Science and Technology, Bachelor of Engineering
 
-2003--2004
+2003–2004
 :	[Gyeonggi Science High School](http://gs.hs.kr/)
 
 
@@ -44,7 +44,7 @@ Employment
 Open-Source Development
 =========================
 
-2005--
+2005–
 :	[theseit project](http://theseit.ruree.net/), Founder and primary developer  
 	<small>A music game written in C++ and OpenGL. Includes an extensive cross-platform game library for C++.</small>
 
@@ -62,7 +62,7 @@ See [`http://mearie.org/projects/`](/projects/) for more exhaustive list of my s
 Skills
 ========
 
-I have experiences ranging from low-level system softwares to high-level Web softwares, and can combine them in an efficient manner if needed.
+I have experiences ranging from low-level system softwares to high-level Web softwares, and can combine them in an efficient manner as needed.
 
 Languages
 :	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
@@ -76,8 +76,8 @@ Tools
 :	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial
 
 Miscellaneous
-:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL.
-	* Ability to write a standard-compliant and accessible CSS/(X)HTML.
+:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL. Have hosted 10+ websites for years.
+	* Ability to write a standard-compliant and accessible (X)HTML and CSS.
 	* Hobby reverse engineering and software analysis.
 
 I'm a native speaker of Korean, and have working knowledge of oral and written English.
@@ -87,7 +87,7 @@ Awards
 ========
 
 2007
-:	ACM International Collegiate Programming Contest, Seoul Regional, 10th place.  
+:	[ACM International Collegiate Programming Contest, Regional Contest Seoul](http://acm.kaist.ac.kr/), 8th place (shared).  
 	<small>Participated with Cha, Hojeong and Lee, Bupjae. Deserved a special prize.</small>
 
 2001
@@ -104,14 +104,14 @@ Publications
 Other Activities
 ==================
 
-2009--
-:	Founded and co-operated [Ozinger IRC network](http://ozinger.org/).
+2009–
+:	Founder and co-operator of [Ozinger IRC network](http://ozinger.org/).
 
-2008--
-:	A regular participant of [LangDev](http://langdev.net/), a forum for programming language designers and implementors.
+2008–
+:	A regular participant of [LangDev](http://langdev.net/), a forum for programming language designers and implementers.
 
-2006--2008
-:	Served as one of [Korean Wikipedia](http://ko.wikipedia.org/) administrator.
+2006–2008
+:	Served as one of [Korean Wikipedia](http://ko.wikipedia.org/) administrators.
 
 </blockquote>
 
