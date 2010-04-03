@@ -6,3 +6,4 @@ syntax: glob
 Makefile.tree
 res/logo.png
 res/cache
+res/db

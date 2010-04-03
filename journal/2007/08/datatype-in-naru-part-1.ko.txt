@@ -56,3 +56,17 @@ original = 'http://mearie.org/journal/2007/08/datatype-in-naru-part-1'
 
 ...이건 나중에 계속.
 
+
+<div class="afternote">
+
+전체 글 목록은 다음과 같다.
+
+* **2007-08-15: [나루의 자료형 (1)](/journal/2007/08/datatype-in-naru-part-1)**
+* 2007-08-16: [나루의 자료형 (2)](/journal/2007/08/datatype-in-naru-part-2)
+* 2007-08-17: [나루의 자료형 (3)](/journal/2007/08/datatype-in-naru-part-3)
+* 2007-12-31: [나루의 자료형 (4)](/journal/2007/12/datatype-in-naru-part-4)
+
+<small>(2010-04-03)</small>
+
+</div>
+

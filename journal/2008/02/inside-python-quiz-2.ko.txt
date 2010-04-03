@@ -132,3 +132,15 @@ original = 'http://mearie.org/journal/2008/02/inside-python-quiz-2'
 * <`print x`>를 실행한 시점에 Yay!가 이미 찍혀 있지만 버퍼가 아직 flush가 안 되어 있어서 화면에 보이지 않을 경우. (터미널이 이상하다거나 sys.stdout이 바뀌어 있다거나 bufsize가 바뀌었거나 등등) 이 경우 뒤에 뭔가 flush를 할 수 밖에 없게 만드는 코드가 더 있어야 겠지요.
 * 사실 숫자 0이 아닌 대문자 O일 지도 모릅니다. 이럴 때는 터미널 글꼴을 바꾸면 만사 오케이.
 
+
+<div class="afternote">
+
+전체 글 목록은 다음과 같다.
+
+* 2008-02-27: [파이썬을 두루 이해하는 데 도움 되는(?) 퀴즈: 답변 (1편)](/journal/2008/02/inside-python-quiz)
+* **2008-02-28: [파이썬을 두루 이해하는 데 도움 되는(?) 퀴즈: 답변 (2편)](/journal/2008/02/inside-python-quiz-2)**
+
+<small>(2010-04-03)</small>
+
+</div>
+

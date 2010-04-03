@@ -256,6 +256,7 @@ blockquote p {
 	border: 0.3em solid #6a6;
 	margin: 1em 0;
 	font-size: 90%;
+	color: #484;
 }
 .message p {
 	margin: 0.3em;
@@ -266,6 +267,7 @@ blockquote p {
 	border: 0.3em solid #888;
 	margin: 1em 0;
 	font-size: 90%;
+	color: #666;
 }
 .afternote p {
 	margin: 0.3em;
@@ -597,5 +599,34 @@ td p, td pre {
 .post .postmore {
 	text-align: right;
 	margin-right: 0.5em;
+}
+
+/* responses */
+#siteresp h2 {
+	display: none;
+}
+.responses {
+	margin: 0;
+	padding: 0;
+}
+.response {
+	margin: 0 0 0 20px;
+	padding: 10px;
+	clear: both;
+	border-bottom: 1px solid #379;
+}
+.response .info {
+	width: 270px;
+	margin-right: 10px;
+	float: left;
+}
+.response .author {
+	display: block;
+}
+.response .author {
+	display: block;
+}
+.response .contents {
+	margin-left: 280px;
 }
 
