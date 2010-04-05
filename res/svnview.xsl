@@ -77,6 +77,8 @@
 			<tt><a href="http://hg.mearie.org/pytransdate/">http://hg.mearie.org/pytransdate/</a></tt>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/snippets/vlaah-python&quot;) or starts-with(@path,&quot;/snippets/tags/vlaah-python&quot;)">The current Mercurial repository is available at
 			<tt><a href="http://hg.mearie.org/vlaah-python/">http://hg.mearie.org/vlaah-python/</a></tt>.</xsl:when>
+		<xsl:when test="starts-with(@path,&quot;/tinicube&quot;)">The current Mercurial repository is available at
+			<tt><a href="http://hg.mearie.org/tinicube/">http://hg.mearie.org/tinicube/</a></tt>.</xsl:when>
 		<xsl:otherwise>Use <a href="http://hg.mearie.org/">Mercurial repository</a> for recent changes. (Note that some older projects are not listed there.)</xsl:otherwise>
 	</xsl:choose>
 </p>
