@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2010-03-27.
+The following rèsumè is correct as of 2010-04-23.
 
 <blockquote class="mearie-cv">
 
@@ -24,10 +24,11 @@ Education
 ==========
 
 2010–
-:	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master's Program
+:	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master's Program  
+	<small>A member of [Programming Language Research Group](http://plrg.kaist.ac.kr/).</small>
 
 2005–2009
-:	Korea Advanced Institute of Science and Technology, Bachelor of Engineering
+:	Korea Advanced Institute of Science and Technology, Bachelor of Science
 
 2003–2004
 :	[Gyeonggi Science High School](http://gs.hs.kr/)
