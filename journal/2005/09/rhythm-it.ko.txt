@@ -11,7 +11,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=3'
 
 받아야지 받아야지 하면서 계속 까먹고 있었던 [BMS OF FIGHTER 2005](http://manbow.nothing.sh/event/event.cgi?action=List_def&event=22) 곡들도 마구 받아서 플레이하고... 오늘 하룻동안 한 50곡 정도 한 것 같다. 재밌는 곡들이 많아서 기분이 좋았다 :) (덕분에 EXP RANK 2위 다시 탈환 -ㅅ-)
 
-<%m:imgframe src="http://tokigun.net/blog/contents/upload/20050914.rdmirank.png" align="center" width="193" height="266" alt="9월 14일 현재 리듬잇 랭킹 상황">노란 YELL 100만개가 얼마 안 남았구나 -_-</%m:imgframe>
+<%m:imgframe src="20050914.rdmirank.png" align="center" alt="9월 14일 현재 리듬잇 랭킹 상황">노란 YELL 100만개가 얼마 안 남았구나 -_-</%m:imgframe>
 
 좋아하는 걸 마음껏 할 수 있다는 건 즐거운 일이구나.
 

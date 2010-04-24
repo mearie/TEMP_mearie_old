@@ -18,7 +18,7 @@ KLDP에 저 글이 또 올라 왔길래 추억을 되살리면서(?) 열심히 �
 
 
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20051222.genotice.png" align="center" width="400" height="332" linkto="http://www.imc.co.kr/image/3rdcbt_notice1.jpg">그라나도 에스파다 FINAL TEST 공지</%m:img>
+<%m:img src="20051222.genotice.png" align="center" linkto="http://www.imc.co.kr/image/3rdcbt_notice1.jpg">그라나도 에스파다 FINAL TEST 공지</%m:img>
 
 **...이 공지, 저 사람이 만든 거야?!**
 

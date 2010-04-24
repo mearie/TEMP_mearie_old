@@ -13,7 +13,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=114'
 
 OTL
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060616.yoshinagasanchinogargoyle.jpg" align="center" width="500" height="281">요시나가씨 댁의 가고일 11화 갈무리</%m:img>
+<%m:img src="20060616.yoshinagasanchinogargoyle.jpg" align="center">요시나가씨 댁의 가고일 11화 갈무리</%m:img>
 
 짤방은 가고일의 굴욕 -_-; (화장실 청소용 솔...)
 

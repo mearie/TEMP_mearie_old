@@ -7,7 +7,7 @@ tags = [u'삽질']
 original = 'http://tokigun.net/blog/entry.php?blogid=100'
 %>
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060524.lunaseit.test.jpg" align="center" width="484" height="374">lunaseit 테스트 화면</%m:img>
+<%m:img src="20060524.lunaseit.test.jpg" align="center">lunaseit 테스트 화면</%m:img>
 
 느리긴 하지만 매일 조금씩 진행하고 있다. 위의 화면은 실제 게임 부분을 담당하는 lunaseit 모듈의 테스트 프로그램(revision 157)이다. 압축 안 하면 2MB 가까이 되던 게 압축하면 756KB가 나온다.
 

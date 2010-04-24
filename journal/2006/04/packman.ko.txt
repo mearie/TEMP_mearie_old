@@ -11,7 +11,7 @@ C++ 프로그램은 그 특성상 템플릿을 쓰기 시작하면 실행 파일
 
 그래서 아예 UPX 대신에 다른 오픈 소스 실행 파일 압축 프로그램을 찾아 보다가, 이런 좋은 물건을 발견했다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060406.packman.png" align="center" width="344" height="290">Packman 실행 화면</%m:img>
+<%m:img src="20060406.packman.png" align="center">Packman 실행 화면</%m:img>
 
 바로 [Packman](http://packman.cjb.net/)! 이 프로그램은 윈도우 환경만을 대상으로 하지만 덕분에 세밀한 설정도 가능할 뿐만 아니라 dll 헤더도 안 깨뜨려 먹는다. 예를 들어서 압축된 섹션의 이름을 설정한다던지 (-_-;) 리소스 중 어느 걸 남기고 어느 걸 빼 낼 것인지 등등을 모두 설정할 수 있는 것이다. 게다가 소스 코드는 public domain으로 배포된다!
 

@@ -7,7 +7,7 @@ tags = [u'일상']
 original = 'http://tokigun.net/blog/entry.php?blogid=113'
 %>
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060615.lastfm.png" align="right" bordered="1" width="181" height="409">last.fm 계정 정보"</%m:img>
+<%m:img src="20060615.lastfm.png" align="right" bordered="1">last.fm 계정 정보"</%m:img>
 
 [lifthrasiir's user page on last.fm](http://www.last.fm/user/lifthrasiir/) (lifthrasiir는 내 다른 이름 중 하나이다.)
 

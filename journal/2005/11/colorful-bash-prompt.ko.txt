@@ -27,5 +27,5 @@ PROMPT_COMMAND=__PROMPT_FUNC
 
 이런 식으로 써 먹을 수 있다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20051122.bashprompt.png" align="center" width="567" height="412">다채롭게 변한 bash 프롬포트들</%m:img>
+<%m:img src="20051122.bashprompt.png" align="center">다채롭게 변한 bash 프롬포트들</%m:img>
 
