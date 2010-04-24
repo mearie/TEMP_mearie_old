@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
 
 	// load responses if needed.
 	var resplinks = $('.responselink');
-	if (resplinks.length == 1) {
+	if (resplinks.length == 1 && $('#siteresp').length == 0) {
 		var href = resplinks.attr('href');
 		var placeholder = $('<div id="siteresp" class="loading-anim"/>');
 		placeholder.insertBefore('#sitemeta');
