@@ -73,15 +73,15 @@ class view(app.page):
         try:
             siteobj = PATHMAP[site]
         except KeyError:
-            return 'site failed %r' % site
+            #return 'site failed %r' % site
             raise web.notfound()
 
         normalpath = siteobj.canonicalize(path)
         if normalpath is None:
-            return 'path failed %r' % path
+            #return 'path failed %r' % path
             raise web.notfound()
         if not siteobj.exists(normalpath):
-            return 'path not exists %r' % path
+            #return 'path not exists %r' % path
             raise web.notfound()
 
         if normalpath != path:
