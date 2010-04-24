@@ -22,6 +22,6 @@ original = 'http://tokigun.net/blog/entry.php?blogid=13'
 
 덤: 이번 버전에서도 이 문제는 그대로이다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20051010.firefox15b2.scrollbar.png" align="left" bordered="1" width="84" height="180">세로 스크롤바가 이상하게 나오는 화면</%m:img>
+<%m:img src="20051010.firefox15b2.scrollbar.png" align="left" bordered="1">세로 스크롤바가 이상하게 나오는 화면</%m:img>
 개인적으로 좋아하는 윈도우 테마가 있는데 그걸 사용하다 보니까 세로 스크롤바가 이상하게 나오는 문제가 있다. (가로 스크롤바는 별 문제가 없다) 내가 다른 테마를 쓰지 못 했던 이유가 바로 이것 때문이었는데, 세로 스크롤바의 폭이 두 배가 되어 버려서 꽤 불편해진다는 것이었다. 아마 <abbr title="XML User Interface Language">XUL</abbr>에서 운영체제로부터 테마 metrics를 받아 올 때 뭔가 삽질을 하는 게 아닌가 싶은데, 혹시 이 문제를 어떻게 해야 할 지 아시는 분 계시면 알려 주시면 감사하겠다 -_-;;; 아무리 해도 안 된다면 시간 나는 대로 버그 리포팅을 해 봐야 겠다.
 

@@ -9,7 +9,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=43'
 
 [PuzzletWiki](http://puzzlet.org/puzzlet/%EA%B3%B5%EB%8F%99%EA%B5%AC%EB%A7%A4)를 보고 뒤늦게 알게 되었다. [Animusic](http://animusic.com/)이라는 DVD 시리즈(이제 2편 나왔음)인데, 이름만 보고서는 Anymusic인가 Animation + Music인가 알기는 힘들다. 이 DVD 타이틀은 여러 개의 애니메이션을 담고 있는데, 이렇게 생겼다.
 
-<%m:imgframe src="http://tokigun.net/blog/contents/upload/20060111.animusic.pipedream.jpg" align="center" width="400" height="286" alt="Still shot of &quot;PIPE DREAM 2&quot; in Animusic 2">Animusic 2에 수록된 "PIPE DREAM 2"의 정지 화상. 공식 홈페이지에서 제공하는 바탕 화면을 축소하여 사용. &copy; 2005 Animusic</%m:imgframe>
+<%m:imgframe src="20060111.animusic.pipedream.jpg" align="center" alt="Still shot of &quot;PIPE DREAM 2&quot; in Animusic 2">Animusic 2에 수록된 "PIPE DREAM 2"의 정지 화상. 공식 홈페이지에서 제공하는 바탕 화면을 축소하여 사용. &copy; 2005 Animusic</%m:imgframe>
 
 요컨대 음악과 함께 애니메이션으로 시각화된 모습을 볼 수 있는 것이다. (물론 임의의 음악이 가능하다는 건 아니고 제공되는 것만 가능하다. 보너스 샷이라던지 그런 것들도 있고...) 개인적으로는 수십 개의 공들이 화면을 어지럽히면서 눈을 즐겁게 하는 Pipe Dream 류가 맘에 든다.
 

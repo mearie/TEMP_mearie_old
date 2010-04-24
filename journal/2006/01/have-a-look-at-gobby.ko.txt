@@ -9,7 +9,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=54'
 
 [gobby - a collaborative text editor](http://gobby.0x539.de/)
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060130.gobby.png" align="center" width="423" height="378" link="1">gobby 스크린샷</%m:img>
+<%m:img src="20060130.gobby.png" align="center" link="1">gobby 스크린샷</%m:img>
 
 협동 작업 툴인 gobby를 받아서 한 번 놀아 봤다. 내가 초록색이고, [치이](http://skyilover.sapzil.info/soojung/)가 분홍색, [디토](http://ditto.daybreaker.info/wiki/) 님이 파란색인데, 짝 프로그래밍을 가장한 이상한 프로그래밍이 되어 버렸다. -\_-; 다행히도(?) 세션이 돌아 가던 서버였던 내 프로그램이 죽어 버리는 덕분에 이 삽질은 파토 났지만 디토 님이 스크린샷을 찍어 놓은 덕분에 블로그에 올려 놓을 만한 뭔가는 건졌다. -\_-;;
 

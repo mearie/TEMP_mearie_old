@@ -21,8 +21,8 @@ original = 'http://tokigun.net/blog/entry.php?blogid=66'
 
 빅 리그는 단순히 스텔라 스톤 사의 진짜 프로젝트, 〈미드나잇 레이스 클럽: 슈퍼차지드 *Midnight Race Club: Supercharged*〉의 전혀 손질이 안 된 미완성 버전이었던 겁니다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.newmain.jpg" width="200" height="150" linkto="http://img271.imageshack.us/img271/4218/midnight9ht.png">〈미드나잇 레이스 클럽〉의 첫 화면</%m:img>
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.oldmain.jpg" width="200" height="150" linkto="http://img271.imageshack.us/img271/2712/backbr0vl.png">빅 리그의 첫 화면</%m:img>
+<%m:img src="20060312.midnight.newmain.jpg" linkto="http://img271.imageshack.us/img271/4218/midnight9ht.png">〈미드나잇 레이스 클럽〉의 첫 화면</%m:img>
+<%m:img src="20060312.midnight.oldmain.jpg" linkto="http://img271.imageshack.us/img271/2712/backbr0vl.png">빅 리그의 첫 화면</%m:img>
 
 비교해 보세요.
 
@@ -32,13 +32,13 @@ original = 'http://tokigun.net/blog/entry.php?blogid=66'
 
 이 게임에는 모든 기능이 들어 갈 예정이었습니다. 싱글 레이스 모드 뿐만 아니라, 마리오 카트의 그랑프리의 변형인 대회 모드도 있습니다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.nightride.jpg" width="205" height="136" linkto="http://img68.imageshack.us/img68/2711/nightride1ib.png">나이트라이드 코스</%m:img>
+<%m:img src="20060312.midnight.nightride.jpg" linkto="http://img68.imageshack.us/img68/2711/nightride1ib.png">나이트라이드 코스</%m:img>
 
 넷째 코스인 나이트라이드(Nightride)는 빅 리그가 발매될 때는 완성되지 않았었습니다. 게임의 첫 판에서는 이 레벨만 플레이하면 프로그램이 깨졌고, 나중에 나온 "수정"판에서는 첫째 코스의 거울상으로 바뀌었습니다. 이 레벨에 대한 것은 아무 것도 남아 있지 않습니다.
 
 하지만 〈미드나잇 레이스 클럽〉이 발매되었을 때는 이런 코스가 들어 있었습니다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.nightrideplay.jpg" width="200" height="150" linkto="http://img212.imageshack.us/img212/9238/smallt7uy.png">나이트라이드 코스 플레이 스크린샷</%m:img>
+<%m:img src="20060312.midnight.nightrideplay.jpg" linkto="http://img212.imageshack.us/img212/9238/smallt7uy.png">나이트라이드 코스 플레이 스크린샷</%m:img>
 
 네. 차들이 있었군요.
 
@@ -50,14 +50,14 @@ original = 'http://tokigun.net/blog/entry.php?blogid=66'
 
 [^4]: 아실 분은 아시지만 데이터 파일이 zip 포맷으로 되어 있었습니다. (역주)
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.motocycle.jpg" width="200" height="150" linkto="http://img139.imageshack.us/img139/1976/motorc9re.png">오토바이 선택창</%m:img>
+<%m:img src="20060312.midnight.motocycle.jpg" linkto="http://img139.imageshack.us/img139/1976/motorc9re.png">오토바이 선택창</%m:img>
 
 다른 리소스 파일들은 스텔라 스톤이 게임에 많은 공을 들였다는 걸 알려 줍니다. 게임에는 매우 해상도가 높지만 미사용된 텍스춰, 범프 맵, 큐브 맵 등이 들어 있었지만 빅 리그에서는 전혀 사용되지 않았습니다.
 
 2004년 1월에 스텔라 스톤은 드디어 〈미드나잇 레이스 클럽: 슈퍼차지드〉를 러시아에서 발매했지만 참패했습니다. 완전히 빅 리그랑 똑같이 생겼던 것입니다. 하지만 새로 추가된 상대편 인공 지능이나 엉망이었던 물리 같은 몇 가지는 개선되었습니다. 또한 게임에서 대형 트럭이 완벽히 사라졌는데, 너무 전작을 반복하는 것 같게 보이지 않으려 한 것 같습니다.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.mode.jpg" width="200" height="150" linkto="http://img139.imageshack.us/img139/1188/newselect0vm.png">모드 선택창</%m:img>
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.play.jpg" width="200" height="150" linkto="http://img139.imageshack.us/img139/9919/motorcs1ob.png">플레이 스크린샷</%m:img>
+<%m:img src="20060312.midnight.mode.jpg" linkto="http://img139.imageshack.us/img139/1188/newselect0vm.png">모드 선택창</%m:img>
+<%m:img src="20060312.midnight.play.jpg" linkto="http://img139.imageshack.us/img139/9919/motorcs1ob.png">플레이 스크린샷</%m:img>
 
 불행히도 모두들 이 게임이 빅 리그를 개선한 것에 불과함을 알아 차렸고 싫어했습니다. 미국에서 이 게임이 히트 치는 건 볼 수 없을 겁니다.
 
@@ -65,7 +65,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=66'
 
 물론 포토샵이 있다면 이런 재밌는 일도 할 수 있겠죠.
 
-<%m:img src="http://tokigun.net/blog/contents/upload/20060312.midnight.winner.jpg" width="154" height="154" linkto="http://img7.imageshack.us/img7/7549/prizecopy6pt.png">글쓴이가 포토샵으로 고쳐서 만든 이미지</%m:img>
+<%m:img src="20060312.midnight.winner.jpg" linkto="http://img7.imageshack.us/img7/7549/prizecopy6pt.png">글쓴이가 포토샵으로 고쳐서 만든 이미지</%m:img>
 
 (모서리에 로고가 새겨진 파일 말고는 모두 제가 발견한 내용입니다. 로고가 새겨진 스크린샷은 이 게임을 리뷰한 러시아 웹사이트에서 가져 온 것입니다.)
 
