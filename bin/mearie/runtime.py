@@ -18,10 +18,10 @@ def uri_to_path(c, uri):
         lookup = c.lookup
     return lookup.convert_to_path(lookup.adjust_uri(uri, c['topmost'].uri)) 
 
-def canonical(c, preservelang=True):
+def canonical(c, mode=''):
     uri = '/' + c['topmost'].uri.lstrip('/')
-    if uri.endswith('.txt'): uri = uri[:-4]
-    if not preservelang and uri[-3:-2] == ':' and uri[-2:] in LANGUAGES: uri = uri[:-3]
+    if mode != 'full' and uri.endswith('.txt'): uri = uri[:-4]
+    if mode == 'short' and uri[-3:-2] == ':' and uri[-2:] in LANGUAGES: uri = uri[:-3]
     return uri
 
 class Language(object):
