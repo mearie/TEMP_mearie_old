@@ -70,7 +70,6 @@ hr {
 	clear: both;
 	margin: 0 auto;
 	text-align: left;
-	border-top: 2px solid #379;
 }
 #sitemeta {
 	clear: both;
@@ -162,6 +161,12 @@ div.toc ul {
 }
 .tray a, .copyright a {
 	color: #9ac;
+}
+.loading-anim {
+	display: block;
+	width: auto;
+	height: 8em;
+	background: url(loading.gif) no-repeat center;
 }
 
 /* block elements */
@@ -347,7 +352,8 @@ a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.i
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
-a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) {
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
 	background-image: none;
 }
@@ -605,28 +611,67 @@ td p, td pre {
 #siteresp h2 {
 	display: none;
 }
+#siteresp.loading-anim, #siteresp.loading-error {
+	border-top: 2px solid #379;
+}
+#siteresp.loading-error p {
+	text-align: center;
+}
 .responses {
 	margin: 0;
 	padding: 0;
+	border-top: 1px solid #379;
 }
 .response {
-	margin: 0 0 0 20px;
-	padding: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 10px 10px 0 10px;
 	clear: both;
-	border-bottom: 1px solid #379;
+	border-top: 1px solid #379;
 }
 .response .info {
-	width: 270px;
+	width: 290px;
 	margin-right: 10px;
+	padding-bottom: 10px;
 	float: left;
 }
-.response .author {
+.response .number {
+	float: left;
+	font-weight: bold;
+	color: #379;
+}
+.response .origin {
 	display: block;
+	margin-left: 40px;
+	font-size: 80%;
+	color: #379;
 }
 .response .author {
 	display: block;
+	margin-left: 40px;
+}
+.response .datetime {
+	display: block;
+	margin-left: 40px;
+	color: #aaa;
+	font-size: 80%;
 }
 .response .contents {
-	margin-left: 280px;
+	margin-left: 300px;
+	padding-bottom: 10px;
+}
+.response.origin-trackback {
+	background: #ddd;
+}
+.response.origin-trackback .datetime {
+	color: #999;
+}
+.responseform {
+	clear: both;
+	border-top: 1px solid #379;
+}
+.responseform p {
+	margin: 10px;
+	text-align: center;
 }
 

@@ -1,0 +1,29 @@
+$def with (responses)
+<div id="siteresp">
+	<h2>응답들</h2>
+	<ul id="responses" class="responses">
+	$for r in responses:
+		<li id="response:$r.id" class="response origin-$r.origin">
+		<div class="info">
+			<span class="number">#$loop.index</span>
+			$if r.origin == 'trackback':
+				<span class="author">"<strong>$r.author_more[0]</strong>"</span>
+				<span class="origin">(<a href="$r.author_urls[0]" rel="nofollow">$r.author_name</a>에서 트랙백)</span>
+			$else:
+				<span class="author">
+				$if r.author_urls:
+					<a href="$r.author_urls[0]" rel="nofollow">$r.author_name</a>
+				$else:
+					$r.author_name
+				</span>
+			<span class="datetime">$r.datetime_text</span>
+		</div>
+		<div class="contents">
+			$:r.contents
+		</div>
+		</li>
+	</ul>
+	<div class="responseform">
+		<p>현재 이 문서에는 답글을 달 수 없습니다.</p>
+	</div>
+</div>

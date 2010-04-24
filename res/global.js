@@ -67,11 +67,36 @@ jQuery(document).ready(function($) {
 		':not([href^="http://hg.mearie.org/"])' +
 		':not([href^="http://pub.mearie.org/"])' +
 		':not([href^="http://j.mearie.org/"])' +
+		':not([href^="http://r.mearie.org/"])' +
 		':not(.interwiki):not(.noicon), ' +
 	'a[href^="https://"]:not(.interwiki):not(.noicon), ' +
 	'a[href^="ftp://"]:not(.interwiki):not(.noicon), ' +
 	'a[href^="irc://"]:not(.interwiki):not(.noicon), ' +
 	'a[href^="mailto:"]:not(.interwiki):not(.noicon)').addClass('external');
+
+	// load responses if needed.
+	var resplinks = $('.responselink');
+	if (resplinks.length == 1) {
+		var href = resplinks.attr('href');
+		var placeholder = $('<div id="siteresp" class="loading-anim"/>');
+		placeholder.insertBefore('#sitemeta');
+		$.ajax({dataType: 'jsonp', jsonpCallback: '__mearieresponsecallback',
+			url: resplinks.attr('href').replace(/#.*$/, '') + '?format=jsonp',
+			error: function() {
+				placeholder.removeClass('loading-anim');
+				placeholder.addClass('loading-error');
+				if (lang == 'ko') {
+					placeholder.html('<p>응답 데이터를 읽어 올 수 없습니다. 다시 시도해 주세요.</p>');
+				} else {
+					placeholder.html('<p>Cannot load the responses. Refresh the page to try again.</p>');
+				}
+			},
+			success: function(data) {
+				placeholder.removeClass('loading-anim');
+				placeholder.replaceWith(data);
+				resplinks.attr('href', '#responses');
+			}});
+	}
 
 	// replaces <m:math> calls in the original text.
 	$('span.math').each(function() {
@@ -113,12 +138,11 @@ jQuery(document).ready(function($) {
 	$('.mearie-activity noscript').each(function(i) {
 		var list = $('<ul style="display:none"/>');
 		$(this).replaceWith(list);
-		var waiting = $('<div style="text-align:center;padding:4em 0">' +
-			'<img src="/res/loading.gif" width="32" height="32" alt=""/></div>');
+		var waiting = $('<div class="loading-anim"/>');
 		waiting.insertBefore(list);
 
-		var count = 0, start = 0, perreq = 10;
-		window['__friendfeedcallback'+i] = function(data) {
+		var maxcount = 5, count = 0, start = 0, perreq = 10;
+		var callback = function(data) {
 			$.each(data.entries, function(i, entry) {
 				var url = entry.rawLink, body = entry.rawBody, via = entry.via.url;
 				var shorten = true, iconurl, mainurl, region;
@@ -169,21 +193,22 @@ jQuery(document).ready(function($) {
 						'" alt="" class="right"/>' + inner;
 				}
 				list.append('<li>' + inner + '</li>');
-				if (++count >= 5) {
+				if (++count >= maxcount) {
 					list.css('display', '');
 					waiting.remove();
 					return false;
 				}
 			});
-			if (count < 5) {
+			if (count < maxcount) {
 				start += perreq;
 				invoke(start, perreq);
 			}
 		};
 		var invoke = function(start, num) {
 			$.ajax({url: 'http://friendfeed-api.com/v2/feed/lifthrasiir?start=' + start + '&num=' + num +
-					'&raw=1&maxcomments=0&maxlikes=0&callback=__friendfeedcallback'+i,
-				dataType: 'script'});
+					'&raw=1&maxcomments=0&maxlikes=0',
+				dataType: 'jsonp',
+				success: callback});
 		};
 		invoke(0, perreq);
 	});

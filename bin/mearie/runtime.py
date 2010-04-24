@@ -1,5 +1,7 @@
 # coding=utf-8
 
+LANGUAGES = ['en', 'ko', 'ja']
+
 from mearie.markdown import markdown
 md = markdown
 
@@ -16,7 +18,11 @@ def uri_to_path(c, uri):
         lookup = c.lookup
     return lookup.convert_to_path(lookup.adjust_uri(uri, c['topmost'].uri)) 
 
-LANGUAGES = ['en', 'ko', 'ja']
+def canonical(c, preservelang=True):
+    uri = '/' + c['topmost'].uri.lstrip('/')
+    if uri.endswith('.txt'): uri = uri[:-4]
+    if not preservelang and uri[-3:-2] == ':' and uri[-2:] in LANGUAGES: uri = uri[:-3]
+    return uri
 
 class Language(object):
     def __init__(self, lang):

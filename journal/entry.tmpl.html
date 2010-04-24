@@ -5,6 +5,7 @@ from mearie.date import parse_iso8601, to_iso8601
 %>
 
 <%def name="headmeta(lang)">
+${parent.headmeta(lang)}\
 <%
 try:
     whenpost, whenupdate = self.attr.when
@@ -26,9 +27,9 @@ whenpost = parse_iso8601(whenpost)
 whenstr = lang(ko=u'%d년 %d월 %d일' % (whenpost.year, whenpost.month, whenpost.day))
 %>
 % if self.attr.title:
-<h2><a href="${self.uri}" class="permalink">${whenstr}</a> ${self.attr.title}</h2>
+<h2><a href="${canonical(context)}" class="permalink">${whenstr}</a> ${self.attr.title}</h2>
 % else:
-<h2 class="notitle"><a href="${self.uri}" class="permalink">${whenstr}</a></h2>
+<h2 class="notitle"><a href="${canonical(context)}" class="permalink">${whenstr}</a></h2>
 % endif
 <div class="postbody">
 </%def>
@@ -49,6 +50,9 @@ if isinstance(originals, (str, unicode)): originals = [originals]
 에 썼던 것을 옮겨 온 것입니다.</p>
 </div>
 % endif
+</div>
+<div class="postmore">
+	<a class="responselink" href="http://r.mearie.org${canonical(context)}#responses">응답들</a>
 </div>
 </div>
 </%def>
