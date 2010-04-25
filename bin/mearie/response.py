@@ -71,7 +71,7 @@ class Response(object):
             elif re.match(ur'^(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}(?:/\S*)$', data):
                 websites.append('http://' + data)
             else:
-                continue
+                break
             firstline = firstline[:m.start(0)]
         return (firstline, emails, websites, lines[1:])
 
