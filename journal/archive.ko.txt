@@ -7,7 +7,7 @@
 * [`my.blogin.com/tokigun`](http://my.blogin.com/tokigun) (2003-05)
 * `tokigun.enbee.com` (2004-08~2004-10, `sapzil.info/soojung`으로 모두 이전)
 * [`sapzil.info/soojung`](http://sapzil.info/soojung/) (2004-09~2005-09)
-* [`tokigun.net/blog`](http://tokigun.net/blog/) (2005-09~2006-09)
+* [`tokigun.net/blog`](http://tokigun.net/blog/) (2005-09~2006-09, 이전 완료)
 * [`lifthrasiir.tistory.com`](http://lifthrasiir.tistory.com/) (2006-10~2007-04)
 * [`mearie.org/journal`](http://mearie.org/journal/) (2007-08~2009-01, 이전 완료)
 * [`arachneng.egloos.com`](http://arachneng.egloos.com/) (2008-07~2009-11)
