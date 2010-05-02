@@ -3,7 +3,7 @@
 <%!
 title = u'오늘의 사불열전'
 when = '2006-07-06T00:09:34+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=132'
 %>
 

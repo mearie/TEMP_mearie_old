@@ -3,7 +3,7 @@
 <%!
 title = u'WolframTones'
 when = '2005-09-19T20:45:35+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=6'
 %>
 

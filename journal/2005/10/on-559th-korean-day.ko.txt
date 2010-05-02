@@ -3,7 +3,7 @@
 <%!
 title = u'559번째 한글날, 몇 가지 생각.'
 when = '2005-10-09T10:35:01+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=12'
 %>
 

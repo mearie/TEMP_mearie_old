@@ -3,7 +3,7 @@
 <%!
 title = u'gobby 맛 보기'
 when = '2006-01-30T20:47:33+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=54'
 %>
 

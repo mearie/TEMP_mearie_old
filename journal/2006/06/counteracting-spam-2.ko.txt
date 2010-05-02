@@ -3,7 +3,7 @@
 <%!
 title = u'스팸에 대처하는 우리의 자세 2'
 when = '2006-06-14T12:07:24+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=112'
 %>
 

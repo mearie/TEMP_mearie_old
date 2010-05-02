@@ -3,7 +3,7 @@
 <%!
 title = u'파이썬의 또 다른 활용법'
 when = '2006-05-11T01:55:05+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=93'
 %>
 

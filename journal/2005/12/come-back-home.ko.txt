@@ -3,7 +3,7 @@
 <%!
 title = u'상경'
 when = '2005-12-24T14:59:00+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=35'
 %>
 

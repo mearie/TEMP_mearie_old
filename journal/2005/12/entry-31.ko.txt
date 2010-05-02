@@ -3,7 +3,7 @@
 <%!
 title = u'시험이 두 시간 남으니'
 when = '2005-12-16T07:30:21+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=31'
 %>
 

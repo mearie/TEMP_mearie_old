@@ -3,7 +3,7 @@
 <%!
 title = u'last.fm 40000곡 돌파'
 when = '2006-07-04T01:43:30+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=129'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'어려운 것'
 when = '2006-06-17T02:11:19+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=115'
 %>
 

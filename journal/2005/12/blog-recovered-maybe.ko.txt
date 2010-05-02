@@ -3,7 +3,7 @@
 <%!
 title = u'복구(?)'
 when = '2005-12-30T20:09:33+09:00', '2006-01-02+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=37'
 %>
 

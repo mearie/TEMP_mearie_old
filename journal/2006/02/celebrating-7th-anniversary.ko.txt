@@ -3,7 +3,7 @@
 <%!
 title = u'토끼군 작업실 7주년'
 when = '2006-02-01T23:55:04+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=55'
 %>
 

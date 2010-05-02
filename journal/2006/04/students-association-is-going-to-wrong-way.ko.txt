@@ -3,7 +3,7 @@
 <%!
 title = u'총학생회 삽질한다.'
 when = '2006-04-15T07:54:58+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=84'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'앞으로 Feedburner를 사용하겠습니다.'
 when = '2006-05-12T20:34:43+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=94'
 %>
 

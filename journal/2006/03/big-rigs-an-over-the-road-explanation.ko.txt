@@ -3,7 +3,7 @@
 <%!
 title = u'빅 리그의 진실'
 when = '2006-03-12T03:00:36+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=66'
 %>
 

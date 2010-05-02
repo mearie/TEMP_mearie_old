@@ -3,7 +3,7 @@
 <%!
 title = u'컴파일을 많이 자주 하면 좋은 점'
 when = '2006-05-25T18:52:49+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=101'
 %>
 

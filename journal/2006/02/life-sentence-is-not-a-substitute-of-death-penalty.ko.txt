@@ -3,7 +3,7 @@
 <%!
 title = u'사형을 종신형으로 바꾸자는데...'
 when = '2006-02-23T09:16:46+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=59'
 %>
 

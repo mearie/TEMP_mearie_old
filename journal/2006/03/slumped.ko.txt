@@ -3,7 +3,7 @@
 <%!
 title = u'토끼군 작업실 다음 버전...'
 when = '2006-03-17T20:12:29+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=68'
 %>
 

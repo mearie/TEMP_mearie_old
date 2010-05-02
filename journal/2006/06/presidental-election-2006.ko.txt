@@ -3,7 +3,7 @@
 <%!
 title = u'2006년 선거'
 when = '2006-06-01T11:01:27+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=103'
 %>
 

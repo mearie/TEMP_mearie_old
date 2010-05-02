@@ -3,7 +3,7 @@
 <%!
 title = u'MD5 Reverse Lookup'
 when = '2006-04-10T07:31:30+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=81'
 %>
 

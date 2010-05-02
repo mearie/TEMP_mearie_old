@@ -3,7 +3,7 @@
 <%!
 title = u'난감한 스팸 코멘트'
 when = '2005-10-18T07:38:39+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=16'
 %>
 

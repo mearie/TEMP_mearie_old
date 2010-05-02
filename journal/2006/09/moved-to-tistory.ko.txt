@@ -3,7 +3,7 @@
 <%!
 title = u'블로그 옮겼습니다;'
 when = '2006-09-18T13:44:48+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=139'
 %>
 

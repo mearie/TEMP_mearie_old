@@ -3,7 +3,7 @@
 <%!
 title = u'블로그아고라 말인데,'
 when = '2005-12-17T13:51:37+09:00', '2005-12-18+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=32'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'등잔 밑이 어둡다'
 when = '2006-04-09T03:50:03+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=80'
 %>
 

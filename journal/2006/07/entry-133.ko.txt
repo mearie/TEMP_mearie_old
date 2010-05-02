@@ -3,7 +3,7 @@
 <%!
 title = u'죽, 죽, 죽'
 when = '2006-07-07T19:06:21+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=133'
 %>
 

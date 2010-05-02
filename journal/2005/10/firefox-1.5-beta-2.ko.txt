@@ -3,7 +3,7 @@
 <%!
 title = u'파이어폭스 1.5 베타 2'
 when = '2005-10-10T12:33:24+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=13'
 %>
 

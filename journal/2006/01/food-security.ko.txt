@@ -3,7 +3,7 @@
 <%!
 title = u'식량 안보?'
 when = '2006-01-06T23:58:29+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=40'
 %>
 

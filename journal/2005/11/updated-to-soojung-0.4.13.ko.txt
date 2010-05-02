@@ -3,7 +3,7 @@
 <%!
 title = u'soojung 0.4.13으로 업데이트'
 when = '2005-11-12T07:41:06+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=21'
 %>
 

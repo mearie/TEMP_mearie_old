@@ -3,7 +3,7 @@
 <%!
 title = u"불신 (cont'd)"
 when = '2006-02-08T23:44:16+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=56'
 %>
 

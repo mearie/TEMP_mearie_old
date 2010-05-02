@@ -3,7 +3,7 @@
 <%!
 title = u'오늘의 당황스러운 일'
 when = '2006-04-19T19:29:46+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=86'
 %>
 

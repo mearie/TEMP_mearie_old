@@ -3,7 +3,7 @@
 <%!
 title = u'theseit 진행 상황'
 when = '2006-05-24T20:48:28+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=100'
 %>
 

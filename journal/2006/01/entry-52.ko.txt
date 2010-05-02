@@ -3,7 +3,7 @@
 <%!
 title = u'모종의 배턴'
 when = '2006-01-24T06:37:59+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=52'
 %>
 

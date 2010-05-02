@@ -3,7 +3,7 @@
 <%!
 title = u'디맥 포터블 소감'
 when = '2006-03-14T22:41:46+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=67'
 %>
 

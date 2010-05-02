@@ -3,7 +3,7 @@
 <%!
 title = u'오랜만에 리듬잇'
 when = '2006-03-19T01:58:43+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=69'
 %>
 

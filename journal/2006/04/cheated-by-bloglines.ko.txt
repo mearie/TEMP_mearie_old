@@ -3,7 +3,7 @@
 <%!
 title = u'낚였다!'
 when = '2006-04-13T18:31:56+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=83'
 %>
 

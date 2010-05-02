@@ -3,7 +3,7 @@
 <%!
 title = u'주한 미군에 대한 내 생각'
 when = '2005-09-16T23:56:46+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=4'
 %>
 

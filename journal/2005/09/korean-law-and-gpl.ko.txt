@@ -3,7 +3,7 @@
 <%!
 title = u'한국 법과 GPL'
 when = '2005-09-13T15:32:53+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=2'
 %>
 

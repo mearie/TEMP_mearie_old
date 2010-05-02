@@ -3,7 +3,7 @@
 <%!
 title = u'오묘한 C++ 문법'
 when = '2006-04-04T06:43:46+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=76'
 %>
 

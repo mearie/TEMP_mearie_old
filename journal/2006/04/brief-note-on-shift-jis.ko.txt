@@ -3,7 +3,7 @@
 <%!
 title = u'Shift-JIS 인코딩 요약'
 when = '2006-04-07T23:44:01+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=79'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'맨날 거슬리는 맞춤법 하나'
 when = '2006-01-16T23:50:20+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=45'
 %>
 

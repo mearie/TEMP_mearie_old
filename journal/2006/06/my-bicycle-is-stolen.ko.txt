@@ -3,7 +3,7 @@
 <%!
 title = u'자전거 잃어 버림'
 when = '2006-06-21T23:39:22+09:00', '2006-06-22T16:41:51+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=119'
 %>
 
