@@ -3,7 +3,7 @@
 <%!
 title = u'Beware the C++ implicit conversion'
 when = '2006-06-04T16:10:24+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=104'
 %>
 

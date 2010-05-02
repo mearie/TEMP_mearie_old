@@ -3,7 +3,7 @@
 <%!
 title = u'최근에 부여 잡고 난리 치던 문서'
 when = '2005-11-25T19:11:47+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=24'
 %>
 

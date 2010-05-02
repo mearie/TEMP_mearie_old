@@ -3,7 +3,7 @@
 <%!
 title = u'오늘(어제인가?)의 수확'
 when = '2006-03-29T00:16:33+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=72'
 %>
 

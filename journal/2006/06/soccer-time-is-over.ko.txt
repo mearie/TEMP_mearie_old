@@ -3,7 +3,7 @@
 <%!
 title = u'축구 끝 >_<'
 when = '2006-06-24T06:16:32+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=122'
 %>
 

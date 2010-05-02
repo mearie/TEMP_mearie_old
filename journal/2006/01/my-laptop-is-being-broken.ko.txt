@@ -3,7 +3,7 @@
 <%!
 title = u'난감한 노트북'
 when = '2006-01-09T02:39:05+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=41'
 %>
 

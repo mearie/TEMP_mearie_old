@@ -3,7 +3,7 @@
 <%!
 title = u'누가 늙은 걸까'
 when = '2006-01-02T22:49:23+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=38'
 %>
 

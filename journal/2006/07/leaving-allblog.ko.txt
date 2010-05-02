@@ -3,7 +3,7 @@
 <%!
 title = u'올블로그 탈퇴'
 when = '2006-07-14T19:11:24+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=137'
 %>
 

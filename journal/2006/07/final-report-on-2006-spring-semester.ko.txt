@@ -3,7 +3,7 @@
 <%!
 title = u'2006년 봄학기 결산'
 when = '2006-07-01T10:23:33+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=127'
 %>
 

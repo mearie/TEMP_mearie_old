@@ -3,7 +3,7 @@
 <%!
 title = u'printf와 친구들 (3)'
 when = '2006-03-11T16:55:56+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=65'
 %>
 

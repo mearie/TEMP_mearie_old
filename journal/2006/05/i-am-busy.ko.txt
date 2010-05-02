@@ -3,7 +3,7 @@
 <%!
 title = u'바쁜 나날'
 when = '2006-05-29T22:50:26+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=102'
 %>
 

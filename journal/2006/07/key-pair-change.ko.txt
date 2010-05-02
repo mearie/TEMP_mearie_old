@@ -3,7 +3,7 @@
 <%!
 title = u'key pair 바뀜'
 when = '2006-07-10T22:04:53+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=134'
 %>
 

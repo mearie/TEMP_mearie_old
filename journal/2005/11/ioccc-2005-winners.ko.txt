@@ -3,7 +3,7 @@
 <%!
 title = u'IOCCC 2005 수상작'
 when = '2005-11-09T08:17:22+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=20'
 %>
 

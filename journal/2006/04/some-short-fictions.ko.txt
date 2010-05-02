@@ -3,7 +3,7 @@
 <%!
 title = u'어떤 단편 소설'
 when = '2006-04-05T17:29:21+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=77'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'카이스트 아이피 주소의 신비'
 when = '2005-10-08T14:49:37+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=11'
 %>
 

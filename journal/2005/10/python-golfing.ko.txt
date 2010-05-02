@@ -3,7 +3,7 @@
 <%!
 title = u'python golfing'
 when = '2005-10-06T23:58:48+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=10'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'GalaXQL'
 when = '2006-07-03T23:10:31+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=128'
 %>
 

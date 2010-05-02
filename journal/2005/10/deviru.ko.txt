@@ -3,7 +3,7 @@
 <%!
 title = u'포공 붙은 뎁모 군'
 when = '2005-10-27T03:29:26+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=18'
 %>
 

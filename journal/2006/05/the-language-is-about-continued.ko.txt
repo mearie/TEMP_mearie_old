@@ -3,7 +3,7 @@
 <%!
 title = u'언어라는 것은... - 조금 더'
 when = '2006-05-02T19:01:38+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=89'
 %>
 

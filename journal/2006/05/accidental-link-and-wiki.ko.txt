@@ -3,7 +3,7 @@
 <%!
 title = u'우발적 링크'
 when = '2006-05-21T20:44:42+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=99'
 %>
 

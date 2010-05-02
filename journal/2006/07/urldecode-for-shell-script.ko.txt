@@ -3,7 +3,7 @@
 <%!
 title = u'urldecode for shell script'
 when = '2006-07-13T21:54:33+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=136'
 %>
 

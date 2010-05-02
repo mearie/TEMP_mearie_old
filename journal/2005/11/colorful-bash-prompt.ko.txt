@@ -3,7 +3,7 @@
 <%!
 title = u'이쁜(?) bash 프롬포트 만들기'
 when = '2005-11-22T18:04:51+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=23'
 %>
 

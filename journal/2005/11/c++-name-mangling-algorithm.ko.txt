@@ -3,7 +3,7 @@
 <%!
 title = u'C++ Name Mangling Algorithm'
 when = '2005-11-17T09:50:32+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=22'
 %>
 

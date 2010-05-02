@@ -3,7 +3,7 @@
 <%!
 title = u'황교수 사건의 끝을 보며'
 when = '2006-01-12T19:40:36+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=44'
 %>
 

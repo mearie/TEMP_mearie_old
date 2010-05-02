@@ -3,7 +3,7 @@
 <%!
 title = u'날아간 POST 폼 되살리기'
 when = '2006-01-23T04:12:29+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=51'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'inklbot compilation'
 when = '2005-12-15T09:14:46+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=30'
 %>
 

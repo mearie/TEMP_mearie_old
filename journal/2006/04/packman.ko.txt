@@ -3,7 +3,7 @@
 <%!
 title = u'Packman'
 when = '2006-04-06T21:45:22+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=78'
 %>
 

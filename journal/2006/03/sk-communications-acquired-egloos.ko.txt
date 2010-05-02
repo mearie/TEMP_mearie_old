@@ -3,7 +3,7 @@
 <%!
 title = u'SK가 이글루를 삼켜 버렸네~'
 when = '2006-03-07T23:37:29+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=64'
 %>
 

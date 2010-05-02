@@ -3,7 +3,7 @@
 <%!
 title = u'한RSS로 옮김'
 when = '2006-06-11T21:52:05+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=109'
 %>
 

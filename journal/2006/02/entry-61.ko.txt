@@ -3,7 +3,7 @@
 <%!
 title = u'디버깅과 화장실 변기 뚫는 것의 공통점'
 when = '2006-02-26T23:59:53+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=61'
 %>
 

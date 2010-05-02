@@ -3,7 +3,7 @@
 <%!
 title = u'노트북 갈아 엎기 4'
 when = '2006-01-19T05:37:02+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=49'
 %>
 

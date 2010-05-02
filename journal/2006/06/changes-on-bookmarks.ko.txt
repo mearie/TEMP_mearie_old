@@ -3,7 +3,7 @@
 <%!
 title = u'북마크 변동사항'
 when = '2006-06-09T17:17:41+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=107'
 %>
 

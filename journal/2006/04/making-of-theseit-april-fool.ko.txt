@@ -3,7 +3,7 @@
 <%!
 title = u'만우절 기념(?) 프로그램 개발 과정'
 when = '2006-04-02T00:05:08+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=74'
 %>
 

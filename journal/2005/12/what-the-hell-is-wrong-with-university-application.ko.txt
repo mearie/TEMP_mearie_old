@@ -3,7 +3,7 @@
 <%!
 title = u'그럴려면 처음부터 하지 마'
 when = '2005-12-28T20:53:54+09:00'
-tags = [u'생각']
+category = u'생각'
 original = 'http://tokigun.net/blog/entry.php?blogid=36'
 %>
 

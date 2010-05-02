@@ -3,7 +3,7 @@
 <%!
 title = u'블로그아고라 관련 글들 (시간 순 정리)'
 when = '2005-12-18T13:22:53+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=33'
 %>
 

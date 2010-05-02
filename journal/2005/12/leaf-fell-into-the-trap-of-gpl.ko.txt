@@ -3,7 +3,7 @@
 <%!
 title = u'뭔가 알 수 없는 상황'
 when = '2005-12-14T13:00:51+09:00'
-tags = [u'소식']
+category = u'소식'
 original = 'http://tokigun.net/blog/entry.php?blogid=29'
 %>
 

@@ -3,7 +3,7 @@
 <%!
 title = u'개꿈'
 when = '2006-06-20T11:53:29+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=118'
 %>
 

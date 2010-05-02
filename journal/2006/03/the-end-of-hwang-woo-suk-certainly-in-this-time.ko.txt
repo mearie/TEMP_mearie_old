@@ -3,7 +3,7 @@
 <%!
 title = u'거의 마무리'
 when = '2006-03-06T23:18:34+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=63'
 %>
 

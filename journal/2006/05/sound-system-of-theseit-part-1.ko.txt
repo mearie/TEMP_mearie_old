@@ -3,7 +3,7 @@
 <%!
 title = u'theseit: 사운드 시스템 #1'
 when = '2006-05-18T23:52:24+09:00'
-tags = [u'삽질']
+category = u'삽질'
 original = 'http://tokigun.net/blog/entry.php?blogid=97'
 %>
 

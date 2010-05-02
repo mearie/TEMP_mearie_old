@@ -3,7 +3,7 @@
 <%!
 title = u'기말고사 기간'
 when = '2006-06-11T19:47:10+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=108'
 %>
 

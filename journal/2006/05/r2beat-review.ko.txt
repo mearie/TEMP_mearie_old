@@ -3,7 +3,7 @@
 <%!
 title = u'알투비트'
 when = '2006-05-05T07:41:08+09:00'
-tags = [u'이야기']
+category = u'이야기'
 original = 'http://tokigun.net/blog/entry.php?blogid=91'
 %>
 

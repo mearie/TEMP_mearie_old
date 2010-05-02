@@ -3,7 +3,7 @@
 <%!
 title = u'송금'
 when = '2006-05-03T16:42:34+09:00'
-tags = [u'일상']
+category = u'일상'
 original = 'http://tokigun.net/blog/entry.php?blogid=90'
 %>
 
