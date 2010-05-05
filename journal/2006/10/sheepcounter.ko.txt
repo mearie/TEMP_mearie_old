@@ -9,7 +9,7 @@ original = 'http://lifthrasiir.tistory.com/27'
 
 SheepCounter라는 것은 <del>[KLDP CodeFest7](http://segfault.egloos.com/2023118)</del> 때 유혹을 이기지 못한 두 개발자(L 모 씨 + [S 모 님](http://planetmono.org/))가 밤 새 가면서 만든 쓸데 없는 프로그램으로, 양을 세 준다.
 
-<%m:imgframe src="http://cfs.tistory.com/attach/8431/1390927826.jpg" width="480" height="363" align="center">코드페스트 때 많은 사람들에게 민폐를 끼친 그 프로그램. (출처: [KLDP 갤러리](http://gallery.kldp.org/codefest7/xr1024DSCF3198))</%m:imgframe>
+<%m:imgframe src="1390927826.jpg" width="480" height="363" align="center" link="1">코드페스트 때 많은 사람들에게 민폐를 끼친 그 프로그램. (출처: [KLDP 갤러리](http://gallery.kldp.org/codefest7/xr1024DSCF3198))</%m:imgframe>
 
 하드디스크에 소스 코드가 남아 있길래 좀 정리해서 서브버전에 올렸다. <del>[`/snippets/sheepcounter`](http://tokigun.daybreaker.info/svn/snippets/sheepcount/)</del>에 올라가 있고, 윈도우용 프로그램은 <del>[여기](http://svn.daybreaker.info/lifthrasiir/snippets/sheepcount/yang.zip)</del>서 받을 수 있다.
 

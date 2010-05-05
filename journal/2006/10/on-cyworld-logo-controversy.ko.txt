@@ -7,7 +7,7 @@ category = u'진지'
 original = 'http://lifthrasiir.tistory.com/28'
 %>
 
-<%m:img src="http://cfs.tistory.com/attach/8431/1272549557.gif" width="398" height="198" align="center"/>
+<%m:img src="1272549557.gif" width="398" height="198" align="center"/>
 
 요즘 이런 그림 때문에 시끄러운 모양이다. 근데 솔직히 맨날 감정 싸움으로 번지고 생산적인 일로 이어지지 않으니 답답해 죽겠다. -_- 내 입장은,
 

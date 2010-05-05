@@ -10,7 +10,7 @@ original = 'http://lifthrasiir.tistory.com/14'
 
 그냥 심심해서 토작 첫 화면에 대문 이미지를 집어 넣고 노트북에서 바꾸면 변경되도록 했다. ...좀 압박스러운 그림들도 나오고 하는데 뭐 적절히 필터링하시라. -_-;
 
-<%m:imgframe src="http://cfs.tistory.com/attach/8431/1029442725.png" width="356" height="248" align="center">...과연 지금 나오는 그림은 무엇이란 말인가.</%m:imgframe>
+<%m:imgframe src="1029442725.png" align="center">...과연 지금 나오는 그림은 무엇이란 말인가.</%m:imgframe>
 
 가장 간단한 방법으로 구현했다. 첫 페이지에서는 title.png라는 파일을 정적으로 읽어 오고, 서버는 5분에 한 번씩 노트북에서 그림을 긁어 온다. crontab에는 이렇게 써 놓았다.
 
