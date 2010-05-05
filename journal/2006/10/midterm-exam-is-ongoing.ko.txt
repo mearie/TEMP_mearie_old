@@ -1,0 +1,24 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'중간 고사 4 of 6'
+when = '2006-10-25T23:21:57+09:00'
+category = u'잡다'
+tags = [u'ㅁㄴㅇㄹ', u'중간고사']
+original = 'http://lifthrasiir.tistory.com/26'
+%>
+
+전체 6과목 중 네 과목의 시험이 끝난 시점에서 이번 중간 고사를 얘기하자면... 참 비참하다. orz
+
+왜 시험 기간에는
+
+* 왠지 안 하던 theseit 코딩을 하고 싶어지는가 하면
+* [Perl 6 apocalypse](http://dev.perl.org/perl6/doc/apocalypse.html) 따위가 눈에 들어 온다던지
+* 어쩐지 IRC에서는 [랜드 오브 토끽누](http://semtle.kumoh.ac.kr/%7Enight/LOT3.txt) 따위를 한다던지
+* 오늘 아침에는 마침 파이어폭스 2가 나와서 갱신 좀 해 보려다가 chrome이 맛이 가서 재설치를 했다던지
+* 누구 누구는 naru나 만들라고 협박(?)을 한다던지
+
+하는 걸까... OTL 위키백과는 의도적으로 시험 기간 중에 안 했는데 다른 일들이 발목을 잡는다. 특히 오늘의 데이터베이스 개론은 그야말로 최악의 결과... 아니 이 인간들이 SQL 문과 PL/SQL, JDBC, ADO.NET, PSM 따위 다 외워서 쓰라는 건지 뭘 어쩌라고 ㅁㄴㅇㄹㅁㄴㅇㄹ 답을 쓰는 시간이라도 고려해서 시험 시간을 정하던가;;;
+
+이런 이유로 블로깅은 대부분의 시험이 끝나는 내일 재개할 예정. 뭘 쓸 지 슬슬 고민되는데... -_-;
+

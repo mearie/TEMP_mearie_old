@@ -1,0 +1,31 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'근황'
+when = '2006-09-18T14:00:03+09:00', '2006-09-18T14:01:00+09:00'
+category = u'잡다'
+tags = [u'근황']
+original = 'http://lifthrasiir.tistory.com/3'
+%>
+
+두 달동안 많은 일이 있었다.
+
+* 운전면허를 땄... <small>아 이건 예전 블로그에서 이미 말했다. -_-;;;</small>
+* 원래는 여름방학 중 theseit 개발을 목표로 했으나 날뷁서버가 죽어서 전혀 진척이 안 되었다.
+* [위키백과](http://ko.wikipedia.org/)에 제대로 말려서 헤어나오지 못 하고 있다.
+* 개인 서버인 루리넷(ruree.net)을 설치했다.
+* 위키와 봇을 구상했다. 구상만 하고 개발은 못 했다.
+* 그 사이 모 군한테 mp3 플레이어를 넘겨 받았다. 좀 낡긴 했으나 큰 문제는 없다. <small>근데 왜 shuffle이 없지?</small>
+* 아리랑 TV인가에서 아는 형 인터뷰하길래 그냥 따라가서 카메라에 살짝 비춰 주고 왔다.
+* 저녁 약속을 했는데 가서 Jabber 서버의 XMPP 문제 고쳐 주고 왔다. -_-;;;;;;
+* 못 깨던 BMS 몇 개를 깼다. 감격이다.
+* 개강했다. orz
+
+결론은 개강했는데 블로그 새로 만든다고 삽질하고 있다는 것이다. OTL
+
+<div class="afternote">
+
+운전 면허 땄다는 얘기는 [여기](/journal/2006/07/drivers-license-written-exam)에서 했는데 지금 보니까 필기 시험 붙었다는 얘기였다. <small>(2010-05-06)</small>
+
+</div>
+
