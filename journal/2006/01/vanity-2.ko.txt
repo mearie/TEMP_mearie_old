@@ -11,3 +11,9 @@ original = 'http://tokigun.net/blog/entry.php?blogid=39'
 
 ...아 정말 허무해 orz
 
+<div class="afternote">
+
+이런, 똑같은 일을 [4년 후](http://j.mearie.org/post/525774946)에도 겪었다! <small>(2010-05-06)</small>
+
+</div>
+
