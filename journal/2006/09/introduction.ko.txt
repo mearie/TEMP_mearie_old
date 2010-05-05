@@ -1,0 +1,76 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'소개 (부제: L모씨의 정체)'
+when = '2006-09-18T13:41:40+09:00', '2006-09-18T14:15:19+09:00'
+original = 'http://lifthrasiir.tistory.com/notice/2'
+%>
+
+> L 모 씨는 1980년대 후반에 태어나서 지금까지 귀차니즘을 연마하고 있는 20대 초반의 프로 귀차니스트입니다. [ㅌ 모 씨](http://tokigun.net/)랑 비슷해 보이나 실제로는 도플갱어입니다. 귀차니즘의 연마에 도움이 되는 콤퓨타에 관심을 가져 현재 지방 K대 전산학과에 있으며, 교수님들이 모두 고개를 설레 설레 흔드는 마당에 ㅅ 모 교수님께서는 상관 않고 열심히 인간 개조를 도와 주셔서 지금은 좀 살만합니다. 맨날 음악만 듣고 자빠져서 청력이 다소 개판이고 그거랑 상관 관계가 있는진 모르겠지만 발음도 영 아니올시다입니다. 아무쪼록 이런 L 모 씨를 아껴 주고 사랑하실 분께서는 아이디 뒤에 @gmail.com을 붙여서 사랑의 메시지를 보내 주시면 큰 힘이 됩니다.
+>
+> ...위의 글 믿으시면 바보.
+
+여기부터는 진짜입니다.
+
+**lifthrasiir**는 토끼군 강 성훈의 다른 닉네임(아마 대여섯개 정도) 중 하나입니다. [리프와 리프스라시르](http://en.wikipedia.org/wiki/L%C3%ADf_and_L%C3%ADfthrasir)(발음 맞나...)는 북구 신화에서 라그나뢰크가 끝나고 살아 남은 남자와 여자입니다. 원래는 첫번째 i가 í여야 합니다만 그런 건 신경쓰지 않습니다. -_-;
+
+전산학을 전공하고 있으며 다양한 소프트웨어 개발에 관심이 있습니다. 오픈 소스 프로젝트 몇 개에 참여해서 <del>다 말아 먹은</del> 전력이 있으며, 종종 특이한 작업을 하는 것으로 알려져 있습니다.
+
+다음은 제 PGP 지문(fingerprint)과 공개키입니다.
+
+<div class="small">
+<%text filter="indent">
+pub   1024D/2E82F173 2006-07-10 [expires: 2008-07-09]
+      Key fingerprint = FF30 EA63 6C06 5775 8365  3A2F A6AF 9E06 2E82 F173
+uid                  Kang Seonghoon aka Tokigun (and so on) <zerowide@...>
+uid                  Kang Seonghoon aka Tokigun (primary) <tokigun@...>
+uid                  Kang Seonghoon aka Tokigun (secondary) <tokigun@...>
+sub   2048g/BC0D204C 2006-07-10 [expires: 2008-07-09]
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.3 (MingW32)
+mQGiBESyS8IRBACK2AuDSESC3hQnV0HMfNJfJhsYeve0SbQkTvY+31NgRnmXtrY4
+6gAlKhDzmEDNRr6/ChLECFX7tJUW4PTiWujMJdty1dUaYWECdLQWX+lReQI8EFfr
+5bcVgw/zx6xQDs/LUVm1WVC/nXCjBKGMiR9bgS25HrFBuk75Q/qTXZZawwCg8kkT
+bdU9MNB9N5QH8SK2gLkG1pUD/2FgGA3uNOEH+Y5piusIzcK8OhimupTlDPeUtRDi
+XS+f46hliDv52gtdhfLspGJpZF6el99AG9GfSJeZFc3OlvTqhssY8hGBEpkw/Ruq
+fxyrRw/JF0ibKCohWY3AcTavtn6oGhHxWvKKRlOxWa6K1JT1CBTz9beEwE9NLYXT
+cbC7A/4jmTWOlquKDwfJGdZVnyCTZ/G/1QGKQHEqCoHx16ekNjeg9WZ2kKZ3NiBw
+IVn/goHP4Q3lcNZ02fbx3NwRkygIrBq0Hq5J7Jlwix/vyxBfzLF4F+2/JJ2b9hOZ
+eC46WLii5As09XbkSCauVkZDY3CuQb8CV4cAzxtn1BM6NgE847Q4S2FuZyBTZW9u
+Z2hvb24gYWthIFRva2lndW4gKHByaW1hcnkpIDx0b2tpZ3VuQGdtYWlsLmNvbT6I
+ZgQTEQIAJgIbAwUJA8JnAAYLCQgHAwIEFQIIAwQWAgMBAh4BAheABQJEskwuAAoJ
+EKavngYugvFz3PkAoJUBwJ26AIbsT2p0BChZXKT69/lsAKCpAP4w01+Fpad95xQe
+ECe+iKtht7RDS2FuZyBTZW9uZ2hvb24gYWthIFRva2lndW4gKHNlY29uZGFyeSkg
+PHRva2lndW5Ac3BhcmNzLmthaXN0LmFjLmtyPohmBBMRAgAmBQJEskwkAhsDBQkD
+wmcABgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQpq+eBi6C8XN4lgCgr5AFX8Zb
+1S5bpRA4zVi5PyOTXNAAn2l/J6MFHa0fMAUn/DOBYwMXFyDQtENLYW5nIFNlb25n
+aG9vbiBha2EgVG9raWd1biAoYW5kIHNvIG9uKSA8emVyb3dpZGVAbm90dXNlZC5y
+dXJlZS5uZXQ+iGkEExECACkCGwMFCQPCZwAGCwkIBwMCBBUCCAMEFgIDAQIeAQIX
+gAUCRLJMLgIZAQAKCRCmr54GLoLxc6LmAJ9NYJdcEfVegUS/N6vZNZedHmHQ6QCg
+ragod5yyaOZB2jLeV4/PpDG8xy25Ag0ERLJL1BAIAKAuOVbTZ9mZqUlRRrwcAKHA
+QHOCXZJThPzgMO34C3fsJciVnfIrGTYoVGjx4i7a4UiWDWu5eYmNl3y0iXSK7SUT
+PEp6xrnqSbeYxrqNWTq74e5g3jT9ozqQ0QYI7sFTNBHU0AtX3O2zraKuVJatFHNm
+faqgeq0No5u4883sD761Ygc188eYzqlvAxdYzXeaHyVR3VRL2F8gVuhP6geaztLp
+JpDunE1NB115nbOhquvBqMbytD6VIozx5gMvoWMHIbk3Hqigd3umgjA9ji+0gIf/
+48eww90f3jl74a/GGJnqgNVvxvdMPqD1Qu8NDtWAFaQzTls6tmFlxuBnIHqeqw8A
+AwUH+gOCPBR6EpT2+fdx04lw/AxGaDDkZoKl7/PfIP5zDHKZHWmP0nMW9kMbuMxI
+/QYv8iFfoatr5SiZiHX8Fohr+cmihuCud4ZJ17jIX8KQdNSDm9IqqcYk7Z8FL9Fe
+thq3wXjSYTaWtloY6g5cvE42kwF9fa2kuF93wOY6rOU+io743eiqBq5NgkJalT7c
+lsRdDVZrmL7AxtPwZpJlhg5TBP84/T3yKxRIaBGEWDrSR9beh0wtDrC4cZ8H//bv
+YcWvQNN+8kWD+5uIFwJyEwYqYtfqpIVqgH2H7GxtDSMnM4yBByNVPL7+Iyq074h+
+gx2KU5hMGmUzOBFSKB1cW2KWLLqITwQYEQIADwUCRLJL1AIbDAUJA8JnAAAKCRCm
+r54GLoLxc+KiAKDWdxl1uSIQLecdPUspn5CBVOzKFQCfQktLY/13ajn7cozCRA0Z
+NBSMWbU=
+=Gr3z
+-----END PGP PUBLIC KEY BLOCK-----
+</%text>
+</div>
+
+메일은 가급적이면 앞에서 언급한 메일로 보내지 마시고 토끼군 골뱅이 쥐메일 닷컴으로 보내 주십시오.
+
+<div class="afternote">
+
+현재의 소개는 [이 쪽](/about/kang-seonghoon)을 참고하라. 물론 PGP 키는 만료된 지 오래이다. <small>(2010-05-06)</small>
+
+</div>
+

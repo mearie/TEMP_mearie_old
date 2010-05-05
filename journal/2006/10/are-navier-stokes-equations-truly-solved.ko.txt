@@ -1,0 +1,32 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'내비에-스톡스 방정식'
+when = '2006-10-11T09:34:38+09:00', '2006-10-11T09:35:20+09:00'
+category = u'진지'
+tags = [u'내비에-스톡스 방정식', u'밀레니엄 문제', u'수학', u'인터넷']
+original = 'http://lifthrasiir.tistory.com/18'
+%>
+
+[내비에-스톡스 방정식](http://en.wikipedia.org/wiki/Navier-Stokes_equations)은 유체의 운동을 기술하는 미분 방정식이다. 자주 쓰이면서도 일반화된 해를 구하기는 매우 어려운 것으로 알려져 있는데, 덕분에 클레이 수학 연구소가 2000년에 발표한 [밀레니엄 문제](http://ko.wikipedia.org/wiki/%EB%B0%80%EB%A0%88%EB%8B%88%EC%97%84_%EB%AC%B8%EC%A0%9C#.EB.B0.80.EB.A0.88.EB.8B.88.EC.97.84_.EB.AC.B8.EC.A0.9C)에도 한 자리 차지하고 앉았다. (일곱 문제에 하나 풀거나 거기에 상당한 진전을 보이면 100만달러를 주는 시스템)
+
+pomp 님의 블로그에 내비에-스톡스 방정식 문제가 [풀렸는 줄 알았는데 아니었더라](http://pomp.tistory.com/entry/Poincare-conjecture-%EB%8B%A4%EC%9D%8C%EC%9D%80-Navier-Stokes-equation)는 내용을 보고 관련 페이지를 뒤적거렸다. (수학 전공은 아니지만 이런 거 찾아 보는 게 재밌더라) 흥미로운 걸 하나 발견했는데, [Good Math, Bad Math](http://scienceblogs.com/goodmath/2006/10/navier_stokes_false_alarm.php)에도 댓글로 붙어 있지만 이 얘기가 나왔던 [블로그](http://www.math.columbia.edu/%7Ewoit/wordpress/?p=470)의 답글에 이런 게 붙어 있다.
+
+> Euler Says:  
+> October 7th, 2006 at 10:39 pm
+>
+> It seems that the same proof works for the Euler equations and the Burgers equations!!!!!! If it doesn’t, it would be nice to get an insight onthe role of the dissipation in this proof.
+
+이 답글 위에 보면 논문을 발표한 Penny Smith가 직접 쓴 내용들도 있다. 그리고 이 답글이 올라온 지 하루(?)만에 논문이 철회되었는데, 그러니까 정말로 익명의 제보를 받고 논문을 재검토한 것이다. 그녀는 논문을 철회한 뒤 심지어는 수학계를 떠날까 하는 생각도 했다 하는데, 충분히 좌절스러울 법 하다.
+
+뭐 딱히 할 말은 없고, Good Math, Bad Math의 답글을 인용하겠다.
+
+> It's great to see a REAL researcher showing the scientific frauds how it's supposed to be done ...  
+> Posted by: DV8 2XL | October 10, 2006 11:45 AM
+>
+> DV8 2XL:  
+> True, and I wish I had mentioned that in the original post. Publicly acknowledging an error the way Prof. Smith did is a sign of true professionalism. [...]  
+> Posted by: Mark C. Chu-Carroll | October 10, 2006 02:16 PM
+
+</blockquote>그녀가 다시 힘을 내서 정말로 증명을 완성해 수학사에 큰 발자취를 남기길 기대한다.
+

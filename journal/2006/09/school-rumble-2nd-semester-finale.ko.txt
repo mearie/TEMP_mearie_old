@@ -1,0 +1,22 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'스쿨럼블 2학기 완결'
+when = '2006-09-25T23:58:28+09:00', '2006-09-27T01:24:50+09:00'
+category = u'잡다'
+tags = [u'스쿨럼블 2학기']
+original = 'http://lifthrasiir.tistory.com/11'
+%>
+
+1학기에 비해서는 조금(?) 개그 센스가 덜하다는 평가도 받긴 했으나 결말은 역시 스쿨럼블답게... 이래서 스쿨럼블을 안 볼 수가 없다.
+
+<%m:imgframe src="http://cfs.tistory.com/attach/8431/1089644234.jpg" width="320" height="240" align="center" link="1">몇 년 전에 빌린 건데 반납이 가능하기나 한걸까 저건;</%m:imgframe>
+
+그나저나 마지막 엔딩을 볼 때 스쿨럼블 3기가 나올 가능성도 적잖은 것 같은데 (만화책도 완결 안 났고...) 어떻게 될지 궁금하다. 이제 입시 경쟁인가? -,.-
+
+<div class="afternote">
+
+OVA로 발매된 스쿨럼블 3학기는 밥맛이었다. 1화 보고 접었다. <small>(2010-05-06)</small>
+
+</div>
+

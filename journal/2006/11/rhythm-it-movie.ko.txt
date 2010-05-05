@@ -1,0 +1,29 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'동영상 업로드 테스트'
+when = '2006-11-12T02:38:29+09:00', '2006-11-12T02:44:28+09:00'
+category = u'잡다'
+tags = [u'동영상', u'리듬잇']
+original = 'http://lifthrasiir.tistory.com/36'
+%>
+
+괜히 티스토리에 동영상이 잘 올라 가는지, 그리고 올라간다면 어떻게 올라가는지 궁금해서 한 번 올려 봤다. 아래는 리듬잇-_-으로 [murmur twins -4.6.0 beat mix-](http://www.siromaru.com/bms/)를 플레이한 것이다.
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="402" height="324">
+<param name="movie" value="http://flvs.daum.net/flvPlayer.swf?vid=mIIf2ltUUEY$"/>
+<!--[if !IE]>--><object type="application/x-shockwave-flash" data="http://cfs.flvs.daum.net/files/44/9/32/27/1878026/thumb.jpg" width="402" height="324"><!--<![endif]-->
+<%m:img src="http://cfs.flvs.daum.net/files/44/9/32/27/1878026/thumb.jpg" width="400" height="320"/>
+<!--[if !IE]>--></object><!--<![endif]-->
+</object>
+
+(사실 나는 리듬 게임을 꽤 오래 했음에도 불구하고 실력이 썩 좋지는 않다. 이게 최고 기록이긴 한데, 잘 보면 실수로 잘못 누른 부분이 두 세 군데 있다. -_-;)
+
+fraps로 갈무리를 하니 1.2GB가 나오길래 VirtualDubMod로 적절히 손질했다. (그러고 보니 AVI 원래 스펙은 2GB까지만 허용하던가?) 예상대로 업로드에는 플래시 컴포넌트가 쓰였는데, 생각보다 빨리 업로드되<del>고 인코딩되</del>는 점이 인상깊었다. <ins>(인코딩은 누군가가 처음 동영상을 봤을 때 비로소 진행된다.)</ins> 아마 대규모 서버 팜을 두고 인코딩 작업을 전담하는 게 아닌가 싶다.
+
+<div class="afternote">
+
+이 동영상에서 한 가지 중요한 사실. 리듬잇은 다른 BMS 플레이어에 비해 굉장히 판정이 후한 것으로 알려져 있다. 저기서는 점수가 20만점 만점에 19만 7천점이 나왔지만 리듬잇보다 판정이 짠 루브잇에서 내 최고 점수는 19만 3천점이었다. (그나마도 요즘은 잘 안 된다...) <small>(2010-05-06)</small>
+
+</div>
+

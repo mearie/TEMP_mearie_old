@@ -308,6 +308,12 @@ del {
 	text-decoration: line-through;
 	color: #888;
 }
+small {
+	font-size: 85%;
+}
+big {
+	font-size: 150%;
+}
 code {
 	background: #999;
 	color: white;

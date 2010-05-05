@@ -1,0 +1,25 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'SheepCounter'
+when = '2006-10-27T01:37:06+09:00', '2006-10-27T01:48:39+09:00'
+category = u'삽질'
+original = 'http://lifthrasiir.tistory.com/27'
+%>
+
+SheepCounter라는 것은 <del>[KLDP CodeFest7](http://segfault.egloos.com/2023118)</del> 때 유혹을 이기지 못한 두 개발자(L 모 씨 + [S 모 님](http://planetmono.org/))가 밤 새 가면서 만든 쓸데 없는 프로그램으로, 양을 세 준다.
+
+<%m:imgframe src="http://cfs.tistory.com/attach/8431/1390927826.jpg" width="480" height="363" align="center">코드페스트 때 많은 사람들에게 민폐를 끼친 그 프로그램. (출처: [KLDP 갤러리](http://gallery.kldp.org/codefest7/xr1024DSCF3198))</%m:imgframe>
+
+하드디스크에 소스 코드가 남아 있길래 좀 정리해서 서브버전에 올렸다. <del>[`/snippets/sheepcounter`](http://tokigun.daybreaker.info/svn/snippets/sheepcount/)</del>에 올라가 있고, 윈도우용 프로그램은 <del>[여기](http://svn.daybreaker.info/lifthrasiir/snippets/sheepcount/yang.zip)</del>서 받을 수 있다.
+
+...넵 시험 끝난 뒤 패닉의 결과로 올리는 포스트 맞습니다. 인정합니다. orz
+
+<div class="afternote">
+
+현재 위치는 [`svn.mearie.org`](http://svn.mearie.org/snippets/sheepcount/)로 바뀌었다. 실행 파일은 [이쪽](http://svn.mearie.org/snippets/sheepcount/yang.zip).
+
+이 프로그램의 가장 황당한 점은 사운드 리소스를 제공해 준 ㅎ 모 군도 모르는 사이에 샘플링 레이트 설정 실수로 피치가 올라가서 묘한 목소리가 되었다는 것. 의도한 게 아니었는데 (심지어 당사자가 내 목소리가 아닌 것 같다고 말하기 전까지는 원래 파일이 그렇게 들어 있나 보다 생각했다) 의외로 반응이 좋았다... <small>(2010-05-06)</small>
+
+</div>
+

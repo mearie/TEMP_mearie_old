@@ -1,0 +1,10 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'죄송합니다'
+when = '2006-12-06T20:28:01+09:00'
+original = 'http://lifthrasiir.tistory.com/41'
+%>
+
+기다려주신 여러 분들께 죄송합니다. 언젠가는 다시 돌아 오겠습니다.
+

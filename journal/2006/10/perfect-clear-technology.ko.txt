@@ -1,0 +1,18 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'Perfect Clear 기술'
+when = '2006-10-19T15:10:14+09:00', '2006-10-19T15:10:57+09:00'
+category = u'삽질'
+tags = [u'dynamic range', u'perfectly clear', u'알고리즘']
+original = 'http://lifthrasiir.tistory.com/24'
+%>
+
+[자동 이미지 보정의 최강자, Perfectly Clear 기술을 파헤쳐보다.](http://acaran.net/tt/index.php?pl=299)
+
+저 글에 나와 있는 [논문](http://www.tbs.ts.it/europacs2004/papers/79.pdf)에 간단한 요약이 쓰여 있다. 그림만 봐도 이해할 수 있을 것 같은 내용이지만 설명하자면...
+
+일반적인 자동 보정 알고리즘은 dynamic range의 최대값과 최소값만 대충 잡아서 그걸 적절한 범위로 맞춰 버리는 방법을 쓰는데, 이렇게 해 버리면 최대/최소값이 극과 극을 달릴 때 중간에 속하는 대부분의 signal들이 제대로 처리가 안 되어 이미지가 죽어 버린다. 이런 상황을 막기 위해 많은 알고리즘이 중간값들을 제대로 처리할 수 있도록 예외 처리 같은 걸 해서 구현되는데, Perfect Clear 알고리즘에서는 아예 범위를 맞추는데 사용할 최대/최소값을 동적으로 잡아 버린다. 상대적으로 높은 signal들은 높은 범위를 기준으로 맞추고, 낮은 signal들은 낮은 범위를 기준으로 맞추면 결과적으로 모든 signal들이 적절한 범위에 맞춰질 것이라는 건데... 말로 설명하기엔 좀 뭐하니 논문의 그림도 같이 보시라.
+
+이런 알고리즘은 아무래도 사용하는 색 공간과 fitting algorithm에 큰 영향을 받을 듯 한데 영상처리를 전공하신다니 적절히 만드실 법도 하다. (나는 관심만 있고 지식은 없는 분야라서 생략 -_-;) 이 기법 자체가 특허받은 게 아니라면 한 번 쯤 구현해 봐도 재밌을 듯. :p
+
