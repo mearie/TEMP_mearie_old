@@ -666,11 +666,20 @@ td p, td pre {
 	margin-left: 300px;
 	padding-bottom: 10px;
 }
-.response.origin-trackback {
+.response.origin-admin {
 	background: #ddd;
 }
-.response.origin-trackback .datetime {
+.response.origin-admin .author {
+	font-weight: bold;
+}
+.response.origin-admin .datetime {
 	color: #999;
+}
+.response.origin-trackback .number, .response.origin-trackback .origin {
+	color: #9ac;
+}
+.response.origin-trackback .author, .response.origin-trackback .contents {
+	color: #888;
 }
 .responseform {
 	clear: both;
