@@ -10,7 +10,7 @@ original = 'http://lifthrasiir.tistory.com/37'
 
 오늘 하드디스크에 넘쳐 나던 그림들을 정리하는 도중 이런 흥미로운 사진을 발견했다.
 
-<%m:imgframe src="http://cfs.tistory.com/attach/8431/1265440359.jpg" width="480" height="360" align="center" link="1" alt="흑백 윈도우 화면 갈무리">흑백?</%m:imgframe>
+<%m:imgframe src="1265440359.jpg" width="480" height="360" align="center" link="1" alt="흑백 윈도우 화면 갈무리">흑백?</%m:imgframe>
 
 대강 보기에 윈도우 화면은 맞는데 왜 흑백인지 궁금하신 분께서는 화면에 떠 있는 작업 관리자 창을 유심히 보시면 그 해답을 알 수 있다. 저 사진을 찍는 시점에 컴퓨터의 메모리가 거의 모두 소진되어서 화면 갈무리를 위해 필요한 메모리를 할당하는 데 실패하자, 윈도우가 흑백으로 화면을 저장해 버린 것이다. (PAE 따위 쓰지 않는 한 IA-32에서 윈도우의 메모리 한계는 2GB이다.)
 
