@@ -1,0 +1,141 @@
+## vim: syn=mako
+<%! title = u'esotope-ws' %>
+
+**esotope-ws** is a complete implementation of [Whitespace programming language](http://compsoc.dur.ac.uk/whitespace/) version 0.3, which commands are encoded into a sequence of white spaces only. It contains an interpreter, assembler and disassembler, and nicknamed *Tenma*(天満) because of its characteristic shape.
+
+
+Usage
+======
+
+esotope-ws requires [Python](http://python.org/) 2.3 or later, but not Python 3.x. In the interpreter mode, it receives one argument which is a file name. (`hworld.ws` referred below is [available](http://compsoc.dur.ac.uk/whitespace/hworld.ws) at the official website.)
+
+	$ esotope-ws hworld.ws
+	Hello, world of spaces!
+
+Similarly the assembler mode (`-c` option) and disassembler mode (`-d` option) receives two arguments.
+
+	$ esotope-ws -d hworld.ws hworld.wsa
+	decompile hworld.ws to hworld.wsa... done.
+	$ tail -n 15 hworld.wsa 
+	  add
+	  jmp read
+	read_end:
+	  pop
+	  push 1
+	  add
+	  push 0
+	  store
+	  ret
+	newline:
+	  push 10
+	  push 13
+	  putchar
+	  putchar
+	  ret
+	$ esotope-ws -c hworld.wsa hworld2.ws
+	compile hworld.wsa to hworld2.ws... done.
+	$ esotope-ws hworld2.ws 
+	Hello, world of spaces!
+
+The Whitespace assembly syntax consists of command lines (e.g. <`push 1`>) and label lines (e.g. <`newline:`>). The following command mnemonics are available:
+
+	push N    dup       copy N    swap      pop       slide     add       sub
+	mul       div       mod       store     retrieve  call      jmp L     jz L
+	jn L      ret L     halt      putchar   putint    getchar   getint
+
+...where <`L`> stands for any label and <`N`> stands for any integer constant. The disassembler converts the label name into the readable string if possible, and falls back with a generated name `label#_####`.
+
+
+Known problems
+--------------
+
+This code is quite anarchic (dated December 2004) and has several known problems:
+
+- `retrieve` command to uninitialized location generates an error in the official interpreter, but esotope-ws simply returns zero.
+- A jump to unknown label generates an exception, not a proper error message.
+- There are some edge cases that generate same generated name for different non-string label name.
+
+As the fix to them may require the change of the code shape, I don't plan to fix them.
+
+
+The code
+========
+
+<div class="extrasmall">
+<%text filter="indent">
+#!/usr/bin/env python
+'                                            20041208\
+                                      ';from string import*;\
+                                 d=replace;R=(d(d(d(d(d(d(d(d(d(d(
+                             d(d(d(d(d(d(d(d(d("def N#:?p=[0]?whV p["
+                         "H]<2:p+=[r#]?^turn((p[1]H)%3H)*^duce(F x,y:x*"
+                      "2+y,p[2:H],0)\ndef L#:?p=(0,)?whV p[H]<2:p=p+(r#,)?"
+                    "^turn p[1:H]\ndef M(l):?v=^duce(F a,b:a*2+b,l,0L)?if 7&"
+                  "Jl)C v==0:^turn'label%d_%s'%(Jl)&3,hex(v)[2:HQ?else:^turn "
+                "j([`chr(v>>k&255)`[1:H]fC k $ range(Jl)-8,H,-8)Q\nfrom sys imp"
+              "Ct*;from Str$gIO impCt*;X='push,dup,copy,swap,pop,slide,add,sub,m"
+            "ul,div,mod,stCe,^trieve,c""all,jmp"",jz,jn,^t,halt,putchar,putP,getch"
+           "ar,getP'.splR(',~;Y='E,02"  "0,010," "021,022,012,1E0,1E1,1E2,1010,1011"
+          ",110,111,201,202,210,211,"    "212,2"  "22,12E,1201,1210,1211'.splR(',~;Z"
+         "='101EEEEE2222EEE';v=argv"     "[1:];"   "n,=Jv)B[v[0][0]=='-'B{'-c':1,'-d'"
+        ":2,'--':0}.get(v.pop""(0),"      "3)C "    "0]C[3];j=''.jo$;x=exR\nif n>2 C[1"
+        ",2,2][n]!=Jv):prP'To""kig"        "unS"     "tudio WhRespace 0.3 Implementati"
+       "onGby Kang Seonghoon" " <"          "tok"      "igun@gmail.com>GGUsage: python "
+       "%s <fV>G   C: pytho"  "n "           "%s"         " [-c|-d] <$fV> <outfV>GGno ar"
+      "g\\texecute whRespac"  "e"              ""           " c""ode.G-c\\tcompV whRespa"
+      "ce assembly code.G-d"  ""                      "\\tdecomp" "V whRespace assembly c"
+      "ode.G'%(argv[0],arg"                        "v[0Q"";x(0)\n" "try:s=fV(v[0],'r~.^ad#;f=n B fV(v[1"
+      "],'w~;v=tupA(v)\nex" "cept:"               "pr" "P'c"   "an"   "not o"  "pen fV.';x"         "(1)\nif"
+      " n""==1:?prP'co""m""pV"" ' '"                  "%s "      "t"   "o %s.."  ".'%v,;N="               "F n:n"
+      " " "B('\\t '[n>" + "" "0]"                     "+N(a"   "" ""    "bs("  "" "n)/2)[1:"                 "H]+' '"
+       ""  "'\\t'[n%2]"  "" "+'"                      "G~C'G';L=" ""     "F "  "" "l:j([j(["                     "' \\"
+       ""  "t'[Cd" "(v" ""  ")>>"  ""                 "k&1]fC k " ""     "$ "  "" "range(7,H"                       ",H)"
+        "QfC ""v " "$ " ""  "lQ+'G'?"                 "fC l $ s."        ""       "splRl$es#"                          ":"
+      "? l" "" "=" +"(" ""   "';'$ l"                 " B l[:l.f"                "$d(';~]C l)"                           "."
+     "sp"       "" +  "l"    "R#;Jl)"                  "B':'==l"            "[" "0][H]B f.wrRe"                            ""
+    "("            +   ""     "'G  "                                     "'+" "L(l.pop(0)[:HQ)"
+   "?"             +   ""                ""                            " "  "if Jl):p=X.$dex(l["
+  ""                +  ""               ""                            "" "0].lower#);p+1 B Jl)>("
+ ""                  + ""                ""                          r"Z[p]>'0~B f.wrRe(j([' \tG'"
+""                   "["                                            "P(k)]fC k $ Y[p]Q+(Z[p]>'0'B"
+""                   "(0"                  ",F a:N(P"              "(a)),L)[P(Z[pQ](l[1QC'~)?f.clo"
+                     "se#"               ";prP'done"             ".';x(0)\nelif n:prP'decompV %s to"
+                    " %s..."                "'\45"             +"v,\ns=Str$gIO(j([{32:'0',9:'1',10:'"
+                    "2'}.get("                               "C" "d(c),'~fC c $ sQ);r=F:P(s.^ad(1));W"
+                    "=F h:h==s.^"                          "a"   "d(Jh))C s.seek(i,0);c=[];p={}\nwhV[N"
+                   "one]!=c[H:]:?i=s"                   ".t"     "ell#?if W('2E~:l=L#;p[l]=Jc);n B f.wr"
+                   "Re(M(l)+':G~?else:v="            "^d"        "uce(F a,b:a C W(Y[bQB(b,(P,N,L)[P(Z[bQ"
+                   "]#),range(23),0);c+=[v];n B v B f"            ".wrRe('  '+X[v[0]]+(Z[v[0]]>'0'B(' '+("
+                  "0,str,M)[P(Z[v[0]Q](v[1Q)C'"                   "~+'G~\nif n:f.close#;prP'done.';x(0)\ns"
+                  "=[];h={};q=[];u=s.append;U="                   "F:Js)B s.pop#;i=k=0;c.pop#\nwhV i<Jc)B k"
+                 "H8:?k,v=c[i];i+=1?if k==0:u("                    'v)"1:n=D;u(n);u(n)?elif(k==2)&(v>0):u(s['
+                 '-vQ"3:n=D;m=D;u(n);u(m)"4:D"'                      '5:s[-vH:H]=[]"6:u(D+D)"7:u(-D+D)"8:u(D*'
+                'D)"9:n=D;u(D//n)"10:n=D;u(D%'                          'n)"11:n=D;h[D]=n"12:u(h.get(D,0))"13:'
+                'q+=[i];i=p[v]"14:i=p[v]"1'                                '5 B D==0:i=p[v]"16 B D<0:i=p[v]"17 '
+               'B Jq):i=q.pop#"19:stdo'                                      "u"  't.wrRe(chr(D))"20:stdout.wrRe'
+               '(str(D))"21:h[D'     ""                                   "]="          'Cd(std$.^ad(1))"22: ? v='
+              "''? whV('"            ""                                 "0"                   "'+v[v[0:1]=='-':Q.i"
+              "sdigR"                 ""                              "#"                         ":v+=std$.^ad(1)?"
+              " h"                    ""                     +"[D]=P(v"                              "[:H]+'0~/10",""
+             "~",                      ""            "')"),"^",   "r"                                   "e"),"V","iA")
+             ,""                        ""                      "R"                                      ,"it"),"Q","]"
+             ""                          ""                    ""                                        ")"),"P","$t"),
+            ""                            ""        +"J","An("),                          ""              "H","-1" ),"G",
+           ""                              "\\n"),"F"''     ""                          ,""               "lambda"),"E",""
+           ""               ""              ""            "0"                          ""       ""        "0"),"D","U#"),""
+          ""                ""               ""         "C"                           ""       ,""         "or"),"B","and")+
+          ""                ""                ""      ,""                            ""        ""          "A","le"),"?","\n"
+          ""                ""                 ""    ""                              ""       ""           " "),"$","in"),"#",
+          ""                ""                  "" ""                               ""       ""            "()"),'"',"\12 eli"
+         ""                  ""  ""              "f"                        ""      ""      ""             " k=="));exec("from"
+         ""                  "" ""                                           ""    ""      ""               " sys import*\nif['"
+         ""                  "" ""                                           ""    ""    +""                "--source']==argv[1"
+        ""                   ":2"                                            ""   ""    "]"                  ":print'# TokigunSt"
+        ""                    "u"                                             ""  ""   ""                    "dio Whitespace Imp"
+        ""                    ""                                               "" ""  ""                      "lementation\\n\\n'"
+        ""                    ""                                               "" "" ""                       "+R\nelse:exec R\n")
+</%text>
+</div>
+
+It is shaped as like Tsukamoto Tenma(塚本天満), a character of *[School Rumble](http://en.wikipedia.org/wiki/School_Rumble)*. This code is also available as [Mercurial repository](http://hg.mearie.org/esotope/ws/).
+

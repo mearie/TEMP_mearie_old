@@ -16,5 +16,5 @@
 * Migol 인터프리터
 * NULL 인터프리터
 * Whirl 인터프리터 (작은 코드 중시)
-* Whitespace 인터프리터 및 어셈블러 (모양 중시)
+* Whitespace 인터프리터 및 어셈블러, [`esotope-ws`](ws) (모양 중시)
 

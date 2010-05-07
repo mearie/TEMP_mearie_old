@@ -1,0 +1,143 @@
+## vim: syn=mako
+<%! title = u'esotope-ws' %>
+
+**esotope-ws**는 모든 명령이 공백 문자로 구성된 [화이트스페이스 프로그래밍 언어](http://compsoc.dur.ac.uk/whitespace/) 0.3 버전의 완전한 구현체입니다. 인터프리터, 어셈블러, 디스어셈블러가 하나의 코드에 구현되어 있으며, 코드 모양 때문에 텐마(天満)라는 별명으로도 불립니다.
+
+
+사용법
+======
+
+이 프로그램을 사용하기 위해서는 [파이썬](http://python.org/) 2.3 이상 버전이 필요합니다. (파이썬 3 계열과는 호환되지 않습니다.) 인터프리터로 사용하기 위해서는 단순히 파일 이름을 인자로 주면 됩니다. (아래에서 `hworld.ws`는 [이 파일](http://compsoc.dur.ac.uk/whitespace/hworld.ws)입니다.)
+
+	$ esotope-ws hworld.ws
+	Hello, world of spaces!
+
+어셈블러와 디스어셈블러는 `-c` 및 `-d` 옵션으로 호출할 수 있습니다.
+
+	$ esotope-ws -d hworld.ws hworld.wsa
+	decompile hworld.ws to hworld.wsa... done.
+	$ tail -n 15 hworld.wsa 
+	  add
+	  jmp read
+	read_end:
+	  pop
+	  push 1
+	  add
+	  push 0
+	  store
+	  ret
+	newline:
+	  push 10
+	  push 13
+	  putchar
+	  putchar
+	  ret
+	$ esotope-ws -c hworld.wsa hworld2.ws
+	compile hworld.wsa to hworld2.ws... done.
+	$ esotope-ws hworld2.ws 
+	Hello, world of spaces!
+
+화이트스페이스 어셈블리 문법은 크게 명령줄(<`push 1`> 따위)과 레이블(<`newline:`> 따위)로 구성되어 있습니다. 사용되는 명령 니모닉(mnemonic)의 목록은 다음과 같습니다.
+
+	push N    dup       copy N    swap      pop       slide     add       sub
+	mul       div       mod       store     retrieve  call      jmp L     jz L
+	jn L      ret L     halt      putchar   putint    getchar   getint
+
+여기서 <`L`>은 레이블명을, <`N`>은 숫자 상수를 가리킵니다. 디스어셈블 과정에서 레이블 이름은 가능하다면 문자열로 변환되며, 불가능한 경우 `label#_####` 형태로 변환됩니다. 
+
+
+알려진 문제
+-----------
+
+이 코드는 비교적 옛날(2004년 12월)에 작성되었기 때문에 다음 알려진 문제가 존재합니다.
+
+- `store`로 저장하지 않은 번지에 `retrieve` 명령을 내릴 때 공식 인터프리터는 에러를 내지만 esotope-ws는 0을 반환합니다.
+- 지정되지 않은 레이블로 이동하려고 할 때 정확한 에러 메시지가 구현되어 있지 않습니다.
+- 디스어셈블 과정에서 문자열로 표현 불가능한 레이블이 중복될 수 있습니다.
+
+이 문제를 알고서도 방치하는 이유는 코드를 고치기 위해서 코드의 모양을 바꿔야 할 수 있기 때문입니다.[^1]
+
+[^1]: 실제로 이 코드는 본래 인터프리터만 구현되었다가, 틀로 삼은 이미지가 너무 작아서 이미지를 확대하는 과정에서 크기를 정확히 맞추기 위해 새로운 기능이 추가된 경우에 속합니다. 코드에 모종의 이스터에그가 있는 이유도 순전히 이 때문입니다.
+
+
+코드
+====
+
+<div class="extrasmall">
+<%text filter="indent">
+#!/usr/bin/env python
+'                                            20041208\
+                                      ';from string import*;\
+                                 d=replace;R=(d(d(d(d(d(d(d(d(d(d(
+                             d(d(d(d(d(d(d(d(d("def N#:?p=[0]?whV p["
+                         "H]<2:p+=[r#]?^turn((p[1]H)%3H)*^duce(F x,y:x*"
+                      "2+y,p[2:H],0)\ndef L#:?p=(0,)?whV p[H]<2:p=p+(r#,)?"
+                    "^turn p[1:H]\ndef M(l):?v=^duce(F a,b:a*2+b,l,0L)?if 7&"
+                  "Jl)C v==0:^turn'label%d_%s'%(Jl)&3,hex(v)[2:HQ?else:^turn "
+                "j([`chr(v>>k&255)`[1:H]fC k $ range(Jl)-8,H,-8)Q\nfrom sys imp"
+              "Ct*;from Str$gIO impCt*;X='push,dup,copy,swap,pop,slide,add,sub,m"
+            "ul,div,mod,stCe,^trieve,c""all,jmp"",jz,jn,^t,halt,putchar,putP,getch"
+           "ar,getP'.splR(',~;Y='E,02"  "0,010," "021,022,012,1E0,1E1,1E2,1010,1011"
+          ",110,111,201,202,210,211,"    "212,2"  "22,12E,1201,1210,1211'.splR(',~;Z"
+         "='101EEEEE2222EEE';v=argv"     "[1:];"   "n,=Jv)B[v[0][0]=='-'B{'-c':1,'-d'"
+        ":2,'--':0}.get(v.pop""(0),"      "3)C "    "0]C[3];j=''.jo$;x=exR\nif n>2 C[1"
+        ",2,2][n]!=Jv):prP'To""kig"        "unS"     "tudio WhRespace 0.3 Implementati"
+       "onGby Kang Seonghoon" " <"          "tok"      "igun@gmail.com>GGUsage: python "
+       "%s <fV>G   C: pytho"  "n "           "%s"         " [-c|-d] <$fV> <outfV>GGno ar"
+      "g\\texecute whRespac"  "e"              ""           " c""ode.G-c\\tcompV whRespa"
+      "ce assembly code.G-d"  ""                      "\\tdecomp" "V whRespace assembly c"
+      "ode.G'%(argv[0],arg"                        "v[0Q"";x(0)\n" "try:s=fV(v[0],'r~.^ad#;f=n B fV(v[1"
+      "],'w~;v=tupA(v)\nex" "cept:"               "pr" "P'c"   "an"   "not o"  "pen fV.';x"         "(1)\nif"
+      " n""==1:?prP'co""m""pV"" ' '"                  "%s "      "t"   "o %s.."  ".'%v,;N="               "F n:n"
+      " " "B('\\t '[n>" + "" "0]"                     "+N(a"   "" ""    "bs("  "" "n)/2)[1:"                 "H]+' '"
+       ""  "'\\t'[n%2]"  "" "+'"                      "G~C'G';L=" ""     "F "  "" "l:j([j(["                     "' \\"
+       ""  "t'[Cd" "(v" ""  ")>>"  ""                 "k&1]fC k " ""     "$ "  "" "range(7,H"                       ",H)"
+        "QfC ""v " "$ " ""  "lQ+'G'?"                 "fC l $ s."        ""       "splRl$es#"                          ":"
+      "? l" "" "=" +"(" ""   "';'$ l"                 " B l[:l.f"                "$d(';~]C l)"                           "."
+     "sp"       "" +  "l"    "R#;Jl)"                  "B':'==l"            "[" "0][H]B f.wrRe"                            ""
+    "("            +   ""     "'G  "                                     "'+" "L(l.pop(0)[:HQ)"
+   "?"             +   ""                ""                            " "  "if Jl):p=X.$dex(l["
+  ""                +  ""               ""                            "" "0].lower#);p+1 B Jl)>("
+ ""                  + ""                ""                          r"Z[p]>'0~B f.wrRe(j([' \tG'"
+""                   "["                                            "P(k)]fC k $ Y[p]Q+(Z[p]>'0'B"
+""                   "(0"                  ",F a:N(P"              "(a)),L)[P(Z[pQ](l[1QC'~)?f.clo"
+                     "se#"               ";prP'done"             ".';x(0)\nelif n:prP'decompV %s to"
+                    " %s..."                "'\45"             +"v,\ns=Str$gIO(j([{32:'0',9:'1',10:'"
+                    "2'}.get("                               "C" "d(c),'~fC c $ sQ);r=F:P(s.^ad(1));W"
+                    "=F h:h==s.^"                          "a"   "d(Jh))C s.seek(i,0);c=[];p={}\nwhV[N"
+                   "one]!=c[H:]:?i=s"                   ".t"     "ell#?if W('2E~:l=L#;p[l]=Jc);n B f.wr"
+                   "Re(M(l)+':G~?else:v="            "^d"        "uce(F a,b:a C W(Y[bQB(b,(P,N,L)[P(Z[bQ"
+                   "]#),range(23),0);c+=[v];n B v B f"            ".wrRe('  '+X[v[0]]+(Z[v[0]]>'0'B(' '+("
+                  "0,str,M)[P(Z[v[0]Q](v[1Q)C'"                   "~+'G~\nif n:f.close#;prP'done.';x(0)\ns"
+                  "=[];h={};q=[];u=s.append;U="                   "F:Js)B s.pop#;i=k=0;c.pop#\nwhV i<Jc)B k"
+                 "H8:?k,v=c[i];i+=1?if k==0:u("                    'v)"1:n=D;u(n);u(n)?elif(k==2)&(v>0):u(s['
+                 '-vQ"3:n=D;m=D;u(n);u(m)"4:D"'                      '5:s[-vH:H]=[]"6:u(D+D)"7:u(-D+D)"8:u(D*'
+                'D)"9:n=D;u(D//n)"10:n=D;u(D%'                          'n)"11:n=D;h[D]=n"12:u(h.get(D,0))"13:'
+                'q+=[i];i=p[v]"14:i=p[v]"1'                                '5 B D==0:i=p[v]"16 B D<0:i=p[v]"17 '
+               'B Jq):i=q.pop#"19:stdo'                                      "u"  't.wrRe(chr(D))"20:stdout.wrRe'
+               '(str(D))"21:h[D'     ""                                   "]="          'Cd(std$.^ad(1))"22: ? v='
+              "''? whV('"            ""                                 "0"                   "'+v[v[0:1]=='-':Q.i"
+              "sdigR"                 ""                              "#"                         ":v+=std$.^ad(1)?"
+              " h"                    ""                     +"[D]=P(v"                              "[:H]+'0~/10",""
+             "~",                      ""            "')"),"^",   "r"                                   "e"),"V","iA")
+             ,""                        ""                      "R"                                      ,"it"),"Q","]"
+             ""                          ""                    ""                                        ")"),"P","$t"),
+            ""                            ""        +"J","An("),                          ""              "H","-1" ),"G",
+           ""                              "\\n"),"F"''     ""                          ,""               "lambda"),"E",""
+           ""               ""              ""            "0"                          ""       ""        "0"),"D","U#"),""
+          ""                ""               ""         "C"                           ""       ,""         "or"),"B","and")+
+          ""                ""                ""      ,""                            ""        ""          "A","le"),"?","\n"
+          ""                ""                 ""    ""                              ""       ""           " "),"$","in"),"#",
+          ""                ""                  "" ""                               ""       ""            "()"),'"',"\12 eli"
+         ""                  ""  ""              "f"                        ""      ""      ""             " k=="));exec("from"
+         ""                  "" ""                                           ""    ""      ""               " sys import*\nif['"
+         ""                  "" ""                                           ""    ""    +""                "--source']==argv[1"
+        ""                   ":2"                                            ""   ""    "]"                  ":print'# TokigunSt"
+        ""                    "u"                                             ""  ""   ""                    "dio Whitespace Imp"
+        ""                    ""                                               "" ""  ""                      "lementation\\n\\n'"
+        ""                    ""                                               "" "" ""                       "+R\nelse:exec R\n")
+</%text>
+</div>
+
+코드 모양은 《[스쿨럼블](http://ko.wikipedia.org/wiki/%EC%8A%A4%EC%BF%A8%EB%9F%BC%EB%B8%94)》의 츠카모토 텐마(塚本天満)를 따릅니다. [머큐리얼 저장소](http://hg.mearie.org/esotope/ws/)에서도 코드를 받을 수 있습니다.
+
