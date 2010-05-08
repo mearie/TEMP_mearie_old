@@ -11,6 +11,8 @@
 로또 번호 생성기
 ----------------
 
+<small id="lottery-number-generator">(2004-03-21)</small> 한국의 로또 6/45를 위한 랜덤한 숫자를 생성합니다. 아마도 처음으로 짠 비펀지 (정확히는, Befunge-93) 프로그램이 아닐까 싶습니다.
+
 <%text filter="indent">
 6v    v<           +1_v#<
  >:#v_>:95*-#v_$@>"z"-  ^
@@ -21,11 +23,13 @@
 $^>+.1+v >95*%:7g"z"- #^_
 </%text>
 
-<small>(2004-03-21)</small> 한국의 로또 6/45를 위한 랜덤한 숫자를 생성합니다. 아마도 처음으로 짠 비펀지 (정확히는, Befunge-93) 프로그램이 아닐까 싶습니다.
-
 
 세벌식 자판 입력 변환기
 -----------------------
+
+<small id="sebul-converter">(2004-05-05)</small> 고정된 문자열을 출력하는 프로그램입니다. 고정된 문자열은 코드 오른쪽 위에 세벌식 최종 자판의 영문 입력(엄밀히는 쿼티 자판)으로 인코딩되어 있으며, 따라서 세벌식 최종을 안다면 손쉽게 문자열을 고칠 수 있습니다. 0은 한영 전환을 위해 쓰이며 두 개의 0은 입력의 끝을 알립니다.
+
+이 프로그램은 엄밀히 말하면 <`,`> 명령이 유니코드로 출력을 해야 하기 때문에 올바른 Befunge-93 프로그램이 아니며, 오히려 Funge-98에 가까운 코드입니다. (그러나 Funge-98은 128 이상의 문자 코드를 허용하되 정의는 하지 않으므로 여전히 올바르다고 할 수는 없습니다.) 대부분의 자바스크립트 Befunge-93 구현, 이를테면 [요런 것](http://www.quirkster.com/js/befunge.html)은 이 조건을 만족합니다.
 
 <%text filter="indent">
 988*45*37*pv|>*0"-\ .fudh3djsbkdkkv' ,4jcnfmaehsfj"052*:"tneserp dezinikot."  v
@@ -55,13 +59,11 @@ i7iKCBi0iiiiiiiY/PIF]bSXd^i'iiii><iM@:?TiiiiiiiiiOD;Ai8NGiLiiiiiiJ^VeWQc"&+ ,2)
   .tokinized 3-set final keyboard translator: by tokigun <zenith@tokigun.net> 
 </%text>
 
-<small>(2004-05-05)</small> 고정된 문자열을 출력하는 프로그램입니다. 고정된 문자열은 코드 오른쪽 위에 세벌식 최종 자판의 영문 입력(엄밀히는 쿼티 자판)으로 인코딩되어 있으며, 따라서 세벌식 최종을 안다면 손쉽게 문자열을 고칠 수 있습니다. 0은 한영 전환을 위해 쓰이며 두 개의 0은 입력의 끝을 알립니다.
-
-이 프로그램은 엄밀히 말하면 <`,`> 명령이 유니코드로 출력을 해야 하기 때문에 올바른 Befunge-93 프로그램이 아니며, 오히려 Funge-98에 가까운 코드입니다. (그러나 Funge-98은 128 이상의 문자 코드를 허용하되 정의는 하지 않으므로 여전히 올바르다고 할 수는 없습니다.) 대부분의 자바스크립트 Befunge-93 구현, 이를테면 [요런 것](http://www.quirkster.com/js/befunge.html)은 이 조건을 만족합니다.
-
 
 Rule 30 난수 생성기
 -------------------
+
+<small id="rule30-rng">(2004-05-14, 2004-12-30)</small> Rule 30 셀룰러 오토마타를 사용하여 난수를 생성합니다. 메모리 제약 때문에 실제로 사용하는 셀의 갯수는 32개로 양 옆은 이어져 있다고 가정합니다. (따라서 이 난수 생성기의 주기는 길어야 2<sup>32</sup>입니다.) 난수 생성 전 초기화를 위해 임의의 문자열을 입력할 필요가 있습니다.
 
 <%text filter="indent">
 " >>"25*".rebmun dees etareneg ot"v .tokinized rule30 random number generator
@@ -73,11 +75,11 @@ v"Please input the random string "<  by tokigun, zenith@tokigun.net     ()()
 +p00\/3-\*95g3+*95%*8\4+1:\*2/3-\*95g3+*95:\*4/<  >*00g95*+3g95*\-^^-\7+
 </%text>
 
-<small>(2004-05-14, 2004-12-30)</small> Rule 30 셀룰러 오토마타를 사용하여 난수를 생성합니다. 메모리 제약 때문에 실제로 사용하는 셀의 갯수는 32개로 양 옆은 이어져 있다고 가정합니다. (따라서 이 난수 생성기의 주기는 길어야 2<sup>32</sup>입니다.) 난수 생성 전 초기화를 위해 임의의 문자열을 입력할 필요가 있습니다.
-
 
 바이너리 디코더
 ---------------
+
+<small id="bin2char">(2004-11-10)</small> 코드 공간 안에서 <`;`>로 시작하는 행을 찾아서 여덟 비트씩 묶어 문자로 출력합니다. 다음으로 <`;`>로 시작하는 행에서 끝나며, 0과 1이 아닌 문자와 25행 80열을 넘는 문자는 모두 무시됩니다. (후자는 Befunge-93의 제약이지만...) 본래는 [이 글](http://www.likejazz.com/29500.html)의 답변으로 쓰기 위해 만든 것입니다.
 
 <%text filter="indent">
 01->1+:0\v>0p020p0 vp01+g01!p00:%-1*99+1g0< 0p02+1<
@@ -89,11 +91,11 @@ v"Please input the random string "<  by tokigun, zenith@tokigun.net     ()()
 ; end of sequence
 </%text>
 
-<small>(2004-11-10)</small> 코드 공간 안에서 <`;`>로 시작하는 행을 찾아서 여덟 비트씩 묶어 문자로 출력합니다. 다음으로 <`;`>로 시작하는 행에서 끝나며, 0과 1이 아닌 문자와 25행 80열을 넘는 문자는 모두 무시됩니다. (후자는 Befunge-93의 제약이지만...)
-
 
 유닉스 타임스탬프 변환기
 ------------------------
+
+<small id="unix-timestamp-converter">(2004-08-02, 2004-12-05)</small> 주어진 유닉스 타임스탬프 값을 UTC로 출력하는 프로그램입니다. Funge-98이 필요하며 첫 인자는 숫자로만 이루어져야 합니다.
 
 <%text filter="indent">
 0y6k$5*4+k$k$>_0\:!|!:\+*<
@@ -114,11 +116,11 @@ g07g06$<v06:+/a/a/<^05p06-
 ^6ap00%*6a:g00np00$<^e/*c<
 </%text>
 
-<small>(2004-08-02, 2004-12-05)</small> 주어진 유닉스 타임스탬프 값을 UTC로 출력하는 프로그램입니다. Funge-98이 필요하며 첫 인자는 숫자로만 이루어져야 합니다.
-
 
 MD5 계산기
 ----------
+
+<small id="md5-calculator">(2004-12-28)</small> 표준 입력으로부터 파일을 읽어서 MD5 해시를 계산하는 프로그램입니다. <`FPDP`> 및 <`ORTH`> fingerprint를 지원하는 Funge-98 인터프리터가 필요합니다. 사용되는 거대한 테이블은 프로그램의 첫머리에서 자동으로 계산합니다.
 
 <%text filter="indent">
 ^()() TokigunStudio Funge MD5 Calculator (2004.12.28)
@@ -143,8 +145,6 @@ v>*b+f*1+f*d+d0p0e0p0f0p>e0g10g-^<tokigun>**5+f*9+f*d+-c0pf8
 >"PDPF"4#q(fa+f*2+f*f*d+f*c+f*d+f*8+f*00p2F84*FY10p20p0>::1^
 </%text>
 
-<small>(2004-12-28)</small> 표준 입력으로부터 파일을 읽어서 MD5 해시를 계산하는 프로그램입니다. <`FPDP`> 및 <`ORTH`> fingerprint를 지원하는 Funge-98 인터프리터가 필요합니다. 사용되는 거대한 테이블은 프로그램의 첫머리에서 자동으로 계산합니다.
-
 
 구현 및 유틸리티
 ================
@@ -155,6 +155,8 @@ v>*b+f*1+f*d+d0p0e0p0f0p>e0g10g-^<tokigun>**5+f*9+f*d+-c0pf8
 esotope-minbf93
 ---------------
 
+<small>(2004-06-17)</small> 최소주의적인 Befunge-93 구현체입니다. 최대한 작게 만들어 보려는 집념으로 구현되었지만, 지금 보니 그렇게 작은 편은 아니군요. 그냥 연습용이라고 주장하도록 하겠습니다.
+
 <%text filter="indent">
 #include<stdio.h>
 #include<stdlib.h>
@@ -164,21 +166,16 @@ esotope-minbf93
 #define U (_=r,S?r=S->p,s=S->q,free(S),S=s,r:(r=0))
 #define Z struct c
 #define B (i=U,j=U)%W==j&&i%H==i?z[W*i+j]
-Z{int p;Z*q;}*S,*s;int z[2000],W=80,H=25,x,y,X,Y,i,j,q,Q,r,_;FILE*F;int u(int r)
-{s=S;S=(Z*)malloc(sizeof(Z));S->q=s;return S->p=r;}int main(int v,char**V){v-2?\
-exit(!printf(".tokinized present\nBefunge-93 Interpreter; version 0.20\nby Toki\
-gun <zenith@tokigun.net>\n\nUsage: %s program.bf\n",*V)):(F=fopen(*++V,"r"))?sr\
-and(time(0)):exit(!!printf(".error: File Not Found. %s\n",*V));while(i<W*H)z[i++
-]=32;for(X=R;j<H&&~(r=fgetc(F));Q=r)r==13||(r==10&&Q-13)?_=!++j:_<W?z[j*W+_++]=r
-:0;for(;q|(Q=z[W*y+x])^64;x=(W+x+X)%W,y=(H+y+Y)%H)Q==34?q=~q:q?u(Q):Q>47&&Q<58?u
-(Q-48)C+5?u(U+U)C+7?U,u(U-_)C+4?u(U*U)C+9?U?u(U/_):U C-1?U?u(U%_):U C-5?u(!U)C+\
-58?u(U<U)C+24?X=R C+22?X=-R C+56?Y=-R C+W?Y=R C+H?*((i=rand())&2?&X:&Y)=i&R?1:-1
-C+57?X=U?-R:R C+86?Y=U?-R:R C-3?x+=X,y+=Y C+20?u(u(U))C+54?U,U,u(_),u(r)C-2?U C+
-8?printf("%d ",U)C+6?putchar(U)C+88?u(getchar())C?scanf("%d",&i),u(i)C+65?u(B:32
-)C+74?B=U:U:0;while(S)U;exit(-fclose(F));}
+Z{int p;Z*q;}*S,*s;int z[2000],W=80,H=25,x,y,X,Y,i,j,q,Q,r,_;int u(int r){s=S;S=
+(Z*)malloc(sizeof(Z));S->q=s;return S->p=r;}int main(){while(i<W*H)z[i++]=32;for
+(X=R;j<H&&~(r=getchar());Q=r)r==13||(r==10&&Q-13)?_=!++j:_<W?z[j*W+_++]=r:0;for(
+srand(time(0));q|(Q=z[W*y+x])^64;x=(W+x+X)%W,y=(H+y+Y)%H)Q==34?q=~q:q?u(Q):Q>47
+&&Q<58?u(Q-48)C+5?u(U+U)C+7?U,u(U-_)C+4?u(U*U)C+9?U?u(U/_):U C-1?U?u(U%_):U C-5?
+u(!U)C+58?u(U<U)C+24?X=R C+22?X=-R C+56?Y=-R C+W?Y=R C+H?*((i=rand())&2?&X:&Y)=i
+&R?1:-1 C+57?X=U?-R:R C+86?Y=U?-R:R C-3?x+=X,y+=Y C+20?u(u(U))C+54?U,U,u(_),u(r)
+C-2?U C+8?printf("%d ",U)C+6?putchar(U)C+88?u(getchar())C?scanf("%d",&i),u(i)C+
+65?u(B:32)C+74?B=U:U:0;while(S)U;exit(0);}
 </%text>
-
-<small>(2004-06-17)</small> 최소주의적인 Befunge-93 구현체입니다. 최대한 작게 만들어 보려는 집념으로 구현되었지만, 지금 보니 그렇게 작은 편은 아니군요. 그냥 연습용이라고 주장하도록 하겠습니다.
 
 
 visbef
