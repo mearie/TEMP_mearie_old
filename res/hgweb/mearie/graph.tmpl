@@ -38,7 +38,7 @@ graph.edge = function(x0, y0, x1, y1, color) {
 	this.ctx.stroke();
 }
 
-var revlink = '<li class="row _PARITY" style="_STYLE"><a href="{url}rev/_NODEID{sessionvars%urlparameter}" title="rev _NODEID" class="moreinfo"><span class="age">_DATE ago</span> <span class="author">by _USER</span><br/>_DESC _TAGS</a></li>'
+var revlink = '<li class="row _PARITY" style="_STYLE"><a href="{url}rev/_NODEID{sessionvars%urlparameter}" title="rev _NODEID" class="moreinfo"><span class="age">_DATE</span> <span class="author">by _USER</span><br/>_DESC _TAGS</a></li>'
 
 graph.vertex = function(x, y, color, parity, cur) {
 	
@@ -56,7 +56,7 @@ graph.vertex = function(x, y, color, parity, cur) {
 	item = item.replace(/_NODEID/, cur[0]);
 	item = item.replace(/_DESC/, cur[3]);
 	item = item.replace(/_USER/, cur[4]);
-	item = item.replace(/_DATE/, cur[5]);
+	item = item.replace(/_DATE/, cur[5] == '1970-01-01' ? 'a long time ago' : cur[5]);
 	
 	var tagspan = '';
 	if (cur[7].length || (cur[6][0] != 'default' || cur[6][1])) {

@@ -34,12 +34,12 @@ inbranchtag = '<span class="inbranchtag" title="{name}">{name}</span> '
 
 # index.tmpl
 # /
-indexentry = '<tr class="parity{parity}"><th><a href="{url}{sessionvars%urlparameter}">{name|escape}</a></th><td><span class="contact">{contact|obfuscate}</span><br/>{description}</td><td class="moreinfo"><span class="age">{lastchange|age} ago</span> <span class="shortcuts"><span>|</span> {archives%indexarchiveentry} <a class="feed" href="{url}rss-log">RSS</a> <a class="feed" href="{url}atom-log">Atom</a></span></td></tr>\n'
+indexentry = '<tr class="parity{parity}"><th><a href="{url}{sessionvars%urlparameter}">{name|escape}</a></th><td><span class="contact">{contact|obfuscate}</span><br/>{description}</td><td class="moreinfo"><span class="age">{lastchange|age}</span> <span class="shortcuts"><span>|</span> {archives%indexarchiveentry} <a class="feed" href="{url}rss-log">RSS</a> <a class="feed" href="{url}atom-log">Atom</a></span></td></tr>\n'
 indexarchiveentry = '<a class="archive" href="{url}archive/{node|short}{extension}">{type|escape}</a> '
 
 # summary.tmpl (see also shortlog.tmpl and tags.tmpl)
 # /REPO
-branchentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="logtags"><span class="branchtag">{branch|escape}</span></span></a></td></tr>'
+branchentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="logtags"><span class="branchtag">{branch|escape}</span></span></a></td></tr>'
 
 # changelog.tmpl, changelogentry.tmpl
 # /REPO/log/REV
@@ -74,7 +74,7 @@ diffline = '<a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}'
 # filelog.tmpl
 # /REPO/log/REV/PATH/NAME
 filenaventry = '<li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{label|escape}</a></li>'
-filelogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>{rename%filelogrename}'
+filelogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>{rename%filelogrename}'
 filelogrename = '<tr class="light more"><td colspan="2"><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Renamed from <tt>{file|escape}</tt> at rev <tt>{node|short}</tt></a></td></tr>'
 
 # filerevision.tmpl
@@ -99,11 +99,11 @@ searchentry = changelogentry.tmpl
 # shortlog.tmpl
 # /REPO/shortlog/REV
 navshortentry = '<li><a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
-shortlogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>'
+shortlogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>'
 
 # tags.tmpl
 # /REPO/tags
-tagentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age} ago</span> <span class="logtags"><span class="tagtag">{tag|escape}</span></span></a></td></tr>'
+tagentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="logtags"><span class="tagtag">{tag|escape}</span></span></a></td></tr>'
 
 
 ## changelog & filelog parent/child link (unused)
