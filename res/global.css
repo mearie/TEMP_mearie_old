@@ -631,7 +631,7 @@ td p, td pre {
 .response {
 	list-style: none;
 	margin: 0;
-	padding: 10px 10px 0 10px;
+	padding: 10px 0 0 10px;
 	clear: both;
 	border-top: 1px solid #379;
 }
@@ -663,8 +663,9 @@ td p, td pre {
 	font-size: 80%;
 }
 .response .contents {
+	padding: 0 10px 10px 0;
 	margin-left: 300px;
-	padding-bottom: 10px;
+	min-height: 2.75em;
 }
 .response.origin-admin {
 	background: #ddd;

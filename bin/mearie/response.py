@@ -39,6 +39,27 @@ class ResponseDB(object):
                                     limit ? offset ?;''', (site or '', url, range[1], range[0]))
         return map(Response, cursor.fetchall())
 
+    def reorder_responses(self, responses):
+        parentmap = {}
+        current = []
+        for r in responses:
+            if r.parent:
+                parentmap.setdefault(r.parent, []).append(r)
+            else:
+                current.append((0, r))
+
+        while parentmap:
+            next = []
+            for depth, r in current:
+                next.append((depth, r))
+                if r.id in parentmap:
+                    for rr in parentmap[r.id]:
+                        next.append((depth+1, rr))
+                    del parentmap[r.id]
+            assert len(next) > len(current) # i.e. loop has to terminate eventually
+            current = next
+        return current
+
 class Response(object):
     def __init__(self, row):
         self.id = row['id']
@@ -74,6 +95,10 @@ class Response(object):
                 break
             firstline = firstline[:m.start(0)]
         return (firstline, emails, websites, lines[1:])
+
+    @property
+    def secret(self):
+        return self.origin.endswith('-secret')
 
     @property
     def datetime_text(self):
