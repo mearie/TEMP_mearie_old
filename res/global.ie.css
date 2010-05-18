@@ -16,6 +16,9 @@
 input.button {
 	height: 1.9em;
 }
+* html .response .contents {
+	height: 2.75em; /* IE 6 height is a lot similar to max-height */
+}
 
 /* language fix
  * - onload handler should convert lang="xx" attributes into class="lang-xx"

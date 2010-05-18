@@ -91,6 +91,7 @@ class view(app.page):
 
         base = siteobj.basepath(normalpath)
         responses = db.list_by_url(site, path)
+        responses = db.reorder_responses(responses)
         form = str(render.responses(responses=responses))
 
         input = web.input(format='html', callback='')
