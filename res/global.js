@@ -142,7 +142,19 @@ jQuery(document).ready(function($) {
 		waiting.insertBefore(list);
 
 		var maxcount = 5, count = 0, start = 0, perreq = 10;
-		var callback = function(data) {
+		var friendfeeddata = null, tumblrdata = null;
+		var friendfeedcallback = function(data) {
+			friendfeeddata = data;
+			if (tumblrdata) process(friendfeeddata, tumblrdata);
+		};
+		var tumblrcallback = function(data) {
+			tumblrdata = {};
+			$.each(data.posts, function(i, post) {
+				tumblrdata[post.url] = post;
+			});
+			if (friendfeeddata) process(friendfeeddata, tumblrdata);
+		};
+		var process = function(data, tumblrdata) {
 			$.each(data.entries, function(i, entry) {
 				var url = entry.rawLink, body = entry.rawBody, via = entry.via.url;
 				var shorten = true, iconurl, mainurl, region;
@@ -159,11 +171,13 @@ jQuery(document).ready(function($) {
 					region = (lang=='ko' ? '미투데이' : 'Me2day');
 					shorten = false;
 				} else if (via.match(/^http:\/\/\w+\.tumblr\.com\//)) {
-					if (lang != 'ko') return; // skip in non-korean pages
+					var post = tumblrdata[url] || {};
+					var postlang = (post.url ? 'en' : 'ko');
+					if (lang != postlang) return;
 					iconurl = 'http://www.tumblr.com/favicon.ico';
 					mainurl = 'http://j.mearie.org/';
 					region = (lang=='ko' ? '저널' : 'Journal');
-					if (body.length < 40) {
+					if (body.length < 40 || (post && post['regular-title'])) {
 						body = '<strong><a href="' + url + '">' + body + '</a></strong>';
 					}
 					if (!url.match(/^http:\/\/j\.mearie\.org\//)) {
@@ -205,10 +219,15 @@ jQuery(document).ready(function($) {
 			}
 		};
 		var invoke = function(start, num) {
+			if (!tumblrdata) { // only read once, and only used for filtering english posts.
+				$.ajax({url: 'http://j.mearie.org/api/read/json?start=0&count=' + maxcount + '&tagged=english',
+					dataType: 'jsonp',
+					success: tumblrcallback});
+			}
 			$.ajax({url: 'http://friendfeed-api.com/v2/feed/lifthrasiir?start=' + start + '&num=' + num +
 					'&raw=1&maxcomments=0&maxlikes=0',
 				dataType: 'jsonp',
-				success: callback});
+				success: friendfeedcallback});
 		};
 		invoke(0, perreq);
 	});
