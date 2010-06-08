@@ -10,11 +10,18 @@ Domains
 
 There are two personal domains operated by Kang Seonghoon, which can be considered as integral parts of *broader* mearie.org. This includes the following websites:
 
-* **`mearie.org`** is a primary website, and contains *official* materials written and created by Kang Seonghoon.
-* **[`j.mearie.org`](http://j.mearie.org/)** hosts mearie.org journal. It is a sort of blog and only available in Korean.
-* **[`cosmic.mearie.org`](http://cosmic.mearie.org/)** is a companion to `mearie.org`, and contains lots of unofficial materials (i.e. subject to change wildly and considered experimental).
-* **[`hg.mearie.org`](http://hg.mearie.org/)** is a source code repository powered by [Mercurial](http://mercurial.selenic.com/). Several major projects are also mirrored in [bitbucket](http://bitbucket.org/lifthrasiir/).
-* **[`tokigun.net`](http://tokigun.net/)** was a precursor to mearie.org (called *TokigunStudio*). Its sole role is to maintain permalinks to it.
+**`mearie.org`**
+:	The primary website, and contains *official* materials written and created by Kang Seonghoon.
+**[`j.mearie.org`](http://j.mearie.org/)**
+:	It is a sort of blog and basically available in Korean, but I sometimes find time to write [English posts](http://j.mearie.org/tagged/english).
+**[`pub.mearie.org`](http://pub.mearie.org)**
+:	A personal encyclopedia project. Only available in Koeran.
+**[`cosmic.mearie.org`](http://cosmic.mearie.org/)**
+:	A companion to main `mearie.org` website, and contains lots of unofficial materials (i.e. subject to change wildly and considered experimental).
+**[`hg.mearie.org`](http://hg.mearie.org/) and [`svn.mearie.org`](http://svn.mearie.org/)**
+:	Source code repositories powered by [Mercurial](http://mercurial.selenic.com/) and [Subversion](http://subversion.apache.org/), respectively. The latter is only used for legacy projects. Several major projects are also mirrored in [bitbucket](http://bitbucket.org/lifthrasiir/).
+**[`tokigun.net`](http://tokigun.net/)**
+:	Used to host *TokigunStudio*, a precursor to mearie.org. Its sole role is to maintain permalinks to it.
 
 
 Technical detail
