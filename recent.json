@@ -1,4 +1,8 @@
 [{
+	"date": "2010-06-30",
+	"ko": "세 달 전에 했던 <a href=\"http://mearie.org/documents/how-not-to-teach-python/\">파이썬 세미나의 자료</a>를 올렸습니다.",
+	"en": null
+},{
 	"date": "2010-05-25",
 	"ko": null,
 	"en": "I started writing English posts in <a href=\"http://j.mearie.org/tagged/english\">mearie.org journal</a>. You can also watch the recent posts in the Recent Activity section."
@@ -18,8 +22,4 @@
 	"date": "2009-04-15",
 	"ko": "<a href=\"http://mearie.org/projects/pyfunge/\">PyFunge</a> 0.5-rc1을 공개합니다. 5년만의 릴리즈입니다. 흠.",
 	"en": "Released <a href=\"http://mearie.org/projects/pyfunge/\">PyFunge</a> 0.5-rc1. This is a major release, implementing fully compliant Funge-98 standards and dozens of common fingerprints."
-},{
-	"date": "2009-02-13",
-	"ko": "모든 개발 중인 소프트웨어들을 서브버전에서 <a href=\"http://www.selenic.com/mercurial/\">머큐리얼</a>로 이전했습니다. 앞으로는 새 <a href=\"http://hg.mearie.org/\">머큐리얼 저장소</a>를 사용해 주세요.",
-	"en": "I started to use <a href=\"http://www.selenic.com/mercurial/\">Mercurial</a> instead of Subversion. Please use <a href=\"http://hg.mearie.org/\">my Mercurial repository</a> from now on."
 }]
