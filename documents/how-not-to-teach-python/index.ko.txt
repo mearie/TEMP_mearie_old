@@ -22,7 +22,7 @@
 
 * 첫 버전 (슬라이드 #139까지): [`data.py`](v1/data.py), [`birthday.py`](v1/birthday.py)
 * 둘째 버전 (슬라이드 #147까지): [`data.py`](v2/data.py), [`birthday.py`](v2/birthday.py)
-* 셋째 버전 (슬라이드 #175까지): [`data.py`](v3/data.py), [`birthday.py`](v000irthday.py)
+* 셋째 버전 (슬라이드 #175까지): [`data.py`](v3/data.py), [`birthday.py`](v3/birthday.py)
 
 
 참고 사이트
