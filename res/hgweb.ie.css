@@ -8,3 +8,6 @@
 	padding-right: 0;
 	width: 640px;
 }
+* html #graphwrap {
+	margin-top: 3.5em;
+}

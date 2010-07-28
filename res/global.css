@@ -3,7 +3,12 @@
 * {
 	color: inherit;
 }
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary {
+	display: block;
+}
 
+/* font settings */
 body, input, select, :lang(en) {
 	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
 }
@@ -179,26 +184,30 @@ h1 {
 	color: #379;
 	text-shadow: #bcd 0 0.2em 0.2em;
 }
-.title {
-	text-align: right;
-	font-size: 111%;
-	font-weight: bold;
-	line-height: 1.2;
-	margin: 0.5em 0;
-	color: #69a;
-	text-shadow: #bcd 0 0.2em 0.2em;
-}
-.title h1 {
-	font-size: 180%;
-	margin: 0;
-	line-height: 1.2;
-	color: #379;
-}
 h2 {
 	text-align: left;
 	font-size: 150%;
 	color: #444;
 	text-shadow: #bbb 0 0.2em 0.2em;
+}
+hgroup {
+	font-size: 111%;
+	line-height: 1.2;
+	margin: 0.5em 0;
+}
+hgroup h1 {
+	font-size: 180%;
+	line-height: 1.2;
+	margin: 0;
+}
+hgroup h2 {
+	text-align: right;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
+	color: #69a;
+	text-shadow: #bcd 0 0.2em 0.2em;
 }
 h3, h4, h5, h6 {
 	text-align: left;
@@ -494,7 +503,7 @@ td p, td pre {
 }
 .nav li a {
 	display: block;
-	padding: 3px;
+	padding: 3px !important; /* conflicts with external link marker */
 	border: 1px solid #379;
 	line-height: 1.3;
 	text-decoration: none;
@@ -644,6 +653,9 @@ td p, td pre {
 	font-weight: bold;
 	margin: 0 0.5em 0 2em;
 	padding: 0;
+}
+.post .postmeta dt.when {
+	margin-left: 0; /* the first item */
 }
 .post .postmeta dd {
 	display: inline;
