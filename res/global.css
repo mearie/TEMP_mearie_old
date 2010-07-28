@@ -584,17 +584,21 @@ td p, td pre {
 }
 
 /* journal post */
-.post {
+.post,
+article {
 	border-right: 1em solid #69a;
 	margin: 1.5em 0;
 }
-.post:hover {
+.post:hover,
+article:hover {
 	border-right-color: #379;
 }
-.post:hover h2 a.permalink {
+.post:hover h2 a.permalink,
+article:hover h2 a.permalink {
 	background: #379 !important;
 }
-.post h2 a.permalink {
+.post h2 a.permalink,
+article h2 a.permalink {
 	float: right;
 	display: inline;
 	font-size: 60%;
@@ -607,67 +611,75 @@ td p, td pre {
 	line-height: 1;
 	text-align: right;
 }
-.post h2 a.permalink:hover, .post h2 a.permalink:active {
+.post h2 a.permalink:hover, .post h2 a.permalink:active,
+article h2 a.permalink:hover, article h2 a.permalink:active {
 	background: #973 !important;
 	color: white;
 }
-.post h2 a.permalink small {
+.post h2 a.permalink small,
+article h2 a.permalink small {
 	display: block;
 	font-size: 80%;
 }
-.post h2.notitle {
+.post h2.notitle,
+article h2.notitle {
 	font-size: 10%;
 }
-.post h2.notitle a {
+.post h2.notitle a,
+article h2.notitle a {
 	font-size: 900%;
 }
-.post blockquote h2 {
+.post blockquote h2,
+article blockquote h2 {
 	font-size: 120%;
 	text-shadow: none;
 }
-.post blockquote h2 a.permalink {
+.post blockquote h2 a.permalink,
+article blockquote h2 a.permalink {
 	font-size: 75%;
 }
-.post .postbody {
+.post .postbody,
+article .postbody {
 	clear: right;
 	margin-right: 0.5em;
 }
-.post .postmore {
+.post .postmore,
+article .postmore {
 	clear: both;
 	float: right;
 	display: inline;
 	margin: 0 0.5em -1em 3em;
 	line-height: 1;
 }
-.post .postmeta {
+article footer dl {
 	clear: both;
 	color: #69a;
 	font-size: 80%;
 	padding: 0;
 }
-.post .postmeta:hover {
+article footer dl:hover {
 	color: #379;
 }
-.post .postmeta dt {
+article footer dt {
 	display: inline;
 	font-weight: bold;
 	margin: 0 0.5em 0 2em;
 	padding: 0;
 }
-.post .postmeta dt.when {
+article footer dt.when {
 	margin-left: 0; /* the first item */
 }
-.post .postmeta dd {
+article footer dd {
 	display: inline;
 	margin: 0;
 	padding: 0;
 }
-.post .postmeta dd ul {
+article footer dd ul {
 	display: inline;
 	margin: 0;
 	padding: 0;
 }
-.post .postmeta dd li {
+article footer dd li {
 	display: inline;
 	margin: 0 0.5em 0 0;
 	padding: 0;
