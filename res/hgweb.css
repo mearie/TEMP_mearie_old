@@ -269,7 +269,7 @@
 /* graph */
 #graphwrap {
 	position: relative;
-	margin: 2.5em 0 1em 0;
+	margin: 3.0em 0 1em 0;
 	padding: 0;
 }
 #graphwrap canvas {

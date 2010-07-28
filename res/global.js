@@ -1,5 +1,10 @@
 jQuery.noConflict();
+jQuery.each(['article', 'aside', 'canvas', 'details', 'figcaption', 'figure',
+	'footer', 'header', 'hgroup', 'menu', 'nav', 'section', 'summary'],
+	function() { document.createElement(this); });
 jQuery(document).ready(function($) {
+
+////////////////////////////////////////////////////////////////////////////////
 
 var languageName = function(lang, displaylang) {
 	switch (displaylang) {
@@ -95,7 +100,7 @@ var lang = document.body.lang;
 // note: it uses UI language; retrieving a language from accept-language header seems to be hard:
 //       http://groups.google.com/group/mozilla-labs-jetpack/browse_thread/thread/8459ccb6a7246656
 var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-.*$/, '');
-if (userlang != lang) {
+if (userlang != lang && location.host != 'j.mearie.org' /* XXX for now... */) {
 	var langl = languageName(lang, userlang);
 	var userlangl = languageName(userlang, userlang);
 	var message = {
@@ -108,7 +113,9 @@ if (userlang != lang) {
 	var warning = '<div class="warning" lang="' + userlang + '"><p>' +
 			(message[userlang] || message['en']) + '</p></div>';
 	var match;
-	if ((match = $('#sitebody div.title')).length > 0) {
+	if ((match = $('#sitebody hgroup')).length > 0) {
+		match.after(warning);
+	} else if ((match = $('#sitebody div.title')).length > 0) {
 		match.after(warning);
 	} else if ((match = $('#sitebody h1')).length > 0) {
 		match.after(warning);
@@ -271,6 +278,8 @@ $('.mearie-activity noscript').each(function(i) {
 	};
 	invoke(0, perreq);
 });
+
+////////////////////////////////////////////////////////////////////////////////
 
 });
 
