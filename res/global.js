@@ -1,7 +1,9 @@
 jQuery.noConflict();
+/*@cc_on
 jQuery.each(['article', 'aside', 'canvas', 'details', 'figcaption', 'figure',
 	'footer', 'header', 'hgroup', 'menu', 'nav', 'section', 'summary'],
 	function() { document.createElement(this); });
+@*/
 jQuery(document).ready(function($) {
 
 ////////////////////////////////////////////////////////////////////////////////

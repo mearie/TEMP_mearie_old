@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+{block:TagPage}태그: {Tag} | {/block:TagPage}
+{block:SearchPage}"{SearchQuery}"로 검색한 결과 | {/block:SearchPage}
+{block:DayPage}{Year}년 {MonthNumber}월 {DayOfMonth}일 | {/block:DayPage}
+{block:PostSummary}{PostSummary} | {/block:PostSummary}메아리 저널</title>
+<link rel="stylesheet" media="screen" href="http://mearie.org/res/global.css" type="text/css" />
+<!--[if IE]><link rel="stylesheet" media="screen" href="http://mearie.org/res/global.ie.css" type="text/css" /><![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://mearie.org/res/global.js"></script>
+<link rel="shortcut icon" href="http://mearie.org/res/icon-j.ico" type="image/vnd.microsoft.icon" />
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+</head>
+<body lang="ko" class="lang-ko">
+<div id="sitebody" lang="ko">
+{block:TagPage}<hgroup>{/block:TagPage}
+{block:SearchPage}<hgroup>{/block:SearchPage}
+{block:DayPage}<hgroup>{/block:DayPage}
+<h1>메아리 저널</h1>
+{block:TagPage}<h2>태그: {Tag}</h2></hgroup>{/block:TagPage}
+{block:SearchPage}<h2>"{SearchQuery}"로 검색한 결과</h2></hgroup>{/block:SearchPage}{block:NoSearchResults}<p>조건에 맞는 글이 하나도 없습니다.</p>{/block:NoSearchResults}
+{block:DayPage}<h2>{Year}년 {MonthNumber}월 {DayOfMonth}일</h2></hgroup>{/block:DayPage}
+<!--{block:Posts}-->
+{block:Date}<article id="p_{PostID}">{/block:Date}
+{block:Regular}<{block:Title}!--{/block:Title}h2 class="notitle"{block:Title}--><h2{/block:Title}>{/block:Regular}
+{block:Link}<h2>{/block:Link}
+{block:Quote}<blockquote><h2>{/block:Quote}
+{block:Photo}<h2>{/block:Photo}
+{block:Audio}<h2>{/block:Audio}
+{block:Video}<h2>{/block:Video}
+{block:Conversation}<h2>{/block:Conversation}
+	{block:Date}<a href="{Permalink}" class="permalink">{Year}년 {MonthNumber}월 {DayOfMonth}일</a>{/block:Date}
+{block:Regular}{block:Title} {Title}{/block:Title}&#8203;</h2>
+	<div class="postbody">{Body}</div>
+	{block:More}<div class="postmore"><a href="{Permalink}">계속…</a></div>{/block:More}{/block:Regular}
+{block:Link}<a href="{URL}" {Target}>{Name}</a></h2>
+	<div class="postbody"><p>{Description}</p></div>{/block:Link}
+{block:Quote}{Quote}</h2></blockquote>
+	<div class="postbody"><p>—{Source}</p></div>{/block:Quote}
+{block:Photo}{LinkOpenTag}<img src="{PhotoURL-500}" class="faint" alt="{PhotoAlt}"/>{LinkCloseTag}</h2>
+	<div class="postbody">{Caption}</div>{/block:Photo}
+{block:Audio}{AudioPlayerGrey}</h2>
+	<div class="postbody">{Caption}</div>
+	{block:ExternalAudio}<div class="postmore"><a href="{ExternalAudioURL}">내려받기</a></div>{/block:ExternalAudio}{/block:Audio}
+{block:Video}{Video-500}</h2>
+	<div class="postbody">{Caption}</div>{/block:Video}
+{block:Conversation}</h2>
+	<div class="postbody"><pre>{block:Lines}{Line}
+{/block:Lines}</pre></div>{/block:Conversation}
+<footer><dl><!--
+--><dt class="when">작성일</dt><dd class="when"><a href="{ShortURL}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}<!--:{Seconds}-->+09:00</a></dd><!--
+--><dt class="share">공유</dt><dd class="share"><a href="http://reddit.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://reddit.com/static/spreddit1.gif" width="19" height="15" alt="레딧에 보내기" /></a> <a href="http://digg.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://widgets.digg.com/img/button/diggThisDigger.png" width="16" height="16" alt="디그하기" /></a></dd><!--
+-->{block:NoteCount}<dt class="notes">노트</dt><dd class="notes">{NoteCount}개</dd>{/block:NoteCount}<!--
+-->{block:HasTags}<dt class="tags">태그</dt><dd class="tags"><ul>{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}</ul>{/block:HasTags}<!--
+--></dl></footer>
+{block:Date}</article>{/block:Date}
+<!--{/block:Posts}-->
+<!--{block:Pagination}-->
+{block:PreviousPage}<ul class="nav controls"><li><a href="{PreviousPage}">&larr; 최근 글</a></li></ul>{/block:PreviousPage}
+{block:NextPage}<ul class="nav"><li><a href="{NextPage}">옛날 글 &rarr;</a></li></ul>{/block:NextPage}
+<!--{/block:Pagination}-->
+<!--{block:PermalinkPagination}-->
+{block:NextPost}<ul class="nav controls"><li><a href="{NextPost}">&larr; 다음 글</a></li></ul>{/block:NextPost}
+{block:PreviousPost}<ul class="nav"><li><a href="{PreviousPost}">이전 글 &rarr;</a></li></ul>{/block:PreviousPost}
+<!--{/block:PermalinkPagination}-->
+</div>
+<hr/>
+<div id="siteside">
+<div class="slogan">
+	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="메아리 처음으로" /></a>
+</div>
+<div class="menu">
+<ul>
+<li><a href="http://mearie.org/about/">대하여</a></li>
+<li><a href="http://mearie.org/projects/">소프트웨어</a></li>
+<li><a href="http://mearie.org/documents/">문서</a></li>
+<li><a href="/">저널</a><ul>
+<li><a href="http://mearie.org/journal/about">소개</a></li>
+<li><a href="http://mearie.org/journal/archive">모아보기</a></li>
+<li><a href="{RSS}">피드</a></li>
+</ul></li>
+<li><a href="http://mearie.org/stuffs/">잡것</a></li>
+</ul>
+</div>
+</div>
+<div id="sitemeta">
+<div class="tray">
+	<a href="http://tumblr.com/">텀블러</a>를 씁니다.
+</div>
+<form action="http://www.google.com/cse" class="search"><div>
+	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
+	<input type="text" name="q" size="30"{block:SearchPage} value="{SearchQuery}"{/block:SearchPage}/>
+	<input type="submit" name="sa" value="구글 검색" class="button"/>
+</div></form>
+<div class="copyright">저작권자 © 1999–2010 강 성훈. <a href="http://mearie.org/about/copyright" rel="copyright">저작권을 약간 가집니다.</a></div>
+</div>
+</body>
+</html>
