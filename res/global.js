@@ -98,6 +98,26 @@ var dateFromISO8601 = function(s) {
 
 var lang = document.body.lang;
 
+// fix a language property of english article in journal.
+$('article').each(function() {
+	var article = $(this);
+	if (article.find('footer .tags a[href$=/english]').length > 0) {
+		article.attr('lang', 'en');
+		article.find('h2 a.permalink').text(
+			article.find('h2 a.permalink').text().replace(/^(\d+)년 (\d+)월 (\d+)일$/, function(_,y,m,d) {
+				return ['','January','February','March','April','May','June','July','August','September',
+					'October','November','December'][m] + ' ' + d + ', ' + y;
+			}));
+		article.find('.postmore a').text('More…');
+		article.find('footer dt.when').text('Posted on');
+		article.find('footer dt.share').text('Share');
+		article.find('footer dt.share').text('Share');
+		article.find('footer dt.notes').text('Notes');
+		article.find('footer dd.notes').text(article.find('footer dd.notes').text().replace(/^(\d+)개$/, '$1'));
+		article.find('footer dt.tags').text('Tags');
+	}
+});
+
 // show a warning if the page language doesn't match with the browser language.
 // note: it uses UI language; retrieving a language from accept-language header seems to be hard:
 //       http://groups.google.com/group/mozilla-labs-jetpack/browse_thread/thread/8459ccb6a7246656
@@ -116,8 +136,6 @@ if (userlang != lang && location.host != 'j.mearie.org' /* XXX for now... */) {
 			(message[userlang] || message['en']) + '</p></div>';
 	var match;
 	if ((match = $('#sitebody hgroup')).length > 0) {
-		match.after(warning);
-	} else if ((match = $('#sitebody div.title')).length > 0) {
 		match.after(warning);
 	} else if ((match = $('#sitebody h1')).length > 0) {
 		match.after(warning);

@@ -51,13 +51,12 @@
 {block:Conversation}</h2>
 	<div class="postbody"><pre>{block:Lines}{Line}
 {/block:Lines}</pre></div>{/block:Conversation}
-<footer><dl><!--
+{block:Date}<footer><dl><!--
 --><dt class="when">작성일</dt><dd class="when"><a href="{ShortURL}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}<!--:{Seconds}-->+09:00</a></dd><!--
 --><dt class="share">공유</dt><dd class="share"><a href="http://reddit.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://reddit.com/static/spreddit1.gif" width="19" height="15" alt="레딧에 보내기" /></a> <a href="http://digg.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://widgets.digg.com/img/button/diggThisDigger.png" width="16" height="16" alt="디그하기" /></a></dd><!--
 -->{block:NoteCount}<dt class="notes">노트</dt><dd class="notes">{NoteCount}개</dd>{/block:NoteCount}<!--
 -->{block:HasTags}<dt class="tags">태그</dt><dd class="tags"><ul>{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}</ul>{/block:HasTags}<!--
---></dl></footer>
-{block:Date}</article>{/block:Date}
+--></dl></footer></article>{/block:Date}
 <!--{/block:Posts}-->
 <!--{block:Pagination}-->
 {block:PreviousPage}<ul class="nav controls"><li><a href="{PreviousPage}">&larr; 최근 글</a></li></ul>{/block:PreviousPage}
