@@ -1,0 +1,254 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'괴혼온라인 FGT 3일차 후기, 마지막'
+when = '2009-06-08T03:03:06+09:00'
+tags = [u'괴혼온라인', u'괴혼', u'FGT', u'테스트', u'후기', u'리뷰']
+original = 'http://arachneng.egloos.com/1515059'
+%>
+
+[첫째 날](http://arachneng.egloos.com/1511001), [둘째 날](http://arachneng.egloos.com/1512286), 셋째 날 [1부](http://arachneng.egloos.com/1513432)에 [2부](http://arachneng.egloos.com/1514941)까지 거쳐 이제 마지막 3부에 다다랐다. 대학교 다니면서 하룻밤에 열 네쪽짜리 리포트를 급조해서 A 맞은 기억이 있긴 하지만 역시 글을 쓰는 일은 쉬운 일이 아닌 걸 절실히 느끼고 있다.
+
+<!-- MORE: 이번에도 짧진 않으니 가림 -->
+
+
+스크린샷 보너스: 싱글 플레이
+-----------------------------
+
+서울 맵과 멀티 플레이만 스크린샷이 있으니 찍어 둔 것이 아까워서 자세한 내용은 대강 생략한 채 이미지만 올려 보기로 했다. 이거 설명하기 시작하면 날 샐 것이 분명하기 때문에...
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7cd20caa_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7cd20caa_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7cd48200_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7cd48200_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7ce6e9af_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be7ce6e9af_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7cf96cd7_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7cf96cd7_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7d158853_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7d158853_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be7d194349_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be7d194349_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7d2d5e8e_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be7d2d5e8e_t.jpg" />
+**방 맵**(빨리, 4분간 5cm에서 15cm로). 원작 맵과 같으므로 그냥 굴리면 된다.
+
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be85ebadc9_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be85ebadc9_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8606283e_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8606283e_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8618f74e_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8618f74e_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be862ab466_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be862ab466_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8647cf20_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8647cf20_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be864dedc2_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be864dedc2_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8664f480_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8664f480_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86806d59_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86806d59_t.jpg" />
+**태풍의 눈 맵**(빨리, 3분 30초간 1.5m에서 3m로). 무슨 물 속에서 굴리는 기분이 드는데 실제로 물 속이다;
+현재 시점에서 먹을 수 있는 가장 큰 물건을 알아야 하는데, 처음에는 산호, 다음에는 노란 뭉치(뭐라 부르는지 모름), 그 다음에는 보랏빛 뭉치를 먹을 수 있게 된다. 각 물건 별로 충분한 수량이 있기 때문에 시간을 맞추긴 어렵지 않다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86864843_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86864843_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be869b8e24_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be869b8e24_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86ae190d_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86ae190d_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be86d2a11e_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be86d2a11e_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be86e20537_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be86e20537_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86f418a0_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86f418a0_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86fb1ace_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be86fb1ace_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be871745a8_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be871745a8_t.jpg" />
+
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be871a6ecf_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be871a6ecf_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be872e9a6f_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be872e9a6f_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be873e2d02_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be873e2d02_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87609fa8_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87609fa8_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8772a389_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8772a389_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8779f2ff_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8779f2ff_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be878a420f_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be878a420f_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be879dbc0f_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be879dbc0f_t.jpg" />
+**방에서 마을 맵**(빨리, 4분간 5cm에서 20cm + 추가 4분간 40cm까지). 원작과 같으므로 어렵지 않다.
+20cm까지 굴리는 것은 방 맵과 동일하고, 그 뒤로는 돗자리에 펼쳐진 물건을 먹어서 30cm 정도까지 늘린 뒤 여기 저기서 마저 먹으면 된다. 열번째 그림은 로딩이 끝난 뒤 바로 찍은 것인데 시점이 완전히 바뀐 것을 볼 수 있다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87b56f90_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87b56f90_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be87c6812d_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be87c6812d_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be87e38007_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be87e38007_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87fa7c59_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be87fa7c59_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be880df5ff_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be880df5ff_t.jpg" />
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88294d7a_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88294d7a_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8831659e_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8831659e_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be884bfd84_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be884bfd84_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8851bf53_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8851bf53_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be88668f42_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be88668f42_t.jpg" />
+**장난감 방 맵**(빨리, 4분간 5cm에서 20cm까지). 원작과 같은 맵이지만 다른 목표이다.
+보통 과자(두번째와 세번째 그림)를 순서대로 먹고 풀 등의 문방구를 먹는 순서로 가는 게 보편적인 듯.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8875f68a_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8875f68a_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be888c7cb9_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be888c7cb9_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be889e1200_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be889e1200_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be88b15016_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be88b15016_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88cc0f13_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88cc0f13_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88d0ee28_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be88d0ee28_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be88e6c08c_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be88e6c08c_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be89058818_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be89058818_t.jpg" />
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8915d671_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8915d671_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be891c9002_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be891c9002_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8937ea33_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8937ea33_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be89494240_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be89494240_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8957db1d_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8957db1d_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be895ef18e_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be895ef18e_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be896f1e40_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be896f1e40_t.jpg" />
+**캠프 맵**(특정, 5분 안에 장작불 붙이기). 원작과 같은 맵이며 느려터진(...) 초기 연출을 볼 수 있다.
+일반적인 공략법은 원작을 해 봤으면 알 것이고 안 해 봤다면 적절한 크기의 물건들이 모인 곳을 잘 찾아 보라(...)는 조언 밖에 할 수 없겠다. 한 가지 차이점은 원작에서는 덩어리가 물에 닿으면 망하지만 이건 안 꺼진다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8ea01ff5_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8ea01ff5_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8eb37db7_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8eb37db7_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8ed39b2b_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8ed39b2b_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8ee20560_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8ee20560_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8ee6234f_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8ee6234f_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8efad459_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8efad459_t.jpg" />
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f18eb92_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f18eb92_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8f1bce68_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8f1bce68_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f3a97eb_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f3a97eb_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f40462c_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f40462c_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f549bc2_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f549bc2_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f644ce2_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f644ce2_t.jpg" />
+**소 맵**(특정, 5분 안에 딸기소 붙이기). 원작과 맵만 같고 구성이나 목표는 완전히 다르다.
+크기를 가늠하기가 상당히 힘든데, 거의 4~5m 정도까지 커져야 먹을 수 있는 것 같다. 주변에 수풀을 많이 뜯어 먹는 게 크기 키우는데 큰 도움이 된다.
+
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f7d1394_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be8f7d1394_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f807faf_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8f807faf_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8f94ff98_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8f94ff98_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fa6c220_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fa6c220_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8fc4c7b5_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8fc4c7b5_t.jpg" />
+**꽃밭 맵**(특정, 3분 안에 꽃 567송이 붙이기). 원작과 같고 널린게 꽃이니 그냥 굴리면 된다. 졸라 쉽다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fcf37b6_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fcf37b6_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8fd3096f_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8fd3096f_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fedf012_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be8fedf012_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8ff0c125_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be8ff0c125_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9000622a_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9000622a_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be90107098_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be90107098_t.jpg" />
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9023d9e8_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9023d9e8_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9037a167_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9037a167_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be909bcfd5_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be909bcfd5_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90a4b924_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90a4b924_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90b41112_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90b41112_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90d06688_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be90d06688_t.jpg" />
+**동물원 맵**(특정, 5분 안에 동물 100마리 붙이기). 원작과 동일한 맵이다.
+어느 정도 연습이 필요하며, 원작을 해 본 사람은 동물 옷 입은 사람 먹어도 숫자가 안 느는 것을 유의할 필요가 있다. 위에서는 원숭이 우리와 그 주변의 동물을 대부분 먹으면 40여마리, 언덕과 연못을 뒤지면 20~30여마리, 수영장에서 나머지 30마리를 채우는 방법을 썼다. 사파리까지 가기에는 시간이 빠듯하고 먹을만한 것도 많지 않다.
+
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be997a1dc0_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be997a1dc0_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be99f1e22d_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be99f1e22d_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a024fce_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a024fce_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a09a7a9_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a09a7a9_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a23a810_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a23a810_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a300e5b_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a300e5b_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a33f07c_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a33f07c_t.jpg" />
+**불난 오피스텔 맵**(특정, 5분 안에 1000도에서 5000도 만들기).
+처음 하면 꽤 어렵고, 위의 사진도 두어 번 망해서 두 번의 플레이에서 나눠 촬영한 것이다. 처음에 헤어 드라이기를 붙일 수 있을 정도로 키우는 게 관건이며 그 뒤로는 불덩이(다섯째 그림 참고)를 먹어 치우고 계단 위로 향해 마저 온도를 채웠다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a43fd70_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a43fd70_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a582a2c_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9a582a2c_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a6b489e_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a6b489e_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a811659_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a811659_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a973390_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9a973390_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ab39aa9_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ab39aa9_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ab6695f_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ab6695f_t.jpg" />
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9ac9b552_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9ac9b552_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ae6f6eb_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9ae6f6eb_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9ae9d05f_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9ae9d05f_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9afde1b2_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2be9afde1b2_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9b12476d_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9b12476d_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9b2ed788_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2be9b2ed788_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9b3c7654_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2be9b3c7654_t.jpg" />
+**대저택 맵**(특정, 6분 안에 1000원;에서 1700만원 모으기). 요령만 알면 쉽다.
+첫 방(세번째 그림까지)에서 100만원대를, 두번째 방(네번째 그림)에서 400만원대를, 피아노가 있는 공간(일곱·여덟째 그림)에서 900만원대를, 주방(열째 그림)에서 1200만원대를, 할머니가 있는 방(열한째 그림 이후)에서 나머지를 채우는 전략을 썼다. 뭐 사람들마다 순서나 방법은 다를 것이다.
+
+그리고 덤으로 도쿄 맵도...
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf13f834d6_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf13f834d6_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1418109f_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1418109f_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1417c9c5_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1417c9c5_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf14366b3e_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf14366b3e_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf14357a94_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf14357a94_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf14463921_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf14463921_t.jpg" />
+
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1458f30d_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1458f30d_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf14790c24_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf14790c24_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf147c7e62_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf147c7e62_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf148d4dae_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf148d4dae_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1694d369_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1694d369_t.jpg" />
+먼저 4분 30초동안 20cm 덩어리를 80cm로 만들어야 한다. 보통 적절한 경로로 40cm를 먹으면 그 뒤는 수월하다. 나무 상자나 먹물통, 물감통 같이 널려 있는 물건들을 잘 먹어 치우자.
+
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf16aacc06_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf16aacc06_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf16ceb2cc_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf16ceb2cc_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf16def17e_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf16def17e_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1a1c6078_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1a1c6078_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1a2e1113_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1a2e1113_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1b9d6216_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1b9d6216_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1bc50220_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1bc50220_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1ef60362_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1ef60362_t.jpg" />
+그 다음 4분동안 5m까지 키워야 하는데, 처음 하면 어떻게 가야 할지 좀 헷갈린다. 내가 최종적으로 확립한 경로는 먼저 왼쪽의 집 마당(첫번째·두번째 그림)에서 1.05m까지 키우고, 세번째 그림에서 보이는 연등, 쓰레기 봉투 등을 한꺼번에 먹어 1.4m를 달성하는 것이었다. 그 뒤 사람들을 먹고(다섯번째 그림) 2.3~2.5m 근방에서 자전거를 먹은 뒤 맨 처음 집마당의 울타리를 뜯어(...) 먹으면(일곱번째 그림) 대략 3m 안팎이 되는데, 이 때까지의 시간을 잘 조절했다면 그 뒤로 먹을 것은 많다.
+
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f0a2850_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f0a2850_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f21700e_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f21700e_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f45002b_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f45002b_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f44d06e_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f44d06e_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f5b1430_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f5b1430_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f6c5337_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f6c5337_t.jpg" />
+<%m:img src="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f7e90a8_t.jpg" width="70" height="70" linkto="http://pds12.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f7e90a8_t.jpg" />
+이제 3분 30초동안 14m까지 키운다. 사실 이건 공략 필요 없고 그냥 보이는 대로 적절히 먹으면 되는데, 참고로 처음에 먹을 수 있는 건물들은 약간 멀리 떨어져 있으므로 여기 저기 돌아다니는 습관을 기르자.
+
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f94bff4_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1f94bff4_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fabf44b_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fabf44b_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fcf1470_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fcf1470_t.jpg" />
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fd2fbc8_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fd2fbc8_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fe95b58_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf1fe95b58_t.jpg" />
+
+<%m:img src="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf2010dcc8_t.jpg" width="70" height="70" linkto="http://pds13.egloos.com/pmf/200906/08/50/f0055650_4a2bf2010dcc8_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf202188e8_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf202188e8_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf202850bc_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf202850bc_t.jpg" />
+<%m:img src="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf203e2231_t.jpg" width="70" height="70" linkto="http://pds15.egloos.com/pmf/200906/08/50/f0055650_4a2bf203e2231_t.jpg" />
+마지막으로 3분 30초동안 100m까지 키우는데, 비율에 비해 먹을 건물들이 매우 많으므로 그냥 안심하고 굴려도 된다. 80m 정도가 되면 원래 위치에서 먹을 수 있는 건물들이 거의 사라지는데 이 때 산 중턱에 있는 건물들(여덟째 그림)을 공략하면 어렵지 않게 100m가 완성된다.
+
+
+사족들
+-------
+
+테스트 기간동안 두 차례(였나?)의 패치가 있었는데 이로 인해 고쳐진 것이 좀 있다. 일단 비스타에서 안 된다는 얘기가 있었는데 나는 비스타가 없으므로; 모르겠고, 처음에 지적했던 태풍의 눈 아바마마 대사는 많이 고쳐졌다. (카메라 워크도 짧아졌다. 근데 캠프는 안 바뀌었다;;;) 아이템이 겹치던 문제도 고쳐졌고, 소 맵에서 일정 거리 이상의 물건이 아예 사라져서 보이지 않는 문제 때문에 딸기소가 어디 있는지 파악할 수 없었던 걸로 기억하는데 나중에 확인해 봤을 때는 고쳐졌다.
+
+사흘째 플레이의 하이라이트(응?)는 역시 요링님의 기차놀이...였는데, 기차놀이를 하는 타이밍에 맞춰서 클라이언트가 크래시 났기 때문에 제대로(?) 즐기지 못 했다. 결국 나중에 들어 와서 한 번 더 한 기차놀이에 슬쩍 끼었는데... 흐흐. 요링 팬클럽 어디 있나요?;;;
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/08/50/f0055650_4a2bf5d18d053.jpg" width="500" height="375" linkto="http://pds15.egloos.com/pds/200906/08/50/f0055650_4a2bf5d18d053.jpg" align="center">
+앞쪽에 보이는 기린 모자 쓴 캐릭터가 요링님. 근데 이거 찍고 1분인가 뒤에 튕겼다.
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/08/50/f0055650_4a2bf5feef5a3.jpg" width="500" height="375" linkto="http://pds15.egloos.com/pds/200906/08/50/f0055650_4a2bf5feef5a3.jpg" align="center">
+결국 10분 후에 다시 슬쩍 끼어서 (맨 뒤에;;;) 기차놀이~
+</%m:imgframe>
+
+기차놀이는 사실 그다지 예상하지 못 한 것이었는데 개발팀이 로비를 어떻게 생각하는지에 대한 하나의 실마리(...는 개뿔이고 뭐 당연한 거겠지만)를 제공하는 게 아닌가 싶다. 저게 요링님 독단 행동은 아니잖는가? 아바마마가 공지도 띄우는데 뭘. :)
+
+
+결론
+-----
+
+테스트 마지막 날 바로 다음 날에 보는 시험을 사실상 공부 안 하고 똥배짱으로 치는 위험부담을 감수하고 참여했던(...이거 망하면 임**님 책임임. 어?) 테스트였기에 이왕이면; 끝장도 제대로 내자는 생각으로 글을 썼던 것 같다. 글을 쓰는 건 언제나 쉽지 않은데 어떻게 다 써 낸 걸 보면, 아무래도 게임에 애정을 가지고 있기에 까도 제대로 까자라는 생각을 한 것 같으니 개발팀 입장에서는 절반의 성공이라고 해야 하나. 허허.
+
+아무튼 수많은 불만사항과 건의사항, 그리고 평가를 쏟아 내긴 했지만 내가 말하고 싶은 것은 이거다. *괴혼온라인 참 재밌게 했고, 이리 저리 남아 있는 문제들을 해결하면 좀 더 재밌게 할 수 있을 것 같다.* :) 다음 테스트가 언제가 될진 모르겠지만 그 때도 참여할 수 있다면 기꺼이 이런 글을 써 드리도록 하겠다. 그게 내가 이 게임에 도움을 줄 수 있는 얼마 안 되는 방법일테니까.
+
+마지막으로 이 글에 답글까지 달아 주신 여러 괴혼온라인 개발자 여러분들(긴장하셨다는 얘기가... 흐흐흐), 부족한 글을 보시고 여러 피드백을 해 주신 다른 테스터 여러분들, 테스트 종료 직전까지 열심히 떠들고 열심히 멀티 플레이를 했던 많은 분들 -- 에이스님, 개되징님, 괴흥님, 괴혼마니아님, 그리고 이름 도저히 기억 안 나는 수많은 다른 분들께 진심으로 감사드리며 이 글을 마치겠다. 다시 만날 날이 있기를!
+
+
+덤: 개발자를 위한 변명
+------------------------
+
+몇몇 분들이 자유게시판에 괴혼온라인의 사양이 서든 같은 다른 그래픽 좋아 보이는 게임에 비해 너무 높다는 얘기를 하셨다. 그런 의미에서 개발자의 입장에서 왜 괴혼온라인의 사양이 높을 수 밖에 없는지에 대해서 간단하게 설명을 해 보도록 하겠다.
+
+삼차원 그래픽스에서 "폴리곤"(포켓몬 이름 말고)이라고 할 때는 물체를 이루는 기본적인 요소, 즉 삼각형들의 집합을 뜻한다. 뭔 소린지 모르겠으면 아래 그림에 나온 모든 삼각형이 폴리곤이라고 보면 된다.
+
+<%m:img src="dolphin-mesh.png" bordered="1" align="center" />
+
+위의 그림에서는 폴리곤 하나에 색깔이 하나만 붙어 있기 때문에 매우 밋밋하게 보인다. 그래서 쉽게 말하자면 각 폴리곤에 미리 정해진 스티커를 붙여서 좀 그럴듯하게 보이게 하는데, 이 스티커를 텍스쳐라고 한다. 폴리곤에 입혀지는 텍스쳐를 그냥 보면 정말 이상하게 보일 때도 있다.
+
+<%m:imgframe src="principle-of-texture.png" align="center">이미지는 [Ben Mathis](http://www.mr-chompers.com/tutorial/tutorial.htm)의 말 렌더링 튜토리얼에서 무단 편집함</%m:imgframe>
+
+따라서 텍스쳐를 가지고 훨씬 적은 수의 폴리곤만으로도 그럴듯한 이미지를 나오게 하는 게 가능하다. 물론 텍스쳐만으로 완전한 건 아니고, 다양한 기법들이 연구되어 게임, 애니메이션 등에서 잘 활용되고 있는데 여기서는 생략한다. 하지만 괴혼의 경우 애초에 화면에 뜨는 물건도 엄청 많은데다 그래픽의 특성상 복잡한 텍스쳐 자체를 쓰지 않으니 훨씬 많은 폴리곤을 쓸 수 밖에. (물론 요즘은 이런 일들은 모두 그래픽 카드가 해 주지만, 여기서는 "그래픽의 품질과 요구 사양이 항상 비례하는 건 아니다"는 뜻으로 받아 들이길 바란다.)
+
+또 하나 괴혼을 느리게 만드는 것은 물리 계산이다. 모든 물건이 둥근 구라고 가정하고 처리를 하면 정말 좋겠지만-_-;; 안타깝게도 괴혼의 덩어리가 항상 둥근 건 아니다. 게다가 물건들도 길쭉한 것도 있고 네모난 것도 있고 심지어는 움직이는 것도 있지 않은가? 이런 것들을 고려해서 프로그램을 짜면 최적화가 문제가 아니라 돌아가게 만드는 것 자체가 문제가 될 때도 있다. (물론 요즘은 너무 세상이 좋아져서 그래픽 카드가 물리 계산까지 해 주기도 한다. 괴혼온라인이 쓰는 [PhysX](http://www.nvidia.com/object/physx_new.html)가 그런 놈이다. 근데 내 그래픽 카드는 라데온이야...) 서든이야 총 쏘는 게 사람한테 맞았는지 계산하고 건물이랑 사람이랑 부딪히는 것만 계산하면 되지만 괴혼은 보이는 게 다 먹을 수 있는 거니; 당연히 어려울 수 밖에.
+
+이 정도로 설명이 되었을지는 모르겠는데, 하여튼 생각하는 것만큼 쉬운 문제는 아니다. O>-<
+
