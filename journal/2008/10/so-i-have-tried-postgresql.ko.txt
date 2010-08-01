@@ -1,0 +1,14 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'그래서 PostgreSQL을 써 봤더니'
+when = '2008-10-21T00:00:11+09:00'
+original = 'http://arachneng.egloos.com/984080'
+%>
+
+처음으로 EXPLAIN 명령 써 보고 (애초에 내 디비 지식이라는 게 게시판 만드는 정도에 불과했기 때문에...) 쿼리 최적화 하고 인덱스 마구 때려 넣고 하니 몇백만 row에서 그냥 저냥 쓸만한 속도가 나온다.
+
+PostgreSQL의 인덱스가 참 좋은 점이 WHERE 절을 지정할 수 있다는 건데, 다른 DBMS에서 가능한 진 모르겠다. WHERE 절을 지정해서 인덱싱하면 인덱스를 훨씬 더 잘 타 줘서 (인덱스를 기반으로 한 sequential scan이 아닌 그냥 indexed scan이 되는 식) 중간에 이걸 모르고 삽질한 것만 빼면 쿼리 최적화는 쉬웠다.
+
+흠... 근데 회사 일 때문에 귀찮아서 일단은 봉인. -_-
+

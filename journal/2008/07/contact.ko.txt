@@ -1,0 +1,18 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'그냥 글입니다'
+when = '2008-07-20T05:10:31+09:00'
+original = 'http://arachneng.egloos.com/603080'
+%>
+
+연락은 적절하게 arachneng 골뱅이 gmail 점 com으로.
+
+저에게 할 말이 있으시면 이 글에 다시면 됩니다. 으워어어
+
+<div class="afternote">
+
+이 글은 [이글루스](http://arachneng.egloos.com/)에 올린 첫 글로, 원래는 엘라이스 블로그(현재는 사라졌음)의 댓글 이벤트를 위해서 쓴 글이다. 사실상의 방명록 역할을 했던 것 같지만 별로 쓰이지는 않았다. [다음 글](/journal/2008/07/the-comment-festival-is-over)에서 볼 수 있듯, 댓글 이벤트는 성황리에(...) 끝났다. <small>(2010-08-02)</small>
+
+</div>
+
