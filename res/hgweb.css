@@ -173,7 +173,7 @@
 	margin: 0;
 }
 .files td ul.nav li a {
-	padding: 1px 3px;
+	padding: 1px 3px !important;
 }
 
 /* annotate */

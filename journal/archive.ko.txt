@@ -7,12 +7,12 @@
 * [`my.blogin.com/tokigun`](http://my.blogin.com/tokigun) (2003-05)
 * `tokigun.enbee.com` (2004-08~2004-10, `sapzil.info/soojung`으로 모두 이전)
 * [`sapzil.info/soojung`](http://sapzil.info/soojung/) (2004-09~2005-09)
-* [`arachneng.egloos.com`](http://arachneng.egloos.com/) (2008-07~2009-11)
 
 다음 블로그들은 이미 메아리로 완전히 통합되어 따로 둘러 볼 필요가 없습니다.
 
 * [`tokigun.net/blog`](http://tokigun.net/blog/) (2005-09~2006-09)
 * [`lifthrasiir.tistory.com`](http://lifthrasiir.tistory.com/) (2006-10~2007-04)
 * [`mearie.org/journal`](http://mearie.org/journal/) (2007-08~2009-01)
+* [`arachneng.egloos.com`](http://arachneng.egloos.com/) (2008-07~2009-11)
 * [`j.mearie.org`](http://j.mearie.org/) (2009-11~)
 
