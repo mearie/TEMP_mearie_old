@@ -15,7 +15,7 @@ There are two personal domains operated by Kang Seonghoon, which can be consider
 **[`j.mearie.org`](http://j.mearie.org/)**
 :	It is a sort of blog and basically available in Korean, but I sometimes find time to write [English posts](http://j.mearie.org/tagged/english).
 **[`pub.mearie.org`](http://pub.mearie.org)**
-:	A personal encyclopedia project. Only available in Koeran.
+:	A personal encyclopedia project. Only available in Korean.
 **[`cosmic.mearie.org`](http://cosmic.mearie.org/)**
 :	A companion to main `mearie.org` website, and contains lots of unofficial materials (i.e. subject to change wildly and considered experimental).
 **[`hg.mearie.org`](http://hg.mearie.org/) and [`svn.mearie.org`](http://svn.mearie.org/)**
