@@ -122,7 +122,7 @@ $('article').each(function() {
 // note: it uses UI language; retrieving a language from accept-language header seems to be hard:
 //       http://groups.google.com/group/mozilla-labs-jetpack/browse_thread/thread/8459ccb6a7246656
 var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-.*$/, '');
-if (userlang != lang && location.host != 'j.mearie.org' /* XXX for now... */) {
+if (userlang != lang && !(location.host == 'j.mearie.org' || location.host == 'arachneng.egloos.com')) {
 	var langl = languageName(lang, userlang);
 	var userlangl = languageName(userlang, userlang);
 	var message = {
