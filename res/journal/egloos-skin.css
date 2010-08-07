@@ -1,0 +1,34 @@
+@import "../global.css";
+
+h1 a {
+	padding-left: 0 !important;
+	background-image: none !important;
+}
+h2 a, h2 a:hover, h2 a:active {
+	color: #444;
+	text-decoration: none;
+}
+
+/* well, we have to import global.ie.css only for MSIE (7 or lower),
+   but every known css hacks gives a way to import it for all browsers EXCEPT MSIE.
+   since we won't use much markup here anyway, we will include the most important
+   rules for MSIE compatibility here, and give up for other cases.
+   also note that we don't have proper DOCTYPE either, so we should deal with them... */
+* html body {
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+* html #sitewrap {
+	width: 960px;
+	margin: 0 auto;
+}
+* html #siteside {
+	float: left;
+	text-align: left;
+	margin: 0 0 1em 0;
+}
+* html input.button,
+*:first-child+html input.button {
+	height: 1.9em;
+}
