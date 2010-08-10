@@ -232,6 +232,34 @@ ol {
 ol.lower-alpha {
 	list-style: lower-alpha;
 }
+dl.dialog dt {
+	float: left;
+	display: inline;
+	margin-right: 0.3em;
+	font-weight: bold;
+	color: #444;
+}
+dl.dialog dd {
+	margin-left: 0;
+}
+dl.dialog .person1 {
+	color: #844;
+}
+dl.dialog .person2 {
+	color: #884;
+}
+dl.dialog .person3 {
+	color: #484;
+}
+dl.dialog .person4 {
+	color: #488;
+}
+dl.dialog .person5 {
+	color: #448;
+}
+dl.dialog .person6 {
+	color: #848;
+}
 pre {
 	background: #444;
 	color: #eee;

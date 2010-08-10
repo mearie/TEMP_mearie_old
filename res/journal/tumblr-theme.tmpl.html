@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 <title>
 {block:TagPage}태그: {Tag} | {/block:TagPage}
 {block:SearchPage}"{SearchQuery}"로 검색한 결과 | {/block:SearchPage}
@@ -48,9 +48,8 @@
 	{block:ExternalAudio}<div class="postmore"><a href="{ExternalAudioURL}">내려받기</a></div>{/block:ExternalAudio}{/block:Audio}
 {block:Video}{Video-500}</h2>
 	<div class="postbody">{Caption}</div>{/block:Video}
-{block:Conversation}</h2>
-	<div class="postbody"><pre>{block:Lines}{Line}
-{/block:Lines}</pre></div>{/block:Conversation}
+{block:Chat}</h2>
+	<div class="postbody"><dl class="dialog">{block:Lines}{block:Label}<dt class="person{UserNumber}">{Label}</dt>{/block:Label}<dd>{Line}</dd>{/block:Lines}</dl></div>{/block:Chat}
 {block:Date}<footer><dl><!--
 --><dt class="when">작성일</dt><dd class="when"><a href="{ShortURL}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}<!--:{Seconds}-->+09:00</a></dd><!--
 --><dt class="share">공유</dt><dd class="share"><a href="http://reddit.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://reddit.com/static/spreddit1.gif" width="19" height="15" alt="레딧에 보내기" /></a> <a href="http://digg.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://widgets.digg.com/img/button/diggThisDigger.png" width="16" height="16" alt="디그하기" /></a></dd><!--
