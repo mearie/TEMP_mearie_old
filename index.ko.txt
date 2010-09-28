@@ -5,7 +5,8 @@
 **메아리**는 저, [강 성훈](/about/kang-seonghoon)의 개인 웹사이트이자 도메인입니다. 저는 자유 및 오픈 소스 소프트웨어 개발을 많이 하는 소프트웨어 개발자이고, 즐거움과 귀차니즘을 인생 신조로 삼고 있는 평범한 대학원생입니다.
 
 <div class="mearie-news">
-<h1>최근 소식</h1>
+최근 소식
+=========
 % for entry in json.load(open(uri_to_path(self, u'/recent.json'))):
 % if entry.get('ko'):
 * ${entry['ko']} <small>(${entry['date']})</small>
@@ -14,7 +15,8 @@
 
 </div>
 <div class="mearie-activity">
-<h1>최근 활동</h1>
+최근 활동
+=========
 <noscript>
 
 제 최근 활동은 [프렌드피드](http://friendfeed.com/lifthrasiir)에서 볼 수 있습니다.
