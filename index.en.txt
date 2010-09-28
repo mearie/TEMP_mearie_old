@@ -5,7 +5,8 @@
 **mearie.org** is a personal domain and website of me, [Kang Seonghoon](/about/kang-seonghoon). I am a software developer engaged in several free and open source projects.
 
 <div class="mearie-news">
-<h1>News</h1>
+News
+====
 % for entry in json.load(open(uri_to_path(self, u'/recent.json'))):
 % if entry.get('en'):
 * ${entry['en']} <small>(${entry['date']})</small>
@@ -14,7 +15,8 @@
 
 </div>
 <div class="mearie-activity">
-<h1>Recent Activity</h1>
+Recent Activity
+===============
 <noscript>
 
 You can watch my recent activity at [FriendFeed](http://friendfeed.com/lifthrasiir).
