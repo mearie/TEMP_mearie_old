@@ -19,7 +19,7 @@ Environment
 
 Versert is a two-dimensional programming language, like Befunge. Here two-dimensional language means the code is structured in the two-dimensional space, unlike C or Java which have a linear flow of execution.
 
-All code is stored to infinte two-dimensional plane. Any point in the plane have a coordinate of the form (column, row), and each character in the code is stored in the *cell* which have an integer coordinate. One cell can contain one 8-bit unsigned integer (limited from 0 to 255). The origin (0, 0) corresponds to the leftmost character in the first line of the code.
+All code is stored to infinite two-dimensional plane. Any point in the plane have a coordinate of the form (column, row), and each character in the code is stored in the *cell* which have an integer coordinate. One cell can contain one 8-bit unsigned integer (limited from 0 to 255). The origin (0, 0) corresponds to the leftmost character in the first line of the code.
 
 Before the execution, the source code is read as ASCII text and stored in the plane. All other empty cells are assumed to contain space character, i.e. 32. Then there are no newline character (i.e. 10) in this space, and it has no effect that one stores newline character to the plane later.
 
