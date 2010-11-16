@@ -43,6 +43,7 @@ branchentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{se
 
 # changelog.tmpl, changelogentry.tmpl
 # /REPO/log/REV
+nav = '{before%naventry} {after%naventry}'
 naventry = '<li><a href="{url}log/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
 changelogentry = changelogentry.tmpl
 filedifflink = '<li><tt><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{file|escape}</a></tt></li>'
@@ -73,6 +74,7 @@ diffline = '<a href="#{lineid}" id="{lineid}">{linenumber}</a> {line|escape}'
 
 # filelog.tmpl
 # /REPO/log/REV/PATH/NAME
+filenav = '{before%filenaventry}{after%filenaventry}'
 filenaventry = '<li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">{label|escape}</a></li>'
 filelogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>{rename%filelogrename}'
 filelogrename = '<tr class="light more"><td colspan="2"><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Renamed from <tt>{file|escape}</tt> at rev <tt>{node|short}</tt></a></td></tr>'
@@ -85,6 +87,7 @@ fileline = '<a href="#{lineid}" id="{lineid}"> {linenumber}</a> {line|escape}'
 
 # graph.tmpl
 # /REPO/graph/REV
+navgraph = '{before%navgraphentry}{after%navgraphentry}'
 navgraphentry = '<li><a href="{url}graph/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
 
 # manifest.tmpl
@@ -98,6 +101,7 @@ searchentry = changelogentry.tmpl
 
 # shortlog.tmpl
 # /REPO/shortlog/REV
+navshort = '{before%navshortentry}{after%navshortentry}'
 navshortentry = '<li><a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">{label|escape}</a></li>'
 shortlogentry = '<tr class="parity{parity}"><th><a href="{url}file/{node|short}{sessionvars%urlparameter}"><tt>{node|short}</tt></a></th><td><a href="{url}rev/{node|short}{sessionvars%urlparameter}" class="moreinfo"><span class="age">{date|age}</span> <span class="author">by {author|obfuscate}</span><br/>{desc|strip|firstline|escape} <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></a></td></tr>'
 
