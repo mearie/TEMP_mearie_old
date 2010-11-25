@@ -1,7 +1,8 @@
-import web
 import os.path
 import re
 
+from webase import *
+import mako.lookup, mako.exceptions
 from mearie.response import ResponseDB
 
 
@@ -60,51 +61,69 @@ class site_mearie(site):
         return path # TODO: language tag?
 
 
-app = web.auto_application()
-render = web.template.render(os.path.join(os.path.dirname(__file__),
-                                          '../../../res/dynamic'))
+application = Application(show_traceback=False)
+tmpl = mako.lookup.TemplateLookup(
+        directories=[os.path.join(os.path.dirname(__file__),
+                                  '../../../res/dynamic')],
+        input_encoding='utf-8', output_encoding='utf-8', format_exceptions=True)
 db = ResponseDB(os.path.join(os.path.dirname(__file__),
                              '../../../res/db/response.db'))
 
-class view(app.page):
-    path = '/(?:~([a-zA-Z0-9-.])+/)?(.*)'
+def render(name, **kwargs):
+    try:
+        t = tmpl.get_template(name + '.tmpl.html')
+        return t.render(**kwargs)
+    except:
+        return mako.exceptions.html_error_template().render()
 
-    def GET(self, site, path):
-        try:
-            siteobj = PATHMAP[site]
-        except KeyError:
-            #return 'site failed %r' % site
-            raise web.notfound()
+@application.handle(r'^/(?:~(?P<site>[a-zA-Z0-9-.])+/)?(?P<path>.*)$')
+def view(env, path, site=None):
+    try:
+        siteobj = PATHMAP[site]
+    except KeyError:
+        env.status(404)
+        #yield 'site failed %r' % site
+        return
 
-        normalpath = siteobj.canonicalize(path)
-        if normalpath is None:
-            #return 'path failed %r' % path
-            raise web.notfound()
-        if not siteobj.exists(normalpath):
-            #return 'path not exists %r' % path
-            raise web.notfound()
+    normalpath = siteobj.canonicalize(path)
+    if normalpath is None:
+        env.status(404)
+        #yield 'path failed %r' % path
+        return
+    if not siteobj.exists(normalpath):
+        env.status(404)
+        #yield 'path not exists %r' % path
+        return
 
-        if normalpath != path:
-            prefix = '/'
-            if site: prefix += '~%s/' % site
-            raise web.redirect(prefix + normalpath)
+    if normalpath != path:
+        prefix = '/'
+        if site: prefix += '~%s/' % site
+        env.status(301)
+        env.header('Location', prefix + normalpath)
+        return
 
-        base = siteobj.basepath(normalpath)
-        responses = db.list_by_url(site, path)
-        responses = db.reorder_responses(responses)
-        form = str(render.responses(responses=responses))
+    base = siteobj.basepath(normalpath)
+    responses = db.list_by_url(site, path)
+    responses = db.reorder_responses(responses)
+    form = render('responses', responses=responses)
 
-        input = web.input(format='html', callback='')
-        if input.format == 'jsonp' and re.match(ur'^[a-zA-Z0-9_]+$', input.callback):
-            web.header('Content-Type', 'application/javascript')
-            form = form.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
-            return '%s("%s");' % (input.callback.encode('utf-8'), form)
-        else:
-            web.header('Content-Type', 'text/html')
-            html = siteobj.read(normalpath)
-            html = html.replace('<head>', '<head>\n<base href="%s" />' % base)
-            html = html.replace('<div id="sitemeta">', form + '\n<div id="sitemeta">')
-            return html
+    format = env.GET.getfirst('format', '') or 'html'
+    callback = env.GET.getfirst('callback', '')
+    if format == 'jsonp' and re.match(ur'^[a-zA-Z0-9_]+$', callback):
+        env.header('Content-Type', 'application/javascript')
+        form = form.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
+        form = form.replace('<', '\\<').replace('>', '\\>')
+        yield '%s("%s");' % (callback.encode('utf-8'), form)
+    else:
+        env.header('Content-Type', 'text/html')
+        html = siteobj.read(normalpath)
+        html = html.replace('<head>', '<head>\n<base href="%s" />' % base)
+        html = html.replace('<div id="sitemeta">', form + '\n<div id="sitemeta">')
+        yield html
 
-if __name__ == '__main__': app.run()
+
+if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
+    root = '' # served in the root path
+    make_server('', 8000, application).serve_forever()
 

@@ -1,6 +1,5 @@
 import sqlite3
 import time
-import web
 import re
 
 class ResponseDB(object):
@@ -107,6 +106,7 @@ class Response(object):
     @property
     def contents(self):
         if self.format == 'plain':
-            return web.websafe(self.contents_raw).replace('\n', '<br />\n')
+            return (self.contents_raw.replace('&', '&amp;').replace('<', '&lt;')
+                                     .replace('>', '&gt;').replace('\n', '<br />\n'))
         raise RuntimeError('unknown format')
 
