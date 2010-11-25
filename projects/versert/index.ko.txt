@@ -47,58 +47,58 @@
 	<tr><th>문자</th><th>의미</th><th>설명</th></tr>
 </thead>
 <tbody>
-	<tr><th><`0..9`></th>
+	<tr><th>`0..9`</th>
 		<td><pre>A ← 0..9</pre></td>
 		<td>A의 값을 지정한 숫자로 변경합니다.</td></tr>
-	<tr><th><`+`></th>
+	<tr><th>`+`</th>
 		<td><pre>B ← B + A</pre></td>
 		<td>B에 A의 값을 더합니다.</td></tr>
-	<tr><th><`-`></th>
+	<tr><th>`-`</th>
 		<td><pre>B ← B - A</pre></td>
 		<td>B에서 A의 값을 뺍니다.</td></tr>
-	<tr><th><`*`></th>
+	<tr><th>`*`</th>
 		<td><pre>B ← B × A</pre></td>
 		<td>B에 A의 값을 곱합니다.</td></tr>
-	<tr><th><`~`></th>
+	<tr><th>`~`</th>
 		<td><pre>A, B ← B, A</pre></td>
 		<td>A와 B의 값을 맞바꿉니다.</td></tr>
-	<tr><th><`<`></th>
+	<tr><th>`` ` ``</th>
 		<td><pre>if A > B then<br />    A, B ← B, A</pre></td>
 		<td>A가 B보다 크면 A와 B의 값을 맞바꿉니다.</td></tr>
-	<tr><th><`>`></th>
+	<tr><th>`>`</th>
 		<td><pre>if A < B then<br />    A, B ← B, A</pre></td>
 		<td>A가 B보다 작으면 A와 B의 값을 맞바꿉니다.</td></tr>
-	<tr><th><`/`></th>
+	<tr><th>`/`</th>
 		<td><pre>dx, dy ← -dy, -dx</pre></td>
 		<td>IP가 오른쪽/아래/왼쪽/위로 오고 있었다면, 각각 위/왼쪽/아래/오른쪽으로 방향을 바꿉니다.</td></tr>
-	<tr><th><`\`></th>
+	<tr><th>`\`</th>
 		<td><pre>dx, dy ← dy, dx</pre></td>
 		<td>IP가 오른쪽/아래/왼쪽/위로 오고 있었다면, 각각 아래/오른쪽/위/왼쪽으로 방향을 바꿉니다.</td></tr>
-	<tr><th><`@`></th>
+	<tr><th>`@`</th>
 		<td><pre>exit()</pre></td>
 		<td>프로그램의 실행을 종료합니다.</td></tr>
-	<tr><th><`#`></th>
+	<tr><th>`#`</th>
 		<td><pre>if B = 0 then<br />    IP ← IP + delta</pre></td>
 		<td>B가 0이면, 다음에 실행할 명령을 하나 건너 뛰고 그 다음 명령을 실행합니다.</td></tr>
-	<tr><th><`.`></th>
+	<tr><th>`.`</th>
 		<td><pre>putchar(A)</pre></td>
 		<td>표준 출력에 A의 하위 8비트를 ASCII 문자로 출력합니다.</td></tr>
-	<tr><th><`:`></th>
+	<tr><th>`:`</th>
 		<td><pre>putint(A)</pre></td>
 		<td>표준 출력에 A의 값을 문자열로 출력합니다.</td></tr>
-	<tr><th><`,`></th>
+	<tr><th>`,`</th>
 		<td><pre>A ← getchar()</pre></td>
 		<td>표준 입력으로부터 문자를 입력받아, 그 ASCII 값을 A에 저장합니다. EOF 문자가 입력되면 A는 바뀌지 않습니다.</td></tr>
-	<tr><th><`;`></th>
+	<tr><th>`;`</th>
 		<td><pre>A ← getint()</pre></td>
 		<td>표준 입력으로부터 숫자를 입력받아, 그 값을 A에 저장합니다. EOF 문자가 입력되면 A는 바뀌지 않습니다.</td></tr>
-	<tr><th><`{`></th>
+	<tr><th>`{`</th>
 		<td><pre>B ← space[px, py]</pre></td>
 		<td>코드 공간 상에서 DP가 가리키는 명령의 ASCII 값을 B에 저장합니다.</td></tr>
-	<tr><th><`|`></th>
+	<tr><th>`|`</th>
 		<td><pre>px ← px + A<br />py ← py + B</pre></td>
 		<td>DP를 왼쪽으로 A, 아랫쪽으로 B만큼 이동시킵니다.</td></tr>
-	<tr><th><`}`></th>
+	<tr><th>`}`</th>
 		<td><pre>space[px, py] ← B</pre></td>
 		<td>코드 공간 상에서 DP가 가리키는 명령을 B의 하위 8비트에 해당하는 ASCII 문자로 바꿉니다.</td></tr>
 </tbody>

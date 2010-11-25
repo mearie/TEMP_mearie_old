@@ -53,7 +53,7 @@ Current mearie.org solution consists of two [Python](http://python.org/) scripts
 	- Mako does templating jobs and also allows some compile-time scripting in Python.
 	- Image and other resources are handled by custom Mako procedure on-demand.
 3. Web server serves compiled pages.
-	- Bilingual pages are handled by Apache's [`mod_negotiation`](http://httpd.apache.org/docs/2.2/mod/mod_negotiation.html). So I can easily make <`blah.en.txt`> and <`blah.ko.txt`> and link to just <`blah`> (note no <`.html`>!).[^2]
+	- Bilingual pages are handled by Apache's [`mod_negotiation`](http://httpd.apache.org/docs/2.2/mod/mod_negotiation.html). So I can easily make `blah.en.txt` and `blah.ko.txt` and link to just `blah` (note no `.html`!).[^2]
 	- Other than that, all pages are static and can be efficiently served.
 
 [^2]: There are similar ways for other servers. For example, [lighttpd](http://lighttpd.net/) users can use appropriate `mod_magnet` script for this.

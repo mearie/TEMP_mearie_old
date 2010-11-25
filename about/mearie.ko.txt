@@ -55,7 +55,7 @@
 	- Mako가 템플릿 작업을 수행하며 이 과정에서 컴파일 시간 스크립팅도 이루어집니다.
 	- 이미지나 다른 자료들은 Mako로 만들어진 라이브러리 코드로 실시간으로 처리됩니다.
 3. 웹서버가 컴파일된 페이지를 전송합니다.
-	- 다국어 페이지들은 아파치의 [`mod_negotiation`](http://httpd.apache.org/docs/2.2/mod/mod_negotiation.html) 모듈로 처리됩니다. 따라서 <`blah.en.txt`>과 <`blah.ko.txt`> 파일을 만든 뒤 (<`.html`> 없이) <`blah`>라는 URL로 링크할 수도 있습니다.[^3]
+	- 다국어 페이지들은 아파치의 [`mod_negotiation`](http://httpd.apache.org/docs/2.2/mod/mod_negotiation.html) 모듈로 처리됩니다. 따라서 `blah.en.txt`과 `blah.ko.txt` 파일을 만든 뒤 (`.html` 없이) `blah`라는 URL로 링크할 수도 있습니다.[^3]
 	- 그거 말고는 모든 페이지는 정적이며 매우 효율적으로 전송됩니다.
 
 [^3]: 다른 서버에도 비슷한 방법이 존재합니다. 이를테면 [lighttpd](http://lighttpd.net/)에서는 적절한 `mod_magnet` 스크립트를 쓸 수 있습니다.

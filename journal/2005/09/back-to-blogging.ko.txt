@@ -13,7 +13,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=1'
 
 아무튼 오랜만입니다. 참 반갑습니다. :)
 
-<del>덤: 사실 생일에 맞춰서 디자인을 준비하다가 시간이 없어서 때려 쳤다는 것은 비밀... 쿨럭!</del>
+~~덤: 사실 생일에 맞춰서 디자인을 준비하다가 시간이 없어서 때려 쳤다는 것은 비밀... 쿨럭!~~
 
 <div class="afternote">
 

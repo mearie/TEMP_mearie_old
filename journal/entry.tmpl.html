@@ -2,28 +2,22 @@
 <%inherit file="archive.tmpl.html"/>
 <%!
 from mearie.date import parse_iso8601, to_iso8601
+
+def postdate(w):
+    try: wp, wu = w; return wp
+    except: return w
 %>
 
 <%def name="headmeta(lang)">
 ${parent.headmeta(lang)}\
-<%
-try:
-    whenpost, whenupdate = self.attr.when
-except:
-    whenpost = whenupdate = self.attr.when
-%>
-<meta name="date" content="${whenpost|h}"/>
+<meta name="date" content="${postdate(self.attr.when)|h}"/>
 </%def>
 
 <%def name="bodypre(lang)">
 <h1>메아리 저널</h1>
-<div class="post">
+<article>
 <%
-try:
-    whenpost, whenupdate = self.attr.when
-except:
-    whenpost = whenupdate = self.attr.when
-whenpost = parse_iso8601(whenpost)
+whenpost = parse_iso8601(postdate(self.attr.when))
 whenstr = lang(ko=u'%d년 %d월 %d일' % (whenpost.year, whenpost.month, whenpost.day))
 %>
 % if self.attr.title:
@@ -45,7 +39,7 @@ if isinstance(originals, (str, unicode)): originals = [originals]
 % if i > 0:
 , \
 % endif
-<tt><a rel="alternate" href="${self.attr.original|h}">${self.attr.original|h}</a></tt>\
+<code class="url"><a rel="alternate" href="${self.attr.original|h}">${self.attr.original|h}</a></code>\
 % endfor
 에 썼던 것을 옮겨 온 것입니다.</p>
 </div>
@@ -54,6 +48,9 @@ if isinstance(originals, (str, unicode)): originals = [originals]
 <div class="postmore">
 	<a class="responselink" href="http://r.mearie.org${canonical(context)}#responses">응답들</a>
 </div>
-</div>
+<footer><dl><!--
+	--><dt class="when">작성일</dt><dd class="when"><time pubdate="pubdate">${postdate(self.attr.when)}</time></dd><!--
+--></dl></footer>
+</article>
 </%def>
 

@@ -8,7 +8,7 @@ This project was started in 2004 at [KLDP](http://kldp.net/projects/pyfunge/), f
 Download
 ========
 
-The latest version is **0.5-rc2**, released in 2009-04-24. (This corresponds to [rev eba84bb2d0b8](http://hg.mearie.org/pyfunge-0.5/rev/eba84bb2d0b8).) This is the second release candidate for PyFunge 0.5.0, and 10--30% faster than the prior release. It also contains the most Funge-98 fingerprints, except <`TURT`> fingerprint which may require the graphical support.
+The latest version is **0.5-rc2**, released in 2009-04-24. (This corresponds to [rev eba84bb2d0b8](http://hg.mearie.org/pyfunge-0.5/rev/eba84bb2d0b8).) This is the second release candidate for PyFunge 0.5.0, and 10--30% faster than the prior release. It also contains the most Funge-98 fingerprints, except `TURT` fingerprint which may require the graphical support.
 
 * [Download as .tar.gz archive](http://hg.mearie.org/pyfunge/archive/pyfunge-0.5-rc2.tar.gz) (84KiB)
 * MD5: `a86bae01313a14caa03a76556c5aab61`
