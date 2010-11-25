@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" encoding="utf-8" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
+<xsl:output method="html" encoding="utf-8" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
 <xsl:template match="*" />
 
 <!--*************************************************************************-->
 
 <xsl:template match="svn">
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8"/>
 <title><xsl:value-of select="index/@path"/> | svn.mearie.org</title>
 <meta name="author" content="Kang Seonghoon" />
 <meta name="generator" content="Subversion {@version}" />
 <link rel="stylesheet" media="screen" type="text/css" href="http://mearie.org/res/global.css" />
 <xsl:comment><![CDATA[[if IE]><link rel="stylesheet" media="screen" href="http://mearie.org/res/global.ie.css" type="text/css" /><![endif]]]></xsl:comment>
 <link rel="shortcut icon" href="http://mearie.org/res/icon-svn.ico" type="image/vnd.microsoft.icon" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
 <script type="text/javascript" src="http://mearie.org/res/global.js"></script> 
 </head>
 <body lang="en" class="lang-en">
@@ -64,21 +64,21 @@
 <p><strong>Warning:</strong> Subversion repository is no longer in use.<xsl:text> </xsl:text>
 	<xsl:choose>
 		<xsl:when test="starts-with(@path,&quot;/2008/shuffle&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/shuffle/">http://hg.mearie.org/shuffle/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/shuffle/">http://hg.mearie.org/shuffle/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/angolmois&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/angolmois/">http://hg.mearie.org/angolmois/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/angolmois/">http://hg.mearie.org/angolmois/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/delight&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/delight/core/">http://hg.mearie.org/delight/core/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/delight/core/">http://hg.mearie.org/delight/core/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/hinata/naru/spec&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/hinata/naru-spec/">http://hg.mearie.org/hinata/naru-spec/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/hinata/naru-spec/">http://hg.mearie.org/hinata/naru-spec/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/hinata/twilight&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/hinata/twilight/">http://hg.mearie.org/hinata/twilight/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/hinata/twilight/">http://hg.mearie.org/hinata/twilight/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/snippets/pytransdate&quot;) or starts-with(@path,&quot;/snippets/tags/pytransdate&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/pytransdate/">http://hg.mearie.org/pytransdate/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/pytransdate/">http://hg.mearie.org/pytransdate/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/snippets/vlaah-python&quot;) or starts-with(@path,&quot;/snippets/tags/vlaah-python&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/vlaah-python/">http://hg.mearie.org/vlaah-python/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/vlaah-python/">http://hg.mearie.org/vlaah-python/</a></code>.</xsl:when>
 		<xsl:when test="starts-with(@path,&quot;/tinicube&quot;)">The current Mercurial repository is available at
-			<tt><a href="http://hg.mearie.org/tinicube/">http://hg.mearie.org/tinicube/</a></tt>.</xsl:when>
+			<code class="url"><a href="http://hg.mearie.org/tinicube/">http://hg.mearie.org/tinicube/</a></code>.</xsl:when>
 		<xsl:otherwise>Use <a href="http://hg.mearie.org/">Mercurial repository</a> for recent changes. (Note that some older projects are not listed there.)</xsl:otherwise>
 	</xsl:choose>
 </p>

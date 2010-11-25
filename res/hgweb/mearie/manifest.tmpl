@@ -5,15 +5,15 @@
 </head>
 <body lang="en" class="lang-en">
 <div id="sitebody">
-<hgroup><h1>Changeset {rev}:<tt>{node|short}</tt></h1><h2>{repo|escape}</h2></hgroup>
+<hgroup><h1>Changeset {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
 
-<h2>Directory <tt>{path|escape}</tt></h2>
+<h2>Directory <code class="path">{path|escape}</code></h2>
 
 <table class="files">
 <tr class="updir parity{upparity}">
 <td class="size"></td>
 <td class="date">Parent Directory</td>
-<th><tt><a href="{url}file/{node|short}{up|urlescape}{sessionvars%urlparameter}">../</a></tt></th>
+<th><code class="path"><a href="{url}file/{node|short}{up|urlescape}{sessionvars%urlparameter}">../</a></code></th>
 <td></td>
 </tr>
 {dentries%direntry}

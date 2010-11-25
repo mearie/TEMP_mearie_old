@@ -296,7 +296,14 @@ blockquote p {
 	text-align: right;
 }
 
-/* section */
+/* asides */
+.note {
+	clear: both;
+	font-size: 90%;
+	margin: 0 0 0 4em;
+	border-top: 1px solid #379;
+	border-bottom: 1px solid #379;
+}
 .message {
 	clear: both;
 	border: 0.3em solid #6a6;
@@ -367,11 +374,16 @@ big {
 	font-size: 150%;
 }
 code {
-	background: #999;
-	color: white;
+	border: 1px solid #999;
 	padding: 0.2em;
+	/* no borders for tt; they are only used in older blogs. */
+}
+code.rev, code.path, code.url {
+	border: 0;
+	padding: 0;
 }
 pre code {
+	border: none;
 	background: none;
 	color: #eee;
 	padding: 0;

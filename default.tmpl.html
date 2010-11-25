@@ -35,8 +35,7 @@ ${self.nav(lambda *args, **kwargs: body(lang(*args, **kwargs)))}\
 ############################################################
 
 <%def name="head(lang)">
-<meta http-equiv="Content-Language" content="${lang|h}" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8"/>
 <title>${self.headtitle(lang)}</title>
 ${self.headstyle(lang)}\
 ${self.headicon(lang)}\
@@ -65,7 +64,7 @@ ${text|h}\
 </%def>
 
 <%def name="headscript(lang)">\
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="/res/global.js"></script>
 </%def>
 
@@ -126,9 +125,9 @@ ${text|h}\
 <%def name="meta(lang)">
 <% rev, date = gethgrev(topmost.uri) %>
 <div class="tray">
-	${date}
+	<time pubdate="pubdate">${date}</time>
 	% if rev:
-	(rev <a href="http://hg.mearie.org/mearie.org/current/file/${rev}${canonical(context, 'full')}"><tt>${rev}</tt></a>)
+	(rev <a href="http://hg.mearie.org/mearie.org/current/file/${rev}${canonical(context, 'full')}"><code class="rev">${rev}</code></a>)
 	% else:
 	(working copy)
 	% endif
@@ -159,8 +158,8 @@ if not getattr(self.attr, 'title', None):
     self.attr.title = u''
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang|h}">
+<!DOCTYPE html>
+<html lang="${lang|h}">
 <head>
 ${self.head(lang)}
 </head>
