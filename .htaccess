@@ -4,22 +4,10 @@ LanguagePriority en ko ja
 ForceLanguagePriority Prefer Fallback
 AddDefaultCharset utf-8
 
-<Files *.ko.txt>
+<FilesMatch "\.(ko|en|ja)\.txt$|\.tmpl\.html$|^README\.txt$">
 	Order deny,allow
 	Deny from all
-</Files>
-<Files *.en.txt>
-	Order deny,allow
-	Deny from all
-</Files>
-<Files *.ja.txt>
-	Order deny,allow
-	Deny from all
-</Files>
-<Files *.tmpl.html>
-	Order deny,allow
-	Deny from all
-</Files>
+</FilesMatch>
 
 # redirects
 RedirectPermanent /favicon.ico /res/icon.ico
