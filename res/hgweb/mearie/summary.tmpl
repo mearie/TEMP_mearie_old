@@ -9,7 +9,7 @@
 <dl class="summary">
 <dt>Description:</dt><dd>{desc}</dd>
 <dt>Owner:</dt><dd>{owner|obfuscate}</dd>
-<dt>Last Change on </dt><dd>{lastchange|rfc822date}</dd>
+<dt>Last Change on </dt><dd><time datetime="{lastchange|rfc3339date}">{lastchange|rfc822date}</time></dd>
 </dl>
 
 <h2>Recent Changes</h2>

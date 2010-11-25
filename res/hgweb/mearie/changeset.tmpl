@@ -5,17 +5,17 @@
 </head>
 <body lang="en" class="lang-en">
 <div id="sitebody">
-<hgroup><h1>Changeset {rev}:<tt>{node|short}</tt></h1><h2>{repo|escape}</h2></hgroup>
+<hgroup><h1>Changeset {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
 
 <table class="otherrevs"><tr>
 <td class="parent">{parent%changesetparent}</td>
-<td class="current"><strong>{rev}:<tt>{node|short}</tt></strong> <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></td>
+<td class="current"><strong>{rev}:<code class="rev">{node|short}</code></strong> <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></td>
 <td class="child">{child%changesetchild}</td>
 </table>
 
 <dl class="summary">
 <dt>Author:</dt><dd>{author|obfuscate}</dd>
-<dt>Committed on</dt><dd>{date|rfc822date} <em>({date|age})</em></dd>
+<dt>Committed on </dt><dd><time datetime="{date|rfc3339date}">{date|rfc822date} <em>({date|age})</em></time></dd>
 </dl>
 <p>{desc|strip|escape|addbreaks}</p>
 

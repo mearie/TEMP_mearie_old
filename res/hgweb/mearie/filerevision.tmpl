@@ -5,20 +5,20 @@
 </head>
 <body lang="en" class="lang-en">
 <div id="sitebody">
-<hgroup><h1>Changeset {rev}:<tt>{node|short}</tt></h1><h2>{repo|escape}</h2></hgroup>
+<hgroup><h1>Changeset {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
 
-<h2>File <tt>{file|escape}</tt></h2>
+<h2>File <code class="path">{file|escape}</code></h2>
 
 <table class="otherrevs"><tr>
 <td class="parent">{parent%filerevparent}</td>
-<td class="current"><a href="{url}rev/{node|short}{sessionvars%urlparameter}"><strong>{rev}:<tt>{node|short}</tt></strong></a></td>
+<td class="current"><a href="{url}rev/{node|short}{sessionvars%urlparameter}"><strong>{rev}:<code class="rev">{node|short}</code></strong></a></td>
 <td class="child">{child%filerevchild}</td>
 </table>
 
 <dl class="summary">
 <dt>Author:</dt><dd>{author|obfuscate}</dd>
-<dt>Committed on</dt><dd>{date|rfc822date} <em>({date|age})</em></dd>
-<dt>Permission:</dt><dd><tt>{permissions|permissions}</tt></dd>
+<dt>Committed on </dt><dd><time datetime="{date|rfc3339date}">{date|rfc822date} <em>({date|age})</em></time></dd>
+<dt>Permission:</dt><dd><code>{permissions|permissions}</code></dd>
 </dl>
 <p>{desc|strip|escape|addbreaks}</p>
 
