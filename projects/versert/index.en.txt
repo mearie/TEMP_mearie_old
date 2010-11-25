@@ -46,58 +46,58 @@ Below is a complete list of instructions. All other characters have no effect ra
 	<tr><th>Char.</th><th>Meaning</th><th>Description</th></tr>
 </thead>
 <tbody>
-	<tr><th><`0..9`></th>
+	<tr><th>`0..9`</th>
 		<td><pre>A ← 0..9</pre></td>
 		<td>Sets A to given number.</td></tr>
-	<tr><th><`+`></th>
+	<tr><th>`+`</th>
 		<td><pre>B ← B + A</pre></td>
 		<td>Adds A to B.</td></tr>
-	<tr><th><`-`></th>
+	<tr><th>`-`</th>
 		<td><pre>B ← B - A</pre></td>
 		<td>Subtracts A from B.</td></tr>
-	<tr><th><`*`></th>
+	<tr><th>`*`</th>
 		<td><pre>B ← B × A</pre></td>
 		<td>Multiplies A to B.</td></tr>
-	<tr><th><`~`></th>
+	<tr><th>`~`</th>
 		<td><pre>A, B ← B, A</pre></td>
 		<td>Swaps A and B.</td></tr>
-	<tr><th><`<`></th>
+	<tr><th>`` ` ``</th>
 		<td><pre>if A > B then<br />    A, B ← B, A</pre></td>
 		<td>Swaps A and B if A is greater than B.</td></tr>
-	<tr><th><`>`></th>
+	<tr><th>`>`</th>
 		<td><pre>if A < B then<br />    A, B ← B, A</pre></td>
 		<td>Swaps A and B if A is less than B.</td></tr>
-	<tr><th><`/`></th>
+	<tr><th>`/`</th>
 		<td><pre>dx, dy ← -dy, -dx</pre></td>
 		<td>If IP is heading right, turns up; if down, turns left; if left, turns down; if up, turns right.</td></tr>
-	<tr><th><`\`></th>
+	<tr><th>`\`</th>
 		<td><pre>dx, dy ← dy, dx</pre></td>
 		<td>If IP is heading right, turns down; if down, turns right; if left, turns up; if up, turns left.</td></tr>
-	<tr><th><`@`></th>
+	<tr><th>`@`</th>
 		<td><pre>exit()</pre></td>
 		<td>Terminates the program.</td></tr>
-	<tr><th><`#`></th>
+	<tr><th>`#`</th>
 		<td><pre>if B = 0 then<br />    IP ← IP + delta</pre></td>
 		<td>If B is zero, skips one instruction and executes next instruction.</td></tr>
-	<tr><th><`.`></th>
+	<tr><th>`.`</th>
 		<td><pre>putchar(A)</pre></td>
 		<td>Prints lowermost 8 bits of A to standard output as ASCII character.</td></tr>
-	<tr><th><`:`></th>
+	<tr><th>`:`</th>
 		<td><pre>putint(A)</pre></td>
 		<td>Prints A to standard output as integer.</td></tr>
-	<tr><th><`,`></th>
+	<tr><th>`,`</th>
 		<td><pre>A ← getchar()</pre></td>
 		<td>Reads a character and stores its ASCII code to A. When EOF is encountered, A won't be changed.</td></tr>
-	<tr><th><`;`></th>
+	<tr><th>`;`</th>
 		<td><pre>A ← getint()</pre></td>
 		<td>Reads an integer and stores it to A. When EOF is encountered, A won't be changed.</td></tr>
-	<tr><th><`{`></th>
+	<tr><th>`{`</th>
 		<td><pre>B ← space[px, py]</pre></td>
 		<td>Gets an instruction pointed by DP, and stores its ASCII code to B.</td></tr>
-	<tr><th><`|`></th>
+	<tr><th>`|`</th>
 		<td><pre>px ← px + A<br />py ← py + B</pre></td>
 		<td>Moves DP A cells right, B cells down.</td></tr>
-	<tr><th><`}`></th>
+	<tr><th>`}`</th>
 		<td><pre>space[px, py] ← B</pre></td>
 		<td>Puts lowermost 8 bits of B to an instruction pointed by DP, as ASCII character.</td></tr>
 </tbody>
@@ -121,7 +121,7 @@ This is same program with no such trick.
 6~6*}2*~.{+7-~.~7+~..~3+~.~{8+~.~{4-~.~4*9-~.~8-~.~3+~.~6-~.~8-~.~{3-~.~2~5*~.@
 </%text>
 
-This program does same thing as UNIX's <`cat`> program.
+This program does same thing as UNIX's `cat` program.
 
 <%text filter="indent">
 #/#.0~1\ 

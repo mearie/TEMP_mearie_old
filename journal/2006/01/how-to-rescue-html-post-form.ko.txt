@@ -15,10 +15,10 @@ original = 'http://tokigun.net/blog/entry.php?blogid=51'
 
 * 해당 페이지를 파이어폭스에서 열었고, [web developer](https://addons.mozilla.org/extensions/moreinfo.php?id=60) 확장이 깔려 있다면, web developer에서 Forms - View Form Information 메뉴에 들어 가서 폼 정보를 보면 된다.
 * 만약 [winpcap](http://www.winpcap.org/)과 [Ethereal](http://www.ethereal.com/)이 깔려 있다면 이걸로 패킷을 갈무리하기 시작한 뒤에 폼을 재전송해서 내용물을 찾아 보면 된다. 아마 그냥 쓰기는 난감하고 날 패킷을 파일로 저장한 뒤에 뒤지는 게 더 빠를 것이다.
-* 그래도 안 되면 내 맘대로 주무를 수 있는 웹 서버를 찾아 본다. 이번 상황에서는 yser 님이 내 노트북에 깔린 웹 서버를 사용했다. 정 안 된다면 웹 서버를 하나 깔아 보시던지, 이 쪽에 빠삭한 후배를 하나 붙잡아다 협박하시면 될 것이다. 이 웹 서버가 <`http://example.com/...`>이라고 하자.
-* 해당 폼이 전송되는 페이지를 잘 기억한다. 이 경우에는 <`http://hyeonseok.com/soojung/web/2006/01/22/218.html`>였다.
-* 이제 이 URL에서 도메인을 우리가 확보한 웹 서버 주소로 바꿔서 들어 가 본다. 물론 아무 짓도 안 했으니 Not Found 따위가 뜰텐데, 이걸 phpinfo 같이 POST 정보를 보여 주는 페이지로 만들어 놓는다. phpinfo를 쓴다면 해당 파일에 <`<?php phpinfo() ?>`>라고 써 놓은 뒤에 페이지가 제대로 안 나오면 .htaccess에 ForceType을 먹여서 되게 하면 될 것이다.
-* 잘 된다 싶으면 원래 컴퓨터로 돌아 가서 hosts 파일에 해당 페이지의 도메인이 우리가 쓰는 웹 서버 아이피로 연결되게 고친다. 윈도우라면 <`%systemroot%\system32\drivers\etc\hosts`>에 있고, 다른 운영체제는 적당히 때려 맞춰 보시라. -_-;
+* 그래도 안 되면 내 맘대로 주무를 수 있는 웹 서버를 찾아 본다. 이번 상황에서는 yser 님이 내 노트북에 깔린 웹 서버를 사용했다. 정 안 된다면 웹 서버를 하나 깔아 보시던지, 이 쪽에 빠삭한 후배를 하나 붙잡아다 협박하시면 될 것이다. 이 웹 서버가 `http://example.com/...`이라고 하자.
+* 해당 폼이 전송되는 페이지를 잘 기억한다. 이 경우에는 `http://hyeonseok.com/soojung/web/2006/01/22/218.html`였다.
+* 이제 이 URL에서 도메인을 우리가 확보한 웹 서버 주소로 바꿔서 들어 가 본다. 물론 아무 짓도 안 했으니 Not Found 따위가 뜰텐데, 이걸 phpinfo 같이 POST 정보를 보여 주는 페이지로 만들어 놓는다. phpinfo를 쓴다면 해당 파일에 `<?php phpinfo() ?>`라고 써 놓은 뒤에 페이지가 제대로 안 나오면 .htaccess에 ForceType을 먹여서 되게 하면 될 것이다.
+* 잘 된다 싶으면 원래 컴퓨터로 돌아 가서 hosts 파일에 해당 페이지의 도메인이 우리가 쓰는 웹 서버 아이피로 연결되게 고친다. 윈도우라면 `%systemroot%\system32\drivers\etc\hosts`에 있고, 다른 운영체제는 적당히 때려 맞춰 보시라. -_-;
 * 이렇게 한 뒤에 원래 페이지를 다른 창에서 열어 본다. 우리가 원하는 페이지가 안 나온다면 우리가 확보한 웹 서버에서 해당 도메인을 인식 못 하는 것이므로, Virtual Host 설정이라던지 뭐 그런 것들을 만져 줘서 되게 한다.
 * 이제 원래 창으로 돌아 와서 새로 고침을 한 뒤에 POST 정보를 다시 전송하면 POST 정보가 원래대로 뜰 것이다. :)
 

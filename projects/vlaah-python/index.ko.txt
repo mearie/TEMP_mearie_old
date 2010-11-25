@@ -10,7 +10,7 @@
 
 	3e102b5df7b5731f68a61a34c3d58185fe7e1585ef3bf5e99c0e42d92c34cf44
 
-[^1]: 이 키는 예시를 들기 위해 아무렇게나 만든 것입니다. 좀 더 정확하게는, <`this is an example of VLAAH application key.`>의 SHA-256 해시입니다.
+[^1]: 이 키는 예시를 들기 위해 아무렇게나 만든 것입니다. 좀 더 정확하게는, `this is an example of VLAAH application key.`의 SHA-256 해시입니다.
 
 해당 애플리케이션 키를 사용해서 세션 객체를 생성합니다. 세션 객체에 User-Agent 문자열을 넣을 수도 있습니다.
 

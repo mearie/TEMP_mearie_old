@@ -37,13 +37,13 @@ Similarly the assembler mode (`-c` option) and disassembler mode (`-d` option) r
 	$ esotope-ws hworld2.ws 
 	Hello, world of spaces!
 
-The Whitespace assembly syntax consists of command lines (e.g. <`push 1`>) and label lines (e.g. <`newline:`>). The following command mnemonics are available:
+The Whitespace assembly syntax consists of command lines (e.g. `push 1`) and label lines (e.g. `newline:`). The following command mnemonics are available:
 
 	push N    dup       copy N    swap      pop       slide     add       sub
 	mul       div       mod       store     retrieve  call      jmp L     jz L
 	jn L      ret L     halt      putchar   putint    getchar   getint
 
-...where <`L`> stands for any label and <`N`> stands for any integer constant. The disassembler converts the label name into the readable string if possible, and falls back with a generated name `label#_####`.
+...where `L` stands for any label and `N` stands for any integer constant. The disassembler converts the label name into the readable string if possible, and falls back with a generated name `label#_####`.
 
 
 Known problems

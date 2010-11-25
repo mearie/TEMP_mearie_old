@@ -14,7 +14,7 @@ original = 'http://tokigun.net/blog/entry.php?blogid=76'
 
 둘의 차이는 무엇인가? 물론 하나는 str의 내용물이 바뀔 수 없는 거고 다른 하나는 str이 다른 걸 가리키게 할 수 없다는 거야 당연하지만 어느 쪽이 어느 쪽이냐는 거다.
 
-아주 먼 옛날에는 <`char *const str`>가 내용물이 바뀔 수 없다는 걸로 생각했었다. 사실 이렇게 생각해 놓고서 <`const char *str`> 쓰는 코드가 왜 이리 많은 건지 궁금해하기도 했었다. 내가 좀 특이했던 것 같은데, 아무튼 물론 이건 틀렸다. 위의 두 줄을 그대로 영어로 직역하면 차이가 그대로 드러난다.
+아주 먼 옛날에는 `char *const str`가 내용물이 바뀔 수 없다는 걸로 생각했었다. 사실 이렇게 생각해 놓고서 `const char *str` 쓰는 코드가 왜 이리 많은 건지 궁금해하기도 했었다. 내가 좀 특이했던 것 같은데, 아무튼 물론 이건 틀렸다. 위의 두 줄을 그대로 영어로 직역하면 차이가 그대로 드러난다.
 
 	function blah returning void which argument is *pointer to const char* str
 	function blah returning void which argument is *const pointer to char* str

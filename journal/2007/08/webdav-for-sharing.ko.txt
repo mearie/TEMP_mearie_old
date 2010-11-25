@@ -20,7 +20,7 @@ original = 'http://mearie.org/journal/2007/08/webdav-for-sharing'
 
 3. 해당하는 디렉토리를 만들고 웹서버가 접근할 권한을 준다.
 
-4. 웹 서버를 재시작한다. (<`apache2 -k graceful`> 같은 걸로)
+4. 웹 서버를 재시작한다. (`apache2 -k graceful` 같은 걸로)
 
 아는 사람은 별로 없지만, 윈도에는 기본적으로 WebDAV 클라이언트가 탐색기에 내장되어 있기 때문에 주소만 잘 입력하면 바로 쓸 수 있다. 예를 들어서 `http://example.com/tr/`로 연결하려면 탐색기에서 `\\example.com\tr\` 식으로 UNC 쓰듯이 쓰면 된다.
 

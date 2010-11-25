@@ -7,7 +7,7 @@ tags = [u'공지사항', u'VLAAH', u'vlaah-python']
 original = 'http://mearie.org/journal/2008/11/vlaah-python-released'
 %>
 
-[vlaah-python](/projects/vlaah-python/) 프로젝트를 짬짬이 작업하고 있었는데 기능상으로 다 완성된 거 더 작업하기는 귀찮고 해서(?) 그냥 공개해 버렸다. 혹시나 서브버전에서 받아서 테스트해 보고 있었다면 <`/snippets/tags/vlaah-python-0.9.0`>으로 svn switch해도 받을 수 있다.
+[vlaah-python](/projects/vlaah-python/) 프로젝트를 짬짬이 작업하고 있었는데 기능상으로 다 완성된 거 더 작업하기는 귀찮고 해서(?) 그냥 공개해 버렸다. 혹시나 서브버전에서 받아서 테스트해 보고 있었다면 `/snippets/tags/vlaah-python-0.9.0`으로 svn switch해도 받을 수 있다.
 
 여기서 말하는 [VLAAH](http://vlaah.com/)라는 것은 취향(?) 공유(?) 사이트[^1]인데, [아는 분](http://dahlia.kr/)께서 서비스 개발에 참여하고 계신 관계로 어쩌다 보니 만들겠다고 해 버리는 바람에 만들게 되었다. -_-; 최근에 만들고 있던 것들이 은근히 무거운 것들만 많았는데 오랜만에 가벼운 프로젝트를 건들 수 있어서 좋았다.
 

@@ -13,7 +13,7 @@ original = 'http://mearie.org/journal/2008/03/colloquy-patched'
 
 주된 변경점은 한글 입력하다가 엔터 칠 때 두 번 쳐야 하는 문제(라기보다는 사실 feature였지만…)랑, 실수로 Cmd-W 눌렀을 때 확인을 하도록 하는 설정을 만들었다는 것이다. 전자는 [jenix](http://jinhyung.org/) 님이 별도로 패치 만들어서 쓰기도 하셨지만 패치가 따로 없어서 그냥 새로 만들었다. -_-;
 
-서브버전 r3778을 기준으로 컴파일한 바이너리는 **<del>[여기](/files/Colloquy-r3778-lifthrasiir.tgz)</del>**에서 받을 수 있고, 변경점은 [서브버전](http://svn.mearie.org/snippets/colloquy/)에 올려 놓았으니 관심 있으신 분은 찾아 쓰시라. (Objective-C에 익숙하질 않아서 좀 삽질했다.)
+서브버전 r3778을 기준으로 컴파일한 바이너리는 **~~[여기](/files/Colloquy-r3778-lifthrasiir.tgz)~~**에서 받을 수 있고, 변경점은 [서브버전](http://svn.mearie.org/snippets/colloquy/)에 올려 놓았으니 관심 있으신 분은 찾아 쓰시라. (Objective-C에 익숙하질 않아서 좀 삽질했다.)
 
 <div class="afternote">
 

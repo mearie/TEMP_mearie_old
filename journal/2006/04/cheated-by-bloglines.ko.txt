@@ -17,7 +17,7 @@ rss 리더기 용으로 [bloglines](http://bloglines.com/)를 쓰고 있는데, 
 > Yarr! Bloglines is currently offline while we relocate to a new data center.  
 > We expect Bloglines to be back online by 8:00pm PST (4:00am UTC **December 20th**).  
 > <small>Thanks,  
-> The Bloglines <del>Plumber</del> Pirate</small>
+> The Bloglines ~~Plumber~~ Pirate</small>
 
 
 ....**날짜가 한참 옛날이잖아!!!!!**

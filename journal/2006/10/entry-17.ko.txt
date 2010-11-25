@@ -9,7 +9,7 @@ original = 'http://lifthrasiir.tistory.com/17'
 %>
 
 * 무엇보다 집에서 인터넷이 안 된다. -_-; 정확히는 동생이 인터넷하는 걸 막으려고 허브에 선을 빼 놓은 것이었지만, 동생이 없을 때가 별로 없어서 거의 하질 못 했다. :(
-* 그 사이에 <del>[LOT 외전3](http://geekproject.net/entry/Land-of-%C5%E4%B3%A2%B1%BA-%BF%DC%C0%FC-Ghost-in-the-Tokigun)</del>이 등장했다. 무서운 사람들;
+* 그 사이에 ~~[LOT 외전3](http://geekproject.net/entry/Land-of-%C5%E4%B3%A2%B1%BA-%BF%DC%C0%FC-Ghost-in-the-Tokigun)~~이 등장했다. 무서운 사람들;
 * 덕분에 위키백과질과 기타 작업은 추석 기간동안 완전히 손을 뗐다. IRC에서 나를 부르신 분께는 죄송하지만;
 * BOF2006 곡들을 열심히 플레이하다가 노트북의 F 키가 망가졌다. (정확히는 키캡과 기판 사이를 이어 주는 프레임이 기판에서 분리된 것) 본드를 사용한 임시 땜빵으로 지금 쓰는 데는 문제가 없지만 그 뒤로 게임에 사용하는 키 배치를 좀 바꿨다.
 * theseit의 libbms 모듈을 다시 작업했다. 설계를 뜯어 고친게 벌써 세 번째인데 제대로 될지 모르겠다.
