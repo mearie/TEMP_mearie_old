@@ -12,8 +12,13 @@
 <%
 import os, os.path, re, cgi
 months = []
+manualentries = dict((i, []) for i in xrange(1, 13))
+for line in capture(caller.body).strip().splitlines():
+    date, url, title = line.split(None, 2)
+    title = title.replace(u'...', u'…')
+    manualentries[int(date[5:7])].append((date, url, title))
 for month in xrange(1, 13):
-    entries = []
+    entries = manualentries[month]
     dir = uri_to_path(context, '%02d' % month)
     try:
         files = os.listdir(dir)
