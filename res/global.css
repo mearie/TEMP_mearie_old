@@ -42,7 +42,7 @@ body {
 	margin: 0 auto;
 	color: #444;
 	background: #eee;
-	line-height: 1.5;
+	line-height: 1.67;
 	text-align: center;
 }
 hr {
@@ -92,6 +92,7 @@ hr {
 	float: left;
 }
 .menu {
+	line-height: 1.5;
 	margin-top: 0.8em;
 	margin-left: 120px;
 	padding: 0;
@@ -229,8 +230,8 @@ ol {
 	padding-left: 1.5em;
 	margin-left: 0;
 }
-ol.lower-alpha {
-	list-style: lower-alpha;
+li {
+	color: #444;
 }
 dl.dialog dt {
 	float: left;
@@ -265,6 +266,7 @@ pre {
 	color: #eee;
 	padding: 0.3em 0.5em;
 	overflow: auto;
+	line-height: 1.5;
 }
 .gist pre {
 	color: black;
@@ -283,7 +285,7 @@ blockquote {
 	border-left: 0.5em solid #999;
 	padding-left: 0.3em;
 }
-blockquote p {
+blockquote p, blockquote li {
 	color: #666;
 }
 .clear {
@@ -375,8 +377,14 @@ big {
 }
 code {
 	border: 1px solid #999;
-	padding: 0.2em;
+	padding: 0.1em 0.2em;
 	/* no borders for tt; they are only used in older blogs. */
+}
+a code {
+	border-color: #689;
+}
+a:hover code, a:active code {
+	border-color: #986;
 }
 code.rev, code.path, code.url {
 	border: 0;
@@ -405,6 +413,13 @@ a[href^="mailto:"]:not(.interwiki):not(.noicon) {
 	padding-left: 3px;
 	background: transparent url(link-external.png) top left no-repeat;
 }
+a[href^="http://"]:not(.interwiki):not(.noicon) code,
+a[href^="https://"]:not(.interwiki):not(.noicon) code,
+a[href^="ftp://"]:not(.interwiki):not(.noicon) code,
+a[href^="irc://"]:not(.interwiki):not(.noicon) code,
+a[href^="mailto:"]:not(.interwiki):not(.noicon) code {
+	margin-left: -3px;
+}
 .tray a[href^="http://"]:not(.interwiki):not(.noicon), .copyright a[href^="http://"]:not(.interwiki):not(.noicon),
 .tray a[href^="https://"]:not(.interwiki):not(.noicon), .copyright a[href^="https://"]:not(.interwiki):not(.noicon),
 .tray a[href^="ftp://"]:not(.interwiki):not(.noicon), .copyright a[href^="ftp://"]:not(.interwiki):not(.noicon),
@@ -426,6 +441,13 @@ a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
 	background-image: none;
+}
+a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) code {
+	margin-left: 0;
 }
 
 /* objects & media */

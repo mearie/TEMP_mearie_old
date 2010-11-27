@@ -3,10 +3,16 @@
 
 *version 1.2 (July 20, 2006)*
 
+<div class="note">
+
+Disclaimer: Many parts of this document are partly inaccurate (due to the survey method, of course) and also subsequently outdated. This document is kept as is to provide the historical notes.
+
+</div>
+
 This document discusses C++ name mangling scheme used by Microsoft. I think this is the most complete document about this scheme currently.
 
 
-<h3 id="top-author">Author</h3>
+<h2 id="top-author">Author</h2>
 This document is maintained by [Kang Seonghoon](http://tokigun.net/) aka Tokigun.
 
 If you want to discuss about this scheme or document please mail me: `<xxxxxxx at gmail dot com>` where xxxxxxx is tokigun.
@@ -14,7 +20,7 @@ If you want to discuss about this scheme or document please mail me: `<xxxxxxx a
 And sorry for my poor English ;)
 
 
-<h3 id="top-reference">Reference</h3>
+<h2 id="top-reference">Reference</h2>
 
 Even though I could disassemble dbghelp.dll(or msvcrt.dll), I didn't do it because of the legal issues. So I used only `UnDecorateSymbolName` function to analysis this scheme.
 
@@ -27,13 +33,13 @@ Also I learned the basic scheme from the following source:
 Some feature of this scheme depends on Microsoft's C++ extension, such as Managed C++. Browse [MSDN](http://msdn.microsoft.com/) for more information.
 
 
-<h3 id="top-changelog">ChangeLog</h3>
+<h2 id="top-changelog">ChangeLog</h2>
 
 * <strong>version 1.2</strong> - Added [nested name](#element-name-nested); added PHP UnDecorateSymbolName as reference.
 * [version 1.1](mscmangle-1.1) - First public document.
 
 
-<h2 id="basic">Basic Structure</h2>
+<h1 id="basic">Basic Structure</h1>
 As you know, all mangled C++ name starts with `?`. Because all mangled C name starts with alphanumeric characters, `@`(at-sign) and `_`(underscore), C++ name can be distinguished from C name.
 
 Structure of mangled name looks like this:
@@ -44,7 +50,7 @@ Structure of mangled name looks like this:
 * Type information (see below)
 
 
-<h3 id="basic-function">Function</h3>
+<h2 id="basic-function">Function</h2>
 Type information in function name generally looks like this:
 
 * Access level and function type
@@ -52,7 +58,7 @@ Type information in function name generally looks like this:
 * [Function property](#element-function)
 
 
-<h3 id="basic-data">Data</h3>
+<h2 id="basic-data">Data</h2>
 Type information in data name looks like this:
 
 * Access level and storage class
@@ -60,11 +66,11 @@ Type information in data name looks like this:
 * [CV-class modifier](#element-cvclass)
 
 
-<h2 id="element">Elements</h2>
+<h1 id="element">Elements</h1>
 Mangled name contains a lot of elements have to be discussed.
 
 
-<h3 id="element-name">Name</h3>
+<h2 id="element-name">Name</h2>
 Qualified name consists of the following fragments:
 
 * Basic name: one of [name fragment](#element-name-frag) and [special name](#element-name-special)
@@ -76,11 +82,11 @@ Qualified name consists of the following fragments:
 Qualification is written in reversed order. For example `myclass::nested::something` becomes `something@nested@myclass@@`.
 
 
-<h4 id="element-name-frag">Name Fragment</h4>
+<h3 id="element-name-frag">Name Fragment</h3>
 A fragment of name is simply represented as the name with trailing `@`.
 
 
-<h4 id="element-name-special">Special Name</h4>
+<h3 id="element-name-special">Special Name</h3>
 Special name is represented as the code with preceding `?`. Most of special name is constructor, destructor, operator and internal symbol. Below is a table for known codes.
 
 <table>
@@ -150,7 +156,7 @@ Below is RTTI-related code (all starting with `_R`). Some codes have trailing pa
 </tbody>
 </table>
 
-<h4 id="element-name-template">Name with Template Arguments</h4>
+<h3 id="element-name-template">Name with Template Arguments</h3>
 Name fragment starting with `?$` has template arguments. This kind of name looks like this:
 
 * Prefix `?$`
@@ -175,7 +181,7 @@ Name of this function can be obtained by the following process:
 So mangled name for this function is <code>?**xyz@?$abc@V?$def@H@@PAX@@**YAXXZ</code>.
 
 
-<h4 id="element-name-nested">Nested Name</h4>
+<h3 id="element-name-nested">Nested Name</h3>
 Name fragment starting with `??` denotes nested name. Nested name is a name inside local scope but needed to be exported. Its structure looks like the following:
 
 * Prefix `?`
@@ -184,7 +190,7 @@ Name fragment starting with `??` denotes nested name. Nested name is a name insi
 For example, `?nested@??func@@YAXXZ@4HA` means variable `?nested@@4HA`(`int nested`) inside `?func@@YAXXZ`(`void __cdecl func(void)`). `UnDecorateSymbolName` function returns ``int `void __cdecl func(void)'::nested`` for this input.
 
 
-<h4 id="element-name-nsnum">Numbered Namespace</h4>
+<h3 id="element-name-nsnum">Numbered Namespace</h3>
 In qualification, numbered namespace is represented as preceding `?` and unsigned [number](#element-number). `UnDecorateSymbolName` function returns something like `` `42'`` for this kind of input.
 
 Exceptionally if numbered namespace starts with `?A` it becomes anonymous namespace (`` `anonymous namespace'``).
@@ -192,7 +198,7 @@ Exceptionally if numbered namespace starts with `?A` it becomes anonymous namesp
 Well, of course I'm not sure what it is. <small>[TODO: what is exact meaning and name? I don't think its name is really "numbered namespace".]</small>
 
 
-<h4 id="element-name-backref">Back Reference</h4>
+<h3 id="element-name-backref">Back Reference</h3>
 Decimal digits `0` to `9` refers to first shown name fragment to 10th shown name fragment. Referred name fragment can be normal name fragment or name fragment with template arguments. For example, in `alpha@?1beta@@`(``beta::`2'::alpha``) `0` refers to `alpha@`, and `1`(not `2`) refers to `beta@`.
 
 Generally back reference table is kept during mangling process. It means you can use back reference to function name in function arguments (shown later than function name). However, in [template argument list](#element-arglist-template) back reference table is separately created.
@@ -200,7 +206,7 @@ Generally back reference table is kept during mangling process. It means you can
 For example, assume <code>?\$basic_string@GU?\$char_traits@G@std@@V?\$allocator@G@**2**@@std@@</code>&#8203;(`std::basic_string<unsigned short, std::char_traits<unsigned short>, **std**::allocator<unsigned short> >`). In `std::basic_string<...>`, `0` refers to `basic_string@`, `1` refers to `?$char_traits@G@`, and `2` refers to `std@`. This relation doesn't change wherever it is.
 
 
-<h3 id="element-number">Encoded Number</h3>
+<h2 id="element-number">Encoded Number</h2>
 In name mangling, representation of number is needed sometimes (e.g. array indices). There are simple rules to represent number:
 
 * `0` to `9` represents number 1 to 10.
@@ -209,7 +215,7 @@ In name mangling, representation of number is needed sometimes (e.g. array indic
 * If allowed, prefix `?` represents minus sign. Note that both `?@` and `@` represents number 0.
 
 
-<h3 id="element-type">Data Type</h3>
+<h2 id="element-type">Data Type</h2>
 The table below shows various data type and modifiers.
 
 <table>
@@ -254,17 +260,17 @@ The table below shows various data type and modifiers.
 Actually void for `X` and elipsis for `Z` can be used only for terminator of [argument list](#element-arglist) or pointer. Otherwise, `X` is used as cointerface.
 
 
-<h4 id="element-type-primitive">Primitive &amp; Extended Type</h4>
+<h3 id="element-type-primitive">Primitive &amp; Extended Type</h3>
 Primitive types are represented as one character, and extended types are represented as one character preceding `_`.
 
 
-<h4 id="element-type-backref">Back Reference</h4>
+<h3 id="element-type-backref">Back Reference</h3>
 Decimal digits `0` to `9` refers to first shown type to 10th shown type in argument list. (It means return type cannot be referred.) Back reference can refer to any non-primitive type, including extended type. Of course back reference can refer to prefixed type such as `PAVblah@@`(`class blah *`), but cannot refer to prefixless type &mdash; say, `Vblah@@` in `PAVblah@@`.
 
 As back reference for name, in [template argument list](#element-arglist-template) back reference table is separately created. Function argument list has no such scoping rule, though it can be confused sometimes. For example, assume `P6AXValpha@@Vbeta@@@Z`(`void (__cdecl*)(class alpha, class beta)`) is first shown non-primitive type. Then `0` refer to `Valpha@@`, `1` refer to `Vbeta@@`, and finally `2` refer to function pointer.
 
 
-<h4 id="element-type-typemod">Type Modifier</h4>
+<h3 id="element-type-typemod">Type Modifier</h3>
 Type modifier is used to make pointer or reference. Type modifier looks like this:
 
 * Modifier type
@@ -298,7 +304,7 @@ For normal type, referred type info is [data type](#element-type). For function,
 * [Function property](#element-function)
 
 
-<h4 id="element-type-aggregate">Complex Type (union, struct, class, coclass, cointerface)</h4>
+<h3 id="element-type-aggregate">Complex Type (union, struct, class, coclass, cointerface)</h3>
 Complex type looks like this:
 
 * Kind of complex type (`T`, `U`, `V`, ...)[^6]
@@ -307,7 +313,7 @@ Complex type looks like this:
 [^6]: `?` and `L` can be complex type without any tag such as class, but it can also be a bug of the function.
 
 
-<h4 id="elemene-type-enum">Enumerate Type (enum)</h4>
+<h3 id="elemene-type-enum">Enumerate Type (enum)</h3>
 Enumerate type starts with prefix `W`. It looks like this:
 
 * Prefix `W`
@@ -332,7 +338,7 @@ Real type for enum is represented as the following:
 </tbody>
 </table>
 
-<h4 id="elemene-type-array">Array</h4>
+<h3 id="elemene-type-array">Array</h3>
 Array (not pointer to array!) starts with prefix `_O`. It looks like this:
 
 * Prefix `_O`
@@ -342,7 +348,7 @@ Array (not pointer to array!) starts with prefix `_O`. It looks like this:
 You can use multi-dimensional array like `_OC_OBH`, but only the outmost CV-class modifier is affected. (In this case `_OC_OBH` means `int volatile [][]`, not `int const [][]`)
 
 
-<h4 id="elemene-type-template">Template Parameter</h4>
+<h3 id="elemene-type-template">Template Parameter</h3>
 Template parameter is used to represent type and non-type template argument. It can be used in only [template argument list](#element-arglist-template).
 
 The table below is a list of known template parameters. *a*, *b*, *c* represent [encoded signed numbers](#element-number), and *x*, *y*, *z* represent [encoded unsigned numbers](#element-number).
@@ -367,7 +373,7 @@ The table below is a list of known template parameters. *a*, *b*, *c* represent 
 
 [^7]: For example, `$2HKLH@?2` means 3.1415 &times; 10^-3^ = 0.0031415, because `HKLH@` means 31415 and `?2` means -3.
 
-<h3 id="element-arglist">Argument List</h3>
+<h2 id="element-arglist">Argument List</h2>
 Argument list is a sequence of [data types](#element-type). List can be one of the following:
 
 * `X` (means `void`, also terminating list)
@@ -375,11 +381,11 @@ Argument list is a sequence of [data types](#element-type). List can be one of t
 * *arg1* *arg2* ... *argN* `Z` (means list with trailing elipsis)
 
 
-<h4 id="element-arglist-template">Template Argument List</h4>
+<h3 id="element-arglist-template">Template Argument List</h3>
 Template argument list is same to argument list, except [template parameters](#element-type-template) can be used.
 
 
-<h3 id="element-cvclass">CV-class Modifier</h3>
+<h2 id="element-cvclass">CV-class Modifier</h2>
 The following table shows CV-class modifiers.[^0]
 
 <table class="centered-cell">
@@ -420,7 +426,7 @@ CV-class modifier is usually used in reference/pointer type, but it is also used
 * Modifier of data: cannot have function property.
 
 
-<h3 id="element-basedprop">\__based() Property</h3>
+<h2 id="element-basedprop">\__based() Property</h2>
 \__based() property represents Microsoft's \__based() attribute extension to C++. This property can be one of the following:
 
 * `0` (means `__based(void)`)
@@ -428,7 +434,7 @@ CV-class modifier is usually used in reference/pointer type, but it is also used
 * `5` (means no `__based()`)
 
 
-<h3 id="element-function">Function Property</h3>
+<h2 id="element-function">Function Property</h2>
 Function property represents prototype of function. It looks like this:
 
 * Calling convention of function
@@ -462,7 +468,7 @@ The following table shows calling convention of function:
 Argument list for throw() attribute is same to [argument list](#element-arglist), but if this list is `Z`, it means there is no throw() attribute. If you want to use `throw()` you have to use `@` instead.
 
 
-<h2 id="function">Function</h2>
+<h1 id="function">Function</h1>
 Typical type information in function name looks like this:
 
 * *Optional:* Prefix `_` (means __based() property is used)
@@ -489,7 +495,7 @@ The table below shows code for access level and function type:
 This kind of thunk function is always virtual, and used to represent logical `this` adjustor property, which means an offset to true `this` value in some multiple inheritance.
 
 
-<h2 id="data">Data</h2>
+<h1 id="data">Data</h1>
 Type information in data name looks like this:
 
 * Access level and storage class
@@ -514,7 +520,7 @@ The table below shows code for access level and storage class:
 CV-class modifier should not be function.
 
 
-<h2 id="thunkfunction">Thunk Function</h2>
+<h1 id="thunkfunction">Thunk Function</h1>
 There is several kind of thunk function. <small>[TODO: a lot of thunk function!]</small>
 
 [^0]: Some tables contain two or more entries in one case. In this case, I tried to place more frequently used entry in the front. (But I'm not sure that this placement. Don't ask it for me!)
