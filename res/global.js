@@ -228,6 +228,7 @@ $('.mearie-activity noscript').each(function(i) {
 			var shorten = true, iconurl, mainurl, region;
 			if (via.match(/^http:\/\/twitter\.com\//)) {
 				if (lang == 'ko') return; // skip in korean pages
+				if (body.match(/^RT /)) return; // ignore retweets
 				iconurl = 'http://twitter.com/favicon.ico';
 				mainurl = 'http://twitter.com/seonkay/';
 				region = (lang=='ko' ? '트위터' : 'Twitter');
