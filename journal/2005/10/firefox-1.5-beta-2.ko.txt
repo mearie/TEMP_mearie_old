@@ -1,0 +1,27 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'파이어폭스 1.5 베타 2'
+when = '2005-10-10T12:33:24+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=13'
+%>
+
+[디어 파크 알파 2](http://www.mozilla.org/projects/deerpark/releases/alpha2.html)를 지금껏 용케도 잘 써 왔는데, 프로필이 반쯤 꼬여 버리는 바람에 (가장 주된 이유는, 매크로미디어 플래시 8 플러그인이 이상하게 설치되어서 모든 플래시가 먹통이 되어 버렸다) 그냥 모르겠다 하고 밀어 버리고 새로 깔았다. 다음은 그 과정을 정리한 것이다.
+
+* 일단 프로필 디렉토리에서 bookmarks.html과 prefs.js만 어디다 잘 백업해 놓았다. 이거 날라가면 좀 곤란하다. -_-;
+* 디어 파크 알파 2와 혹시나 싶어서 계속 남겨 두고 있던 파이어폭스 1.0.6을 싸그리 지우고, 지우고 나서도 아직도 남아 있는 프로필 디렉토리도 지웠다.
+* 파이어폭스 1.5 베타 1을 깔았다. (베타 2가 나왔다는 사실을 몰랐음) 일단 잘 돌아 가는 걸 확인하고, 프로필 디렉토리에서 백업해 놓았던 파일들을 다시 원래 위치에 돌려 넣었다.
+* [Mozilla Update](https://addons.mozilla.org/)에서 쓸만한 테마를 찾기 시작했다. 파이어폭스를 처음 깔고 나서 지금까지 징하게도 쓰고 있는 [Charamel](http://members.shaw.ca/lucx/)이 지겨워서 딴 걸 찾아 봤는데 몇 가지 이유로 모두 포기했다.
+* Charamel 사이트는 제작자가 1.5에서 돌아 가는 버전을 만들려고 준비하는 모양인지 문을 아예 닫아 놓은 상태였지만, 다행히도-_- 잘 뒤져서 1.5 베타 버전에서도 동작하는 1.1.991 버전 테마를 구할 수 있었다. (어디에 있는 지는 직접 찾아 보시길. 나처럼 습관적으로 HTML 소스를 뒤지는 습관이 있는 사람에게 유리하다.)
+* 자주 쓰던 확장들을 찾아서 깔았다. 대부분의 주요 확장들은 1.5 베타가 나오는 족족 알아서 패치를 내 놓았기 때문에 까는 데 별 무리가 없었으며, 심지어 파이어폭스가 이번 버전에서 호환되는 확장들을 자동으로 변환-_-까지 하는 경우도 있었다. 내가 깐 확장은 다음과 같다: [Chatzilla](https://addons.mozilla.org/extensions/moreinfo.php?id=16)(0.9.68.5.1), [Adblock](https://addons.mozilla.org/extensions/moreinfo.php?id=10)(0.5.2.039), [All-in-One Gestures](https://addons.mozilla.org/extensions/moreinfo.php?id=12)(0.17.2), [Web Developer](https://addons.mozilla.org/extensions/moreinfo.php?id=60)(0.9.4), [Image Zoom](http://imagezoom.yellowgorilla.net/development/)(0.1.9.20050928), [User Agent Switcher](https://addons.mozilla.org/extensions/moreinfo.php?id=590)(0.6.7). 아직 [Cutemenus](https://addons.mozilla.org/extensions/moreinfo.php?id=23)는 1.5 베타와 호환되는 버전이 나오지 않아서 포기했다.
+* 마지막으로 내가 보통 쓰는 대로 툴바들을 통째로 고쳐 놓았다. 이건 chrome에서 바뀌는 거라서 그대로 옮길 수가 없었다.
+* 하루 쯤 뒤에 자동으로 베타 2로 업데이트하라는 메시지가 나오길래 깔아 줬다. 음, 베타 1과 큰 차이는 없다만 뭔가 많이 고쳐졌다니 업데이트해 주는 게 좋겠다.
+
+대충 써 보니까 디어 파크 때보다 더 빨라졌다-\_-는 것만은 분명해 보인다. 디어 파크랑 호환되지 않던 Image Zoom을 다시 쓸 수 있다는 것도 대환영이다. -\_-; 다만 옵션 창에서 옵션 분류 탭이 위로 옮겨 간 건 아무리 봐도 그리 익숙해지지는 않더라. (뭐라고 해야 하나, <abbr title="유저 인터페이스">UI</abbr>를 좀 개선하려고 그런 건진 몰라도 개선이 되었다고 보기는 좀 그렇다.)
+
+덤: 이번 버전에서도 이 문제는 그대로이다.
+
+<%m:img src="20051010.firefox15b2.scrollbar.png" align="left" bordered="1">세로 스크롤바가 이상하게 나오는 화면</%m:img>
+개인적으로 좋아하는 윈도우 테마가 있는데 그걸 사용하다 보니까 세로 스크롤바가 이상하게 나오는 문제가 있다. (가로 스크롤바는 별 문제가 없다) 내가 다른 테마를 쓰지 못 했던 이유가 바로 이것 때문이었는데, 세로 스크롤바의 폭이 두 배가 되어 버려서 꽤 불편해진다는 것이었다. 아마 <abbr title="XML User Interface Language">XUL</abbr>에서 운영체제로부터 테마 metrics를 받아 올 때 뭔가 삽질을 하는 게 아닌가 싶은데, 혹시 이 문제를 어떻게 해야 할 지 아시는 분 계시면 알려 주시면 감사하겠다 -_-;;; 아무리 해도 안 된다면 시간 나는 대로 버그 리포팅을 해 봐야 겠다.
+

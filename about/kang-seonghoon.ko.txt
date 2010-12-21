@@ -1,0 +1,14 @@
+## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
+<%! title = u'강 성훈' %>
+
+<%m:imgframe src="lifthrasiir-20081108.jpg" align="right">2008년 11월 8일. (&copy; [김 준기](http://www.flickr.com/photos/daybreaker12/3011869731/))</%m:imgframe>
+
+사람입니다.
+
+열살 쯤에 처음 컴퓨터를 접했을 때는 이걸로 먹고 살 줄은 꿈도 못 꿨을 겁니다. 학교에서 나가라길래 나가기 시작한 정보올림피아드가 인연이 되어 전산학과 컴퓨터 프로그래밍의 세계에 몸을 담은지 십수년째, 지금은 [카이스트](http://www.kaist.ac.kr/) [전산학과](http://cs.kaist.ac.kr/)에서 학사 및 석사 과정을 밟으면서 소프트웨어 개발과 리듬 게임, 애니메이션 감상, 귤 섭취를 하고, 지구 평화와 인류의 미래 및 점심에 뭐 먹을 지를 걱정하며 살고 있습니다. 여친 및 애인 아직 없습니다.
+
+온라인에서는 흔히 리프트라시르(lifthrasiir)나 아라크넹(arachneng) 같은 이름을 많이 씁니다. 지금은 쓰지 않지만 토끼군(tokigun)이라는 이름을 보신다면 이것도 저라고 보시면 됩니다. 하지만 공식적인 자리에서는 본명만 사용합니다…
+
+좀 더 진지한 소개는 [이력](curriculum-vitae)(영문)에서 볼 수 있습니다. 연락하는 방법은 [연락처](contact)를 참고해 주세요.
+

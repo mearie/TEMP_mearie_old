@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'Waka Laka!'
+when = '2006-05-06T15:15:37+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=92'
+%>
+
+[YouTube - Waka Laka for Osaka](http://youtube.com/watch?v=i0tTTGH4Xi4)
+
+<%m:img src="20060506.wakalaka4osaka.jpg" align="center">Waka Laka for Osaka</%m:img>
+
+DDR 7th 곡이기도 한 Waka Laka를 아즈망가 대왕에 잘 섞어서 만든 애니메이션 뮤직 비디오(AMV). (그래서 그냥 보기에는 DDR 삘이 팍팍 난다.) 중독성이 엄청나게 강해서 나는 아예 음악 받아서 무한으로 돌리고 있다. orz
+
+이 애니메이션을 만든 [Aquiline Studios](http://www.tcnj.edu/~tomwol2/)는 이 동영상으로 상도 탔다고 한다. 여기에 있는 [동영상 페이지](http://www.tcnj.edu/~tomwol2/wakalaka.html)에서 고해상도 버전을 받을 수 있다. (you know who you are? sure, I know who I am :)
+

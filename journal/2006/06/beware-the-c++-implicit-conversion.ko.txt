@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'Beware the C++ implicit conversion'
+when = '2006-06-04T16:10:24+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=104'
+%>
+
+[The Old New Thing - Beware the C++ implicit conversion](http://blogs.msdn.com/oldnewthing/archive/2006/05/24/605974.aspx) ([codian.net](http://codian.net/wp/archives/373)에서)
+
+내가 만드는 코드가 실제로 어떤 영향을 줄 지 예측을 제대로 하지 못하면 나중에 삽질하기 일쑤이다. explicit 같은 것도 그런 것 중의 하나긴 한데... 개인적으로는 이런 상황을 막기 위해서라도 explicit가 키워드가 되는 게 아니라 implicit가 키워드가 되었어야 (그리고 묵시적인 형변환이 가능해야 할 부분에 implicit를 집어 넣도록 해야) 한다고 생각한다. 혹시 explicit가 형 변환 말고 다른 곳에서도 사용되는 키워드라면 좀 알려 주시길 -_-;
+
+(문득 비슷한 맥락에서 옛날 VB의 Option Explicit가 생각난다. 안 쓰면 나중에 코드가 개판이 되던... 그래서 VB.net으로 간 건가?)
+

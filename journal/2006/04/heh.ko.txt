@@ -1,0 +1,25 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'<b>heh</b>'
+when = '2006-04-12T14:47:30+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=82'
+%>
+
+\* 제목은 의도적이며 절대 HTML 태그가 삐져 나온 게 아닙니다.
+
+그냥 heh가 아니라 굵은 **heh**는 (그들이 주장하는 바에 따르면) irc.oftc.net IRC 네트워크의 #openbox 채널에서 시작되었다고 [카더라](http://syscrash.ca/stuff/heh.html). 사용법은 다음과 같다(고 한다).
+
+> <누군가> [뭔가 의미 있는 내용]  
+> <나머지> **heh**  
+> <누군가> [내용 계속]
+
+이 사람들은 따라서 **heh**라는 말을 쓸 때는 다음과 같이 쓸 것을 권장하고 있다.
+
+> **heh** (irc.oftc.net:#openbox의 safari_al이 썼으며 인증됨)
+
+한글로는 [바벨피쉬](http://babelfish.altavista.com/)의 번역을 따라 **헣**이라고 써 주면 되겠다.
+
+앞으로는 "ㄹ..."이 들어 간 [클리셰](http://klutzy.dnip.net/wiki/index.php/%ED%81%B4%EB%A6%AC%EC%85%B0)도 저렇게 써 보는 것이 좋겠다. ㄹ 뒤의 마침표는 꼭 세 개여야 한다. ···(U+00B7 3개), …(U+2026) 같은 건 허용하지 않는다. 이 쯤 하면 될라나?
+

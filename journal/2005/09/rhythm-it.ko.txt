@@ -1,0 +1,19 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'백만년만의 리듬잇'
+when = '2005-09-15T00:02:06+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=3'
+%>
+
+오랜만에 [리듬잇](http://nvyu.net/rdm/)을 맘껏 해 봤다. 한 시간 반, 수업, 그리고 다시 두 시간 한 것 같은데 오랜만이라서 그런지 좀 손이 꼬이는 건 어쩔 수 없는 모양이다.
+
+받아야지 받아야지 하면서 계속 까먹고 있었던 [BMS OF FIGHTER 2005](http://manbow.nothing.sh/event/event.cgi?action=List_def&event=22) 곡들도 마구 받아서 플레이하고... 오늘 하룻동안 한 50곡 정도 한 것 같다. 재밌는 곡들이 많아서 기분이 좋았다 :) (덕분에 EXP RANK 2위 다시 탈환 -ㅅ-)
+
+<%m:imgframe src="20050914.rdmirank.png" align="center" alt="9월 14일 현재 리듬잇 랭킹 상황">노란 YELL 100만개가 얼마 안 남았구나 -_-</%m:imgframe>
+
+좋아하는 걸 마음껏 할 수 있다는 건 즐거운 일이구나.
+
+덤: 그나저나 리듬잇 2가 개발 중이었다는 건 이 글 쓰면서 알았다. -_-;;;;; (개발 할 거라는 얘기만 들었지 상황을 알 수가 없어서...) 그게 내 개발 계획에 영향을 주는 건 아니지만.
+

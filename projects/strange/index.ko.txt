@@ -1,0 +1,195 @@
+## vim: syn=mako
+
+저는 개인적으로 이상야릇한 코드들을 짜는 것을 즐깁니다. 프로그래머로서 일종의 유희라고 할 수 있겠네요. 아래는 제가 짜 온 이상야릇한 코드들의 목록과 간략한 설명입니다.
+
+
+난해한 프로그래밍 언어
+======================
+
+난해한 프로그래밍 언어(esoteric programming language)는 실용적으로 쓰일 것을 의도하지 않고 일부러 꼬아 만든 프로그래밍 언어입니다. 이들 언어는 단순히 꼬아 만들었다는 데 의의가 있는 것도 있고, 패러디라거나, 새롭고 특이한 언어 구조 및 기능의 테스트라거나, 이론적 도전이라거나, 심지어 프로그램을 짤 수 없게 만드는 게 목표인 언어도 있습니다.
+
+저는 **[버섯 프로그래밍 언어](/projects/versert/)**의 개발자이며, **[아희](http://puzzlet.springnote.com/pages/219150)**의 설계 과정에 참여한 바도 있습니다. (하지만 실제 설계자는 제가 아니라 [PuzzletChung](http://puzzlet.org/) 님입니다. 착각하지 맙시다.) 한편 **[esotope](/projects/esotope/)** 프로젝트를 통해 꽤 많은 난해한 프로그래밍 언어들을 구현하기도 하고 있습니다.
+
+아희
+----
+
+아희의 설계 외에도 저는 아희 코드를 짜거나 아희 코딩을 위한 여러 유틸리티를 만들었습니다. 여기에 대해선 [별도 페이지](aheui)를 참고해 주세요.
+
+비펀지
+------
+
+개발에 관여하지 않은 언어 중에서 가장 선호하는 언어로 [비펀지](http://esolangs.org/wiki/Befunge) 계열의 언어들이 있습니다. 이 언어들은 이차원 프로그래밍 언어로 코드의 흐름이 이차원 공간에서 임의로 만들어질 수 있습니다. (삼차원 이상으로 확장한 언어들도 있는데 이들은 펀지[Funge]라 부릅니다.) 사실 따지고 보면 버섯과 아희 모두 이차원 프로그래밍 언어긴 합니다만...
+
+제가 짠 비펀지 및 펀지 코드는 [별도의 페이지](funge)를 참고해 주세요. 한편 esotope에도 비펀지 및 펀지 구현체가 있는데 각각 [minbf93](/projects/esotope/minbf93)과 [PyFunge](/projects/pyfunge/)입니다.
+
+Whirl
+-----
+
+한편 저는 [Whirl](http://bigzaphod.org/whirl/)의 초기 단계에서 적절한 코드들을 작성한 바가 있습니다. 지금은 시간이 많이 지나서 다른 사람들이 제 코드보다 더 좋은 걸 많이 만들었지만... 하여튼 이 코드들 역시 [별도의 페이지](whirl)에 있습니다.
+
+기타
+----
+
+<small id="hello-null">(2005-01-17)</small> 아래는 "Hello, world!"를 출력하는 최초의 [NULL](http://esolangs.org/wiki/NULL) 프로그램입니다. 이 프로그램은 176자리 자연수로 다음과 같습니다. (편의상 여러 줄로 나눔)
+
+	                                                                1536093936378695
+	03971282839335995386248921743204830348570033550157913898858976126298703504031567
+	45676936815818730836908075646108694411913908753341542249057283074613678144889367
+
+<small id="quine-3code">(2005-08-02)</small> 다음은 [3code](http://bigzaphod.org/3code/) 콰인, 즉 자기 자신을 출력하는 프로그램입니다.
+
+	F ! 0 "[10]"[70]"[32]"[34]"[32]"[49]"[32]"[120]"[32]"[116]"[104]"[101]"[110]"[32]"[119]"[114]"[105]"[116]"[101]"[91]"[51]"[52]"[93]"[119]"[114]"[105]"[116]"[101]"[91]"[57]"[49]"[93]"[112]"[114]"[105]"[110]"[116]"[91]"[105]"[93]"[119]"[114]"[105]"[116]"[101]"[91]"[57]"[51]"[93]"[101]"[108]"[115]"[101]"[32]"[119]"[114]"[105]"[116]"[101]"[91]"[105]"[93]"[63]"[10]"[34]"[91]"[55]"[48]"[93]"[34]"[91]"[51]"[50]"[93]"[34]"[91]"[51]"[51]"[93]"[34]"[91]"[51]"[50]"[93]"[34]"[91]"[52]"[56]"[93]"[34]"[91]"[51]"[50]"[93]"[49]"[61]"[120]"[32]"[33]"[91]"[93]"[48]"[61]"[120]"[32]"[33]"[91]"[93]"[10]
+	F " 1 x then write[34]write[91]print[i]write[93]else write[i]?
+	"[70]"[32]"[33]"[32]"[48]"[32]1=x ![]0=x ![]
+
+난해한 프로그래밍 언어에 대한 더 자세한 설명과 언어 목록은 [esolangs 위키](http://esolangs.org/wiki/)(영문)를 참고하시기 바랍니다.
+
+
+난독화된 코드
+=============
+
+난독화된 코드(obfuscated code)는 난해한 프로그래밍 언어와 유사한 목적을 가지고 있지만, 이미 존재하는 멀쩡한 언어의 어두운 구석을 파헤쳐서 알아 먹을 수 없는 코드를 만드는 게 목표입니다. 혹자는 종종 난독화된 코드를 가지고 그림을 그리기도 합니다. 심지어 난독화된 코드의 왕중왕을 가리는 [대회](http://www.ioccc.org/)까지 있습니다!
+
+썩 실력은 좋지 않지만 저도 종종 난독화된 코드를 짭니다. 특히 모양 만드는 게 참 재밌는데, 요즘은 시간이 잘 나지 않는군요.
+
+쓸만한 프로그램들
+-----------------
+
+**[앙골모아](/projects/angolmois/)**는 멀티 플랫폼 리듬 게임으로, 처음에는 [프로젝트 앙골모아](http://angolmois.net/)의 팬아트(?)로 만들려고 했으나 귀찮아서 대강 마무리되었던 프로그램입니다. 물론 현재 개발 버전은 난독화되어 있지 않습니다.
+
+**[CikiWiki](cikiwiki)**는 IOCCC 2005에 내려고 만들었던, 하지만 대회 요건을 제대로 충족을 못 해서 바로 떨어졌으리라 추측되는 불운의 위키 프로그램입니다. CGI를 통해서 동작합니다.
+
+**[Text2PNG](text2png)**는 아무 외부 의존성 없이 입력받은 텍스트를 PNG 파일로 바꿔 주는 PHP 스크립트입니다. GD 라이브러리, FreeType 이런 거 다 필요 없습니다. 간단한 스팸 방지 용으로 좋습니다.
+
+난해한 프로그래밍 언어 구현
+---------------------------
+
+제가 짠 일부 난해한 프로그래밍 언어 인터프리터 중에는 일부러 난독화시킨 코드가 좀 있습니다. 현재는 이들 모두 esotope 프로젝트로 함께 관리되고 있습니다.
+
+* **[esotope-whirl](/projects/esotope/whirl)**은 조그마한 Whirl 인터프리터와 보조 유틸리티입니다.
+* **[esotope-ws](/projects/esotope/ws)**(별명 텐마[天満])는 파이썬으로 짠 [화이트스페이스](http://compsoc.dur.ac.uk/whitespace/) 언어의 완전한 구현체입니다. 왜 별명이 텐마인지는 보면 알게 됩니다...
+* **[esotope-minbf93](/projects/esotope/minbf93)**은 아주 작은 Befunge-93 인터프리터를 목표로 만든 프로그램입니다. 지금 보면 그다지 작진 않습니다.
+
+기타
+----
+
+<small id="pihex">(2004-08-04)</small> 아래는 16진법 원주율을 무한히 계산해 주는 파이썬 프로그램입니다. 여기에는 [Spigot 알고리즘](http://en.wikipedia.org/wiki/Spigot_algorithm)이 쓰이며, 더 많은 자릿수를 보려면 물론 `sys.setrecursionlimit`로 재귀 한계를 조정하면 됩니다.
+
+<%text filter="indent">
+Q=lambda o,O:Q(o+1,P([O[1],o*o*O[0]+(2*o+1)*O[1],O[3],o*o*O[2]+
+(2*o+1)*O[3]]));P=lambda O:O[0]//O[2]==O[1]//O[3]and(sys.stdout
+.write("0123456789ABCDEF"[O[0]//O[2]]),P([16*(O[0]%O[2]),16*(O[
+1]%O[3])]+O[2:]))[1]or O;import sys;Q(2,[4,12,1,4])#tokigun2004
+</%text>
+
+<small id="brainfuckfunc">(2004-11-29)</small> 아래는 Brainfuck 인터프리터를 구현하는 파이썬 함수입니다. 버퍼 없는 입출력을 위해 코드는 플랫폼에 따라 둘로 나뉘어 있습니다.
+
+<%text filter="indent">
+# 윈도용 (msvcrt 사용)
+def bf(s):exec"from msvcrt import*;p=q=d=n=0;x={};l=[]\nwhile p<len(s):\n if d:\
+d+={'[':1,']':-1}.get(s[p],0zin'+-':n+=44-ord(s[p]zin'<>':x[q]=n;q+=ord(s[p])-6\
+1;n=x.get(q,0z=='.':putch(chr(n)z==',':n=ord(getche()z==']':p=-1+l.pop(z=='[':d\
+,=n and[l.append(p)]or[1]\n p+=1".replace('z',')\n elif s[p]')#tokigun20041119:)
+
+# 유닉스용 (curses 사용)
+def bf(s):exec"from curses import*;u=initscr();p=q=d=n=0;x={};l=[]\nwhile p<len\
+(s):\n if d:d+={'[':1,']':-1}.get(s[p],0zin'+-':n+=44-ord(s[p]zin'<>':x[q]=n;q+\
+=ord(s[p])-61;n=x.get(q,0z=='.':u.echochar(nz==',':n=u.getch(z==']':p=-1+l.pop(\
+z=='[':d,=n and[l.append(p)]or[1]\n p+=1\nendwin()".replace('z',')\n elif s[p]')
+</%text>
+
+<small id="convertbase-for-python">(2004-06-27, 2004-12-01)</small> 파이썬에서 간단하게 쓸 수 있는 `convert_base` 함수입니다. PHP [`base_convert`](http://kr.php.net/base_convert) 함수와 그 사용법이 거의 같습니다.
+
+<%text filter="indent">
+convert_base=lambda N,A,B,P=0:(lambda v,n:''.join(map(lambda x:chr(x+(x>9 and 55
+or 48)),[(v//n**k)%n for k in xrange(4*len(str(v)))]))[::-1].lstrip('0'))(reduce
+(lambda x,y:x*A+ord(y.upper())-(y<'A'and 48 or 55),str(N),0),B).zfill(P or 1)#:)
+</%text>
+
+<small id="tinyp2p-shortened">(2004-12-24)</small> 다음은 이미 난독화되어 있던 파이썬 P2P 프로그램인 [TinyP2P](http://www.freedom-to-tinker.com/blog/felten/p2p-15-lines-code)를 아홉 줄로 더 줄인 것입니다. 원래 코드는 열 다섯 줄이었습니다.
+
+<%text filter="indent">
+import sys,os,SimpleXMLRPCServer as S,xmlrpclib as L,re,hmac;T=lambda x=[]:([(y 
+in s)or s.append(y)for y in x],s)[1];f=lambda p,n,a:p==P(M)and{0:T,1:lambda a:[U
+(a)]}.get(n,lambda n:L.Binary(file(n,'rb').read()))(a);U=lambda p='':[n for n in
+os.listdir(os.getcwd())if re.search(p,n)];O=lambda u:(u==M and T())or T(X(u).f(P
+(u),0,T([M])));P=lambda u:hmac.new(V[1],u).hexdigest();V=sys.argv;M="http://"+V[
+3]+":"+V[4];X=L.ServerProxy;s=V[5:];"server"!=V[2]and([[file(F,"wb").write(X(l).
+f(P(l),2,F).data)for F in[i for i in X(l).f(P(l),1,V[4])[0]if not i in U()]]for 
+l in X(V[3]).f(P(V[3]),0,[])],sys.exit(0));i=S.SimpleXMLRPCServer((V[3],int(V[4]
+)));T()and map(O,O(T()[0]));i.register_function(f,"f")or i.serve_forever();('_')
+</%text>
+
+<small id="kennifier">(2005-01-28)</small> 다음은 [사우스 파크](http://en.wikipedia.org/wiki/South_Park)에 등장하는 케니 모양으로 만든 프로그램입니다. 프로그램 인자로 문장을 주면 그 문장을 "케니화" 해 주고, 케니화한 문장을 주면 원래대로 되돌려 줍니다.
+
+<%text filter="indent">
+             #include<stdio.h>
+         #define            C char
+       int                       main
+     (int                           c,C
+    **                                v)
+   {{           int i,j,k;             if
+  (c        >1){for     (i=!v++         ;(
+ c=       i[*v]&           ~32)&&        !(
+#        define N(n)   {;putchar(n)       ;}
+c>      64&&c<      +91      &&-70+c      &&
+c-     77&&80        -        c);i+=1     );
+if    ( c)for    (;  c   =*   *v&~32;     ++
+*v    ) if(c<        65       ||90< c     )N
+(*    *  v)else     {  c     -=65;N (     **
+v&     +  32|(c   /9    %3  )["MPF  "     ])
+ N(     "   mpf"[c        /3%3+3   ]     )N
+  ((     c%    3)["mpf"])}else   {;    for
+   (i=     0;*        *v       ;(    ++*
+     v))      if((j=**v|32)>122    ||j
+       <97)           { N        (** v
+      )}  else                 {k=   i%
+      3?     k:**v;c      =(i++%      3?
+     c*           3:0)+j%12/      3;   if
+     (!   (i           %           3)  )N
+    ((k&96)            +           c+1)}}}
+    else{N(            5           *17)N(5
+     *23)N(            7           +90);;
+          printf("ge: %s <string>\n"
+          ,                        *
+         v);}/**tokigun**/return 0;}}
+</%text>
+
+<small id="fractaltree">(2005-03-17)</small> 랜덤한 프랙탈 나무를 그려 내는 파이썬 프로그램입니다. [pygame](http://pygame.org/) 1.6 이상과 24비트(트루컬러) 이상의 색 설정이 필요합니다. 나무의 색깔은 계절에 따라 달라지며 다 그린 뒤 조금 쉬었다가 다음 계절의 나무를 보여 줍니다.
+
+<%text filter="indent">
+def d(n,x,l,t):y=x[0]+l*math.sin(t),x[1]+l*math.cos(t);draw.aaline(c,(a[
+u]+a[u+1]*n,a[u+2]+a[u+3]*n,a[u+4]),x,y);r=random.random;(display.flip()
+,event.poll());n and[d(n-1,y,l*(.7+r()/5),t+i*r())for i in(-1,1)];2005.3
+from pygame import*;import math,random,time;c=display.set_mode((800,600)
+);u=time.localtime()[1]%12/3*5;s='winter','spring','summer','autumn';a=(
+30,2.5,30,1,30,20,1.5,30,-.5,10,10,2,30,-.5,10,30,1,30,-.5,10);p=math.pi
+while 1:c.fill((0,0,16));display.set_caption("tree: "+s[u/5]);draw.rect(
+c,(32,)*3,(0,550,800,50));d(17,(400,550),100,p);u=(u+5)%20;time.sleep(3)
+</%text>
+
+
+코드 골프
+=========
+
+코드 골프(code golfing, short coding)는 특정한 조건을 만족하는 가장 짧은 코드를 만드는 것이 목표입니다. 특성상 그 결과물이 난독화된 코드인 경우가 많습니다만, 해당 언어에 대한 극단적인 지식과 사고의 전환이 필수적인 행위이지요.
+
+코드 골프는 유희이기도 하지만 사람들의 도전 정신 때문에 종종 각축장(?)이 되기도 합니다. [codegolf.com](http://codegolf.com/)이나 [Anarchy Golf](http://golf.shinh.org/) 같은 곳은 아예 문제가 올라가면 코드가 짧은 순으로 순위를 매겨서 보여 주기도 합니다. 저는 이들 사이트에서 lifthrasiir라는 아이디로 활동하고 있으며 파이썬 골프에 흔히 보입니다.
+
+대회
+----
+
+<small>(2009-08-08)</small> 다음 세 C 코드는 모 코드 골프 대회에서 제출한 코드입니다. 이런 쪽의 경험이 없는 사람들이 태반이라 가볍게(?) 1등을 달성했는데 조금 미안하네요. 조금 더 줄일 수 있을 것 같기도 하고.
+
+<%text filter="indent">
+/* 문제 1 (101B) */
+u;main(v){for(;v=u++[(short*)"\310P$I\"E\"E$I(Q(Q$I\302D"];puts("."))for(;v;v/=2)putchar(46-v%2*11);}
+
+/* 문제 2 (205B) */
+i,j;char c[6];main(v){for(;gets(c);)for(j=5;j--;puts(""))for(i=0;i<5;++i-2||printf(".%c.",46-j%i++*11))
+for(v="djjjddddddnbnhnnhnhnhhnjjnhnbnnjnbbhhhhnnjnjnhhnjn"[c[i]*5-240+j];v>3;v/=2)putchar(46-v%2*11);}
+
+/* 문제 3 (114B) */
+v,w,x,z=1e8;main(u){for(;~scanf("%d",&u);printf("%08d\n",x))for(x=0;u;x=(x+v)%z,u--)for(v=w=u;--w;v=(v*1ll*u)%z);}
+</%text>
+

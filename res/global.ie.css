@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+* html #siteside {
+	float: left;
+	text-align: left;
+	margin: 0 0 1em 0;
+}
+* html pre {
+	padding-left: 4px;
+	padding-right: 4px;
+	width: 632px;
+}
+* html .post pre {
+	width: 608px;
+}
+input.button {
+	height: 1.9em;
+}
+* html .response .contents {
+	height: 2.75em; /* IE 6 height is a lot similar to max-height */
+}
+
+/* language fix
+ * - onload handler should convert lang="xx" attributes into class="lang-xx"
+ * - if lang is known in advance, use class="lang-xx" for first place
+ */
+.lang-en, .lang-en * {
+	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
+}
+code.lang-en, .lang-en code, code.lang-en *, .lang-en code *, pre.lang-en, .lang-en pre, pre.lang-en *, .lang-en pre *,
+var.lang-en, .lang-en var, var.lang-en *, .lang-en var *, samp.lang-en, .lang-en samp, samp.lang-en *, .lang-en samp *,
+kbd.lang-en, .lang-en kbd, kbd.lang-en *, .lang-en kbd *, tt.lang-en, .lang-en tt, tt.lang-en *, .lang-en tt *,
+textarea.lang-en, .lang-en textarea {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", "Luxi Mono", monospace;
+}
+.lang-ko, .lang-ko * {
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+code.lang-ko, .lang-ko code, code.lang-ko *, .lang-ko code *, pre.lang-ko, .lang-ko pre, pre.lang-ko *, .lang-ko pre *,
+var.lang-ko, .lang-ko var, var.lang-ko *, .lang-ko var *, samp.lang-ko, .lang-ko samp, samp.lang-ko *, .lang-ko samp *,
+kbd.lang-ko, .lang-ko kbd, kbd.lang-ko *, .lang-ko kbd *, tt.lang-ko, .lang-ko tt, tt.lang-ko *, .lang-ko tt *,
+textarea.lang-ko, .lang-ko textarea {
+	font-family: "NanumGothicCoding", "나눔고딕코딩", "NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
+}
+.lang-ja, .lang-ja * {
+	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
+}
+em.lang-ko, .lang-ko em {
+	font-style: normal;
+	text-decoration: underline;
+}
+
+/* external link fix
+ * - onload handler should convert href="http://..." attributes into class="external"
+ *   (except for *.mearie.org domains)
+ * - see global.css for rationale of disabling CSS rules entirely in IE7+
+ */
+a.external {
+	padding-left: 3px;
+	background: transparent url(link-external.png) top left no-repeat;
+}
+.tray a.external, .copyright a.external {
+	background-image: url(link-external-m.png);
+}
+a.external:hover, a.external:active {
+	background-image: url(link-external-a.png);
+}
+

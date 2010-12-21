@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'거의 마무리'
+when = '2006-03-06T23:18:34+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=63'
+%>
+
+[황교수, 줄기세포 `시료조작' 지시 시인](http://news.media.daum.net/edition/it_sci/200603/06/yonhap/v11918779.html)
+
+앞으로 저 인간이 다시 교수직 복귀한다던지 하고 난리 치면 과학계에는 희망이 없다. 교수직 복귀가 불가능하게 되면 최 익곤 같은 인간으로 변신하려나? (그런 사람들은 보통 노벨상을 목표로 하곤 하는데.)
+

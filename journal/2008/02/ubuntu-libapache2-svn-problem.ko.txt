@@ -1,0 +1,22 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'우분투의 libapache2-svn 문제'
+when = '2008-02-23T13:14:44+09:00'
+tags = [u'삽질', u'서브버전', u'우분투']
+original = 'http://mearie.org/journal/2008/02/ubuntu-libapache2-svn-problem'
+%>
+
+어제 [메아리 서브버전 저장소](http://svn.mearie.org/)에 커밋이 안 되어서 한참동안 삽질을 했는데, 혹시나 같은 문제를 겪고 있는 사람을 위하여 써 둔다.
+
+루리넷은 현재 우분투 페이스티 서버 기반으로 작동하고 있다. 어제 문제는 서브버전에 커밋하려고 할 때 다음과 같은 에러 메시지를 내뱉으면서 죽는 것이었다.
+
+	svn: MKACTIVITY of '/!svn/act/2b621d62-ba46-0410-a72a-c5c0dc31ae18':
+	Could not read status line: connection was closed by server. (http://svn.mearie.org)
+
+황당한 것은 이게 체크아웃할 때는 전혀 문제가 없는데 커밋할 때는 항상 맛이 간다는 것이었다. 혹시나 싶어서 svnadmin dump 후 load를 해 보거나, 모든 버전을 최신으로 새로 갈아 버린다거나, 아파치 설정을 일부 고치거나 (svn.mearie.org는 여러 이유로 괴악한 아파치 설정을 사용하고 있다. 보면 까무러칠 듯.) 해도 별로 차도가 없어서 svnserve나 올릴까 싶었는데, 오늘 혹시나 해서 몇 가지 검사를 해 보니 문제가 드러났다.
+
+문제는 바로 mod\_dav\_svn 등의 모듈을 담고 있는 libapache2-svn 패키지의 버그(인가?)였다. 버전 문제라고 예상되어 버전을 봤는데 1.4.3으로 같아서 문제가 없는 줄 알았는데, 알고 보니 1.4.3dfsg1-1ubuntu1는 멀쩡하고 1.4.3dfsg1-1ubuntu1.2는 문제가 있는 것이었다. (ChangeLog를 보니 1.1은 파이썬 바인딩에 대한 얘기니 문제가 안 될 것 같고 1.2에서의 변경점에 문제가 있는 듯.) 그래서 1로 판을 내려 버리고 1.2 설치를 금지하게 하니 (aptitude에서 시프트-F) 멀쩡해졌다. -_-
+
+도대체 어떻게 컴파일을 했길래 <abbr title="애플리케이션 바이너리 인터페이스">ABI</abbr>가 깨지는 건지는 궁금한데, 하여간 무작정 업그레이드하는 건 삽질이라는 걸 다시 깨달은 사건이었다.
+

@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'인클봇 판타지를 소개합니다'
+when = '2007-10-28T19:42:04+09:00'
+tags = [u'인클봇', u'삽질', u'통계']
+original = 'http://mearie.org/journal/2007/10/introducing-inklbot-fantasy'
+%>
+
+시험은 끝나고 코딩하긴 귀찮고 해서 뭘 하면 좋을까 생각하다가 [rrdtool](http://oss.oetiker.ch/rrdtool/)을 익힐 겸 [인클봇](http://barosl.com/inklbot/)의 상태를 보여 주는 페이지를 만들었습니다. 이름하야 [인클봇 판타지](http://cosmic.mearie.org/ircstat/inklbot). 인클봇의 흥망성쇠를 여기서 지켜 볼 수 있으니 많은 애용 바랍니다.
+
+<%m:img src="http://cosmic.mearie.org/ircstat/inklbot-bot.png" width="587" height="223">인클봇 일간 봇 갯수 그래프</%m:img>
+
+rrdtool 재밌군요. 사용하기가 좀 귀찮긴 하지만 앞으로 잘 써먹으면 괜찮은 것들을 만들 수 있을 것 같습니다.
+

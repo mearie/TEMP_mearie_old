@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'오늘(어제인가?)의 수확'
+when = '2006-03-29T00:16:33+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=72'
+%>
+
+[구글 SIG 세미나](http://nclab.kaist.ac.kr/blogs/blog/index.php?blog_code=google&article_id=190)에 다녀 왔다. 세미나는 [(주) 첫눈](http://1nooncorp.com/)의 장 병규 대표님께서 하셨다. 검색이라는 거대한 도메인에 대해서 다시 한 번 생각해 볼 수 있는 귀중한 시간이었다.
+
+끝난 뒤에 [stania](http://stania.pe.kr/) 님을 만나서 재밌게 놀고 왔다. 펌프도 조금 했는데 몸이 예전같지 않아서 (...이미 이 말 5년 넘게 쓰고 있는 듯) 잘 안 되더라. 삼겹살을 쏴 주신 stania 님께 이 블로그를 빌어서 다시 한 번 감사를 :)
+
+그 외에 프로그래밍 작업은 계속 조금 조금씩 진행되고 있다.... 정도가 오늘의 수확인 것 같다.
+

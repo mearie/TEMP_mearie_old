@@ -1,0 +1,86 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'빅 리그의 진실'
+when = '2006-03-12T03:00:36+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=66'
+%>
+
+모두들 [게임스팟](http://gamespot.com/)에서 최저 평가를 받은 [빅 리그: 오버 더 로드 레이싱](http://www.gamespot.com/pc/driving/bigrigsotrr/review.html)을 아실 것이다. 직접 해 보셨는가? 그럼 이 게임이 얼마나 난감한 게임인 지도 잘 아시리라 믿는다. -_-
+
+물론 [스텔라 스톤](http://www.stellarstone.com/)이 정말로 이런 못 할 게임을 제 정신으로 낸 것은 아닌 것 같다. 그 증거(?)로, 오늘은 이 게임과 관련된 게임에 대해서 설명한 한 글을 짤막하게 번역해서 소개해 보려 한다.
+
+<blockquote>
+
+**〈빅 리그: 오버 더 로드 레이싱〉 설명**
+
+여러분 중 많은 사람들이 〈빅 리그: 오버 더 로드 레이싱 *Big Rigs: Over the Road Racing*〉이 왜 그렇게 한없이 비참하게 나쁜 게임인지 궁금해하실 겁니다. 급하게 노력을 한 뒤에 그 노력이 게임에 반영되지 않은 걸로 보이죠.
+
+첫째 말은 맞지만, 둘째 말은 틀렸습니다.
+
+빅 리그는 단순히 스텔라 스톤 사의 진짜 프로젝트, 〈미드나잇 레이스 클럽: 슈퍼차지드 *Midnight Race Club: Supercharged*〉의 전혀 손질이 안 된 미완성 버전이었던 겁니다.
+
+<%m:img src="20060312.midnight.newmain.jpg" linkto="http://img271.imageshack.us/img271/4218/midnight9ht.png">〈미드나잇 레이스 클럽〉의 첫 화면</%m:img>
+<%m:img src="20060312.midnight.oldmain.jpg" linkto="http://img271.imageshack.us/img271/2712/backbr0vl.png">빅 리그의 첫 화면</%m:img>
+
+비교해 보세요.
+
+〈미드나잇 레이스 클럽〉은 빅 리그의 속편입니다. 스텔라 스톤 사는 풀 타임으로 개발을 했지만 개발이 진행중인 상태에서 빅 리그를 일찍 내 놓았습니다. 때문에 게임의 대부분은 미완성된 상태였죠. 레벨은 잘려 나가고, 사운드는 무시되었고, 인공 지능은 완벽하게 제껴 버린 데다가, 영어권 시장을 위해 대충 한 번역이 "You're Winner"로 나타났습니다.[^1]
+
+[^1]: 아마 트랙 다 돌면 저 메시지만 나오고 썰렁하게 끝나는 걸 말하는 것일 듯. (역주)
+
+이 게임에는 모든 기능이 들어 갈 예정이었습니다. 싱글 레이스 모드 뿐만 아니라, 마리오 카트의 그랑프리의 변형인 대회 모드도 있습니다.
+
+<%m:img src="20060312.midnight.nightride.jpg" linkto="http://img68.imageshack.us/img68/2711/nightride1ib.png">나이트라이드 코스</%m:img>
+
+넷째 코스인 나이트라이드(Nightride)는 빅 리그가 발매될 때는 완성되지 않았었습니다. 게임의 첫 판에서는 이 레벨만 플레이하면 프로그램이 깨졌고, 나중에 나온 "수정"판에서는 첫째 코스의 거울상으로 바뀌었습니다. 이 레벨에 대한 것은 아무 것도 남아 있지 않습니다.
+
+하지만 〈미드나잇 레이스 클럽〉이 발매되었을 때는 이런 코스가 들어 있었습니다.
+
+<%m:img src="20060312.midnight.nightrideplay.jpg" linkto="http://img212.imageshack.us/img212/9238/smallt7uy.png">나이트라이드 코스 플레이 스크린샷</%m:img>
+
+네. 차들이 있었군요.
+
+원래 게임에는 네 가지 분류에 열일곱 가지의 차, 즉 스포츠카, 화물 트럭, 대형 트럭[^2], 오토바이, 그리고 이 모든 분류에 들어 가지 않는 Hummer[^3]가 등장할 예정이었습니다. 모든 차는 완성되어 있었지만, 알 수 없는 이유 때문에 (아마 적절한 선택 화면이 완성되지 않아서) 대형 트럭만 플레이 가능했습니다. 하지만 모든 차의 데이터 파일은 여전히 게임에 들어 있습니다.[^4]
+
+[^2]: 원래 "Big rigs"의 rigs는 트럭을 뜻합니다. (역주)
+
+[^3]: 자동차 차종의 하나 (역주)
+
+[^4]: 아실 분은 아시지만 데이터 파일이 zip 포맷으로 되어 있었습니다. (역주)
+
+<%m:img src="20060312.midnight.motocycle.jpg" linkto="http://img139.imageshack.us/img139/1976/motorc9re.png">오토바이 선택창</%m:img>
+
+다른 리소스 파일들은 스텔라 스톤이 게임에 많은 공을 들였다는 걸 알려 줍니다. 게임에는 매우 해상도가 높지만 미사용된 텍스춰, 범프 맵, 큐브 맵 등이 들어 있었지만 빅 리그에서는 전혀 사용되지 않았습니다.
+
+2004년 1월에 스텔라 스톤은 드디어 〈미드나잇 레이스 클럽: 슈퍼차지드〉를 러시아에서 발매했지만 참패했습니다. 완전히 빅 리그랑 똑같이 생겼던 것입니다. 하지만 새로 추가된 상대편 인공 지능이나 엉망이었던 물리 같은 몇 가지는 개선되었습니다. 또한 게임에서 대형 트럭이 완벽히 사라졌는데, 너무 전작을 반복하는 것 같게 보이지 않으려 한 것 같습니다.
+
+<%m:img src="20060312.midnight.mode.jpg" linkto="http://img139.imageshack.us/img139/1188/newselect0vm.png">모드 선택창</%m:img>
+<%m:img src="20060312.midnight.play.jpg" linkto="http://img139.imageshack.us/img139/9919/motorcs1ob.png">플레이 스크린샷</%m:img>
+
+불행히도 모두들 이 게임이 빅 리그를 개선한 것에 불과함을 알아 차렸고 싫어했습니다. 미국에서 이 게임이 히트 치는 건 볼 수 없을 겁니다.
+
+빅 리그는 믿을 수 없을 정도로 완성이 안 된 게임입니다. 아무데나 뒹굴고 있는 사용되지 않은 효과음, 완성되지 않은 레벨들, 수면 텍스춰, 안 지워진 옛 파일들, 게다가 심지어 다양한 이미지를 만드는 데 사용한 .psd 작업 파일들도 있습니다.
+
+물론 포토샵이 있다면 이런 재밌는 일도 할 수 있겠죠.
+
+<%m:img src="20060312.midnight.winner.jpg" linkto="http://img7.imageshack.us/img7/7549/prizecopy6pt.png">글쓴이가 포토샵으로 고쳐서 만든 이미지</%m:img>
+
+(모서리에 로고가 새겨진 파일 말고는 모두 제가 발견한 내용입니다. 로고가 새겨진 스크린샷은 이 게임을 리뷰한 러시아 웹사이트에서 가져 온 것입니다.)
+
+
+<small>Originally written by [Hocus Pocus](http://www.hocuspocus.taloncrossing.com/)(maybe - unfortunately I couldn't guess the author correctly), some screenshot from [AG.ru](http://ag.ru/), Korean translation by Kang Seonghoon. This translation is not permitted by the author, so I'll remove this translation if the author wants.</small>
+
+</blockquote>
+
+스텔라 스톤이 불쌍해 보인다. ㅠㅠ 원본 글은 [여기](http://www.hocuspocus.taloncrossing.com/overtheroad.htm)에.
+
+\* 번역 오류 지적은 언제나 환영합니다.
+
+<div class="afternote">
+
+지금 보니 제목 번역은 틀렸다. 이 글의 원제는 "Big Rigs: An Over the Road Explanation"인데, 여기서 "Over the Road"는 전치사구로 쓰인 게 아니라 (앞의 "An"이 보여 주듯) [OTR](http://en.wikipedia.org/wiki/Glossary_of_trucking_industry_terms_in_the_United_States#Over-the-road)이라고 축약되는 미국 트럭 용어이다. 쉽게 말하면 일정한 경로를 따르지 않고 필요에 따라 경로가 달라지는, 비정규적인 트럭 운행을 뜻하는데 물론 정규 경로가 있는 것보다 피곤하기 때문에 저런 제목(뒷조사를 한다는 의미에서)을 붙였을 것이다. 하지만 여전히 한국어로 어떻게 번역해야 할진 모르겠다. <small>(2010-03-26)</small>
+
+</div>
+

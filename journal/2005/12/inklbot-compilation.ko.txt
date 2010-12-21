@@ -1,0 +1,29 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'inklbot compilation'
+when = '2005-12-15T09:14:46+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=30'
+%>
+
+**경고: 이 이야기는 IRC를 써 본 사람만 이해할 수 있사오니 봇이 뭔지 모르시는 분은 알아서 잘 찾아 보세요.**
+
+하늘누리를 비롯한 [랜덤여신](http://barosl.com/)의 inklbot은 여러 채널에 수많은 전설을 만들어 내었고 거기에 감명받은 한 무리의 사람들은 인클봇을 찬양하기 위한 음악을 만들어 내었다... 이건 아니고.
+
+아무튼 [클럿지](http://klutzy.x-y.net/)의 주도로 [inklbot compilation "<del>야 인클봇 옵줘</del><ins>인클봇을 뭘로보는거야</ins>"](http://klutzy.dnip.net/wiki/index.php/inklbot)가 합성되고 있다. 그래서 11번 트랙을 만들어서 보냈는데... 답변이....
+
+	[08:57:03] <lirthy> inklbot boring은
+	[08:57:05] <lirthy> reject합니다
+	[08:57:12] <lirthy> 압축에 너무 정성을 들였어
+	[08:57:17] <lirthy> 인클봇을 뭘로보는거야
+	[08:58:51] <lirthy> 몇번 강조했듯이
+	[08:58:58] <lirthy> 정성들여 만든 작품은
+	[08:58:59] <lirthy> 거절합니다
+
+....이런 샹
+
+그래서 지금 저 페이지에는 11번 트랙이 지워져 있다. orz
+
+그래도 듣고 싶으시다는 분은 [여기](http://pandora.sapzil.info/dist/inklbot-11_tokigun-boring.zip)에서 압축을 잘 푸시고 들으시면 되겠다. 참고로 이 트랙의 제목은 "지겨운 인클봇"이고, 모든 것은 제목을 제대로 반영하고 있다.
+

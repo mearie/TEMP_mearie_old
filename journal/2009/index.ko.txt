@@ -1,0 +1,46 @@
+## vim: syn=mako
+<%inherit file="../archive.tmpl.html"/>
+<%! title = u'모아보기: 2009년' %>
+
+<%call expr="self.build_archive(2009)">
+2009-11-12T01:50+09:00 http://j.mearie.org/post/240419111/you-cannot-communicate-when-you-try-to-communicate 소통하고자 하면 소통할 수 없다
+2009-11-12T01:58+09:00 http://j.mearie.org/post/240425281 "디제이맥스 블랙스퀘어를 후배한테 빌려서 해 보고 있는데..."
+2009-11-13T02:49+09:00 http://j.mearie.org/post/241650513 "jottit에서 글 쓰다가 주소창으로 가기 위해 Alt-D를 누르면..."
+2009-11-14T01:08+09:00 http://j.mearie.org/post/242660070 "다섯 달간의 삽질과 추산 24만원의 투자 끝에..."
+2009-11-14T02:19+09:00 http://j.mearie.org/post/242714520 거절은 어렵다
+2009-11-14T02:53+09:00 http://j.mearie.org/post/243631852 "내가 현재 인터넷 상에서 사용하는 아이덴티티의 목록을 정리해 봤다..."
+2009-11-14T23:04+09:00 http://j.mearie.org/post/243631852 "모든 정책에는 부작용이 있게 마련이므로..."
+2009-11-16T09:23+09:00 http://j.mearie.org/post/245348692 "최근 오징어가 잘 죽어 있는 것에 대한 기록을 좀 해 보자면..."
+2009-11-16T11:31+09:00 http://j.mearie.org/post/245475676 "이전 시간에 자다가 수업을 안 들어 와서 뭐 했는지 확인하려고..."
+2009-11-16T19:57+09:00 http://j.mearie.org/post/245895281 한국어 위키백과의 과거와 현재 (링크)
+2009-11-17T23:23+09:00 http://j.mearie.org/post/247260627/programming-theory-has-come-on-leaps-and-bounds "Programming theory has come on leaps and bounds..."
+2009-11-18T03:51+09:00 http://j.mearie.org/post/247458658 IRC로 알고리즘 설계하기
+2009-11-18T21:17+09:00 http://j.mearie.org/post/248390646 Bazaar의 폐해
+2009-11-20T03:49+09:00 http://j.mearie.org/post/249865235/when-does-democracy-fail 민주주의가 실패할 때
+2009-11-22T04:01+09:00 http://j.mearie.org/post/252121846/task-classification 일 나누기
+2009-11-22T04:44+09:00 http://j.mearie.org/post/252160382 마호로매틱
+2009-11-22T22:41+09:00 http://j.mearie.org/post/253036674 運命 -SADAME-
+2009-11-23T03:57+09:00 http://j.mearie.org/post/253295826/genobject genobject
+2009-11-24T00:13+09:00 http://j.mearie.org/post/254404334 "〈날개셋〉 한글 입력기는 매우 강력하며 호환성이 높은..."
+2009-11-26T01:47+09:00 http://j.mearie.org/post/257072652/os-ui-pl-trilogy 운영체제 - 사용자 인터페이스 - 프로그래밍 언어
+2009-11-26T03:52+09:00 http://j.mearie.org/post/257191367/i-hate-image-making "나는 이미지라는 말을 정말 싫어한다..."
+2009-11-27T18:37+09:00 http://j.mearie.org/post/259331094 "요시 이쿠조 탄생일 메들리에서 왠지 들어 본 것 같은 음악이 있어서..."
+2009-11-29T06:05+09:00 http://j.mearie.org/post/261123058 "정신을 차려 보니 일요일이다…!!!"
+2009-11-29T08:09+09:00 http://j.mearie.org/post/261252595 "꽤 많이 긴 글을 도쿠위키에 써 넣고 있었는데..."
+2009-11-30T11:37+09:00 http://j.mearie.org/post/262900286 슬럼프
+2009-12-01T23:57+09:00 http://j.mearie.org/post/264955491 "생각해 보면 나는 인터넷을 시작한 이래로 어줍잖지도 않은 글 솜씨로..."
+2009-12-03T11:31+09:00 http://j.mearie.org/post/267058710 이번 학기 (미리) 정리
+2009-12-05T12:51+09:00 http://j.mearie.org/post/269838485/note-on-fossil-scm Fossil
+2009-12-06T15:03+09:00 http://j.mearie.org/post/271342431 "학교 네트워크에 많은 걸 바라는 건 아니지만..."
+2009-12-09T07:38+09:00 http://j.mearie.org/post/275163381 "가끔씩 데스크탑은 꺼야 하는데 서버 단에서 베리즈 자료를..."
+2009-12-13T04:05+09:00 http://j.mearie.org/post/280542520 "요전에 미투데이에다가 신나게 불평했던 문제에 대해서..."
+2009-12-18T19:53+09:00 http://j.mearie.org/post/288801564 "Level Up! 게임이 끝나면 희한하게도..."
+2009-12-22T21:05+09:00 http://j.mearie.org/post/294962859 "IRC #langdev 채널에서..."
+2009-12-24T02:22+09:00 http://j.mearie.org/post/297026121 "내 서버에 IRC 로그 실시간으로 보는 인터페이스(물론 비공개) 페이지를 만들어 놓고..."
+2009-12-25T03:55+09:00 http://j.mearie.org/post/298803189 "성탄절 이브날 명동에서 고기 굽고 그 옆에서 노래 부르고..."
+2009-12-25T20:06+09:00 http://j.mearie.org/post/299822249 기차여행 첫 날
+2009-12-29T01:42+09:00 http://j.mearie.org/post/304600344 "사진은 찍어야 제맛. 2009년 12월 25일에 정동진에서 찍은..."
+2009-12-29T01:48+09:00 http://j.mearie.org/post/304607972 "2009년 12월 26일 부산역 앞에서..."
+2009-12-29T01:52+09:00 http://j.mearie.org/post/304612487 "2009년 12월 27일 광주로 가는 기차 안에서..."
+2009-12-29T01:57+09:00 http://j.mearie.org/post/304618331 "2009년 12월 28일 서대전 오는 기차 내린 직후에 찍은 사진..."
+</%call>

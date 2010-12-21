@@ -1,0 +1,47 @@
+## vim: set syn=mako: <%inherit dummy/>
+<%!
+from mearie.image import imagesize_adjust
+%>
+
+<%def name="indent()">\
+${capture(caller.body)|indent}
+</%def>
+
+<%def name="img(src, width=None, height=None, align='', bordered=False, link=False, linkto=None)">
+<%
+width, height = imagesize_adjust(uri_to_path(context, src), width, height)
+%>
+% if link or linkto:
+<a href="${linkto or src|h}" class="noicon">\
+% endif
+<img src="${src|h}" width="${width}" height="${height}" alt="${capture(caller.body)|h}" class="${align|h}${' bordered' if bordered else ''}" />\
+% if link or linkto:
+</a>\
+% endif
+</%def>
+
+<%def name="imgframe(src, width=None, height=None, align='', link=False, linkto=None, alt='')">
+<%
+width, height = imagesize_adjust(uri_to_path(context, src), width, height)
+%>
+<div class="image-frame bordered ${align|h}" style="width:${width}px">\
+% if link or linkto:
+<a href="${linkto or src|h}" class="noicon">\
+% endif
+<img src="${src|h}" width="${width}" height="${height}" alt="${alt|h}" class="bordered ${align|h}" />\
+% if link or linkto:
+</a>\
+% endif
+<div class="caption">${caller.body()}</div>\
+</div>\
+</%def>
+
+<%def name="math(size='')">
+% if size:
+<span class="math math-size${int(size)}">\
+% else:
+<span class="math">\
+% endif
+${''.join('&#%d;' % ord(i) for i in capture(caller.body))}</span>\
+</%def>
+

@@ -1,0 +1,20 @@
+## vim: syn=mako
+
+**esotope**는 모든 [난해한 프로그래밍 언어](http://ko.wikipedia.org/wiki/%EB%82%9C%ED%95%B4%ED%95%9C_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)에 대한 현대적인 구현체를 만드는 것이 목표인 프로젝트입니다.[^1]
+
+[^1]: ...라고 주장하지만 실상은 난해한 프로그래밍 언어 구현체를 만들 때마다 이름에 붙이는 접두어에 가깝습니다.
+
+
+지원하는 언어
+=============
+
+* Brainfuck 컴파일러, [`esotope-bfc`](bfc/)
+* Befunge-93 인터프리터 (작은 코드 중시)
+* Funge-98 인터프리터, [PyFunge](/projects/pyfunge/)
+* 3code 인터프리터
+* 아희 인터프리터
+* Migol 인터프리터
+* NULL 인터프리터
+* Whirl 인터프리터 (작은 코드 중시)
+* Whitespace 인터프리터 및 어셈블러, [`esotope-ws`](ws) (모양 중시)
+

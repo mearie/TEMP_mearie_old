@@ -1,0 +1,6 @@
+## vim: syn=mako
+
+[I](/about/kang-seonghoon) used to develop and maintain various software projects. This section of mearie.org is dedicated to such things.
+
+There are a number of projects which are not sufficiently big so they don't deserve separate pages here. Such projects can be found in [mearie.org Mercurial repository](http://hg.mearie.org/) or [Subversion repository](http://svn.mearie.org/).
+

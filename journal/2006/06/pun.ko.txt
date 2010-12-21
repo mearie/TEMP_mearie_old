@@ -1,0 +1,21 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'개그 관성'
+when = '2006-06-16T21:18:31+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=114'
+%>
+
+어째서 "요시가나씨 댁의 가고일"이라는 말을 들으면 다음과 같이 발음하고 싶어지는 것일까.
+
+**"요시가나 '씨댕'의 가고일"**
+
+OTL
+
+<%m:img src="20060616.yoshinagasanchinogargoyle.jpg" align="center">요시나가씨 댁의 가고일 11화 갈무리</%m:img>
+
+짤방은 가고일의 굴욕 -_-; (화장실 청소용 솔...)
+
+덤: 저 이 애니메이션 안 봅니다. ...언젠가는 볼 지도.
+

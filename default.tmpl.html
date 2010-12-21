@@ -1,0 +1,180 @@
+## vim: set syn=mako: <%inherit dummy/>
+<%!
+import subprocess
+import cgi
+import os
+import time
+
+def gethgrev(path):
+	cmd = ['hg', 'log', '-ql1', '--template', '{node|short} {date|shortdate}', '--', path]
+	result = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+	if result:
+		rev, date = result.split()
+	else:
+		rev = None
+		date = time.strftime('%Y-%m-%d', time.localtime(os.stat(path).st_mtime))
+	return rev, date
+%>
+
+<%namespace name="m" file="/res/library.tmpl.html" import="*" />
+
+<%def name="nav(entry)">\
+${entry(ko=u'메아리', en=u'mearie.org')}\
+</%def>
+
+<%def name="navwrap(lang)">\
+<%
+body = caller.body # we keep this as caller may change!
+%>\
+% if self.attr.title:
+${body(self.attr.title)}\
+% endif
+${self.nav(lambda *args, **kwargs: body(lang(*args, **kwargs)))}\
+</%def>
+
+############################################################
+
+<%def name="head(lang)">
+<meta charset="utf-8"/>
+<title>${self.headtitle(lang)}</title>
+${self.headstyle(lang)}\
+${self.headicon(lang)}\
+${self.headscript(lang)}\
+${self.headmeta(lang)}\
+</%def>
+
+<%def name="headtitle(lang)">\
+<% index = [0] %>\
+<%call expr="self.navwrap(lang)" args="text">\
+% if index[0] > 0:
+ | \
+% endif
+${text|h}\
+<% index[0] += 1 %>\
+</%call>\
+</%def>
+
+<%def name="headstyle(lang)">\
+<link rel="stylesheet" media="screen" href="/res/global.css" type="text/css" />
+<!--[if IE]><link rel="stylesheet" media="screen" href="/res/global.ie.css" type="text/css" /><![endif]-->
+</%def>
+
+<%def name="headicon(lang)">\
+<link rel="shortcut icon" href="/res/icon.ico" type="image/vnd.microsoft.icon" />
+</%def>
+
+<%def name="headscript(lang)">\
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="/res/global.js"></script>
+</%def>
+
+<%def name="headmeta(lang)">\
+<link rel="canonical" href="${canonical(context)}" />
+</%def>
+
+############################################################
+
+<%def name="sidebar(lang)">
+<div class="slogan">
+	<a href="/"><img class="logo" src="/res/logo.png" width="117" height="117" alt="${lang(ko=u'메아리 처음으로', en=u'Go to mearie.org front page.')}" /></a>
+</div>
+<div class="menu">
+${self.menu(lang)}
+</div>
+<%doc>
+<ul class="lang"><li lang="ko" class="current"><a href="index.ko">한국어</a></li><li lang="en"><a href="index.en">English</a></li><li lang="ja"><a href="index.ja">日本語</a></li></ul>
+</%doc>
+</%def>
+
+<%def name="menu(lang)" filter="markdown">
+* [${lang(ko=u'대하여', en=u'About')}](/about/) ${capture(self.menu_about, lang)|indent}
+* [${lang(ko=u'소프트웨어', en=u'Software Projects')}](/projects/) ${capture(self.menu_projects, lang)|indent}
+* [${lang(ko=u'문서', en=u'Documents')}](/documents/) ${capture(self.menu_documents, lang)|indent}
+* [${lang(ko=u'저널', en=u'Journal')}](http://j.mearie.org/) ${capture(self.menu_journal, lang)|indent}
+* [${lang(ko=u'잡것', en=u'Stuffs')}](/stuffs/) ${capture(self.menu_stuffs, lang)|indent}
+</%def>
+
+## for other sections
+<%def name="menu_about(lang)"/>
+<%def name="menu_projects(lang)"/>
+<%def name="menu_documents(lang)"/>
+<%def name="menu_journal(lang)"/>
+<%def name="menu_stuffs(lang)"/>
+
+############################################################
+
+<%def name="bodypre(lang)">
+<h1>${self.bodytitle(lang)}</h1>
+</%def>
+
+<%def name="bodytitle(lang)">\
+<% index = [0] %>\
+<%call expr="self.navwrap(lang)" args="text">\
+% if index[0] == 0:
+${text|h}\
+% endif
+<% index[0] += 1 %>\
+</%call>\
+</%def>
+
+<%def name="bodypost(lang)">
+</%def>
+
+############################################################
+
+<%def name="meta(lang)">
+<% rev, date = gethgrev(topmost.uri) %>
+<div class="tray">
+	<time pubdate="pubdate">${date}</time>
+	% if rev:
+	(rev <a href="http://hg.mearie.org/mearie.org/current/file/${rev}${canonical(context, 'full')}"><code class="rev">${rev}</code></a>)
+	% else:
+	(working copy)
+	% endif
+</div>
+<form action="http://www.google.com/cse" class="search"><div>
+	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
+	<input type="text" name="q" size="30"/>
+	<input type="submit" name="sa" value="${lang(ko=u'구글 검색', en=u'Google Search')}" class="button"/>
+</div></form>
+<div class="copyright">${lang(
+	ko=u'저작권자 © 1999–2010 강 성훈. <a href="/about/copyright">저작권을 약간 가집니다.</a>',
+	en=u'Copyright © 1999–2010 Kang Seonghoon. <a href="/about/copyright">Some Rights Reserved.</a>',
+)|n}</div>
+</%def>
+
+############################################################
+
+<%
+try:
+    lang = Language(self.attr.language)
+except AttributeError:
+    for l in LANGUAGES:
+        if ('.%s.' % l) in self.uri: lang = Language(l)
+
+if not getattr(self.attr, 'filter', None):
+    self.attr.filter = markdown
+if not getattr(self.attr, 'title', None):
+    self.attr.title = u''
+%>
+
+<!DOCTYPE html>
+<html lang="${lang|h}">
+<head>
+${self.head(lang)}
+</head>
+<body lang="${lang|h}">
+<div id="sitebody" lang="${lang|h}">
+${self.bodypre(lang)}
+${capture(self.body)|self.attr.filter}
+${self.bodypost(lang)}
+</div>
+<hr/>
+<div id="siteside">
+${self.sidebar(lang)}
+</div>
+<div id="sitemeta">
+${self.meta(lang)}
+</div>
+</body>
+</html>

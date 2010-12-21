@@ -1,0 +1,7 @@
+## vim: syn=mako
+<%inherit file="../archive.tmpl.html"/>
+<%! title = u'모아보기: 2010년' %>
+
+[최신 글 목록](http://j.mearie.org/archive)을 참조하세요.
+
+<%call expr="self.build_archive(2010)"/>

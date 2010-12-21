@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'timelapse'
+when = '2006-06-23T01:20:38+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=121'
+%>
+
+timelapse라 함은 저속 촬영을 일컫는 영어 단어(time lapse라고 띄어 쓰기도 하니 단어가 아닐 지도...)이다. 처음에 elapse라는 말만 알고 있었을 때는 timelapse가 time + elapse의 조합으로 이루어진 조어라고 생각하고 있었지만, 아뿔싸, lapse라는 단어가 이미 있었다. 굳이 따지자면 asleep(형용사/부사)과 sleep(동사)의 관계가 lapse(명사)와 elapse(형용사)랑 비슷하다고 봐야 겠다. 뭐 영어에서는 어원만 알아 차려도 때려 맞출 수 있는 단어들이 꽤 많고, elapse야 어원상 lapse에서 나왔을 테니 내 생각이 맞긴 했지만 이제껏 그걸 눈치 못 챈 내가 좀 바보스럽다.
+
+아무튼 [flew video crew](http://video.google.com/videoplay?docid=2232388760440937887)의 timelapse 작품에 감명(?)을 받아서 몇 개 더 찾아 봤다. 이런 종류의 비디오는 [구글 비디오](http://video.google.com/videosearch?q=timelapse)나 [Youtube](http://www.youtube.com/results?search=timelapse)를 뒤지면 허다하게 많이 나오는데, 그 중 눈길을 끈 것이 [E3 timelapse](http://www.youtube.com/watch?v=7d0q7MYxhXA)였다. 이 비디오는 올해 [E3 쇼](http://en.wikipedia.org/wiki/E3)의 준비 과정과 행사 기간, 뒷마무리 과정(무려 3주 동안 같은 자리에서!)을 저속으로 촬영한 것으로 E3 쇼의 행사 기간만 볼 수 있는 사람들한테 흥미로운 볼 거리이다.
+
+....시험은 어찌 되었냐고 물으시는 분께는 시험 기간이 뭐 다 그런 거지라고 답변해 드리겠다. (애써 무시하고 있다) OTL
+

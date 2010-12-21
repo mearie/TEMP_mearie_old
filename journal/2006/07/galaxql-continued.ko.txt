@@ -1,0 +1,22 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u"GalaXQL cont'd"
+when = '2006-07-04T21:56:50+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=130'
+%>
+
+[GalaXQL](/journal/2006/07/galaxql-continued)의 몇 가지 문제를 제작자한테 리포팅했더니 다음과 같은 반응이 나왔다. (영어로 보낸 글이므로 번역된 문체가 뭔가 이상해 보이는 것은 정상이다.)
+
+> Q. GalaXQL을 하룻동안 써 봤는데 인상이 깊었다. SQL을 처음 익히는 사람과 이미 알고 있는 사람한테 둘 다 알맞은 좋은 프로그램이라고 생각한다.  
+> A. 널리 퍼뜨려 주시면 ㄱㅅ
+> 
+> Q. GalaXQL 2.0에서 애니메이션이 텍스트박스 스크롤할 때나 쿼리 처리할 때 끊긴다. 애니메이션을 별도의 쓰레드로 빼 내면 어떻겠는가?  
+> A. 가능하긴 하겠지만 현재로선 GalaXQL를 업데이트할 계획이 없다.
+> 
+> Q. SQLite3에 sin이나 cos 같은 수학 관련 함수가 기본으로 없는데, 있으면 좀 더 재밌게 놀 수 있지 않을까.  
+> A. 소스 코드가 공개되어 있으니 맘껏 구현하시라 =)
+
+...음. 그러니까 내가 직접 해야 한다는 소리구나. wxWindows나 배워 볼 겸 해 볼까...
+

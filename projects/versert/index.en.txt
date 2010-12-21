@@ -1,0 +1,145 @@
+## vim: syn=mako
+
+**Versert** is a [Befunge](http://esolangs.org/wiki/Befunge)-inspired esoteric programming language, devised by Kang Seonghoon.
+
+
+History
+=======
+
+Versert is started as the question what if Befunge doesn't have a stack. This idea was flew in my brain on July 10, 2005, and implemented on July 22, 2005.
+
+Versert (correct romanization is *beoseot*, though) is a Korean word for mushroom, clearly showing the relation with *fungi*. I would thank to [Han Dongseong](http://xtendo.org/) for this name.
+
+
+Language Specification
+======================
+
+Environment
+-----------
+
+Versert is a two-dimensional programming language, like Befunge. Here two-dimensional language means the code is structured in the two-dimensional space, unlike C or Java which have a linear flow of execution.
+
+All code is stored to infinite two-dimensional plane. Any point in the plane have a coordinate of the form (column, row), and each character in the code is stored in the *cell* which have an integer coordinate. One cell can contain one 8-bit unsigned integer (limited from 0 to 255). The origin (0, 0) corresponds to the leftmost character in the first line of the code.
+
+Before the execution, the source code is read as ASCII text and stored in the plane. All other empty cells are assumed to contain space character, i.e. 32. Then there are no newline character (i.e. 10) in this space, and it has no effect that one stores newline character to the plane later.
+
+Versert has no stack; Versert has the following variables internally.
+
+Instruction Pointer: IP = (`x`, `y`)
+:	IP points to the instruction currently executing. Initially IP is (0, 0).
+Velocity: delta = (`dx`, `dy`)
+:	delta represents the direction of IP. After the instruction pointed by IP is executed, delta is added to IP so IP points to next to-be-executed instruction. Initially delta is (1, 0) -- IP towards the east.
+Data Pointer: DP = (`px`, `py`)
+:	DP points to the target cell directly read or written by the instruction. Initially DP is (0, 0).
+Registers: `A`, `B`
+:	A and B are only variables the instruction can directly changes. Initially A and B are zero.
+
+The code space is wrapped at the extreme like Befunge; if IP goes to the east, IP returns to original cell from the west, vice versa. This property is often called *Lahey-space*.
+
+List of instructions
+--------------------
+
+Below is a complete list of instructions. All other characters have no effect rather than silently adding delta to IP, like the space character.
+
+<table>
+<thead>
+	<tr><th>Char.</th><th>Meaning</th><th>Description</th></tr>
+</thead>
+<tbody>
+	<tr><th>`0..9`</th>
+		<td><pre>A ← 0..9</pre></td>
+		<td>Sets A to given number.</td></tr>
+	<tr><th>`+`</th>
+		<td><pre>B ← B + A</pre></td>
+		<td>Adds A to B.</td></tr>
+	<tr><th>`-`</th>
+		<td><pre>B ← B - A</pre></td>
+		<td>Subtracts A from B.</td></tr>
+	<tr><th>`*`</th>
+		<td><pre>B ← B × A</pre></td>
+		<td>Multiplies A to B.</td></tr>
+	<tr><th>`~`</th>
+		<td><pre>A, B ← B, A</pre></td>
+		<td>Swaps A and B.</td></tr>
+	<tr><th>`` ` ``</th>
+		<td><pre>if A > B then<br />    A, B ← B, A</pre></td>
+		<td>Swaps A and B if A is greater than B.</td></tr>
+	<tr><th>`>`</th>
+		<td><pre>if A < B then<br />    A, B ← B, A</pre></td>
+		<td>Swaps A and B if A is less than B.</td></tr>
+	<tr><th>`/`</th>
+		<td><pre>dx, dy ← -dy, -dx</pre></td>
+		<td>If IP is heading right, turns up; if down, turns left; if left, turns down; if up, turns right.</td></tr>
+	<tr><th>`\`</th>
+		<td><pre>dx, dy ← dy, dx</pre></td>
+		<td>If IP is heading right, turns down; if down, turns right; if left, turns up; if up, turns left.</td></tr>
+	<tr><th>`@`</th>
+		<td><pre>exit()</pre></td>
+		<td>Terminates the program.</td></tr>
+	<tr><th>`#`</th>
+		<td><pre>if B = 0 then<br />    IP ← IP + delta</pre></td>
+		<td>If B is zero, skips one instruction and executes next instruction.</td></tr>
+	<tr><th>`.`</th>
+		<td><pre>putchar(A)</pre></td>
+		<td>Prints lowermost 8 bits of A to standard output as ASCII character.</td></tr>
+	<tr><th>`:`</th>
+		<td><pre>putint(A)</pre></td>
+		<td>Prints A to standard output as integer.</td></tr>
+	<tr><th>`,`</th>
+		<td><pre>A ← getchar()</pre></td>
+		<td>Reads a character and stores its ASCII code to A. When EOF is encountered, A won't be changed.</td></tr>
+	<tr><th>`;`</th>
+		<td><pre>A ← getint()</pre></td>
+		<td>Reads an integer and stores it to A. When EOF is encountered, A won't be changed.</td></tr>
+	<tr><th>`{`</th>
+		<td><pre>B ← space[px, py]</pre></td>
+		<td>Gets an instruction pointed by DP, and stores its ASCII code to B.</td></tr>
+	<tr><th>`|`</th>
+		<td><pre>px ← px + A<br />py ← py + B</pre></td>
+		<td>Moves DP A cells right, B cells down.</td></tr>
+	<tr><th>`}`</th>
+		<td><pre>space[px, py] ← B</pre></td>
+		<td>Puts lowermost 8 bits of B to an instruction pointed by DP, as ASCII character.</td></tr>
+</tbody>
+</table>
+
+
+Examples
+========
+
+This is a famous "Hello, world!" program. Yay, it's cheating ;)
+
+<%text filter="indent">
+\"Hello, world!" program.
+\3+5*0~|}-2+0~|#/{~.00\
+	 @.~*5+2\#{|1~/
+</%text>
+
+This is same program with no such trick.
+
+<%text filter="indent">
+6~6*}2*~.{+7-~.~7+~..~3+~.~{8+~.~{4-~.~4*9-~.~8-~.~3+~.~6-~.~8-~.~{3-~.~2~5*~.@
+</%text>
+
+This program does same thing as UNIX's `cat` program.
+
+<%text filter="indent">
+#/#.0~1\ 
+@\#+,~-/
+</%text>
+
+This program is a quine. (Thanks to [mtve](http://www.frox25.no-ip.org/~mtve/code/eso/))
+
+<%text filter="indent">
+# #/ 0|   0~4+8*0~|}-0~|#/{~.00\ 
+" @\# -2+{|~0*8-4~0.~*5+2\#{|1~/
+</%text>
+
+
+Download
+========
+
+I have written [reference implementation](http://hg.mearie.org/versert/raw-file/tip/versert.c) in ISO C.
+
+You may inspect [my Mercurial repository](http://hg.mearie.org/versert/) for more resources.
+

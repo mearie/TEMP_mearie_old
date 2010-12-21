@@ -1,0 +1,28 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'시험이 두 시간 남으니'
+when = '2005-12-16T07:30:21+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=31'
+%>
+
+머릿 속에서는 글이 문장 단위로 떠 오른다
+
+글을 쓰기는 귀찮다
+
+하염없이 [위키백과](http://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98%EA%B8%B0%EB%8A%A5:Recentchanges)나 쳐다 보고 있다
+
+공부 안 한 과목 공부 좀 하려다가 제낄까 하는 생각을 하고 있다
+
+머리 아파 죽겠다
+
+정신도 없다
+
+
+
+----
+...이거 심각한데.
+
+일단 글은 오늘 시험 모두 보고 와서... (밤 10시 쯤에 끝남 -_-_-)
+

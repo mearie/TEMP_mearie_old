@@ -1,0 +1,9 @@
+syntax: glob
+*.pyc
+*.ko.html
+*.en.html
+*.ja.html
+Makefile.tree
+res/logo.png
+res/cache
+res/db

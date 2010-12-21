@@ -1,0 +1,74 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'괴혼온라인 FGT 후기의 후기'
+when = '2009-06-19T17:03:49+09:00'
+tags = [u'괴혼온라인', u'후기의후기', u'넷북', u'MSI_Wind_U100', u'이거아무래도윈디소프트로케이크라도보내야하는거아닌가몰라']
+original = 'http://arachneng.egloos.com/1529116'
+%>
+
+괴혼온라인 FGT가 끝난지도 이제 보름 가까이 되어 가는데 이제 와서 후기의 후기라는 말도 안 되는 제목으로 글을 쓰는 이유는 역시 [이전 글](http://arachneng.egloos.com/1515059)의 마무리가 너무 부실했기 때문...은 아니고 예상치 못 했던 일이 발생했기 때문이다.
+
+<!-- MORE: 아무래도 염장글? -->
+
+<%m:imgframe src="http://pds13.egloos.com/pds/200906/19/50/f0055650_4a3b3eee1e67d.png" width="500" height="246" link="1" align="center">
+어느날 블로그를 보니 이런 댓글이 올라와 있었다. 이벤트? 키보드인가? 하고 생각했는데...
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b3f269778a.jpg" width="500" height="308" link="1" align="center">
+**어어어어어어어어어어어어어어어어?!!?!?!?!?**  
+(아라크네의 그 뒤 반응은 상상에 맡김.)
+</%m:imgframe>
+
+<%m:imgframe src="http://pds12.egloos.com/pds/200906/19/50/f0055650_4a3b3f6abe52e.jpg" width="500" height="375" link="1" align="center">
+며칠 뒤 택배가 하나 와서 열어 보니,
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b3fad859cf.jpg" width="500" height="375" link="1" align="center">
+MSI Wind U100 넷북! ~~(기왕이면 U200이었으면...)~~
+</%m:imgframe>
+
+<%m:imgframe src="http://pds13.egloos.com/pds/200906/19/50/f0055650_4a3b4004b9d66.jpg" width="500" height="375" link="1" align="center">
+거기에 펴... 편지까지!
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b4021ee080.jpg" width="500" height="375" link="1" align="center">
+무려 손으로 써 보내셔서 놀랐다. 네 포스팅 썼습니다. 근데 저 대학원 진학 "준비" 중이에요... orz  
+(FGT 종료일 다음날 대학원 지원 요건인 텝스 시험을 쳤음. 근데 공부도 안 했는데 지원 요건을 한참 뛰어넘는 성적이 나와서 초특급 당황...)
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b405d7032b.jpg" width="500" height="375" link="1" align="center">
+왼쪽이 사흘동안 괴혼온라인만 돌린 ~~반쯤 부서진~~ 맥북 프로. 오른쪽 아래가 넷북. 오른쪽 위가 동영상 보고 있는 22인치 모니터.  
+워낙 선도 많고 정리를 잘 못 하는 성격이라 책상 위가 그야말로 난장판이다.
+</%m:imgframe>
+
+<%m:imgframe src="http://pds12.egloos.com/pds/200906/19/50/f0055650_4a3b412dd2eed.png" width="500" height="293" link="1" align="center">
+넷북은 다 좋은데 해상도가 1024x600인 게 아쉽다. 그래서 작은 해상도에 맞게 이것 저것 건드려 줬다.  
+(비교: 앞 그림에서 맥북 프로는 1440x960, 모니터는 1680x1050)
+</%m:imgframe>
+
+<%m:imgframe src="http://pds12.egloos.com/pds/200906/19/50/f0055650_4a3b41dc94339.png" width="400" height="235" link="1" align="center">
+처음에 "Windy Zone"이라는 폴더 보고 깜짝 놀랐다. 생각해 보니 모델 이름이 Wind였지...  
+(그래서 컴퓨터 이름은 멋 없게도 Windmill이 됨)</font>
+</%m:imgframe>
+
+<%m:img src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b426d9cb47.jpg" bordered="1" width="300" height="176" link="1" align="center" />
+<%m:imgframe src="http://pds12.egloos.com/pds/200906/19/50/f0055650_4a3b422dca517.png" width="300" height="176" link="1" align="center">
+이래뵈도 웬만한 건 잘 돌아 간다. 위는 [구글 크롬](http://www.google.com/chrome), 아래는 [VLC 미디어 플레이어](http://www.videolan.org/vlc/).
+</%m:imgframe>
+
+<%m:imgframe src="http://pds15.egloos.com/pds/200906/19/50/f0055650_4a3b42e9830fd.png" width="500" height="293" link="1" align="center">
+하지만 세로가 600이다 보니 어떤 프로그램은 쓰기 뭐시기하긴 하더라;  
+(VLC 설정 창이 세로로 640 쯤 되어서 짤리는 듯)
+</%m:imgframe>
+
+뭐... 일단 생각지도 못한 선물을 받게 되어서 좀 놀랐는데, 주변에서는 "이럴 줄 알았으면 나도 괴혼온라인 테스트 할 건데" 하는 소리가 들려 오고 있다. -_-;;; (게다가 그 다음날 친 시험 점수가 잘 나와서 도대체 뭐 먹고 사냐는 질문까지 들었음... 실은 포스팅이 사흘 늦어진 게 이 점수를 확인하느라 늦었다.) 그리고 누구신진 모르겠지만(^^;;) 손으로 편지 보내 주신 것도 감사드린다. 역시 옆에서는 이걸 샘(?)내서 "아라크네가 처음으로 이성에게 받은 편지"랍시고 놀리고 있다. orz
+
+다음 클로즈 베타 테스트(맞나요?)때는 좀 더 발전된 모습을 보길 바라며, 염장질은 여기서 마치도록 하겠다. 다음에 만나요~ :)
+
+<div class="afternote">
+
+문제의 컴퓨터는 현재도 게임을 뺀 모든 것들을 돌리는 용도로 매우 유용하게 잘 쓰고 있다. 다만 내가 윈디소프트 쪽에 미안;한 것은, 이 뒤로 괴혼온라인을 플레이할 만한 여유가 없어서 (정확히는 2009년 9월 이후로...) 정작 정식으로 나오고 나서도 전혀 하질 못 했다는 것이다. 아이러니한 일이다. <small>(2010-08-02)</small>
+
+</div>
+

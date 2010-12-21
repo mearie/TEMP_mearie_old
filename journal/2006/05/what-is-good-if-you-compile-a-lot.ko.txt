@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'컴파일을 많이 자주 하면 좋은 점'
+when = '2006-05-25T18:52:49+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=101'
+%>
+
+> 컴파일을 많이 자주 하게 되면 컴파일에 사용되는 파일들이 하드디스크 캐시에 올라가기 때문에 컴파일 시간이 단축된다.
+
+의외로 말 되는 것 같군;
+

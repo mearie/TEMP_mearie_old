@@ -1,0 +1,835 @@
+@charset "utf-8";
+
+* {
+	color: inherit;
+}
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary {
+	display: block;
+}
+
+/* font settings */
+body, input, select, :lang(en) {
+	font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica", sans-serif;
+}
+code, pre, var, samp, kbd, tt, textarea,
+code:lang(en), code:lang(en) *, pre:lang(en), pre:lang(en) *, var:lang(en), var:lang(en) *,
+samp:lang(en), samp:lang(en) *, kbd:lang(en), kbd:lang(en) *, tt:lang(en), tt:lang(en) *, textarea:lang(en) {
+	font-family: "Andale Mono", "Monaco", "Lucida Console", "Luxi Mono", monospace;
+}
+:lang(ko) {
+	font-family: "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "AppleGothic",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"돋움", "Dotum", "Luxi Sans", "은 돋움", "UnDotum", "Baekmuk Gulim", sans-serif;
+}
+code:lang(ko), code:lang(ko) *, pre:lang(ko), pre:lang(ko) *, var:lang(ko), var:lang(ko) *,
+samp:lang(ko), samp:lang(ko) *, kbd:lang(ko), kbd:lang(ko) *, tt:lang(ko), tt:lang(ko) *, textarea:lang(ko) {
+	font-family: "NanumGothicCoding", "나눔고딕코딩", "NanumGothic_Coding", "나눔고딕_코딩",
+		"Andale Mono", "Monaco", "AppleGothic", "Lucida Console",
+		"돋움체", "DotumChe", "Luxi Mono", monospace;
+}
+:lang(ja) {
+	font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
+		"Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Arial", "Helvetica",
+		"MS UI Gothic", "ＭＳ Ｐゴシック", "MS Gothic", "IPAUIGothic", "IPAPGothic", sans-serif;
+}
+
+/* design */
+body {
+	width: 960px;
+	font-weight: 200;
+	font-size: 0.9em;
+	margin: 0 auto;
+	color: #444;
+	background: #eee;
+	line-height: 1.67;
+	text-align: center;
+}
+hr {
+	display: none;
+}
+#sitebody {
+	display: inline;
+	width: 640px;
+	/*
+	min-height: 400px;
+	*/
+	float: right;
+	text-align: left;
+	margin-right: 10px;
+	margin-bottom: 1em;
+}
+#siteside {
+	width: 300px;
+	/*
+	position: fixed;
+	left: 50%;
+	top: 0;
+	margin: 0 0 1em -480px;
+	*/
+	float: left;
+	text-align: left;
+	margin: 0 0 1em 0;
+}
+#siteresp {
+	clear: both;
+	margin: 0 auto;
+	text-align: left;
+}
+#sitemeta {
+	clear: both;
+	margin: 0 auto;
+	text-align: left;
+	border-top: 2px solid #379;
+}
+#sitebody hr, #siteside hr, #sitemeta hr {
+	display: block;
+}
+.slogan {
+	margin: 0.4em 1em 0 0;
+}
+.logo {
+	float: left;
+}
+.menu {
+	line-height: 1.5;
+	margin-top: 0.8em;
+	margin-left: 120px;
+	padding: 0;
+}
+.menu .domain {
+	margin: 0 0 0.6em 0;
+	font-size: 133%;
+	font-weight: bold;
+}
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div.toc {
+	margin: 2em 1em;
+	border: 1px solid #999;
+}
+div.toc .tocheader {
+	background: #999;
+	font-size: 133%;
+	font-weight: bold;
+	color: #eee;
+	margin: 0;
+	padding: 0 0.3em;
+}
+div.toc ul {
+	list-style: none;
+	margin: 0.2em 0.5em;
+	padding: 0;
+}
+.menu ul ul, div.toc ul ul {
+	list-style: none;
+	margin: 0 0 0 1em;
+	padding: 0;
+}
+.menu ul ul ul, div.toc ul ul ul {
+	margin: 0 0 0 1.2em;
+}
+.menu li, div.toc li {
+	margin: 0;
+	font-size: 133%;
+}
+.menu li li, div.toc li li {
+	font-size: 66%;
+}
+.menu li li li, div.toc li li li {
+	font-size: 90%;
+}
+.menu li li li li, div.toc li li li li {
+	font-size: 100%;
+}
+.tray {
+	width: 45%;
+	display: inline;
+	float: right;
+	text-align: right;
+	margin: 0.5em 1em;
+	font-size: 80%;
+	color: #379;
+}
+.search {
+	width: 45%;
+	margin: 0.5em 0.8em;
+}
+.copyright {
+	width: 45%;
+	color: #379;
+	font-size: 75%;
+	margin: 0.5em 1em;
+	text-align: left;
+}
+.tray a, .copyright a {
+	color: #9ac;
+}
+.loading-anim {
+	display: block;
+	width: auto;
+	height: 8em;
+	background: url(loading.gif) no-repeat center;
+}
+
+/* block elements */
+h1 {
+	clear: both;
+	text-align: right;
+	font-size: 200%;
+	line-height: 0.8;
+	margin: 0.5em 0;
+	color: #379;
+	text-shadow: #bcd 0 0.2em 0.2em;
+}
+h2 {
+	text-align: left;
+	font-size: 150%;
+	color: #444;
+	text-shadow: #bbb 0 0.2em 0.2em;
+}
+hgroup {
+	font-size: 111%;
+	line-height: 1.2;
+	margin: 0.5em 0;
+}
+hgroup h1 {
+	font-size: 180%;
+	line-height: 1.2;
+	margin: 0;
+}
+hgroup h2 {
+	text-align: right;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
+	color: #69a;
+	text-shadow: #bcd 0 0.2em 0.2em;
+}
+h3, h4, h5, h6 {
+	text-align: left;
+	color: #444;
+}
+p {
+	color: #444;
+	margin: 1em auto;
+	text-align: justify;
+}
+ul {
+	list-style: square;
+	text-align: justify;
+	padding-left: 1.5em;
+	margin-left: 0;
+}
+ol {
+	text-align: justify;
+	padding-left: 1.5em;
+	margin-left: 0;
+}
+li {
+	color: #444;
+}
+dl.dialog dt {
+	float: left;
+	display: inline;
+	margin-right: 0.3em;
+	font-weight: bold;
+	color: #444;
+}
+dl.dialog dd {
+	margin-left: 0;
+}
+dl.dialog .person1 {
+	color: #844;
+}
+dl.dialog .person2 {
+	color: #884;
+}
+dl.dialog .person3 {
+	color: #484;
+}
+dl.dialog .person4 {
+	color: #488;
+}
+dl.dialog .person5 {
+	color: #448;
+}
+dl.dialog .person6 {
+	color: #848;
+}
+pre {
+	background: #444;
+	color: #eee;
+	padding: 0.3em 0.5em;
+	overflow: auto;
+	line-height: 1.5;
+}
+.gist pre {
+	color: black;
+	font-size: 90%;
+}
+.small pre {
+	font-size: 80%;
+	line-height: 1.4;
+}
+.extrasmall pre {
+	font-size: 50%;
+	line-height: 1.2;
+}
+blockquote {
+	margin: 0;
+	border-left: 0.5em solid #999;
+	padding-left: 0.3em;
+}
+blockquote p, blockquote li {
+	color: #666;
+}
+.clear {
+	clear: both;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+.indent {
+	margin-left: 3em;
+	margin-right: 3em;
+}
+
+/* asides */
+.note {
+	clear: both;
+	font-size: 90%;
+	margin: 0 0 0 4em;
+	border-top: 1px solid #379;
+	border-bottom: 1px solid #379;
+}
+.message {
+	clear: both;
+	border: 0.3em solid #6a6;
+	margin: 1em 0;
+	font-size: 90%;
+	color: #484;
+}
+.message p {
+	margin: 0.3em;
+	color: #484;
+}
+.warning {
+	clear: both;
+	border: 0.3em solid #a66;
+	margin: 1em 0;
+	font-size: 90%;
+	color: #844;
+}
+.warning p {
+	margin: 0.3em;
+	color: #844;
+}
+.afternote {
+	clear: both;
+	border: 0.3em solid #888;
+	margin: 1em 0;
+	font-size: 90%;
+	color: #666;
+}
+.afternote p {
+	margin: 0.3em;
+	color: #666;
+}
+
+/* inline elements */
+a {
+	color: #379;
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover, a:active {
+	color: #973;
+}
+em:lang(ko) {
+	font-style: normal;
+	text-decoration: underline;
+}
+strong {
+	font-weight: 700;
+}
+abbr {
+	border-bottom: 1px dotted #444;
+	cursor: help;
+}
+ins {
+	text-decoration: underline;
+}
+del {
+	text-decoration: line-through;
+	color: #888;
+}
+small {
+	font-size: 85%;
+}
+big {
+	font-size: 150%;
+}
+code {
+	border: 1px solid #999;
+	padding: 0.1em 0.2em;
+	/* no borders for tt; they are only used in older blogs. */
+}
+a code {
+	border-color: #689;
+}
+a:hover code, a:active code {
+	border-color: #986;
+}
+code.rev, code.path, code.url {
+	border: 0;
+	padding: 0;
+}
+pre code {
+	border: none;
+	background: none;
+	color: #eee;
+	padding: 0;
+}
+input {
+	vertical-align: baseline;
+	padding: 1px 3px;
+}
+
+/* inline: link labels */
+/* :not(.interwiki) is workaround for dokuwiki (where a.interwiki has lower specificity)
+ * IE7+ recognizes [href...] but not :not(), so to avoid partial application we put
+ * :not(...) everywhere and use javascript only in IE (i hope IE9 support :not()...) */
+a[href^="http://"]:not(.interwiki):not(.noicon),
+a[href^="https://"]:not(.interwiki):not(.noicon),
+a[href^="ftp://"]:not(.interwiki):not(.noicon),
+a[href^="irc://"]:not(.interwiki):not(.noicon),
+a[href^="mailto:"]:not(.interwiki):not(.noicon) {
+	padding-left: 3px;
+	background: transparent url(link-external.png) top left no-repeat;
+}
+a[href^="http://"]:not(.interwiki):not(.noicon) code,
+a[href^="https://"]:not(.interwiki):not(.noicon) code,
+a[href^="ftp://"]:not(.interwiki):not(.noicon) code,
+a[href^="irc://"]:not(.interwiki):not(.noicon) code,
+a[href^="mailto:"]:not(.interwiki):not(.noicon) code {
+	margin-left: -3px;
+}
+.tray a[href^="http://"]:not(.interwiki):not(.noicon), .copyright a[href^="http://"]:not(.interwiki):not(.noicon),
+.tray a[href^="https://"]:not(.interwiki):not(.noicon), .copyright a[href^="https://"]:not(.interwiki):not(.noicon),
+.tray a[href^="ftp://"]:not(.interwiki):not(.noicon), .copyright a[href^="ftp://"]:not(.interwiki):not(.noicon),
+.tray a[href^="irc://"]:not(.interwiki):not(.noicon), .copyright a[href^="irc://"]:not(.interwiki):not(.noicon),
+.tray a[href^="mailto:"]:not(.interwiki):not(.noicon), .copyright a[href^="mailto:"]:not(.interwiki):not(.noicon) {
+	background-image: url(link-external-m.png);
+}
+a[href^="http://"]:not(.interwiki):not(.noicon):hover, a[href^="http://"]:not(.interwiki):not(.noicon):active,
+a[href^="https://"]:not(.interwiki):not(.noicon):hover, a[href^="https://"]:not(.interwiki):not(.noicon):active,
+a[href^="ftp://"]:not(.interwiki):not(.noicon):hover, a[href^="ftp://"]:not(.interwiki):not(.noicon):active,
+a[href^="irc://"]:not(.interwiki):not(.noicon):hover, a[href^="irc://"]:not(.interwiki):not(.noicon):active,
+a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.interwiki):not(.noicon):active {
+	background-image: url(link-external-a.png);
+}
+a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
+	padding-left: 0;
+	background-image: none;
+}
+a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) code {
+	margin-left: 0;
+}
+
+/* objects & media */
+img {
+	border: 0;
+	vertical-align: middle;
+}
+img.left, .image-frame.left {
+	float: left;
+	clear: left;
+	margin: 0 1em 1em 0;
+}
+img.right, .image-frame.right {
+	float: right;
+	clear: right;
+	margin: 0 0 1em 1em;
+}
+img.center, .image-frame.center {
+	display: block;
+	margin: 0 auto;
+}
+img.bordered {
+	border: 4px solid #aaa;
+}
+img.left.bordered, .image-frame.left {
+	margin-left: -4px;
+}
+img.right.bordered, .image-frame.right {
+	margin-right: -4px;
+}
+img.noborder, .noborder img {
+	border: 0 !important;
+}
+.image-frame {
+	border: 4px solid #aaa;
+}
+.image-frame img {
+	float: none;
+	clear: none;
+}
+.image-frame img.bordered {
+	border: 0;
+}
+.image-frame img.left, .image-frame img.right {
+	margin: 0;
+}
+.image-frame .caption {
+	border-top: 2px solid #aaa;
+	padding: 2px 3px;
+	font-size: 90%;
+	text-align: left;
+}
+
+/* table */
+table {
+	border-top: 2px solid #69a;
+	border-bottom: 2px solid #69a;
+	border-collapse: collapse;
+	margin: 1em auto;
+}
+thead tr {
+	border-bottom: 1px solid #69a;
+	color: #69a;
+}
+tfoot tr {
+	border-top: 1px solid #69a;
+	color: #69a;
+}
+td, th {
+	color: #444;
+	text-align: justify;
+	padding: 3px 5px;
+}
+th {
+	text-align: center;
+}
+td p, td pre {
+	margin: 0;
+}
+
+/* footnotes */
+#sitebody .footnotes {
+	font-size: 90%;
+	margin: 0.5em 0;
+	padding: 0 0.5em;
+	border-top: 1px solid #9ac;
+	border-bottom: 1px solid #9ac;
+	clear: both;
+}
+#sitebody .footnotes hr {
+	display: none;
+}
+#sitebody .footnotes ol {
+	padding-left: 2em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* nav */
+.nav {
+	list-style: none;
+	margin: 0.5em 0;
+	padding: 0;
+	float: right;
+	clear: right;
+}
+.nav.controls {
+	float: left;
+	clear: left;
+}
+.nav li {
+	float: left;
+	display: inline;
+	margin: 0 0 0 0.33em;
+	padding: 1px 0;
+}
+.nav.controls li {
+	margin: 0 0.33em 0 0;
+}
+.nav li a {
+	display: block;
+	padding: 3px !important; /* conflicts with external link marker */
+	border: 1px solid #379;
+	line-height: 1.3;
+	text-decoration: none;
+}
+.nav li a:hover, .nav li a:active {
+	border-color: #973;
+}
+.nav li.highlight a {
+	background: #379;
+	color: #eee;
+}
+.nav li.highlight a:hover, .nav li.highlight a:active {
+	background: #973;
+	color: #eee;
+}
+
+/* mearie specific: index */
+.mearie-news {
+	float: left;
+	width: 49%;
+}
+.mearie-activity {
+	float: right;
+	width: 49%;
+}
+.mearie-news h2, .mearie-activity h2 {
+	margin-top: 0;
+}
+.mearie-news ul {
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+.mearie-activity ul {
+	font-size: 90%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.mearie-news li, .mearie-activity li {
+	margin: 0.5em 0;
+}
+.mearie-neighbors {
+	clear: both;
+	text-align: right;
+	font-size: 80%;
+	margin: 0;
+}
+
+/* mearie specific: cv */
+.mearie-cv {
+	border: 1px solid #888;
+	padding: 0 1em;
+	background: #fff;
+}
+.mearie-cv p {
+	color: #444;
+}
+.mearie-cv h2 {
+	text-shadow: none;
+}
+.mearie-cv dt {
+	font-weight: bold;
+	float: left;
+}
+.mearie-cv dd {
+	margin-left: 7.5em;
+}
+.mearie-cv small {
+	font-size: 100%;
+	font-style: italic;
+}
+.mearie-cv .summary p {
+	text-align: center;
+}
+.mearie-cv .summary strong {
+	font-size: 180%;
+}
+
+/* journal post */
+.post,
+article {
+	border-right: 1em solid #69a;
+	margin: 1.5em 0;
+}
+.post:hover,
+article:hover {
+	border-right-color: #379;
+}
+.post:hover h2 a.permalink,
+article:hover h2 a.permalink {
+	background: #379 !important;
+}
+.post h2 a.permalink,
+article h2 a.permalink {
+	float: right;
+	display: inline;
+	font-size: 60%;
+	font-weight: normal;
+	text-shadow: none;
+	background: #69a !important;
+	color: white;
+	padding: 0.4em 0.5em !important;
+	margin-left: 0.5em;
+	line-height: 1;
+	text-align: right;
+}
+.post h2 a.permalink:hover, .post h2 a.permalink:active,
+article h2 a.permalink:hover, article h2 a.permalink:active {
+	background: #973 !important;
+	color: white;
+}
+.post h2 a.permalink small,
+article h2 a.permalink small {
+	display: block;
+	font-size: 80%;
+}
+.post h2.notitle,
+article h2.notitle {
+	font-size: 10%;
+}
+.post h2.notitle a,
+article h2.notitle a {
+	font-size: 900%;
+}
+.post blockquote h2,
+article blockquote h2 {
+	font-size: 120%;
+	text-shadow: none;
+}
+.post blockquote h2 a.permalink,
+article blockquote h2 a.permalink {
+	font-size: 75%;
+}
+.post .postbody,
+article .postbody {
+	clear: right;
+	margin-right: 0.5em;
+}
+.post .postmore,
+article .postmore {
+	clear: both;
+	float: right;
+	display: inline;
+	margin: 0 0.5em -1em 3em;
+	line-height: 1;
+}
+article footer dl {
+	clear: both;
+	color: #69a;
+	font-size: 80%;
+	padding: 0;
+}
+article footer dl:hover {
+	color: #379;
+}
+article footer dt {
+	display: inline;
+	font-weight: bold;
+	margin: 0 0.5em 0 2em;
+	padding: 0;
+}
+article footer dt.when {
+	margin-left: 0; /* the first item */
+}
+article footer dd {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+article footer dd ul {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+article footer dd li {
+	display: inline;
+	margin: 0 0.5em 0 0;
+	padding: 0;
+}
+
+/* responses */
+#siteresp h2 {
+	display: none;
+}
+#siteresp.loading-anim, #siteresp.loading-error {
+	border-top: 2px solid #379;
+}
+#siteresp.loading-error p {
+	text-align: center;
+}
+.responses {
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #379;
+}
+.response {
+	list-style: none;
+	margin: 0;
+	padding: 10px 0 0 10px;
+	clear: both;
+	border-top: 1px solid #379;
+}
+.response .info {
+	width: 290px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+	float: left;
+}
+.response .number {
+	float: left;
+	font-weight: bold;
+	color: #379;
+}
+.response .origin {
+	display: block;
+	margin-left: 40px;
+	font-size: 80%;
+	color: #379;
+}
+.response .author {
+	display: block;
+	margin-left: 40px;
+}
+.response .datetime {
+	display: block;
+	margin-left: 40px;
+	color: #aaa;
+	font-size: 80%;
+}
+.response .contents {
+	padding: 0 10px 10px 0;
+	margin-left: 300px;
+	min-height: 2.75em;
+}
+.response.origin-admin {
+	background: #ddd;
+}
+.response.origin-admin .author {
+	font-weight: bold;
+}
+.response.origin-admin .datetime {
+	color: #999;
+}
+.response.origin-trackback .number, .response.origin-trackback .origin {
+	color: #9ac;
+}
+.response.origin-trackback .author, .response.origin-trackback .contents {
+	color: #888;
+}
+.responseform {
+	clear: both;
+	border-top: 1px solid #379;
+}
+.responseform p {
+	margin: 10px;
+	text-align: center;
+}
+

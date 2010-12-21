@@ -1,0 +1,71 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'key pair 바뀜'
+when = '2006-07-10T22:04:53+09:00'
+category = u'소식'
+original = 'http://tokigun.net/blog/entry.php?blogid=134'
+%>
+
+사실 옛날에 만들었던 [key pair](http://pgp.mit.edu:11371/pks/lookup?search=0x12772D8F&op=vindex)는 passphrase를 잊어버려서 revoke도 못 하겠고 새로 uid를 추가할 수도 없고 하는 상황이었다. 근데 오늘 뒤져 보니까 revocation certificate가 어딘가에 굴러 다니긴 하더라. 하는 김에 옛날에 실수로 만들었던 key pair도 모조리 정식으로 revoke하고 오늘 새로 만들었다. 옛날에 KLDP에서 Key Signing Party 한답시고 만들어 놓고 2년이 조금 넘었는데 첫 key pair는 이렇게 파기되는구나. orz
+
+새 공개키는 다음과 같다.
+
+<div class="small">
+
+	-----BEGIN PGP PUBLIC KEY BLOCK-----
+	Version: GnuPG v1.4.3 (MingW32)
+
+	mQGiBESyS8IRBACK2AuDSESC3hQnV0HMfNJfJhsYeve0SbQkTvY+31NgRnmXtrY4
+	6gAlKhDzmEDNRr6/ChLECFX7tJUW4PTiWujMJdty1dUaYWECdLQWX+lReQI8EFfr
+	5bcVgw/zx6xQDs/LUVm1WVC/nXCjBKGMiR9bgS25HrFBuk75Q/qTXZZawwCg8kkT
+	bdU9MNB9N5QH8SK2gLkG1pUD/2FgGA3uNOEH+Y5piusIzcK8OhimupTlDPeUtRDi
+	XS+f46hliDv52gtdhfLspGJpZF6el99AG9GfSJeZFc3OlvTqhssY8hGBEpkw/Ruq
+	fxyrRw/JF0ibKCohWY3AcTavtn6oGhHxWvKKRlOxWa6K1JT1CBTz9beEwE9NLYXT
+	cbC7A/4jmTWOlquKDwfJGdZVnyCTZ/G/1QGKQHEqCoHx16ekNjeg9WZ2kKZ3NiBw
+	IVn/goHP4Q3lcNZ02fbx3NwRkygIrBq0Hq5J7Jlwix/vyxBfzLF4F+2/JJ2b9hOZ
+	eC46WLii5As09XbkSCauVkZDY3CuQb8CV4cAzxtn1BM6NgE847Q4S2FuZyBTZW9u
+	Z2hvb24gYWthIFRva2lndW4gKHByaW1hcnkpIDx0b2tpZ3VuQGdtYWlsLmNvbT6I
+	ZgQTEQIAJgIbAwUJA8JnAAYLCQgHAwIEFQIIAwQWAgMBAh4BAheABQJEskwuAAoJ
+	EKavngYugvFz3PkAoJUBwJ26AIbsT2p0BChZXKT69/lsAKCpAP4w01+Fpad95xQe
+	ECe+iKtht7RDS2FuZyBTZW9uZ2hvb24gYWthIFRva2lndW4gKHNlY29uZGFyeSkg
+	PHRva2lndW5Ac3BhcmNzLmthaXN0LmFjLmtyPohmBBMRAgAmBQJEskwkAhsDBQkD
+	wmcABgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQpq+eBi6C8XN4lgCgr5AFX8Zb
+	1S5bpRA4zVi5PyOTXNAAn2l/J6MFHa0fMAUn/DOBYwMXFyDQtENLYW5nIFNlb25n
+	aG9vbiBha2EgVG9raWd1biAoYW5kIHNvIG9uKSA8emVyb3dpZGVAbm90dXNlZC5y
+	dXJlZS5uZXQ+iGkEExECACkCGwMFCQPCZwAGCwkIBwMCBBUCCAMEFgIDAQIeAQIX
+	gAUCRLJMLgIZAQAKCRCmr54GLoLxc6LmAJ9NYJdcEfVegUS/N6vZNZedHmHQ6QCg
+	ragod5yyaOZB2jLeV4/PpDG8xy25Ag0ERLJL1BAIAKAuOVbTZ9mZqUlRRrwcAKHA
+	QHOCXZJThPzgMO34C3fsJciVnfIrGTYoVGjx4i7a4UiWDWu5eYmNl3y0iXSK7SUT
+	PEp6xrnqSbeYxrqNWTq74e5g3jT9ozqQ0QYI7sFTNBHU0AtX3O2zraKuVJatFHNm
+	faqgeq0No5u4883sD761Ygc188eYzqlvAxdYzXeaHyVR3VRL2F8gVuhP6geaztLp
+	JpDunE1NB115nbOhquvBqMbytD6VIozx5gMvoWMHIbk3Hqigd3umgjA9ji+0gIf/
+	48eww90f3jl74a/GGJnqgNVvxvdMPqD1Qu8NDtWAFaQzTls6tmFlxuBnIHqeqw8A
+	AwUH+gOCPBR6EpT2+fdx04lw/AxGaDDkZoKl7/PfIP5zDHKZHWmP0nMW9kMbuMxI
+	/QYv8iFfoatr5SiZiHX8Fohr+cmihuCud4ZJ17jIX8KQdNSDm9IqqcYk7Z8FL9Fe
+	thq3wXjSYTaWtloY6g5cvE42kwF9fa2kuF93wOY6rOU+io743eiqBq5NgkJalT7c
+	lsRdDVZrmL7AxtPwZpJlhg5TBP84/T3yKxRIaBGEWDrSR9beh0wtDrC4cZ8H//bv
+	YcWvQNN+8kWD+5uIFwJyEwYqYtfqpIVqgH2H7GxtDSMnM4yBByNVPL7+Iyq074h+
+	gx2KU5hMGmUzOBFSKB1cW2KWLLqITwQYEQIADwUCRLJL1AIbDAUJA8JnAAAKCRCm
+	r54GLoLxc+KiAKDWdxl1uSIQLecdPUspn5CBVOzKFQCfQktLY/13ajn7cozCRA0Z
+	NBSMWbU=
+	=Gr3z
+	-----END PGP PUBLIC KEY BLOCK-----
+
+</div>
+
+새 fingerprint는 다음과 같고, 좀 더 안전한 경로로 전달받고 싶다면 연락해 주시면 되겠다. (요즘은 ElGamal 2048비트가 기본인가 보다.) primary로 등록되어 있는 zerowide는 메일 주소가 바뀔 경우에도 primary key를 바꾸지 않기 위해서 만들어 놓은 것이니 메일 절대로 보내지 마시길 바란다.
+
+	pub   1024D/2E82F173 2006-07-10 [expires: 2008-07-09]
+	      Key fingerprint = FF30 EA63 6C06 5775 8365  3A2F A6AF 9E06 2E82 F173
+	uid                  Kang Seonghoon aka Tokigun (and so on) <zerowide@...>
+	uid                  Kang Seonghoon aka Tokigun (primary) <tokigun@...>
+	uid                  Kang Seonghoon aka Tokigun (secondary) <tokigun@...>
+	sub   2048g/BC0D204C 2006-07-10 [expires: 2008-07-09]
+
+<div class="afternote">
+
+만료일로부터 알 수 있듯, 만료일 이후로 쓸 일이 없어서 따로 갱신을 안 했기 때문에 (그리고 비밀키를 또 잃어버렸기 때문에) 현재는 이 key pair를 사용할 수 없음을 알려 둔다. <small>(2010-03-25)</small>
+
+</div>
+

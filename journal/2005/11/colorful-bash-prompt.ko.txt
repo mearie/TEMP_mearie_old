@@ -1,0 +1,31 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'이쁜(?) bash 프롬포트 만들기'
+when = '2005-11-22T18:04:51+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=23'
+%>
+
+필요하신 분은 갖다 쓰시라. `__PS_COLOR`를 고치면 색깔을 바꿀 수 있다. (본인은 서버 구별하는 데 사용한다 -_-; 계정이 많아서...)
+
+<%text filter="indent">
+__PS_COLOR=31
+__PROMPT_FUNC() {
+    local _ERRVAL=$?; local _PWD=${PWD/$HOME/~}; local _BASE=${_PWD##*/}
+    PS1="\[\e[1;${__PS_COLOR}m\]\u\[\e[0;${__PS_COLOR}m\]@\h\[\e[1;30;40m\]:"
+    PS1="${PS1}\[\e[0;37m\]${_PWD%$_BASE}\[\e[1;37m\]${_BASE}"
+    if test $_ERRVAL -eq 0; then
+        PS1="${PS1}\[\e[32m\]\\$ \[\e[0m\]"
+    else
+        PS1="${PS1}\[\e[31m\]\\$ [${_ERRVAL}] \[\e[0m\]"
+    fi
+    echo -ne "\e]0;${USER}@${HOSTNAME}: ${_PWD}\007"
+}
+PROMPT_COMMAND=__PROMPT_FUNC
+</%text>
+
+이런 식으로 써 먹을 수 있다.
+
+<%m:img src="20051122.bashprompt.png" align="center">다채롭게 변한 bash 프롬포트들</%m:img>
+

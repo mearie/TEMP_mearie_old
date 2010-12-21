@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'WolframTones'
+when = '2005-09-19T20:45:35+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=6'
+%>
+
+세 시간에 걸쳐서 대전 기숙사에 돌아 와서 irc를 켜 보니 [PuzzletChung](http://puzzlet.org/) 님께서 재밌는 사이트를 소개해 주셨다. 이름하여 [Wolfram*Tones*](http://tones.wolfram.com/)! 셀룰러 오토마타를 사용해서 뭔가 그럴 듯한 음악(tone)을 만들어 내는데, 사실 이런 시도가 한 두 번 있던 건 아니지만 웹에서 생성해 내고 그 음악을 시각화할 수 있다는 게 재밌다. 뭔가 쓸만한 악상을 만들어 낼 때 조금 유용할 지도 모르겠고, 아니면 머릿속을 혼잡하게 만드는 데도 도움이 될 것 같다 -_-;;;;
+
+예를 들어서, 31.489969269.224363라는 초기값을 가지고 다음과 같은 음악을 만들 수 있다. (링크를 따라 가면 음악을 직접 들을 수 있는데 아마 퀵타임이 필요할 듯 하다)
+
+<%m:img src="20050919.wolframtones.gif" align="center" bordered="1" linkto="http://tones.wolfram.com/id/GI3t2xpJgwmU6y2JDndIDo1QpXpHLNTm0C3WS4umWOloXmm">WolframTones로 생성한 음악의 시각화</%m:img>
+
+...아무튼 Wolfram Research는 매쓰매티카 갖고 별 걸 다 하는 것 같다 -_-; (저 사이트가 바로 웹매쓰매티카를 사용한다.)
+

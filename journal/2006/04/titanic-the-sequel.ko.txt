@@ -1,0 +1,17 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'타이타닉 속편'
+when = '2006-04-17T17:15:34+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=85'
+%>
+
+[태우's log - Remix 파워업!](http://twlog.net/wp/?p=434)
+
+타이타닉 속편(!)이 YouTube에 올라 왔다. Derek Johnson 감독의 [트레일러](http://youtube.com/watch?v=vD4OnHCRd_4)가 공개되어 있다. 물론 진짜로 나오는 건 아니지만...
+
+레오나르도 디카프리오 나오는 영화들을 잘라 붙여서 만든 것인데 그야말로 대박이다. 내용도 참 깨고(?) 영화들을 보지 않은 사람이라면 정말로 속편 나오는 건줄 알고 낚일 수 있을 정도의 퀄리티에 가깝다고 본다. (그만큼 장면 선택을 잘 했다는 얘기)
+
+아... 정말 웃겨 죽는 줄 알았다. 한국 영화로도 만들어 보자는 얘기가 나왔는데 가능할 지는 잘 모르겠다 :)
+

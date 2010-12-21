@@ -1,0 +1,55 @@
+{header}
+<title>Changeset {rev}:{node|short} | {repo|escape} | hg.mearie.org</title>
+<link rel="alternate" type="application/atom+xml" href="{url}atom-log" title="Atom feed for {repo|escape}"/>
+<link rel="alternate" type="application/rss+xml" href="{url}rss-log" title="RSS feed for {repo|escape}"/>
+</head>
+<body lang="en" class="lang-en">
+<div id="sitebody">
+<hgroup><h1>Changeset {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
+
+<table class="otherrevs"><tr>
+<td class="parent">{parent%changesetparent}</td>
+<td class="current"><strong>{rev}:<code class="rev">{node|short}</code></strong> <span class="logtags">{inbranch%inbranchtag}{branches%branchtag}{tags%tagtag}</span></td>
+<td class="child">{child%changesetchild}</td>
+</table>
+
+<dl class="summary">
+<dt>Author:</dt><dd>{author|obfuscate}</dd>
+<dt>Committed on </dt><dd><time datetime="{date|rfc3339date}">{date|rfc822date} <em>({date|age})</em></time></dd>
+</dl>
+<p>{desc|strip|escape|addbreaks}</p>
+
+<h2>Files</h2>
+<table class="files">
+{files}
+</table>
+
+<h2>Diff</h2>
+<div class="page_body">{diff}</div>
+
+</div> 
+<hr/> 
+<div id="siteside"> 
+<div class="slogan"> 
+	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="Go to mearie.org front page." /></a> 
+</div> 
+<div class="menu"> 
+	<p class="domain"><a href="/">hg.mearie.org</a></p> 
+	<ul>
+	<li><a href="{url}summary{sessionvars%urlparameter}">{repo|escape}</a><ul>
+	<li><a href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
+	<li><a href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
+	<li><a href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
+	<li><a href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
+	<li>Archives: {archives%archiveentry}</li>
+	</ul></li>
+	<li>Feeds: <a href="{url}rss-log">RSS</a> <a href="{url}atom-log">Atom</a></li>
+	<li><form action="{url}log">{sessionvars%hiddenformentry}Search: <input type="text" name="rev" size="8"/></form></li>
+	</ul></li>
+	</ul>
+</div> 
+</div> 
+{footer}

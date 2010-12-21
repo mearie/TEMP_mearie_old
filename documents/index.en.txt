@@ -1,0 +1,7 @@
+## vim: syn=mako
+
+Besides from [software projects](/projects/), I occasionally find time to write some documents about my thoughts. See [my English journal](http://j.mearie.org/tagged/english) for less serious posts.
+
+* <small>(2006-07-20)</small> [Microsoft C++ Name Mangling Scheme](mscmangle/)
+* <small>(2010-03-12)</small> [How (not) to teach Python](how-not-to-teach-python/) (Korean only)
+

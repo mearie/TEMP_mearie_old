@@ -1,0 +1,120 @@
+{header}
+<!--[if IE]><script type="text/javascript" src="{staticurl}excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="{staticurl}graph.js"></script>
+<title>Graph View to {rev}:{node|short} | {repo|escape} | hg.mearie.org</title>
+<link rel="alternate" type="application/atom+xml" href="{url}atom-log" title="Atom feed for {repo|escape}"/>
+<link rel="alternate" type="application/rss+xml" href="{url}rss-log" title="RSS feed for {repo|escape}"/>
+</head>
+<body lang="en" class="lang-en">
+<div id="sitebody">
+<hgroup><h1>Graph View to {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
+
+<ul class="nav controls">
+<li class="highlight"><a href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
+<li class="highlight"><a href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
+</ul>
+<ul class="nav">{changenav%navgraph}</ul>
+
+<noscript>The revision graph only works with JavaScript-enabled browsers.</noscript>
+
+<div id="graphwrap">
+<ul id="nodebgs"></ul>
+<canvas id="graph" width="224" height="{canvasheight}"></canvas>
+<ul id="graphnodes" class="log"></ul>
+</div>
+
+<script type="text/javascript">
+<!-- hide script content
+
+var data = {jsdata|json};
+var graph = new Graph();
+graph.scale({bg_height});
+
+graph.edge = function(x0, y0, x1, y1, color) \{
+	this.setColor(color, 0.0, 0.65);
+	this.ctx.beginPath();
+	this.ctx.moveTo(x0, y0);
+	this.ctx.lineTo(x1, y1);
+	this.ctx.stroke();
+}
+
+var revlink = '<li class="row _PARITY" style="_STYLE"><a href="{url}rev/_NODEID{sessionvars%urlparameter}" title="rev _NODEID" class="moreinfo"><span class="age">_DATE</span> <span class="author">by _USER</span><br/>_DESC _TAGS</a></li>'
+
+graph.vertex = function(x, y, color, parity, cur) \{
+	
+	this.ctx.beginPath();
+	color = this.setColor(color, 0.25, 0.75);
+	this.ctx.arc(x, y, radius, 0, Math.PI * 2, true);
+	this.ctx.fill();
+	
+	var bg = '<li class="bg parity' + parity + '"></li>';
+	var left = (this.columns + 1) * this.bg_height;
+	var nstyle = 'padding-left: ' + left + 'px;';
+	var item = revlink.replace(/_STYLE/, nstyle);
+	item = item.replace(/_PARITY/, 'parity' + parity);
+	item = item.replace(/_NODEID/, cur[0]);
+	item = item.replace(/_NODEID/, cur[0]);
+	item = item.replace(/_DESC/, cur[3]);
+	item = item.replace(/_USER/, cur[4]);
+	item = item.replace(/_DATE/, cur[5] == '1970-01-01' ? 'a long time ago' : cur[5]);
+	
+	var tagspan = '';
+	if (cur[7].length || (cur[6][0] != 'default' || cur[6][1])) \{
+		tagspan = '<span class="logtags">';
+		if (cur[6][1]) \{
+			tagspan += '<span class="branchtag" title="' + cur[6][0] + '">';
+			tagspan += cur[6][0] + '</span> ';
+		} else if (!cur[6][1] && cur[6][0] != 'default') \{
+			tagspan += '<span class="inbranchtag" title="' + cur[6][0] + '">';
+			tagspan += cur[6][0] + '</span> ';
+		}
+		if (cur[7].length) \{
+			for (var t in cur[7]) \{
+				var tag = cur[7][t];
+				tagspan += '<span class="tagtag">' + tag + '</span> ';
+			}
+		}
+		tagspan += '</span>';
+	}
+	
+	item = item.replace(/_TAGS/, tagspan);
+	return [bg, item];
+	
+}
+
+graph.render(data);
+
+// stop hiding script -->
+</script>
+
+<ul class="nav controls">
+<li class="highlight"><a href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
+<li class="highlight"><a href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
+</ul>
+<ul class="nav">{changenav%navgraph}</ul>
+
+</div> 
+<hr/> 
+<div id="siteside"> 
+<div class="slogan"> 
+	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="Go to mearie.org front page." /></a> 
+</div> 
+<div class="menu"> 
+	<p class="domain"><a href="/">hg.mearie.org</a></p> 
+	<ul>
+	<li><a href="{url}summary{sessionvars%urlparameter}">{repo|escape}</a><ul>
+	<li><a href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
+	<li><a href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
+	<li><a href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
+	<li><a href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
+	</ul></li>
+	<li>Feeds: <a href="{url}rss-log">RSS</a> <a href="{url}atom-log">Atom</a></li>
+	<li><form action="{url}log">{sessionvars%hiddenformentry}Search: <input type="text" name="rev" size="8"/></form></li>
+	</ul></li>
+	</ul>
+</div> 
+</div> 
+{footer}

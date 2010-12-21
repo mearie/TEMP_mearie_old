@@ -1,0 +1,15 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="nav(entry)">\
+${entry(ko=u'메아리 대하여', en=u'About mearie.org')}\
+</%def>
+
+<%def name="menu_about(lang)">
+* [${lang(ko=u'강 성훈', en=u'Kang Seonghoon')}](/about/kang-seonghoon) ${capture(self.menu_about_me,lang)|indent}
+* [${lang(ko=u'메아리', en=u'mearie.org')}](/about/mearie) ${capture(self.menu_about_mearie,lang)|indent}
+</%def>
+
+## for other sections
+<%def name="menu_about_me(lang)"/>
+<%def name="menu_about_mearie(lang)"/>

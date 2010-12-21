@@ -1,0 +1,24 @@
+## vim: syn=mako
+
+**PyFunge** is an implementation of Befunge-93/Funge-98 interpreter in Python. Its goal is fully functional, compliant and optimizing implementation of Funge-98. Strikingly, such implementation is rare, according to [Mycology test suite](http://iki.fi/matti.niemenmaa/befunge/mycology-comparison.html).
+
+This project was started in 2004 at [KLDP](http://kldp.net/projects/pyfunge/), forgotten for five years, and finally revived in 2009. PyFunge is a free software, distributed in terms of permissive MIT/X11 license.
+
+
+Download
+========
+
+The latest version is **0.5-rc2**, released in 2009-04-24. (This corresponds to [rev eba84bb2d0b8](http://hg.mearie.org/pyfunge-0.5/rev/eba84bb2d0b8).) This is the second release candidate for PyFunge 0.5.0, and 10--30% faster than the prior release. It also contains the most Funge-98 fingerprints, except `TURT` fingerprint which may require the graphical support.
+
+* [Download as .tar.gz archive](http://hg.mearie.org/pyfunge/archive/pyfunge-0.5-rc2.tar.gz) (84KiB)
+* MD5: `a86bae01313a14caa03a76556c5aab61`
+* SHA-1: `a2d52eab73b0123187004fec0851684f144430e4`
+
+You can check out [Mercurial repository](http://hg.mearie.org/pyfunge/) for bleeding-edge snapshots. There is also more stable [repository for 0.5 branches](http://hg.mearie.org/pyfunge-0.5/).
+
+
+Documentation
+=============
+
+The latest documentation can be found at [PyPI](http://packages.python.org/PyFunge/).
+

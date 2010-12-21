@@ -1,0 +1,64 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'블로그아고라 관련 글들 (시간 순 정리)'
+when = '2005-12-18T13:22:53+09:00'
+category = u'소식'
+original = 'http://tokigun.net/blog/entry.php?blogid=33'
+%>
+
+당사자들의 글은 **굵게** 처리합니다. (보이는 대로 계속 추가합니다.)
+
+**18일**
+:	* **[revin` - 사건의 흐름을 정리했습니다.](http://blogagora.com/revin/index.php?pl=37)** (12/18 11:49)
+	* **[revin` - "엘다, Maney, 에서"등 악의 집단(?) 뒷 이야기들 공개](http://blogagora.com/revin/index.php?pl=36)** (12/18 10:13)
+	* **[revin` - mizc.com 운영자 "엘다"의 블로그아고라 해킹 모의 자료](http://blogagora.com/revin/index.php?pl=35)** (12/18 09:52)
+	* **[엘다 - 레빈군, 끝이군요.](http://www.mizc.com/index.php?pl=208)** (12/18 03:38)
+	* **[revin` - 엘다님께서 사과문을 올리셨습니다.](http://blogagora.com/revin/index.php?pl=32)** (12/18 03:34)
+	* **[revin` - 에서, 욱성군(Maney) 도덕성이란 전혀 없는 사람들입니다.](http://blogagora.com/revin/index.php?pl=30)** (12/18 03:02)
+	* **[revin` - 엘다,iren 이쪽 사람들 정말 못 믿을 사람입니다.](http://blogagora.com/revin/index.php?pl=29)** (12/18 02:47)
+	* **[revin` - 여덟번째 진실해명](http://blogagora.com/revin/index.php?pl=28)** (12/18 02:40)
+	* **[revin` - 일곱번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=27)** (12/18 02:37)
+	* **[감기군 - 정말 마지막.](http://gamkigun.info/tt/index.php?pl=98)** (12/18 02:36)
+	* **[revin` - 여섯번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=26)** (12/18 02:24)
+	* **[revin` - 다섯번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=25)** (12/18 02:17)
+	* **[revin` - 네번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=24)** (12/18 02:06)
+	* **[revin` - 세번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=23)** (12/18 01:31)
+	* **[revin` - 두번째 포스트 진실해명](http://blogagora.com/revin/index.php?pl=22)** (12/18 01:21)
+	* **[revin` - 대화내용 전문 공개](http://blogagora.com/revin/index.php?pl=21)** (12/18 01:00)
+	* **[감기군 - 블로그아고라, 거짓말은 그만.](http://gamkigun.info/tt/index.php?pl=96)** (12/18 00:37)
+	* **[revin` - 발단.](http://blogagora.com/revin/index.php?pl=18)** (12/18 00:14)
+
+**17일**
+:	* **[revin` - 오해와 거짓으로 둘러쌓인 포스트들](http://blogagora.com/revin/index.php?pl=15)** (12/17 23:45)
+	* [너른호수 - 쇼를 해라 증말 - 블로그아고라 탈퇴](http://blog.naver.com/widelake/40020495470) (12/17 21:54)
+	* **[감기군 - 블로그아고라, 탈퇴 DB가 꼬이긴](http://gamkigun.info/tt/index.php?pl=95)** (12/17 21:02)
+	* **[revin` - 레빈의 이면성? 음?](http://blogagora.com/revin/index.php?pl=9)** (12/17 14:11)
+	* **[revin` - 내가 요즘 아끼는 것](http://blogagora.com/revin/index.php?pl=8)** (12/17 01:23)
+
+**16일**
+:	* **[revin` - 미즈?](http://blogagora.com/revin/index.php?pl=6)** (12/16 23:23)
+	* **[revin` - Shell we fight?](http://blogagora.com/revin/index.php?pl=4)** (12/16 01:55)
+	* **[엘다 - 블로그아고라, 내친김에 한개 더..](http://www.mizc.com/index.php?pl=202)** (12/16 01:35)
+	* [yser - 리플온과 블로그아고라](http://yser.egloos.com/2027939) (12/16 01:28)
+
+**15일**
+:	* [너른호수 - 정말 회원탈퇴 기능 장애야? - 블로그아고라](http://blog.naver.com/widelake/40020457627) (12/15 21:03)
+	* **[에서 - 블로그아고라..-_-](http://djeaeso.cafe24.com/tt2/index.php?pl=156)** (12/15 20:32)
+	* **[감기군 - 블로그아고라 유감](http://gamkigun.info/tt/index.php?pl=92)** (12/15 14:37)
+	* **[엘다 - 블로그 아고라에 대한 저의 생각입니다.](http://www.mizc.com/index.php?pl=201)** (12/15 02:34)
+
+**14일**
+:	* **[엘다 - 리플온, 과연 '그 사건' 이 끝난것일까?](http://www.mizc.com/index.php?pl=199)** (12/14 00:17)
+
+판단은 이 글들을 읽고 직접 내리시길 바랍니다. 저는 시끄러운 것도 싫고 아직까지 뭐라 말하기도 꺼려져서 중립을 유지하려 합니다.
+
+----
+아, 하나 더 말할께요. 아마 이건 레빈씨에게 불리한 발언이 될텐데, !ipw나 ab 같은 걸 해킹 시도로 보기에는 상당히 무리가 있습니다. !ipw는 순전히 해당 아이피의 몇 가지 정보를 알기 위해서 사용하는 것이고, ab는 아파치 웹 서버에서 벤치마킹 용으로 사용하는 겁니다. 이게 해킹 시도라면 nmap도 해킹 툴이어야 합니다. (사실 ab 조금 한다고 뻗는 서버라면 DOS에 취약하다는 말인데...) 그리고 #tokigun 채널의 특성상 과격한 농담도 많이 오가는 게 사실이고요. 위의 글들을 읽을 때는 이 부분을 좀 유념하셔야 할 듯 합니다.
+
+<div class="afternote">
+
+위에 있는 링크들 중 하나를 제외한 모든 링크는 2010년 3월 현재 더 이상 유효하지 않다. 그렇다고 이 사건의 본질이 흐트러지는 것은 아니다. <small>(2010-03-25)</small>
+
+</div>
+

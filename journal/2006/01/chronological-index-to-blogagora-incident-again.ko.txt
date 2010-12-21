@@ -1,0 +1,25 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'나 안 해'
+when = '2006-01-26T16:09:34+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=53'
+%>
+
+* [엘다 - 끝까지 잘나셨습니다. "블로그아고라 운영자님"](http://www.elda.in/index.php?pl=246)
+* [가루 - 블로그아고라, 최종 서비스종료 결정, 그리고 올블로그](http://storyhe.be/index.php?pl=3)
+* [우미 - 블로그아고라 닫는데, (레빈) 끝까지 성질 건들고가네요.](http://woomi.pe.kr/tt/index.php?pl=371)
+* [초절정하수 - 블로그아고라 결국 문을 닫았군요.](http://blog.ohmynews.com/goldenbug/Home.asp?artid=4290)
+* [뷁자씨 - 블로그아고라, 폐쇄.](http://bwseoh.mireene.com/lifeblog/?p=19)
+* [한님 - 저는 잘 이해가 안됩니다.](http://hanim.egloos.com/1209306)
+* [아크몬드 - BLOGAGORA 서비스 완전 폐쇄](http://archmond.blogspot.com/2006/01/blogagora.html)
+
+이제 다섯 번째.
+
+**아 썅 나 안 해**
+
+<!-- 설마 그럴 일은 없겠지만, 오프라인에서 레빈을 보면 바로 때려 죽인다고 전해 주시면 감사하겠습니다. 아 물론 이 코멘트를 레빈이 본다면 그럴 필요 없이 몸 사리면 되겠고 :) -->
+
+이러니 [사람을 믿을 수](/journal/2005/12/disbelief) 없단 말이다...
+

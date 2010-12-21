@@ -1,0 +1,21 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'최근에 부여 잡고 난리 치던 문서'
+when = '2005-11-25T19:11:47+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=24'
+%>
+
+[http://zenith.sparcs.net/article/vcmangle.html](/documents/mscmangle/)
+
+[Name Mangling](/journal/2005/11/c++-name-mangling-algorithm) 얘기를 꺼낸 지 1주일 정도만에 문서로 정리했다. 안 되는 영어로 글 쓰는 건 역시 삽질이다. -_-;; (s 모 선배는 "영어 작문 연습"이라던데... ㅁㄴㅇㄹㅁㄴㅇㄹ)
+
+필요하신 분께서는 많이 갖다 쓰세요.
+
+<div class="afternote">
+
+현재 주소는 [http://mearie.org/documents/mscmangle/](http://mearie.org/documents/mscmangle/)이다. <small>(2010-03-26)</small>
+
+</div>
+

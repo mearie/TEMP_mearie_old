@@ -1,0 +1,20 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'theseit 진행 상황'
+when = '2006-05-24T20:48:28+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=100'
+%>
+
+<%m:img src="20060524.lunaseit.test.jpg" align="center">lunaseit 테스트 화면</%m:img>
+
+느리긴 하지만 매일 조금씩 진행하고 있다. 위의 화면은 실제 게임 부분을 담당하는 lunaseit 모듈의 테스트 프로그램(revision 157)이다. 압축 안 하면 2MB 가까이 되던 게 압축하면 756KB가 나온다.
+
+	libseit (-mapping)      7888 lines    204339 bytes
+	libseit                14590 lines    684758 bytes
+	libseit-js             29729 lines    794067 bytes
+	lunaseit                1820 lines     45847 bytes
+
+전체 소스 코드는 46,139줄, 그 중 KJS를 빼고 우리가 직접 짠 부분은 16,410줄, 그 중 자동 생성된 테이블을 뺀 실제 코드는 9,708줄. 얼마 후면 1만 줄에 도달할 것 같다. 앞으로도 열심히 좀 해 봐야 겠다.
+

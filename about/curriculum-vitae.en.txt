@@ -1,0 +1,118 @@
+## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
+<%! title = u'Curriculum Vitae' %>
+
+<%def name="bodypre(lang)">
+<h1>Curriculum Vitae (or Rèsumè)</h1>
+</%def>
+
+The following rèsumè is correct as of 2010-04-23.
+
+<blockquote class="mearie-cv">
+
+<div class="summary">
+
+**Kang Seonghoon**  
+E-mail: <%m:math size="+1">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math>  
+Website: [`http://mearie.org/`](http://mearie.org/)  
+Phone: +82-10-4702-2740
+
+</div>
+
+
+Education
+==========
+
+2010–
+:	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master's Program  
+	<small>A member of [Programming Language Research Group](http://plrg.kaist.ac.kr/).</small>
+
+2005–2009
+:	Korea Advanced Institute of Science and Technology, Bachelor of Science
+
+2003–2004
+:	[Gyeonggi Science High School](http://gs.hs.kr/)
+
+
+Employment
+============
+
+2008
+:	[NexG, Inc.](http://www.nexg.net/), Software developer  
+	<small>I worked for NexG, Inc. as a substitute of mandatory military service. I maintained a command-line framework for routing daemons, and wrote several networking softwares for SNMP (all versions), TACACS+, SSH and SSL almost from scratch.</small>
+
+
+Open-Source Development
+=========================
+
+2005–
+:	[theseit project](http://theseit.ruree.net/), Founder and primary developer  
+	<small>A music game written in C++ and OpenGL. Includes an extensive cross-platform game library for C++.</small>
+
+2007
+:	[Textcube](http://www.textcube.org/), Committer  
+	<small>A content management software written in PHP. I have refactored the entire WYSIWYG editor system.</small>
+
+2005
+:	[soojung](http://kldp.net/projects/soojung/), Committer  
+	<small>A blog software written in PHP.</small>
+
+See [`http://mearie.org/projects/`](/projects/) for more exhaustive list of my software projects.
+
+
+Skills
+========
+
+I have experiences ranging from low-level system softwares to high-level Web softwares, and can combine them in an efficient manner as needed.
+
+Languages
+:	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
+	Able to use D, Ruby and several others.
+
+Platforms
+:	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
+	Good knowledge of general *NIX, cross-platform environments and modern Web development; some knowledge of Win32 API and Cocoa.
+
+Tools
+:	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial
+
+Miscellaneous
+:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL. Have hosted 10+ websites for years.
+	* Ability to write a standard-compliant and accessible (X)HTML and CSS.
+	* Hobby reverse engineering and software analysis.
+
+I'm a native speaker of Korean, and have working knowledge of oral and written English.
+
+
+Awards
+========
+
+2007
+:	[ACM International Collegiate Programming Contest, Regional Contest Seoul](http://acm.kaist.ac.kr/), 8th place (shared).  
+	<small>Participated with Cha, Hojeong and Lee, Bupjae. Deserved a special prize.</small>
+
+2001
+:	Korea Olympiad in Informatics, Silver prize.
+
+
+Publications
+==============
+
+2004
+:	Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.
+
+
+Other Activities
+==================
+
+2009–
+:	Founder and co-operator of [Ozinger IRC network](http://ozinger.org/).
+
+2008–
+:	A regular participant of [LangDev](http://langdev.net/), a forum for programming language designers and implementers.
+
+2006–2008
+:	Served as one of [Korean Wikipedia](http://ko.wikipedia.org/) administrators.
+
+</blockquote>
+

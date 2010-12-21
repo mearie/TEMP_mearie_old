@@ -1,0 +1,25 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'C++ Name Mangling Algorithm'
+when = '2005-11-17T09:50:32+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=22'
+%>
+
+VC++의 [Name mangling algorithm](http://en.wikipedia.org/wiki/Name_mangling)이 궁금하던 차에 누군가가 win32 api에 mangled name을 원래대로 돌려 주는 `UnDecorateSymbolName`이라는 함수가 있다고 해서 들여다 봤다. wine에도 [구현](http://reactos.geldorp.nl/db/d73/undname_8c-source.html)은 되어 있어서 한 번 소스를 들여다 봤는데...
+
+...하루가 지나서 wine에 구현 안 된 거의 모든 규칙을 모두 조사해 버렸다. -_-;;;;;;;;;;;
+
+아무래도 이거 문서로 정리해서 어디다 잘 올리던지 아니면 프로그램을 하나 만들어야 할 것 같다. -_-;;; wine에 패치 보내면 좋아 하려나? 혹시 궁금하신 분이 있다면 코멘트로 요청하시길.
+
+덤: 얼마나 조사했는 지 궁금하신 분을 위해서... 한 번 다음 심볼이 무슨 의미를 가지는 지 알아 맞춰 보시라.
+
+	??_PRblah@?$foo@V?$bar@H?0@@$234@@YAHPAY02AAY134H_OA_OAHW5test@@@Z
+
+<div class="afternote">
+
+[며칠 후의 글](/journal/2005/11/c++-name-mangling-algorithm-documented)도 확인해 볼 것. <small>(2010-03-25)</small>
+
+</div>
+

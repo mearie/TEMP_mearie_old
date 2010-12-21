@@ -1,0 +1,26 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'오늘의 상식'
+when = '2006-10-13T23:12:14+09:00'
+category = u'잡다'
+tags = [u'가바가이', u'상식', u'콰인']
+original = 'http://lifthrasiir.tistory.com/20'
+%>
+
+자기 자신을 출력하는 프로그램을 흔히 콰인(quine)이라 한다. 예를 들어서 이런 프로그램이 콰인에 속한다.
+
+	#include <stdio.h>
+	#define S "#include <stdio.h>%c#define S %c%s%c%cint main() { printf(S,10,34,S,34); return 0; }"
+	int main() { printf(S,10,34,S,34); return 0; }
+
+그리고 '번역의 비결정성 정리'라는 게 있다. 이 정리는 어떤 언어를 다른 언어로 번역할 때 그 번역이 항상 하나로 결정될 수 없으며, 주어진 환경에는 합치하는데 서로 양립할 수 없는 둘 이상의 해석 체계가 존재할 수 있다는 것이다. 이 정리를 들 때 사용하는 흔한 단어가 가바가이(gavagai)이다.
+
+오늘의 상식: 자기 출력 프로그램을 뜻하는 콰인과 번역의 비결정성 정리를 만든 콰인은 [같은 사람](http://en.wikipedia.org/wiki/Willard_Van_Orman_Quine)이다.
+
+<div class="afternote">
+
+지금 생각해 보니 콰인은 [콰인-매클러스키 알고리즘](http://ko.wikipedia.org/wiki/%ED%80%B8-%EB%A7%A4%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%82%A4_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)(이름 표기가 좀 왔다 갔다 해서 다들 눈치를 못 챈다)에도 등장한다. 은근 슬쩍 유명한 논리학자다 보니까... <small>(2010-05-06)</small>
+
+</div>
+

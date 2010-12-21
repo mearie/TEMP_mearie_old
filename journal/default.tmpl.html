@@ -1,0 +1,18 @@
+## vim: syn=mako
+<%inherit file="../default.tmpl.html"/>
+
+<%def name="nav(entry)">\
+${entry(ko=u'메아리 저널', en=u'mearie.org journal')}\
+</%def>
+
+<%def name="headicon(lang)">
+<link rel="shortcut icon" href="/res/icon-j.ico" type="image/vnd.microsoft.icon" />
+</%def>
+
+<%def name="menu_journal(lang)">
+* [${lang(ko=u'소개', en=u'Introduction')}](/journal/about)
+* [${lang(ko=u'모아보기', en=u'Archives')}](/journal/archive) ${capture(self.menu_journal_archive,lang)|indent}
+* [${lang(ko=u'피드', en=u'Feed')}](http://j.mearie.org/rss)
+</%def>
+
+<%def name="menu_journal_archive(lang)"/>

@@ -1,0 +1,52 @@
+## vim: syn=mako
+<%inherit file="default.tmpl.html"/>
+
+<%def name="menu_journal_archive(lang)">
+* [${lang(ko=u'최신 글들', en=u'Recent posts')}](http://j.mearie.org/archive)
+% for year in xrange(2010, 2003, -1):
+* [${lang(ko=u'%d년'%year, en=u'%d'%year)}](/journal/${year}/)
+% endfor
+</%def>
+
+<%def name="build_archive(year)">
+<%
+import os, os.path, re, cgi
+months = []
+manualentries = dict((i, []) for i in xrange(1, 13))
+for line in capture(caller.body).strip().splitlines():
+    date, url, title = line.split(None, 2)
+    title = title.replace(u'...', u'…')
+    manualentries[int(date[5:7])].append((date, url, title))
+for month in xrange(1, 13):
+    entries = manualentries[month]
+    dir = uri_to_path(context, '%02d' % month)
+    try:
+        files = os.listdir(dir)
+    except OSError:
+    	files = []
+    for f in files:
+        if not f.endswith('.ko.html'): continue
+        url = '%02d/%s' % (month, f.replace('.ko.html',''))
+        html = open(os.path.join(dir, f)).read()
+        m = re.search(r'<meta\s+name="date"\s+content="(.*?)"', html)
+        if not m: continue
+        date = m.group(1)
+	m = re.search(r'<h2>(?:<a\b[^>]+class="permalink"[^>]*>.*?</a>)?(.*?)</h2>', html)
+        if not m: continue
+	title = m.group(1).replace('&lt;','<').replace('&gt;','>').replace('&amp;','&')
+	title = title.decode('utf-8').strip()
+        entries.append((date, url, title))
+    entries.sort()
+    if entries: months.append((month, entries))
+%>
+% for month, entries in months:
+${month}월
+==========
+
+% for date, url, title in entries:
+* [${title}](${url}) <small>(${date[:10]})</small>
+% endfor
+
+% endfor
+</%def>
+

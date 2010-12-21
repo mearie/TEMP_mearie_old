@@ -1,0 +1,22 @@
+Options +MultiViews -Indexes
+DirectoryIndex index
+LanguagePriority en ko ja
+ForceLanguagePriority Prefer Fallback
+AddDefaultCharset utf-8
+
+<FilesMatch "\.(ko|en|ja)\.txt$|\.tmpl\.html$|^README\.txt$">
+	Order deny,allow
+	Deny from all
+</FilesMatch>
+
+# redirects
+RedirectPermanent /favicon.ico /res/icon.ico
+
+# permalinks
+RedirectPermanent /about/history /about/mearie
+RedirectPermanent /stuffs/mearieflo /about/mearie
+RedirectPermanent /stuffs/still-alive http://cosmic.mearie.org/2008/09/still-alive
+RedirectMatch 301 ^/journal/?$ http://j.mearie.org/
+RedirectMatch 301 ^/journal/feed(/.*)?$ http://j.mearie.org/rss
+RedirectMatch 301 ^/journal/tag(/.*)?$ http://j.mearie.org/
+

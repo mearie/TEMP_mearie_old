@@ -1,0 +1,65 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = 'time()'
+when = '2009-01-21T10:28:23+09:00'
+tags = [u'time', u'unix_timestamp', u'timer_create']
+original = 'http://arachneng.egloos.com/1321584'
+%>
+
+C의 표준 라이브러리 함수 time()은 표준과 현실이 어떻게 동떨어져 있는지 보여 주는 한 예로 들 만 하다. 보통 많은 사람들이 이 값을 UNIX timestamp로 생각하는데, 실제로 그럴 지는 역시 표준 문서를 직접 봐야 알 수 있다.
+
+
+1.
+----
+
+C 표준, 그러니까 ISO/IEC 9899:1999를 뒤져 보면 time()에 대해 다음과 같은 언급을 한다. (7.23.2.4 #2)
+
+> The **time** function determines the current calendar time. The encoding of the value is unspecified.
+
+얼씨구, 그러니까 time() 함수는 C 언어에서 리턴값을 결정하는 게 아니다. 실제로 완벽하게 "표준"에 입각하여 만들어진 C 프로그램은 time()이 아니라 localtime() 같은 다른 함수에 의존해야 한다.
+
+
+2.
+----
+
+C 표준 대신 POSIX, 그러니까 IEEE Std 1003.1-2004를 뒤지면 다음과 같은 정의를 찾을 수 있다.
+
+> The *time*() function shall return the value of time in seconds since the Epoch.
+
+이것만 보면 UNIX timestamp가 맞는 것 같아 보인다. 하지만 Epoch가 뭔지 우리가 알 게 뭔가? 만약 Epoch가 뭣인지 아예 표준에 쓰여 있지도 않다면, 우리가 time()에 대해서 할 수 있는 일은 단 하나, 한 운영체제/아키텍처/기계 안에서 반환된 두 리턴값을 비교하는 정도에 불과하게 된다.
+
+
+3.
+----
+
+다행히 IEEE Std 1003.1-2004의 "Base definitions"에는 이 seconds since the Epoch라는 말에 대한 정의가 있다. (4.14)
+
+> A value that approximates the number of seconds that have elapsed since the Epoch.
+
+문자적으로 해석해야 한다. 이 값은 명백히 "Epoch로부터 지난 시간"이 아니다. 대신 이 값은 UTC 시간에 연결된 다음과 같은 식이다:
+
+	tm_sec + tm_min*60 + tm_hour*3600 + tm_yday*86400 +
+	    (tm_year-70)*31536000 + ((tm_year-69)/4)*86400 -
+	    ((tm_year-1)/100)*86400 + ((tm_year+299)/400)*86400
+
+물론 이 값에는 윤초에 대한 고려가 전혀 없다. 예를 들어 작년 말에 윤초가 한 번 추가되었는데, 2008-12-31 23:59:60 UTC와 2009-01-01 00:00:00 UTC는 같은 timestamp 값을 가지게 될 것이다. (직접 위의 식으로 계산해 보라.)
+
+
+4.
+----
+
+UNIX timestamp가 윤초를 포함하지 않아서 생기는 가장 큰 문제는 time_t는 단조 증가하지 않는다는 점이다. time_t야 그냥 정수니까 보통 이런 일이 생기는 건 또 드물지만, gettimeofday 같이 1초보다 작은 단위를 반환하는 함수를 쓴다면 tv_sec은 같은데 tv_usec이 나중 값보다 이전 값이 더 큰 경우를 볼 수도 있을 것이다.
+
+애초에 C 표준에서는 time()이 단조 증가해야 한다는 단서가 없으며, time_t를 실제 calendar time으로 바꿀 수 있기만 하면 되기 때문에 이 모든 일이 발생한 것이다. 하기사 단조 증가하지 않는 시스템이 많은데 단조 증가한다고 써 놓으면 큰일이 나겠지만.
+
+
+5.
+----
+
+만약 타이머를 구현해야 할 일이 생긴다면, time()보다는 timer_create() 같이 per-process timer를 만드는 게 안정성 면에서 좋다. (이 경우 CLOCK_MONOTONIC 옵션을 줘서 항상 단조 증가하는 값을 반환하게 할 수 있다.)
+
+윈도라면 QueryPerformanceTimer가 일반적인 선택이 될 수 있다. 하지만 이 함수는 프로세서 클럭에 따라 달라질 수도 있고 (e.g. dynamic frequency scaling) 멀티 코어 시스템에서는 문제가 있다는 얘기도 있으므로 다른 함수, 예를 들어서 GetTickCount와 병행해서 사용해야 한다.
+
+이래저래 모든 문제를 해결하는 건 힘들다.
+

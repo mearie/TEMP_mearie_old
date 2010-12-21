@@ -1,0 +1,51 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'진정한 ㅂㅌ짓'
+when = '2005-10-12T22:19:46+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=14'
+%>
+
+	Last login: Wed Oct 12 22:02:06 2005 from dor204226.kaist
+	Copyright (c) 1980, 1983, 1986, 1988, 1990, 1991, 1993, 1994
+	        The Regents of the University of California.  All rights reserved.
+	
+	FreeBSD 5.3-STABLE (RENA) #9: Fri Feb  4 15:25:56 KST 2005
+	
+	Welcome to GMY Networks!
+	
+	tokigun@rena tokigun $ ssh iz4u.net
+	tokigun@iz4u.net's password:
+	Last login: Wed Oct 12 22:02:24 2005 from 211.172.226.154
+	#
+	#
+	
+	Eyes for you! forever!
+	[tokigun@iz4u ~]$ ssh exca.net
+	(생략)
+	Login alunar in 22:08 on Wednesday, 12 October 2005
+	tokigun@exca.net's password:
+	Last login: Wed Oct 12 22:05:39 2005 from 222.122.43.50
+	(생략)
+	[tokigun@alunar tokigun]$ ssh server.daybreaker.info
+	Password:
+	Linux daybreakin 2.4.27-speakup #1 Thu Aug 19 21:46:14 CEST 2004 i686 GNU/Linux
+	
+	Daybreakin Server에 오신 것을 환영합니다!
+	
+	Last login: Wed Oct 12 22:04:44 2005 from 211.214.161.72
+	tokigun@daybreakin:~$ ssh sparcs.kaist.ac.kr
+	Password:
+	
+	 스팍스 백업서비스를 받기 원하시면 .backup 파일을 만드세요!
+	
+	No mail.
+	
+	Last login: Wed Oct 12 22:06:49 2005 from sparcs45.kaist.ac.kr
+	tokigun@sparcs:~$
+
+다섯 개의 서버에 순서대로 ssh로 접속하기. (이 내용을 갈무리한 클라이언트가 PuTTY였으니 5중...) 오늘 고쳤는데, 이 서버들은 메인 페이지 디자인도 똑같으며 [.vimrc](http://hg.mearie.org/private/settings-vim/) 파일도 똑같다. -_-;
+
+원래 오늘 뭣 좀 쓰려고 했었는데... 머리가 좀 아파서 내일에.
+

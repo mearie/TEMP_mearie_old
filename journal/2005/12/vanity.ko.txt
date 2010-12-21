@@ -1,0 +1,20 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'허무함'
+when = '2005-12-04T06:20:07+09:00'
+category = u'삽질'
+original = 'http://tokigun.net/blog/entry.php?blogid=26'
+%>
+
+어디 쓸 일이 있어서 `Union`이라는 이름의 클래스를 만들고 있었다.
+
+어떤 클래스인가 하면, `Union<A,B>`라는 클래스 안에는 A 또는 B가 들어 갈 수 있고, 자기가 내부적으로 둘 중 어느 클래스가 들어 가 있는 지 저장하고 있는 클래스이다. 아마 in-place new 따위를 잔뜩 써 볼 수 있는 절호의 기회일 것이다.
+
+물론 `boost.any`를 쓸 수도 있지만, 일단 나는 boost의 그 복잡한 파일들을 별로 좋아하지도 않을 뿐 더러 A 혹은 B를 담고 있다는 조건을 알고 있을 때 별도의 메모리 할당 없이 간단하게 이런 클래스를 만들어 보려 했다.
+
+조금 삽질해서 만들어 놓고 났는데, 얼마 후에 [`boost.variant`](http://boost.org/doc/html/variant.html)를 깨달았다.
+
+----
+만들어 놓고 나서 보니까 누가 이미 만들었더라... 하는 거야 하도 많이 당해서 무덤덤하긴 하지만, 그래도 당해 놓고 나면 허무하긴 하다. 이런 젠장 orz
+

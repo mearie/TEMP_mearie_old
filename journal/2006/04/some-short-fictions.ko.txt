@@ -1,0 +1,16 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'어떤 단편 소설'
+when = '2006-04-05T17:29:21+09:00'
+category = u'이야기'
+original = 'http://tokigun.net/blog/entry.php?blogid=77'
+%>
+
+서 상현(sanxiyn) 형은 내 학교 2년 선배이다. 파이썬 쪽에서는 [PyPy](http://pypy.org/) 개발자로 잘 알려져 있지만, 한 때는 소설도 썼었다는 걸 아는 사람은 많지 않다. (생각해 보면 내가 이 소설들을 보고 형을 알게 되었기도 하고) IRC로 노닥거리다가 얘기가 나와서, 허락을 받고 두 편을 올려 본다.
+
+* [〈137번째 한글날〉](http://board4.cgiworld.dreamwiz.com/view.cgi?id=hikaros6&now=1&ino=55&tmp_no=55) (이 글은 [환상서고](http://www.aladdin.co.kr/shop/wproduct.aspx?ISBN=6000111787)에 실렸다.)
+* [〈영정사진업자〉](http://board4.cgiworld.dreamwiz.com/view.cgi?id=hikaros6&now=1&ino=59&tmp_no=60)
+
+그리고 한 가지 더. [이 글](http://web.archive.org/web/20020108123652/hwanseo.com/zboard/view.php?category=&desc=desc&id=archimedes_short&keyword=&no=1&page=1&sc=on&select_arrange=headnum&sn=off&ss=on)의 맨 앞에 쓰여 있는 "kz-styled version"은 다름이 아닌 그 [kz](http://keizie.net/) 님을 가리킨다.
+

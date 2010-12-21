@@ -1,0 +1,528 @@
+## vim: syn=mako
+<%! title = u'Microsoft C++ Name Mangling Scheme' %>
+
+*version 1.2 (July 20, 2006)*
+
+<div class="note">
+
+Disclaimer: Many parts of this document are partly inaccurate (due to the survey method, of course) and also subsequently outdated. This document is kept as is to provide the historical notes.
+
+</div>
+
+This document discusses C++ name mangling scheme used by Microsoft. I think this is the most complete document about this scheme currently.
+
+
+<h2 id="top-author">Author</h2>
+This document is maintained by [Kang Seonghoon](http://tokigun.net/) aka Tokigun.
+
+If you want to discuss about this scheme or document please mail me: `<xxxxxxx at gmail dot com>` where xxxxxxx is tokigun.
+
+And sorry for my poor English ;)
+
+
+<h2 id="top-reference">Reference</h2>
+
+Even though I could disassemble dbghelp.dll(or msvcrt.dll), I didn't do it because of the legal issues. So I used only `UnDecorateSymbolName` function to analysis this scheme.
+
+Also I learned the basic scheme from the following source:
+
+* [wine](http://winehq.org/)'s `__unDname` function implementation (see [/wine/dlls/msvcrt/undname.c](http://cvs.winehq.com/cvsweb/wine/dlls/msvcrt/undname.c))
+* [http://www.kegel.com/mangle.html](http://www.kegel.com/mangle.html)
+* [PHP UnDecorateSymbolName](http://sourceforge.net/projects/php-ms-demangle/) by Timo Stripf
+
+Some feature of this scheme depends on Microsoft's C++ extension, such as Managed C++. Browse [MSDN](http://msdn.microsoft.com/) for more information.
+
+
+<h2 id="top-changelog">ChangeLog</h2>
+
+* <strong>version 1.2</strong> - Added [nested name](#element-name-nested); added PHP UnDecorateSymbolName as reference.
+* [version 1.1](mscmangle-1.1) - First public document.
+
+
+<h1 id="basic">Basic Structure</h1>
+As you know, all mangled C++ name starts with `?`. Because all mangled C name starts with alphanumeric characters, `@`(at-sign) and `_`(underscore), C++ name can be distinguished from C name.
+
+Structure of mangled name looks like this:
+
+* Prefix `?`
+* *Optional:* Prefix `@?` <small>[TODO: what does `CV:` mean?]</small>
+* [Qualified name](#element-name)
+* Type information (see below)
+
+
+<h2 id="basic-function">Function</h2>
+Type information in function name generally looks like this:
+
+* Access level and function type
+* *Conditional:* [CV-class modifier](#element-cvclass) of function, if non-static member function
+* [Function property](#element-function)
+
+
+<h2 id="basic-data">Data</h2>
+Type information in data name looks like this:
+
+* Access level and storage class
+* [Data type](#element-type)
+* [CV-class modifier](#element-cvclass)
+
+
+<h1 id="element">Elements</h1>
+Mangled name contains a lot of elements have to be discussed.
+
+
+<h2 id="element-name">Name</h2>
+Qualified name consists of the following fragments:
+
+* Basic name: one of [name fragment](#element-name-frag) and [special name](#element-name-special)
+* Qualification #1: one of [name fragment](#element-name-frag), [name with template arguments](#element-name-template), [numbered namespace](#element-name-nsnum) and [back reference](#element-name-backref)
+* Qualification #2
+* ...
+* Terminator `@`
+
+Qualification is written in reversed order. For example `myclass::nested::something` becomes `something@nested@myclass@@`.
+
+
+<h3 id="element-name-frag">Name Fragment</h3>
+A fragment of name is simply represented as the name with trailing `@`.
+
+
+<h3 id="element-name-special">Special Name</h3>
+Special name is represented as the code with preceding `?`. Most of special name is constructor, destructor, operator and internal symbol. Below is a table for known codes.
+
+<table>
+<thead>
+<tr><th>Code</th><th>Meaning with no `_`</th><th>Meaning with preceding `_`</th><th>Meaning with preceding two `_`s</th></tr>
+</thead>
+<tbody>
+<tr><th>`0`</th><td>Constructor</td><td>`operator/=`</td></tr>
+<tr><th>`1`</th><td>Destructor</td><td>`operator%=`</td></tr>
+<tr><th>`2`</th><td>`operator new`</td><td>`operator>>=`</td></tr>
+<tr><th>`3`</th><td>`operator delete`</td><td>`operator<<=`</td></tr>
+<tr><th>`4`</th><td>`operator=`</td><td>`operator&=`</td></tr>
+<tr><th>`5`</th><td>`operator>>`</td><td>`operator|=`</td></tr>
+<tr><th>`6`</th><td>`operator<`</td><td>`operator^=`</td></tr>
+<tr><th>`7`</th><td>`operator!`</td><td>\`vftable'</td></tr>
+<tr><th>`8`</th><td>`operator==`</td><td>\`vbtable'</td></tr>
+<tr><th>`9`</th><td>`operator!=`</td><td>\`vcall'</td></tr>
+<tr><th>`A`</th><td>`operator[]`</td><td>\`typeof'</td><td>\`managed vector constructor iterator'</td></tr>
+<tr><th>`B`</th><td>`operator *returntype*`[^1]</td><td>\`local static guard'</td><td>\`managed vector destructor iterator'</td></tr>
+<tr><th>`C`</th><td>`operator->`</td><td>\`string' *(Unknown)*[^2]</td><td>\`eh vector copy constructor iterator'</td></tr>
+<tr><th>`D`</th><td>`operator*`</td><td>\`vbase destructor'</td><td>\`eh vector vbase copy constructor iterator'</td></tr>
+<tr><th>`E`</th><td>`operator++`</td><td>\`vector deleting destructor'</td></tr>
+<tr><th>`F`</th><td>`operator--`</td><td>\`default constructor closure'</td></tr>
+<tr><th>`G`</th><td>`operator-`</td><td>\`scalar deleting destructor'</td></tr>
+<tr><th>`H`</th><td>`operator+`</td><td>\`vector constructor iterator'</td></tr>
+<tr><th>`I`</th><td>`operator&`</td><td>\`vector destructor iterator'</td></tr>
+<tr><th>`J`</th><td>`operator->*`</td><td>\`vector vbase constructor iterator'</td></tr>
+<tr><th>`K`</th><td>`operator/`</td><td>\`virtual displacement map'</td></tr>
+<tr><th>`L`</th><td>`operator%`</td><td>\`eh vector constructor iterator'</td></tr>
+<tr><th>`M`</th><td>`operator`</td><td>\`eh vector destructor iterator'</td></tr>
+<tr><th>`N`</th><td>`operator<=`</td><td>\`eh vector vbase constructor iterator'</td></tr>
+<tr><th>`O`</th><td>`operator>`</td><td>\`copy constructor closure'</td></tr>
+<tr><th>`P`</th><td>`operator>=`</td><td>\`udt returning' *(prefix)*</td></tr>
+<tr><th>`Q`</th><td>`operator,`</td><td>*Unknown*[^3]</td></tr>
+<tr><th>`R`</th><td>`operator()`</td><td>*RTTI-related code (see below)*</td></tr>
+<tr><th>`S`</th><td>`operator~`</td><td>\`local vftable'</td></tr>
+<tr><th>`T`</th><td>`operator^`</td><td>\`local vftable constructor closure'</td></tr>
+<tr><th>`U`</th><td>`operator|`</td><td>`operator new[]`</td></tr>
+<tr><th>`V`</th><td>`operator&&`</td><td>`operator delete[]`</td></tr>
+<tr><th>`W`</th><td>`operator||`</td></tr>
+<tr><th>`X`</th><td>`operator*=`</td><td>\`placement delete closure'</td></tr>
+<tr><th>`Y`</th><td>`operator+=`</td><td>\`placement delete[] closure'</td></tr>
+<tr><th>`Z`</th><td>`operator-=`</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+[^1]: Its meaning depends on return type of function. For instance, if this function returns `int` type then its name will be `operator int`.
+
+[^2]: It seems structure after `?_C` is different from other structure. I think this structure is represented as regular expression `\?_C@_[0-9A-P]([0-9A-P][A-P]*)?@.*@`, but I'm not sure.
+
+[^3]: It can be EH-related code, but `UnDecorateSymbolName` function cannot demangle this.
+
+Prefix `_P` is used as `?_PX`, though I don't know about it. <small>[TODO: what is udt? user defined type?]</small>
+
+Below is RTTI-related code (all starting with `_R`). Some codes have trailing parameters.
+
+<table>
+<thead>
+<tr><th>Code</th><th>Meaning</th><th>Trailing Parameters</th></tr>
+</thead>
+<tbody>
+<tr><th>`_R0`</th><td>*type* \`RTTI Type Descriptor'</td><td>[Data type](#element-type) *type*.</td></tr>
+<tr><th>`_R1`</th><td>\`RTTI Base Class Descriptor at (*a*,*b*,*c*,*d*)'</td><td>Four [encoded numbers](#element-number) *a*, *b*, *c* and *d*.</td></tr>
+<tr><th>`_R2`</th><td>\`RTTI Base Class Array'</td><td>None.</td></tr>
+<tr><th>`_R3`</th><td>\`RTTI Class Hierarchy Descriptor'</td><td>None.</td></tr>
+<tr><th>`_R4`</th><td>\`RTTI Complete Object Locator'</td><td>None.</td></tr>
+</tbody>
+</table>
+
+<h3 id="element-name-template">Name with Template Arguments</h3>
+Name fragment starting with `?$` has template arguments. This kind of name looks like this:
+
+* Prefix `?$`
+* Name terminated by `@`
+* [Template argument list](#element-arglist-template)
+
+For example, we assume the following prototype.
+
+	void __cdecl abc<def<int>,void*>::xyz(void);
+
+Name of this function can be obtained by the following process:
+
+	abc<def<int>,void*>::xyz
+	----------------------------------------
+	xyz@ *abc<def<int>,void*>* @
+	xyz@ ?$abc@ *def<int>* *void** @ @
+	xyz@ ?$abc@ V *def<int>* @ PAX @ @
+	xyz@ ?$abc@ V ?$def@H@ @ PAX @ @
+	----------------------------------------
+	xyz@?$abc@V?$def@H@@PAX@@
+
+So mangled name for this function is <code>?**xyz@?$abc@V?$def@H@@PAX@@**YAXXZ</code>.
+
+
+<h3 id="element-name-nested">Nested Name</h3>
+Name fragment starting with `??` denotes nested name. Nested name is a name inside local scope but needed to be exported. Its structure looks like the following:
+
+* Prefix `?`
+* C++ Mangled name (so starting with `?` again)
+
+For example, `?nested@??func@@YAXXZ@4HA` means variable `?nested@@4HA`(`int nested`) inside `?func@@YAXXZ`(`void __cdecl func(void)`). `UnDecorateSymbolName` function returns ``int `void __cdecl func(void)'::nested`` for this input.
+
+
+<h3 id="element-name-nsnum">Numbered Namespace</h3>
+In qualification, numbered namespace is represented as preceding `?` and unsigned [number](#element-number). `UnDecorateSymbolName` function returns something like `` `42'`` for this kind of input.
+
+Exceptionally if numbered namespace starts with `?A` it becomes anonymous namespace (`` `anonymous namespace'``).
+
+Well, of course I'm not sure what it is. <small>[TODO: what is exact meaning and name? I don't think its name is really "numbered namespace".]</small>
+
+
+<h3 id="element-name-backref">Back Reference</h3>
+Decimal digits `0` to `9` refers to first shown name fragment to 10th shown name fragment. Referred name fragment can be normal name fragment or name fragment with template arguments. For example, in `alpha@?1beta@@`(``beta::`2'::alpha``) `0` refers to `alpha@`, and `1`(not `2`) refers to `beta@`.
+
+Generally back reference table is kept during mangling process. It means you can use back reference to function name in function arguments (shown later than function name). However, in [template argument list](#element-arglist-template) back reference table is separately created.
+
+For example, assume <code>?\$basic_string@GU?\$char_traits@G@std@@V?\$allocator@G@**2**@@std@@</code>&#8203;(`std::basic_string<unsigned short, std::char_traits<unsigned short>, **std**::allocator<unsigned short> >`). In `std::basic_string<...>`, `0` refers to `basic_string@`, `1` refers to `?$char_traits@G@`, and `2` refers to `std@`. This relation doesn't change wherever it is.
+
+
+<h2 id="element-number">Encoded Number</h2>
+In name mangling, representation of number is needed sometimes (e.g. array indices). There are simple rules to represent number:
+
+* `0` to `9` represents number 1 to 10.
+* `*num*@` represents hexadecimal number, where *num* consists of hexadecimal digit `A`(means 0) to `P`(means 15). For example `BCD@` means number 0x123, that is 291.
+* `@` represents number 0.
+* If allowed, prefix `?` represents minus sign. Note that both `?@` and `@` represents number 0.
+
+
+<h2 id="element-type">Data Type</h2>
+The table below shows various data type and modifiers.
+
+<table>
+<thead>
+<tr><th>Code</th><th>Meaning with no `_`</th><th>Meaning with preceding `_`</th></tr>
+</thead>
+<tbody>
+<tr><th>`?`</th><td>*Type modifier, Template parameter*</td></tr>
+<tr><th>`$`</th><td>*Type modifier, Template parameter*[^4]</td><td>__w64 *(prefix)*</td></tr>
+<tr><th>`0`-`9`</th><td>*Back reference*</td></tr>
+<tr><th>`A`</th><td>*Type modifier (reference)*</td></tr>
+<tr><th>`B`</th><td>*Type modifier (volatile reference)*</td></tr>
+<tr><th>`C`</th><td>signed char</td></tr>
+<tr><th>`D`</th><td>char</td><td>__int8</td></tr>
+<tr><th>`E`</th><td>unsigned char</td><td>unsigned __int8</td></tr>
+<tr><th>`F`</th><td>short</td><td>__int16</td></tr>
+<tr><th>`G`</th><td>unsigned short</td><td>unsigned __int16</td></tr>
+<tr><th>`H`</th><td>int</td><td>__int32</td></tr>
+<tr><th>`I`</th><td>unsigned int</td><td>unsigned __int32</td></tr>
+<tr><th>`J`</th><td>long</td><td>__int64</td></tr>
+<tr><th>`K`</th><td>unsigned long</td><td>unsigned __int64</td></tr>
+<tr><th>`L`</th><td></td><td>__int128</td></tr>
+<tr><th>`M`</th><td>float</td><td>unsigned __int128</td></tr>
+<tr><th>`N`</th><td>double</td><td>bool</td></tr>
+<tr><th>`O`</th><td>long double</td><td>*Array*</td></tr>
+<tr><th>`P`</th><td>*Type modifier (pointer)*</td></tr>
+<tr><th>`Q`</th><td>*Type modifier (const pointer)*</td></tr>
+<tr><th>`R`</th><td>*Type modifier (volatile pointer)*</td></tr>
+<tr><th>`S`</th><td>*Type modifier (const volatile pointer)*</td></tr>
+<tr><th>`T`</th><td>*Complex Type (union)*</td></tr>
+<tr><th>`U`</th><td>*Complex Type (struct)*</td></tr>
+<tr><th>`V`</th><td>*Complex Type (class)*</td></tr>
+<tr><th>`W`</th><td>*Enumerate Type (enum)*</td><td>wchar_t</td></tr>
+<tr><th>`X`</th><td>void, *Complex Type (coclass)*</td><td>*Complex Type (coclass)*</td></tr>
+<tr><th>`Y`</th><td>*Complex Type (cointerface)*</td><td>*Complex Type (cointerface)*</td></tr>
+<tr><th>`Z`</th><td>... *(elipsis)*</td><td></td></tr>
+</tbody>
+</table>
+
+[^4]: There is `$$B` prefix, but it seems that this prefix can be ignored.
+
+Actually void for `X` and elipsis for `Z` can be used only for terminator of [argument list](#element-arglist) or pointer. Otherwise, `X` is used as cointerface.
+
+
+<h3 id="element-type-primitive">Primitive &amp; Extended Type</h3>
+Primitive types are represented as one character, and extended types are represented as one character preceding `_`.
+
+
+<h3 id="element-type-backref">Back Reference</h3>
+Decimal digits `0` to `9` refers to first shown type to 10th shown type in argument list. (It means return type cannot be referred.) Back reference can refer to any non-primitive type, including extended type. Of course back reference can refer to prefixed type such as `PAVblah@@`(`class blah *`), but cannot refer to prefixless type &mdash; say, `Vblah@@` in `PAVblah@@`.
+
+As back reference for name, in [template argument list](#element-arglist-template) back reference table is separately created. Function argument list has no such scoping rule, though it can be confused sometimes. For example, assume `P6AXValpha@@Vbeta@@@Z`(`void (__cdecl*)(class alpha, class beta)`) is first shown non-primitive type. Then `0` refer to `Valpha@@`, `1` refer to `Vbeta@@`, and finally `2` refer to function pointer.
+
+
+<h3 id="element-type-typemod">Type Modifier</h3>
+Type modifier is used to make pointer or reference. Type modifier looks like this:
+
+* Modifier type
+* *Optional:* Managed C++ property (`$A` for \__gc, `$B` for \__pin)
+* [CV-class modifier](#element-cvclass)
+* *Optional:* Array property (not for function)
+	* Prefix `Y`
+	* [Encoded unsigned number](#element-number) of dimension
+	* Array indices as encoded unsigned number, *dimension* times
+	
+* Referred type info (see below)
+
+There is eight type of type modifier:
+
+<table class="centered-cell">
+<thead>
+<tr><th></th><th>*none*</th><th>const</th><th>volatile</th><th>const volatile</th></tr>
+</thead>
+<tbody>
+<tr><th>Pointer</th><td>`P`</td><td>`Q`</td><td>`R`</td><td>`S`</td></tr>
+<tr><th>Reference</th><td>`A`</td><td></td><td>`B`</td><td></td></tr>
+<tr><th>*none*</th><td>`?`[^5], `$$C`</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+[^5]: `?` is valid only for type of [data](#data). Also `?` should be the outmost type modifier. (`?CPB` is valid but `PB?C` is not.)
+
+For normal type, referred type info is [data type](#element-type). For function, it looks like the following. (It depends on CV-class modifier)
+
+* *Conditional:* [CV-class modifier](#element-cvclass), if member function
+* [Function property](#element-function)
+
+
+<h3 id="element-type-aggregate">Complex Type (union, struct, class, coclass, cointerface)</h3>
+Complex type looks like this:
+
+* Kind of complex type (`T`, `U`, `V`, ...)[^6]
+* [Qualification without basic name](#element-name)
+
+[^6]: `?` and `L` can be complex type without any tag such as class, but it can also be a bug of the function.
+
+
+<h3 id="elemene-type-enum">Enumerate Type (enum)</h3>
+Enumerate type starts with prefix `W`. It looks like this:
+
+* Prefix `W`
+* Real type for enum
+* [Qualification without basic name](#element-name)
+
+Real type for enum is represented as the following:
+
+<table>
+<thead>
+<tr><th>Code</th><th>Corresponding Real Type</th></tr>
+</thead>
+<tbody>
+<tr><th>`0`</th><td>char</td></tr>
+<tr><th>`1`</th><td>unsigned char</td></tr>
+<tr><th>`2`</th><td>short</td></tr>
+<tr><th>`3`</th><td>unsigned short</td></tr>
+<tr><th>`4`</th><td>int *(generally normal "enum")*</td></tr>
+<tr><th>`5`</th><td>unsigned int</td></tr>
+<tr><th>`6`</th><td>long</td></tr>
+<tr><th>`7`</th><td>unsigned long</td></tr>
+</tbody>
+</table>
+
+<h3 id="elemene-type-array">Array</h3>
+Array (not pointer to array!) starts with prefix `_O`. It looks like this:
+
+* Prefix `_O`
+* [CV-class modifier](#element-cvclass)
+* [Data type](#element-type) within array
+
+You can use multi-dimensional array like `_OC_OBH`, but only the outmost CV-class modifier is affected. (In this case `_OC_OBH` means `int volatile [][]`, not `int const [][]`)
+
+
+<h3 id="elemene-type-template">Template Parameter</h3>
+Template parameter is used to represent type and non-type template argument. It can be used in only [template argument list](#element-arglist-template).
+
+The table below is a list of known template parameters. *a*, *b*, *c* represent [encoded signed numbers](#element-number), and *x*, *y*, *z* represent [encoded unsigned numbers](#element-number).
+
+<table>
+<thead>
+<tr><th>Code</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><th>`?[x]`</th><td>anonymous type template parameter *x* (`` `template-parameter-[x]'``)</td></tr>
+<tr><th>`$0[a]`</th><td>integer value *a*</td></tr>
+<tr><th>`$2[a][b]`</th><td>real value *a* &times; 10^*b*-*k*+1^, where *k* is number of decimal digits of *a*[^7]</td></tr>
+<tr><th>`$D[a]`</th><td>anonymous type template parameter *a* (`` `template-parameter[a]'``)</td></tr>
+<tr><th>`$F[a][b]`</th><td>2-tuple {*a*,*b*} *(unknown)*</td></tr>
+<tr><th>`$G[a][b][c]`</th><td>3-tuple {*a*,*b*,*c*} *(unknown)*</td></tr>
+<tr><th>`$H[x]`</th><td>*(unknown)*</td></tr>
+<tr><th>`$I[x][y]`</th><td>*(unknown)*</td></tr>
+<tr><th>`$J[x][y][z]`</th><td>*(unknown)*</td></tr>
+<tr><th>`$Q[a]`</th><td>anonymous non-type template parameter *a* (`` `non-type-template-parameter[a]'``)</td></tr>
+</tbody>
+</table>
+
+[^7]: For example, `$2HKLH@?2` means 3.1415 &times; 10^-3^ = 0.0031415, because `HKLH@` means 31415 and `?2` means -3.
+
+<h2 id="element-arglist">Argument List</h2>
+Argument list is a sequence of [data types](#element-type). List can be one of the following:
+
+* `X` (means `void`, also terminating list)
+* *arg1* *arg2* ... *argN* `@` (means normal list of data types. Note that N can be zero)
+* *arg1* *arg2* ... *argN* `Z` (means list with trailing elipsis)
+
+
+<h3 id="element-arglist-template">Template Argument List</h3>
+Template argument list is same to argument list, except [template parameters](#element-type-template) can be used.
+
+
+<h2 id="element-cvclass">CV-class Modifier</h2>
+The following table shows CV-class modifiers.[^0]
+
+<table class="centered-cell">
+<thead>
+<tr><th rowspan="2"></th><th colspan="4">Variable</th><th rowspan="2">Function</th></tr>
+<tr><td>*none*</td><td>const</td><td>volatile</td><td>const volatile</td></tr>
+</thead>
+<tbody>
+<tr><th>*none*</th><td>`A`</td><td>`B`, `J`</td><td>`C`, `G`, `K`</td><td>`D`, `H`, `L`</td><td>`6`, `7`</td></tr>
+<tr><th>\__based()</th><td>`M`</td><td>`N`</td><td>`O`</td><td>`P`</td><td>`_A`, `_B`</td></tr>
+<tr><th>Member</th><td>`Q`, `U`, `Y`</td><td>`R`, `V`, `Z`</td><td>`S`, `W`, `0`</td><td>`T`, `X`, `1`</td><td>`8`, `9`</td></tr>
+<tr><th>\__based() Member</th><td>`2`</td><td>`3`</td><td>`4`</td><td>`5`</td><td>`_C`, `_D`</td></tr>
+</tbody>
+</table>
+
+CV-class modifier can have zero or more prefix:
+
+<table>
+<thead>
+<tr><th>Prefix</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><th>`E`</th><td>*type* __ptr64</td></tr>
+<tr><th>`F`</th><td>__unaligned *type*</td></tr>
+<tr><th>`I`</th><td>*type* __restrict</td></tr>
+</tbody>
+</table>
+
+Modifiers have trailing parameters as follows:
+
+* *Conditional:* [Qualification without basic name](#element-name), if member
+* *Conditional:* [CV-class modifier](#element-cvclass) of function, if member function
+* *Conditional:* [\__based() property](#element-basedprop), if used
+
+CV-class modifier is usually used in reference/pointer type, but it is also used in other place with some restrictions:
+
+* Modifier of function: can only have const, volatile attribute, optionally with prefixes.
+* Modifier of data: cannot have function property.
+
+
+<h2 id="element-basedprop">\__based() Property</h2>
+\__based() property represents Microsoft's \__based() attribute extension to C++. This property can be one of the following:
+
+* `0` (means `__based(void)`)
+* `2[name]` (means `__based([name])`, where *name* is [qualification without basic name](#element-name))
+* `5` (means no `__based()`)
+
+
+<h2 id="element-function">Function Property</h2>
+Function property represents prototype of function. It looks like this:
+
+* Calling convention of function
+* [Data type](#element-type) of returned value, or `@` for void
+* [Argument list](#element-arglist)
+* throw() attribute
+
+The following table shows calling convention of function:
+
+<table class="centered-cell">
+<thead>
+<tr><th>Code</th><th>Exported?</th><th>Calling Convention</th></tr>
+</thead>
+<tbody>
+<tr><th>`A`</th><td>No</td><td>__cdecl</td></tr>
+<tr><th>`B`</th><td>Yes</td><td>__cdecl</td></tr>
+<tr><th>`C`</th><td>No</td><td>__pascal</td></tr>
+<tr><th>`D`</th><td>Yes</td><td>__pascal</td></tr>
+<tr><th>`E`</th><td>No</td><td>__thiscall</td></tr>
+<tr><th>`F`</th><td>Yes</td><td>__thiscall</td></tr>
+<tr><th>`G`</th><td>No</td><td>__stdcall</td></tr>
+<tr><th>`H`</th><td>Yes</td><td>__stdcall</td></tr>
+<tr><th>`I`</th><td>No</td><td>__fastcall</td></tr>
+<tr><th>`J`</th><td>Yes</td><td>__fastcall</td></tr>
+<tr><th>`K`</th><td>No</td><td>*none*</td></tr>
+<tr><th>`L`</th><td>Yes</td><td>*none*</td></tr>
+<tr><th>`M`</th><td>No</td><td>__clrcall</td></tr>
+</tbody>
+</table>
+
+Argument list for throw() attribute is same to [argument list](#element-arglist), but if this list is `Z`, it means there is no throw() attribute. If you want to use `throw()` you have to use `@` instead.
+
+
+<h1 id="function">Function</h1>
+Typical type information in function name looks like this:
+
+* *Optional:* Prefix `_` (means __based() property is used)
+* Access level and function type
+* *Conditional:* [__based() property](#element-basedprop), if used
+* *Conditional:* adjustor property (as [encoded unsigned number](#element-number)), if thunk function
+* *Conditional:* [CV-class modifier](#element-cvclass) of function, if non-static member function
+* [Function property](#element-function)
+
+The table below shows code for access level and function type:
+
+<table class="centered-cell">
+<thead>
+<tr><th></th><th>*none*</th><th>static</th><th>virtual</th><th>thunk</th></tr>
+</thead>
+<tbody>
+<tr><th>private:</th><td>`A`, `B`</td><td>`C`, `D`</td><td>`E`, `F`</td><td>`G`, `H`</td></tr>
+<tr><th>protected:</th><td>`I`, `J`</td><td>`K`, `L`</td><td>`M`, `N`</td><td>`O`, `P`</td></tr>
+<tr><th>public:</th><td>`Q`, `R`</td><td>`S`, `T`</td><td>`U`, `V`</td><td>`W`, `X`</td></tr>
+<tr><th>*none*</th><td>`Y`, `Z`</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+This kind of thunk function is always virtual, and used to represent logical `this` adjustor property, which means an offset to true `this` value in some multiple inheritance.
+
+
+<h1 id="data">Data</h1>
+Type information in data name looks like this:
+
+* Access level and storage class
+* [Data type](#element-type)
+* [CV-class modifier](#element-cvclass)
+
+The table below shows code for access level and storage class:
+
+<table>
+<thead>
+<tr><th>Code</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><th>`0`</th><td>Private static member</td></tr>
+<tr><th>`1`</th><td>Protected static member</td></tr>
+<tr><th>`2`</th><td>Public static member</td></tr>
+<tr><th>`3`</th><td>Normal variable</td></tr>
+<tr><th>`4`</th><td>Normal variable</td></tr>
+</tbody>
+</table>
+
+CV-class modifier should not be function.
+
+
+<h1 id="thunkfunction">Thunk Function</h1>
+There is several kind of thunk function. <small>[TODO: a lot of thunk function!]</small>
+
+[^0]: Some tables contain two or more entries in one case. In this case, I tried to place more frequently used entry in the front. (But I'm not sure that this placement. Don't ask it for me!)
+
+

@@ -1,0 +1,13 @@
+@import url(global.ie.css);
+
+.logtags {
+	vertical-align: middle;
+}
+* html pre {
+	padding-left: 0;
+	padding-right: 0;
+	width: 640px;
+}
+* html #graphwrap {
+	margin-top: 3.5em;
+}

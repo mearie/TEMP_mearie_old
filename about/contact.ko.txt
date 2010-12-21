@@ -1,0 +1,14 @@
+## vim: syn=mako
+<%inherit file="kang-seonghoon.tmpl.html"/>
+<%! title = u'연락처' %>
+
+모든 공적인 연락은 전자우편으로만 받습니다. 2010년 3월 현재 제 개인 전자우편 주소는 다음과 같습니다.
+
+<p class="center"><%m:math size="+2">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math></p>
+
+또한 논문 등에 나타나는 *공식* 전자우편 주소는 다음과 같습니다.
+
+<p class="center"><%m:math size="+2">\sideset{kang_\cdot seonghoon}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math></p>
+
+위 주소 말고도 `mearie.org`으로 끝나는 모든 전자우편 주소는 제가 관리하고 있습니다. 다만 이들은 연락을 위한 주소라기보다는 전자우편 주소를 요구하는 곳에 쓰기 위한 것이므로 위의 주소들을 대신 써 주시길 바랍니다.
+

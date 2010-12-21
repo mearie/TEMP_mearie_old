@@ -1,0 +1,14 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'기말고사 기간'
+when = '2006-06-11T19:47:10+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=108'
+%>
+
+언제나 그렇듯이 시험 기간에는 시험과 과제를 제외한 모든 것이 즐겁다는... 케헹.
+
+----
+**시험 끝나고 뵙겠습니다.** 예정일은 23일 -_-; 과연 기말고사와 최종 과제들의 결과는? (...그런 거 아무도 안 기대해)
+

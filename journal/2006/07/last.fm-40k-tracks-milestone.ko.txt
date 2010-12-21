@@ -1,0 +1,13 @@
+## vim: syn=mako
+<%inherit file="../../entry.tmpl.html"/>
+<%!
+title = u'last.fm 40000곡 돌파'
+when = '2006-07-04T01:43:30+09:00'
+category = u'일상'
+original = 'http://tokigun.net/blog/entry.php?blogid=129'
+%>
+
+<%m:img src="20060704.lastfm.thumb.png" align="center" bordered="1" linkto="20060704.lastfm.jpg">last.fm 4만곡 갈무리</%m:img>
+
+뭐 그런 건데... 245일만에 4만 곡이면 하루에 164곡씩 들어 제꼈다는 소리다. 주변 사람들 중 2만 곡 이상 들은 사람이 없고 한 다리 건너야 5만곡 정도 들었다는 사람이 나오는 정도니 아무리 생각해도 노래 좀 적당히 들어야 하지 않을까 싶다. -_-;
+
