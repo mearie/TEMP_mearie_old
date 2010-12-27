@@ -3,26 +3,26 @@
 HGREPO = .hg
 SELF = Makefile
 TREE = Makefile.tree
-RESOURCES = res/logo.png
 CACHEDIR = res/cache
 
 HG = hg -R ${HGREPO}/..
+PYTHON = python
 CONVERT = convert
-PROCESSOR = bin/processor -c ${CACHEDIR} -b ${HGREPO}/..
+PROCESSOR = ${PYTHON} bin/processor -c ${CACHEDIR} -b ${HGREPO}/..
 GENERATOR = bin/generator
 
 all: ${TREE}
 
 -include ${TREE}
 
-all: ${TARGETS} ${RESOURCES}
+all: ${TARGETS}
 
 clean: ${TREE}
-	rm -f ${TARGETS} ${RESOURCES} bin/mearie/*.pyc
-	rm -rf ${CACHEDIR}
+	@rm -f ${TARGETS} bin/mearie/*.pyc
+	@rm -rf ${CACHEDIR}
 
 clean-all: clean
-	rm -f ${TREE}
+	@rm -f ${TREE}
 
 res/logo.png: res/logo-template.png ${SELF}
 	${CONVERT} $< -fx 'a^1.3*#379+(1-a^1.3)*#eee' -channel A -fx 1 $@
@@ -39,6 +39,6 @@ endef
 $(foreach path,$(wildcard journal/*/index.ko.txt),$(eval $(call JOURNAL_ARCHIVE,$(dir ${path}))))
 
 ${TREE}: ${HGREPO} ${SELF}
-	${GENERATOR} $</.. > $@ || (rm $@; exit 1)
-	@echo 'Regenerated Makefile.tree. Try again.'
+	${GENERATOR} $</.. $@
+	@echo Regenerated Makefile.tree. Try again.
 

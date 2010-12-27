@@ -1,10 +1,15 @@
 #!/bin/bash
-REPO=${1:-.}
+REPO="$1"
+TREE="$2"
 
-function lssrcs() {
-	hg -R "$1" status -nmac | grep '\.\(en\|ko\|ja\)\.txt$'
-}
+trap "rm -f $TREE; exit 1" INT TERM KILL
 
-echo -n "TARGETS = "
-lssrcs "$REPO" | sed ':a;s/\.txt$/.html/;N;s/\n/ /;ta'
-lssrcs "$REPO" | sed 's/^\(.*\)\.txt$/\1.txt\t\1.html/' | "`dirname "$0"`/processor" -D -b "$REPO"
+echo -n "TARGETS = " > "$TREE"
+hg -R "$REPO" status -nmac | \
+	grep '\.\(en\|ko\|ja\)\.txt$' | \
+	sed ':a;s/\.txt$/.html/;N;s/\n/ /;ta' >> "$TREE"
+hg -R "$REPO" status -nmac | \
+	grep '\.\(en\|ko\|ja\)\.txt$' | \
+	sed 's/^\(.*\)\.txt$/\1.txt	\1.html/' | \
+	python "`dirname "$0"`/processor" -D -b "$REPO" >> "$TREE"
+exit 0
