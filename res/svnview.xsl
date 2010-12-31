@@ -51,7 +51,7 @@
 	<input type="text" name="q" size="30"/> 
 	<input type="submit" name="sa" value="Google Search" class="button"/> 
 </div></form> 
-<div class="copyright">Copyright © 1999–2010 Kang Seonghoon. <a href="http://mearie.org/about/copyright">Some Rights Reserved.</a></div> 
+<div class="copyright">Copyright © 1999–2011 Kang Seonghoon. <a href="http://mearie.org/about/copyright">Some Rights Reserved.</a></div> 
 </div> 
 </body>
 </html>
