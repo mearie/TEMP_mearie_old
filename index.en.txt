@@ -27,6 +27,7 @@ You can watch my recent activity at [FriendFeed](http://friendfeed.com/lifthrasi
 <p class="mearie-neighbors">
 Nearby:
 [cosmic.mearie.org](//cosmic.mearie.org/),
+[noe.mearie.org](//noe.mearie.org/),
 [Mercurial repository](//hg.mearie.org/),
 [Subversion repository](//svn.mearie.org/),
 [Twitter](http://twitter.com/senokay/),

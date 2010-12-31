@@ -28,6 +28,7 @@
 이웃 사이트:
 [코스믹메아리](//cosmic.mearie.org/),
 [풉;](//pub.mearie.org/),
+[뇌](//noe.mearie.org/),
 [머큐리얼](//hg.mearie.org/),
 [서브버전](//svn.mearie.org/),
 [미투데이](http://me2day.net/arachneng/),

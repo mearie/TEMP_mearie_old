@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<TMPL_IF DYNAMIC>
+<TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
+<TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
+</TMPL_IF>
+</TMPL_IF>
+<title><TMPL_VAR TITLE> | 메아리 뇌</title>
+<link rel="stylesheet" media="screen" href="http://mearie.org/res/global.css" type="text/css" /> 
+<!--[if IE]><link rel="stylesheet" media="screen" href="http://mearie.org/res/global.ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
+<script type="text/javascript" src="http://mearie.org/res/global.js"></script> 
+<link rel="shortcut icon" href="http://mearie.org/res/icon-generic.ico" type="image/vnd.microsoft.icon" />
+
+<link rel="stylesheet" href="<TMPL_VAR BASEURL>style.css" type="text/css" />
+<TMPL_IF LOCAL_CSS>
+<link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
+<TMPL_ELSE>
+<link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
+</TMPL_IF>
+<TMPL_IF EDITURL>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
+</TMPL_IF>
+<TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
+<TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
+<TMPL_IF META><TMPL_VAR META></TMPL_IF>
+</head>
+<body lang="ko">
+<!--
+<TMPL_IF HTML5><article class="page"><TMPL_ELSE><div class="page"></TMPL_IF>
+
+<TMPL_IF HTML5><section class="pageheader"><TMPL_ELSE><div class="pageheader"></TMPL_IF>
+<TMPL_IF HTML5><header class="header"><TMPL_ELSE><div class="header"></TMPL_IF>
+<span>
+<span class="parentlinks">
+<TMPL_LOOP PARENTLINKS>
+<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>/ 
+</TMPL_LOOP>
+</span>
+<span class="title">
+<TMPL_VAR TITLE>
+<TMPL_IF ISTRANSLATION>
+&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
+</TMPL_IF>
+</span>
+</span>
+<TMPL_IF SEARCHFORM>
+<TMPL_VAR SEARCHFORM>
+</TMPL_IF>
+<TMPL_IF HTML5></header><TMPL_ELSE></div></TMPL_IF>
+
+<TMPL_IF HAVE_ACTIONS>
+<TMPL_IF HTML5><nav class="actions"><TMPL_ELSE><div class="actions"></TMPL_IF>
+<ul>
+<TMPL_IF GETSOURCEURL>
+<li><a href="<TMPL_VAR GETSOURCEURL>">Source</a></li>
+</TMPL_IF>
+<TMPL_IF PREFSURL>
+<li><a href="<TMPL_VAR PREFSURL>">Preferences</a></li>
+</TMPL_IF>
+<TMPL_IF ACTIONS>
+<TMPL_LOOP ACTIONS>
+<li><TMPL_VAR ACTION></li>
+</TMPL_LOOP>
+</TMPL_IF>
+<TMPL_IF COMMENTSLINK>
+<li><TMPL_VAR COMMENTSLINK></li>
+<TMPL_ELSE>
+<TMPL_IF DISCUSSIONLINK>
+<li><TMPL_VAR DISCUSSIONLINK></li>
+</TMPL_IF>
+</TMPL_IF>
+</ul>
+<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+
+<TMPL_IF OTHERLANGUAGES>
+<TMPL_IF HTML5><nav id="otherlanguages"><TMPL_ELSE><div id="otherlanguages"></TMPL_IF>
+<ul>
+<TMPL_LOOP OTHERLANGUAGES>
+<li>
+<a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
+<TMPL_IF MASTER>
+(master)
+<TMPL_ELSE>
+&nbsp;(<TMPL_VAR PERCENT>%)
+</TMPL_IF>
+</li>
+</TMPL_LOOP>
+</ul>
+<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+
+<TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
+
+<TMPL_IF SIDEBAR>
+<TMPL_IF HTML5><aside class="sidebar"><TMPL_ELSE><div class="sidebar"></TMPL_IF>
+<TMPL_VAR SIDEBAR>
+<TMPL_IF HTML5></aside><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+-->
+<div id="sitebody" lang="ko">
+<h1><TMPL_VAR TITLE></h1>
+<TMPL_VAR CONTENT>
+
+<!--
+<TMPL_UNLESS DYNAMIC>
+<TMPL_IF COMMENTS>
+<TMPL_IF HTML5><section id="comments"><TMPL_ELSE><div id="comments"></TMPL_IF>
+<TMPL_VAR COMMENTS>
+<TMPL_IF ADDCOMMENTURL>
+<div class="addcomment">
+<a href="<TMPL_VAR ADDCOMMENTURL>">Add a comment</a>
+</div>
+<TMPL_ELSE>
+<div class="addcomment">Comments on this page are closed.</div>
+</TMPL_IF>
+<TMPL_IF HTML5></section><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+</TMPL_UNLESS>
+-->
+
+</div>
+
+<!--
+<TMPL_IF HTML5><footer id="footer" class="pagefooter"><TMPL_ELSE><div id="footer" class="pagefooter"></TMPL_IF>
+<TMPL_UNLESS DYNAMIC>
+<TMPL_IF HTML5><nav id="pageinfo"><TMPL_ELSE><div id="pageinfo"></TMPL_IF>
+
+<TMPL_IF TAGS>
+<TMPL_IF HTML5><nav class="tags"><TMPL_ELSE><div class="tags"></TMPL_IF>
+Tags:
+<TMPL_LOOP TAGS>
+<TMPL_VAR LINK>
+</TMPL_LOOP>
+<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+
+<TMPL_IF BACKLINKS>
+<TMPL_IF HTML5><nav id="backlinks"><TMPL_ELSE><div id="backlinks"></TMPL_IF>
+Links:
+<TMPL_LOOP BACKLINKS>
+<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>
+</TMPL_LOOP>
+<TMPL_IF MORE_BACKLINKS>
+<span class="popup">...
+<span class="balloon">
+<TMPL_LOOP MORE_BACKLINKS>
+<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>
+</TMPL_LOOP>
+</span>
+</span>
+</TMPL_IF>
+<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
+</TMPL_IF>
+
+<TMPL_IF COPYRIGHT>
+<div class="pagecopyright">
+<a name="pagecopyright"></a>
+<TMPL_VAR COPYRIGHT>
+</div>
+</TMPL_IF>
+
+<TMPL_IF LICENSE>
+<div class="pagelicense">
+<a name="pagelicense"></a>
+License: <TMPL_VAR LICENSE>
+</div>
+</TMPL_IF>
+
+<div class="pagedate">
+Last edited <TMPL_VAR MTIME>
+<!- - Created <TMPL_VAR CTIME> - ->
+</div>
+
+<TMPL_IF HTML5></nav><TMPL_ELSE></div></TMPL_IF>
+<TMPL_IF EXTRAFOOTER><TMPL_VAR EXTRAFOOTER></TMPL_IF>
+</TMPL_UNLESS>
+<!- - from <TMPL_VAR WIKINAME> - ->
+<TMPL_IF HTML5></footer><TMPL_ELSE></div></TMPL_IF>
+
+<TMPL_IF HTML5></article><TMPL_ELSE></div></TMPL_IF>
+-->
+
+<hr/>
+<div id="siteside">
+<div class="slogan">
+	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="메아리 처음으로" /></a>
+</div>
+<div class="menu">
+<p class="domain"><a href="/">메아리 뇌</a></p>
+<ul>
+<TMPL_IF RECENTCHANGESURL>
+	<li><a href="<TMPL_VAR RECENTCHANGESURL>">최근 바뀜</a></li>
+<TMPL_ELSE>
+	<li><a href="#">최근 바뀜</a></li>
+</TMPL_IF>
+<TMPL_UNLESS DYNAMIC>
+	<li>현재 문서<ul>
+<TMPL_IF GETSOURCEURL>
+		<li><a href="<TMPL_VAR GETSOURCEURL>">원본 보기</a></li>
+</TMPL_IF>
+<TMPL_IF EDITURL>
+		<li><a href="<TMPL_VAR EDITURL>" accesskey="e" rel="nofollow">고치기</a></li>
+</TMPL_IF>
+<TMPL_IF HISTORYURL>
+		<li><a href="<TMPL_VAR HISTORYURL>">문서 역사</a></li>
+</TMPL_IF>
+	</ul></li>
+</TMPL_UNLESS>
+<TMPL_IF PREFSURL>
+	<li><a href="<TMPL_VAR PREFSURL>">사용자 설정</a></li>
+</TMPL_IF>
+<TMPL_IF ACTIONS>
+	<li>다른 작업<ul>
+<TMPL_LOOP ACTIONS>
+		<li><TMPL_VAR ACTION></li>
+</TMPL_LOOP>
+	</ul></li>
+</TMPL_IF>
+</ul>
+</div>
+</div>
+<div id="sitemeta">
+<div class="tray">
+	<a href="http://ikiwiki.info/">ikiwiki</a>를 씁니다.<br />
+	마지막 수정 <time pubdate="pubdate"><TMPL_VAR MTIME></time>
+</div>
+<form action="http://www.google.com/cse" class="search"><div>
+	<input type="hidden" name="cx" value="017879559261112115196:ygyuirvfnku"/>
+	<input type="text" name="q" size="30"/>
+	<input type="submit" name="sa" value="구글 검색" class="button"/>
+</div></form>
+<div class="copyright">저작권자 © 1999–2010 강 성훈. <a href="http://mearie.org/about/copyright">저작권을 약간 가집니다.</a></div>
+</div>
+</body>
+</html>
