@@ -96,32 +96,25 @@ var dateFromISO8601 = function(s) {
 	return d;
 };
 
-var lang = document.body.lang;
+// allows a design modification using the query. (debugging only)
+var m = location.search.match(/[&?]design=([a-z0-9-]+)(?:&|$)/i);
+if (m) {
+	var design = m[1];
+	$('head').append('<link rel="stylesheet" media="screen" href="http://mearie.org/res/design-' +
+			design + '.css" type="text/css" />');
+	$('body').addClass('design-' + design);
+	$('a').attr('href', function() {
+		if (this.href.match(/:\/\/(?![^\/]*mearie\.org(?:\/|$))|[&?]design=/i)) return this.href;
+		return this.href + (this.href.indexOf('?') < 0 ? '?' : '&') + 'design=' + design;
+	});
+}
 
-// fix a language property of english article in journal.
-$('article').each(function() {
-	var article = $(this);
-	if (article.find('footer .tags a[href$=/english]').length > 0) {
-		article.attr('lang', 'en');
-		article.find('h2 a.permalink').text(
-			article.find('h2 a.permalink').text().replace(/^(\d+)년 (\d+)월 (\d+)일$/, function(_,y,m,d) {
-				return ['','January','February','March','April','May','June','July','August','September',
-					'October','November','December'][m] + ' ' + d + ', ' + y;
-			}));
-		article.find('.postmore a').text('More…');
-		article.find('footer dt.when').text('Posted on');
-		article.find('footer dt.share').text('Share');
-		article.find('footer dt.share').text('Share');
-		article.find('footer dt.notes').text('Notes');
-		article.find('footer dd.notes').text(article.find('footer dd.notes').text().replace(/^(\d+)개$/, '$1'));
-		article.find('footer dt.tags').text('Tags');
-	}
-});
+var lang = document.body.lang;
+var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-.*$/, '');
 
 // show a warning if the page language doesn't match with the browser language.
 // note: it uses UI language; retrieving a language from accept-language header seems to be hard:
 //       http://groups.google.com/group/mozilla-labs-jetpack/browse_thread/thread/8459ccb6a7246656
-var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-.*$/, '');
 if (userlang != lang && !(location.host == 'j.mearie.org' || location.host == 'arachneng.egloos.com')) {
 	var langl = languageName(lang, userlang);
 	var userlangl = languageName(userlang, userlang);
@@ -144,21 +137,55 @@ if (userlang != lang && !(location.host == 'j.mearie.org' || location.host == 'a
 	}
 }
 
+// the client-side localization for journal.
+$('article').each(function() {
+	var article = $(this);
+	//if (article.find('footer .tags a[href$=/english]').length > 0) {
+	if (article.find('footer .tags a[href*=/english]').length > 0) {
+		article.attr('lang', 'en');
+		article.find('h2 a.permalink').text(
+			article.find('h2 a.permalink').text().replace(/^(\d+)년 (\d+)월 (\d+)일$/, function(_,y,m,d) {
+				return ['','January','February','March','April','May','June','July','August','September',
+					'October','November','December'][m] + ' ' + d + ', ' + y;
+			}));
+		article.find('.postmore a').text('More…');
+		article.find('footer dt.when').text('Posted on');
+		article.find('footer dt.share').text('Share');
+		article.find('footer dt.share').text('Share');
+		article.find('footer dt.notes').text('Notes');
+		article.find('footer dd.notes a').text(article.find('footer dd.notes a').text().replace(/^(\d+)개$/, '$1'));
+		article.find('footer dt.tags').text('Tags');
+	}
+});
+if (userlang == 'en') {
+	$('#siteresp .notes').attr('lang', 'en');
+} else {
+	$('#siteresp .notes li').each(function() {
+		var action = $(this).find('.action');
+		action.html(action.html()
+			.replace(/(<a .*?class="?tumblelog.*?>.*?<\/a>) posted this/gi, '$1 님이 이 글을 올림')
+			.replace(/(<a .*?>.*?<\/a>) liked this/gi, '$1 님이 이 글을 좋아함')
+			.replace(/(<a .*?class="?tumblelog.*?>.*?<\/a>) reblogged this from (<a .*?class="?source_tumblelog.*?>.*?<\/a>) and added/gi, '$1 님이 $2 님의 글을 퍼가고 덧붙임')
+			.replace(/(<a .*?class="?tumblelog.*?>.*?<\/a>) reblogged this from (<a .*?class="?source_tumblelog.*?>.*?<\/a>)/gi, '$1 님이 $2 님의 글을 퍼감')
+		);
+	});
+}
+
 // CSS corrections for MSIE.
 $('[lang|=ko]').addClass('lang-ko');
 $('[lang|=en]').addClass('lang-en');
 $('[lang|=ja]').addClass('lang-ja');
-$('a[href^="http://"]' +
-	':not([href^="http://mearie.org/"])' +
-	':not([href^="http://hg.mearie.org/"])' +
-	':not([href^="http://pub.mearie.org/"])' +
-	':not([href^="http://j.mearie.org/"])' +
-	':not([href^="http://r.mearie.org/"])' +
-	':not(.interwiki):not(.noicon), ' +
-'a[href^="https://"]:not(.interwiki):not(.noicon), ' +
-'a[href^="ftp://"]:not(.interwiki):not(.noicon), ' +
-'a[href^="irc://"]:not(.interwiki):not(.noicon), ' +
-'a[href^="mailto:"]:not(.interwiki):not(.noicon)').addClass('external');
+$('a[href^="http://"]:not([href^="http://mearie.org/"])' +
+		    ':not([href^="http://hg.mearie.org/"])' +
+		    ':not([href^="http://pub.mearie.org/"])' +
+		    ':not([href^="http://j.mearie.org/"])' +
+		    ':not([href^="http://r.mearie.org/"])' +
+		    ':not(.interwiki):not(.noicon), ' +
+	'a[href^="https://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="ftp://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="irc://"]:not(.interwiki):not(.noicon), ' +
+	'a[href^="mailto:"]:not(.interwiki):not(.noicon)').addClass('external');
+$('.noicon .external').removeClass('external');
 
 // load responses if needed.
 var resplinks = $('.responselink');
