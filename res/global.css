@@ -438,6 +438,11 @@ a[href^="irc://"]:not(.interwiki):not(.noicon):hover, a[href^="irc://"]:not(.int
 a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.interwiki):not(.noicon):active {
 	background-image: url(link-external-a.png);
 }
+.noicon a[href^="http://"]:not(.interwiki):not(.noicon),
+.noicon a[href^="https://"]:not(.interwiki):not(.noicon),
+.noicon a[href^="ftp://"]:not(.interwiki):not(.noicon),
+.noicon a[href^="irc://"]:not(.interwiki):not(.noicon),
+.noicon a[href^="mailto:"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
@@ -446,6 +451,11 @@ a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
 	background-image: none;
 }
+.noicon a[href^="http://"]:not(.interwiki):not(.noicon) code,
+.noicon a[href^="https://"]:not(.interwiki):not(.noicon) code,
+.noicon a[href^="ftp://"]:not(.interwiki):not(.noicon) code,
+.noicon a[href^="irc://"]:not(.interwiki):not(.noicon) code,
+.noicon a[href^="mailto:"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon) code,
@@ -768,7 +778,7 @@ article footer dd li {
 .responses {
 	margin: 0;
 	padding: 0;
-	border-top: 1px solid #379;
+	border-top: 2px solid #379;
 }
 .response {
 	list-style: none;
@@ -831,5 +841,31 @@ article footer dd li {
 .responseform p {
 	margin: 10px;
 	text-align: center;
+}
+/* (tumblr-specific) */
+#siteresp .notes {
+	margin: 0;
+	padding: 0;
+	border-top: 2px solid #379;
+}
+#siteresp .note { /* note: conflicts with the prior use of .note */
+	list-style: none;
+	margin: -1px 0 -1px 280px;
+	padding: 5px 10px 5px 30px;
+	clear: both;
+	border-top: 1px solid #379;
+	border-top: 1px solid #379;
+}
+#siteresp .tumblelog_arachneng {
+	background: #ddd;
+}
+#siteresp .note .avatar {
+	float: left;
+	display: inline;
+	margin: 0.2em 5px 0 -21px;
+}
+#siteresp .note blockquote a {
+	color: #666;
+	text-decoration: none;
 }
 

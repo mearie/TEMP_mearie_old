@@ -41,7 +41,7 @@
 	<div class="postbody"><p>{Description}</p></div>{/block:Link}
 {block:Quote}{Quote}</h2></blockquote>
 	<div class="postbody"><p>—{Source}</p></div>{/block:Quote}
-{block:Photo}{LinkOpenTag}<img src="{PhotoURL-500}" class="faint" alt="{PhotoAlt}"/>{LinkCloseTag}</h2>
+{block:Photo}<span class="noicon">{LinkOpenTag}<img src="{PhotoURL-500}" class="faint" alt="{PhotoAlt}"/>{LinkCloseTag}</span></h2>
 	<div class="postbody">{Caption}</div>{/block:Photo}
 {block:Audio}{AudioPlayerGrey}</h2>
 	<div class="postbody">{Caption}</div>
@@ -53,7 +53,7 @@
 {block:Date}<footer><dl><!--
 --><dt class="when">작성일</dt><dd class="when"><a href="{ShortURL}"><time pubdate="pubdate">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}<!--:{Seconds}-->+09:00</time></a></dd><!--
 --><dt class="share">공유</dt><dd class="share"><a href="http://reddit.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://reddit.com/static/spreddit1.gif" width="19" height="15" alt="레딧에 보내기" /></a> <a href="http://digg.com/submit?url={URLEncodedPermalink}" class="noicon"><img src="http://widgets.digg.com/img/button/diggThisDigger.png" width="16" height="16" alt="디그하기" /></a></dd><!--
--->{block:NoteCount}<dt class="notes">노트</dt><dd class="notes">{NoteCount}개</dd>{/block:NoteCount}<!--
+-->{block:NoteCount}<dt class="notes">노트</dt><dd class="notes"><a href="{Permalink}#notes">{NoteCount}개</a></dd>{/block:NoteCount}<!--
 -->{block:HasTags}<dt class="tags">태그</dt><dd class="tags"><ul>{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}</ul>{/block:HasTags}<!--
 --></dl></footer></article>{/block:Date}
 <!--{/block:Posts}-->
@@ -85,6 +85,12 @@
 </ul>
 </div>
 </div>
+<!--{block:PostNotes}-->
+<div id="siteresp">
+<h2>노트들</h2>
+<div id="notes" class="noicon">{PostNotes}</div>
+</div>
+<!--{/block:PostNotes}-->
 <div id="sitemeta">
 <div class="tray">
 	<a href="http://tumblr.com/">텀블러</a>를 씁니다.
