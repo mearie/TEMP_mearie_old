@@ -1,0 +1,51 @@
+/* ikiwiki style sheet (unnecessary portions removed for noe.mearie.org) */
+
+div.recentchanges {
+	border-style: solid;
+	border-width: 1px;
+	overflow: auto;
+	width: auto;
+	clear: none;
+	background: #eee;
+	color: black !important;
+}
+.recentchanges .metadata {
+	padding: 0px 0.5em;
+}
+.recentchanges .changelog {
+	font-style: italic;
+	clear: both;
+	display: block;
+	padding: 1px 2px;
+	background: white !important;
+	color: black !important;
+}
+.recentchanges .desc {
+	display: none;
+}
+.recentchanges .diff {
+	display: none;
+}
+.recentchanges .committer {
+	float: left;
+	margin: 0;
+	width: 40%;
+}
+.recentchanges .committype {
+	float: left;
+	margin: 0;
+	width: 5%;
+	font-size: small;
+}
+.recentchanges .changedate {
+	float: left;
+	margin: 0;
+	width: 35%;
+	font-size: small;
+}
+.recentchanges .pagelinks {
+	float: right;
+	margin: 0;
+	width: 60%;
+}
+
