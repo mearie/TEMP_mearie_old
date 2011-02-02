@@ -1,5 +1,14 @@
 /* ikiwiki style sheet (unnecessary portions removed for noe.mearie.org) */
 
+#editcontent {
+        width: 98%;
+}
+
+.editcontentdiv {
+        width: auto; 
+        overflow: auto; 
+}
+
 div.recentchanges {
 	border-style: solid;
 	border-width: 1px;
