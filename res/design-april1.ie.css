@@ -34,6 +34,7 @@ small.lang-ko, small .lang-ko, .lang-ko small,
 	font-family: "Jung9", sans-serif;
 	font-size: 12px;
 }
+div.toc .tocheader.lang-ko, .lang-ko div.toc .tocheader,
 .menu .domain.lang-ko, .menu .domain .lang-ko, .lang-ko .menu .domain {
 	font-family: "Jung9", sans-serif;
 	font-size: 24px;
