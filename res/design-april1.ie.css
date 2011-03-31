@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "Jung9";
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung9.eot);
+}
+@font-face {
+	font-family: "Jung10";
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung10.eot);
+}
+@font-face {
+	font-family: "Jung12";
+	font-weight: bold;
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung12b.eot);
+}
+
+/* basic fonts */
+.lang-ko, .lang-ko * {
+	font-family: "Jung10", sans-serif;
+	font-size: 13px;
+}
+small.lang-ko, small .lang-ko, .lang-ko small,
+.copyright.lang-ko, .copyright .lang-ko, .lang-ko .copyright,
+.note.lang-ko, .note .lang-ko, .lang-ko .note,
+.message.lang-ko, .message .lang-ko, .lang-ko .message,
+.warning.lang-ko, .warning .lang-ko, .lang-ko .warning,
+.afternote.lang-ko, .afternote .lang-ko, .lang-ko .afternote,
+.image-frame .caption.lang-ko, .image-frame .caption .lang-ko, .lang-ko .image-frame .caption,
+#sitebody .footnotes.lang-ko, #sitebody .footnotes .lang-ko, #sitebody.lang-ko .footnotes, #sitebody .lang-ko .footnotes,
+.mearie-activity ul.lang-ko, .mearie-activity ul .lang-ko, .lang-ko .mearie-activity ul,
+.mearie-neighbors.lang-ko, .mearie-neighbors .lang-ko, .lang-ko .mearie-neighbors,
+.response .origin.lang-ko, .response .origin .lang-ko, .lang-ko .response .origin,
+.response .datetime.lang-ko, .response .datetime .lang-ko, .lang-ko .response .datetime {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+.menu .domain.lang-ko, .menu .domain .lang-ko, .lang-ko .menu .domain {
+	font-family: "Jung9", sans-serif;
+	font-size: 24px;
+}
+.menu li.lang-ko, .menu li .lang-ko, .lang-ko .menu li,
+div.toc li.lang-ko, div.toc li .lang-ko, .lang-ko div.toc li {
+	font-family: "Jung12", sans-serif;
+	font-size: 16px;
+}
+.menu li li.lang-ko, .menu li li .lang-ko, .lang-ko .menu li li,
+div.toc li li.lang-ko, div.toc li li .lang-ko, .lang-ko div.toc li li {
+	font-family: "Jung10", sans-serif;
+	font-size: 13px;
+}
+.menu li li li.lang-ko, .menu li li li .lang-ko, .lang-ko .menu li li li,
+div.toc li li li.lang-ko, div.toc li li li .lang-ko, .lang-ko div.toc li li li {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+h1.lang-ko, h1 .lang-ko, .lang-ko h1 {
+	font-family: "Jung12", sans-serif;
+	font-size: 32px;
+}
+h2.lang-ko, h2 .lang-ko, .lang-ko h2 {
+	font-family: "Jung10", sans-serif;
+	font-size: 26px;
+}
+h3.lang-ko, h3 .lang-ko, .lang-ko h3 {
+	font-family: "Jung12", sans-serif;
+	font-size: 16px;
+}
+.post h2 a.permalink.lang-ko, .lang-ko .post h2 a.permalink,
+article h2 a.permalink.lang-ko, .lang-ko article h2 a.permalink, article.lang-ko h2 a.permalink {
+	font-family: "Jung10", sans-serif;
+	font-size: 13px;
+}
+article footer dl.lang-ko, article footer dl .lang-ko, .lang-ko article footer dl, article.lang-ko footer dl {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+

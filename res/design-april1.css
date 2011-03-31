@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "Jung9";
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung9.ttf);
+}
+@font-face {
+	font-family: "Jung10";
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung10.ttf);
+}
+@font-face {
+	font-family: "Jung12";
+	font-weight: bold;
+	src: url(http://cosmic.mearie.org/2011/04/webjung/webjung12b.ttf);
+}
+
+/* basic fonts */
+:lang(ko) {
+	font-family: "Jung10", sans-serif;
+	font-size: 13px;
+}
+small:lang(ko), small :lang(ko),
+.copyright:lang(ko), .copyright :lang(ko),
+.note:lang(ko), .note :lang(ko),
+.message:lang(ko), .message :lang(ko),
+.warning:lang(ko), .warning :lang(ko),
+.afternote:lang(ko), .afternote :lang(ko),
+.image-frame .caption:lang(ko), .image-frame .caption :lang(ko),
+#sitebody .footnotes:lang(ko), #sitebody .footnotes :lang(ko),
+.mearie-activity ul:lang(ko), .mearie-activity ul :lang(ko),
+.mearie-neighbors:lang(ko), .mearie-neighbors :lang(ko),
+.response .origin:lang(ko), .response .origin :lang(ko),
+.response .datetime:lang(ko), .response .datetime :lang(ko) {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+.menu .domain:lang(ko), .menu .domain :lang(ko) {
+	font-family: "Jung9", sans-serif;
+	font-size: 24px;
+}
+.menu li:lang(ko), .menu li :lang(ko),
+div.toc li:lang(ko), div.toc li :lang(ko) {
+	font-family: "Jung12", sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+}
+.menu li li:lang(ko), .menu li li :lang(ko),
+div.toc li li:lang(ko), div.toc li li :lang(ko) {
+	font-family: "Jung10", sans-serif;
+	font-weight: normal;
+	font-size: 13px;
+}
+.menu li li li:lang(ko), .menu li li li :lang(ko),
+div.toc li li li:lang(ko), div.toc li li li :lang(ko) {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+h1:lang(ko), h1 :lang(ko) {
+	font-family: "Jung12", sans-serif;
+	font-size: 32px;
+}
+h2:lang(ko), h2 :lang(ko) {
+	font-family: "Jung10", sans-serif;
+	font-size: 26px;
+}
+h3:lang(ko), h3 :lang(ko) {
+	font-family: "Jung12", sans-serif;
+	font-size: 16px;
+}
+.post h2 a.permalink:lang(ko),
+article h2 a.permalink:lang(ko) {
+	font-family: "Jung10", sans-serif;
+	font-size: 13px;
+}
+article footer dl:lang(ko), article footer dl :lang(ko) {
+	font-family: "Jung9", sans-serif;
+	font-size: 12px;
+}
+
+/* bold emulation for non-MSIE browsers */
+strong:lang(ko), th:lang(ko) {
+	text-shadow: #444 1px 0 0;
+	letter-spacing: 1px;
+}
+a strong:lang(ko), strong a:lang(ko) {
+	text-shadow: #379 1px 0 0;
+}
+a:active strong:lang(ko), strong a:active:lang(ko),
+a:hover strong:lang(ko), strong a:hover:lang(ko) {
+	text-shadow: #973 1px 0 0 !important;
+}
+.tray a strong:lang(ko), .tray strong a:lang(ko),
+.copyright a strong:lang(ko), .copyright strong a:lang(ko) {
+	text-shadow: #9ac 1px 0 0;
+}
+del strong:lang(ko), strong del:lang(ko) {
+	text-shadow: #888 1px 0 0;
+}
+blockquote p strong:lang(ko), blockquote p strong :lang(ko),
+blockquote li strong:lang(ko), blockquote li strong :lang(ko) {
+	text-shadow: #666 1px 0 0;
+}
+strong:lang(ko) code {
+	text-shadow: none;
+	letter-spacing: 0;
+}
+h2:lang(ko), h2 :lang(ko) {
+	text-shadow: #444 1px 0 0, #bbb 0 0.2em 0.2em;
+}
+h2 a:lang(ko) {
+	text-shadow: #379 1px 0 0, #bbb 0 0.2em 0.2em;
+}
+h2 a:hover:lang(ko), h2 a:active:lang(ko) {
+	text-shadow: #973 1px 0 0, #bbb 0 0.2em 0.2em;
+}
+.message strong:lang(ko), .message strong :lang(ko) {
+	text-shadow: #484 1px 0 0;
+}
+.warning strong:lang(ko), .warning strong :lang(ko) {
+	text-shadow: #844 1px 0 0;
+}
+.afternote strong:lang(ko), .afternote strong :lang(ko) {
+	text-shadow: #666 1px 0 0;
+}
+.response.origin-trackback .author strong:lang(ko) {
+	text-shadow: #888 1px 0 0;
+}
+.response .number:lang(ko) {
+	text-shadow: #379 1px 0 0;
+	letter-spacing: 1px;
+}
+.response.origin-trackback .number:lang(ko) {
+	text-shadow: #9ac 1px 0 0;
+}
+

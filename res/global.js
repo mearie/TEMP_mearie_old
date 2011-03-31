@@ -98,15 +98,30 @@ var dateFromISO8601 = function(s) {
 
 // allows a design modification using the query. (debugging only)
 var m = location.search.match(/[&?]design=([a-z0-9-]+)(?:&|$)/i);
-if (m) {
+var nolinkfix = false;
+if (!m || m[1] != 'none') {
+	// april fools!
+	var d = new Date;
+	if (d.getFullYear() == 2011 && d.getMonth() == 3 && d.getDate() == 1) {
+		m = ['', 'april1'];
+		nolinkfix = true;
+	}
+}
+if (m && m[1] != 'none') {
 	var design = m[1];
 	$('head').append('<link rel="stylesheet" media="screen" href="http://mearie.org/res/design-' +
 			design + '.css" type="text/css" />');
+	if ($.browser.msie) {
+		$('head').append('<link rel="stylesheet" media="screen" href="http://mearie.org/res/design-' +
+				design + '.ie.css" type="text/css" />');
+	}
 	$('body').addClass('design-' + design);
-	$('a').attr('href', function() {
-		if (this.href.match(/:\/\/(?![^\/]*mearie\.org(?:\/|$))|[&?]design=/i)) return this.href;
-		return this.href + (this.href.indexOf('?') < 0 ? '?' : '&') + 'design=' + design;
-	});
+	if (!nolinkfix) {
+		$('a').attr('href', function() {
+			if (this.href.match(/:\/\/(?![^\/]*mearie\.org(?:\/|$))|[&?]design=/i)) return this.href;
+			return this.href + (this.href.indexOf('?') < 0 ? '?' : '&') + 'design=' + design;
+		});
+	}
 }
 
 var lang = document.body.lang;
@@ -178,6 +193,7 @@ $('[lang|=ja]').addClass('lang-ja');
 $('a[href^="http://"]:not([href^="http://mearie.org/"])' +
 		    ':not([href^="http://hg.mearie.org/"])' +
 		    ':not([href^="http://pub.mearie.org/"])' +
+		    ':not([href^="http://noe.mearie.org/"])' +
 		    ':not([href^="http://j.mearie.org/"])' +
 		    ':not([href^="http://r.mearie.org/"])' +
 		    ':not(.interwiki):not(.noicon), ' +

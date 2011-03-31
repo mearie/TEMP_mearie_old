@@ -446,6 +446,7 @@ a[href^="mailto:"]:not(.interwiki):not(.noicon):hover, a[href^="mailto:"]:not(.i
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon),
+a[href^="http://"][href^="http://noe.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon),
 a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
 	padding-left: 0;
@@ -459,6 +460,7 @@ a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) {
 a[href^="http://"][href^="http://mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://hg.mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://pub.mearie.org/"]:not(.interwiki):not(.noicon) code,
+a[href^="http://"][href^="http://noe.mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://j.mearie.org/"]:not(.interwiki):not(.noicon) code,
 a[href^="http://"][href^="http://r.mearie.org/"]:not(.interwiki):not(.noicon) code {
 	margin-left: 0;
