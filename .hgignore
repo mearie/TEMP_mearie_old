@@ -4,6 +4,5 @@ syntax: glob
 *.en.html
 *.ja.html
 Makefile.tree
-res/logo.png
 res/cache
 res/db
