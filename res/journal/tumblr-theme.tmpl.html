@@ -2,16 +2,17 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
+<meta name="text:SiteBase" content="http://mearie.org" />
 <title>
 {block:TagPage}태그: {Tag} | {/block:TagPage}
 {block:SearchPage}"{SearchQuery}"로 검색한 결과 | {/block:SearchPage}
 {block:DayPage}{Year}년 {MonthNumber}월 {DayOfMonth}일 | {/block:DayPage}
 {block:PostSummary}{PostSummary} | {/block:PostSummary}메아리 저널</title>
-<link rel="stylesheet" media="screen" href="http://mearie.org/res/global.css" type="text/css" />
-<!--[if IE]><link rel="stylesheet" media="screen" href="http://mearie.org/res/global.ie.css" type="text/css" /><![endif]-->
+<link rel="stylesheet" media="screen" href="{text:SiteBase}/res/global.css" type="text/css" />
+<!--[if IE]><link rel="stylesheet" media="screen" href="{text:SiteBase}/res/global.ie.css" type="text/css" /><![endif]-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script type="text/javascript" src="http://mearie.org/res/global.js"></script>
-<link rel="shortcut icon" href="http://mearie.org/res/icon-j.ico" type="image/vnd.microsoft.icon" />
+<script type="text/javascript" src="{text:SiteBase}/res/global.js"></script>
+<link rel="shortcut icon" href="{text:SiteBase}/res/icon-j.ico" type="image/vnd.microsoft.icon" />
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
 </head>
@@ -69,7 +70,7 @@
 <hr/>
 <div id="siteside">
 <div class="slogan">
-	<a href="http://mearie.org/"><img class="logo" src="http://mearie.org/res/logo.png" width="117" height="117" alt="메아리 처음으로" /></a>
+	<a href="http://mearie.org/"><img class="logo" src="{text:SiteBase}/res/logo.png" width="117" height="117" alt="메아리 처음으로" /></a>
 </div>
 <div class="menu">
 <ul>
