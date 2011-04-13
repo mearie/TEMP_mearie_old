@@ -10,7 +10,7 @@ website of Kang Seonghoon.
                           LICENSE
 
 Unless explicitly stated, mearie.org and its contents are
-copyright (c) 1999-2010 Kang Seonghoon. Some rights
+copyright (c) 1999-2011 Kang Seonghoon. Some rights
 reserved and their details are as follows:
 
 The contents, i.e. every files that does not constitute the
@@ -40,7 +40,7 @@ mearie.org requires the following softwares:
   - Mako 0.2.1 or later (http://www.makotemplates.org/)
   - odict (http://pypi.python.org/pypi/odict)
 - Pandoc 1.6 or later (http://johnmacfarlane.net/pandoc/)
-- Imagemagick
+- Imagemagick (optional, if you want to change res/logo.png)
 - Mercurial
 - Any web server with the following features:
   - HTTP 1.1 content negotiation, with the language and
@@ -58,9 +58,16 @@ For each domain:
 - svn.mearie.org uses the /res/svnview.xsl stylesheet.
 - r.mearie.org uses the WSGI script at /bin/response.wsgi.
 
-The source code doesn't include the response database
-(/res/db/response.db) since it contains the private
-information, and you have to build it yourself. It doesn't
-include cosmic.mearie.org either, which is not versioned
-anyway.
+                        NOT INCLUDED
+
+This repository does not include the response database
+(/res/db/response.db), which contains private information.
+You have to reconstruct the appropriate SQLite database;
+the schema is easy to guess.
+
+Some other mearie.org subdomains are also not included:
+
+- cosmic.mearie.org (intentionally not versioned)
+- pub.mearie.org (versioned elsewhere; pub and pub-data)
+- noe.mearie.org (versioned elsewhere; noe)
 
