@@ -44,7 +44,7 @@ ${month}월
 ==========
 
 % for date, url, title in entries:
-* [${title}](${url}) <small>(${date[:10]})</small>
+* [${title.replace('~','\\~')}](${url}) <small>(${date[:10]})</small>
 % endfor
 
 % endfor

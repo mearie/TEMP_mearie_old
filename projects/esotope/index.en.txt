@@ -1,0 +1,87 @@
+## vim: syn=mako
+
+**Esotope** is a growing collection of implementations for [esoteric programming languages](http://en.wikipedia.org/wiki/Esoteric_programming_language)("esolangs"). Its goals include:
+
+* Producing advanced implementations (either interpreters or compilers) for every significant esolangs;
+* Creating efficient and transitive transformations between many pairs of esolangs, thus enabling various tasks like "converting Brainfuck to Befunge" or "generating a Malbolge code which prints given text" without huge efforts[^1]; and
+* Identifying and creating a general framework to support them.
+
+The current implementation of Esotope is written in Ocaml. Historically [some esolang implementations](#legacy-implementations) produced by [me](/about/kang-seonghoon) are also named esotope; they are being integrated to the Ocaml version as time permits.
+
+[^1]: This is the feature that sets Esotope apart from [EsCo](http://esco.sourceforge.net/), which also supports multiple esolangs.
+
+
+How to Use
+==========
+
+Esotope is currently in heavy development, and has no stable version yet. **The development version is available in [Mercurial repository](http://hg.mearie.org/esotope/esotope)** (mirrored at [Bitbucket](https://bitbucket.org/lifthrasiir/esotope-esotope/)).
+
+The main usage of Esotope is to execute given code. This is done using `-f` option which selects the input language:
+
+~~~~
+$ cat hello.b
+++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<++++++++++++
++++.>.+++.------.--------.>+.>.
+$ esotope -f brainfuck hello.b
+Hello World!
+$ esotope hello.b
+Hello World!
+~~~~
+
+Esotope is able to guess the input language from the file extension (in this case, `.b` maps to Brainfuck). For the list of supported extensions and abbreviations use `--list-kinds` option.
+
+Esotope is capable for converting various input languages to other languages. For example, one can convert the text (denoted by `text` pseudo-language) to the Spoon code that prints that text with `-t` option:
+
+~~~~
+$ echo Hello, world! | ./esotope -f text -t spoon -v | ./esotope -f spoon
+Found a path with 5 processors (weight=36): stream --(10)--> text --(10)--> brainfuck --(5)--> brainfuck-with-exit --(1)--> spoon --(10)--> buffer
+Hello, world!
+~~~~
+
+Here `-v` option is used for showing the internal path between the input to the output. As there is no direct transformation between text and Spoon, it uses Brainfuck as an intermediate language.
+
+
+Supported Languages
+===================
+
+As of 2011-09, Esotope supports the following languages:
+
+* Aheui
+* Befunge-93
+* Brainfuck (plus the internal representation that supports ''Exit'' command)
+* FALSE
+* HQ9+
+* Kipple
+* Malbolge (plus the normalized variant of Malbolge)
+* Minus
+* Ook!
+* Spoon
+* Text
+* Unlambda
+* Whirl
+* Whitespace
+
+...and the following non-trivial transformations:
+
+* Brainfuck to Minus
+* Text to Brainfuck and Unlambda
+
+
+Legacy Implementations
+======================
+
+For the historic reasons, various other implementations bear the name of Esotope:
+
+* [`esotope-bfc`](bfc/), Esotope Brainfuck compiler
+* `esotope-minbf93` for Befunge-93 *(obfuscated)*
+* [`esotope-3code`](http://hg.mearie.org/esotope/3code/) for 3code
+* [`esotope-migol`](http://hg.mearie.org/esotope/migol/) for Migol 09
+* [`esotope-null`](http://hg.mearie.org/esotope/null/) for NULL
+* [`esotope-whirl`](http://hg.mearie.org/esotope/whirl/) for Whirl *(obfuscated)*
+* [`esotope-ws`](ws) for Whitespace *(obfuscated)*
+* [PyFunge](/projects/pyfunge/) for Befunge-93 and Funge-98 (not technically a part of Esotope)
+
+Some implementations are completely suppressed by the current Esotope implementation:
+
+* [`esotope-aheui`](http://hg.mearie.org/esotope/aheui/) for Aheui
+
