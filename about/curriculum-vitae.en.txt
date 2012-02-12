@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2010-04-23.
+The following rèsumè is correct as of 2012-02-13.
 
 <blockquote class="mearie-cv">
 
@@ -15,7 +15,7 @@ The following rèsumè is correct as of 2010-04-23.
 **Kang Seonghoon**  
 E-mail: <%m:math size="+1">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math>  
 Website: [`http://mearie.org/`](http://mearie.org/)  
-Phone: +82-10-4702-2740
+Please refer to my e-mail for detailed contact informations.
 
 </div>
 
@@ -23,8 +23,8 @@ Phone: +82-10-4702-2740
 Education
 ==========
 
-2010–
-:	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master's Program  
+2010–2011
+:	[Korea Advanced Institute of Science and Technology](http://www.kaist.edu/), Master of Science  
 	<small>A member of [Programming Language Research Group](http://plrg.kaist.ac.kr/).</small>
 
 2005–2009
@@ -37,6 +37,9 @@ Education
 Employment
 ============
 
+2012–
+:	[Wizet Corporation](http://wizet.com/), Software developer
+
 2008
 :	[NexG, Inc.](http://www.nexg.net/), Software developer  
 	<small>I worked for NexG, Inc. as a substitute of mandatory military service. I maintained a command-line framework for routing daemons, and wrote several networking softwares for SNMP (all versions), TACACS+, SSH and SSL almost from scratch.</small>
@@ -45,7 +48,7 @@ Employment
 Open-Source Development
 =========================
 
-2005–
+2005– (hiatus)
 :	[theseit project](http://theseit.ruree.net/), Founder and primary developer  
 	<small>A music game written in C++ and OpenGL. Includes an extensive cross-platform game library for C++.</small>
 
@@ -67,7 +70,7 @@ I have experiences ranging from low-level system softwares to high-level Web sof
 
 Languages
 :	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
-	Able to use D, Ruby and several others.
+	Have used D, Ruby and several others.
 
 Platforms
 :	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
@@ -95,8 +98,11 @@ Awards
 :	Korea Olympiad in Informatics, Silver prize.
 
 
-Publications
-==============
+Academic Publications
+=======================
+
+2011
+:	Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing, March 2011.
 
 2004
 :	Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.

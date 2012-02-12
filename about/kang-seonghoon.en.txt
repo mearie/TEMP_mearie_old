@@ -4,7 +4,7 @@
 
 <%m:imgframe src="lifthrasiir-20081108.jpg" align="right">On 2008-11-08. (&copy; [Kim Joon-gi](http://www.flickr.com/photos/daybreaker12/3011869731/))</%m:imgframe>
 
-Kang Seonghoon[^1] is a South Korean graduate student of [KAIST](http://kaist.edu/) majored in [computer science](http://cs.kaist.ac.kr/), and also a software developer have participated in (and sometimes started) several free & open source projects. My interest in CS ranges from programming languages to human-computer interaction and World Wide Web, and other interest includes music video games, Japanese comics and animations.
+Kang Seonghoon[^1] is a South Korean software developer have participated in (and sometimes started) several free & open source projects. I have received a Master of Science degree in [computer science](http://cs.kaist.ac.kr/) from [KAIST](http://kaist.edu/). My interest in CS ranges from programming languages to human-computer interaction and World Wide Web, and other interest includes music video games, Japanese comics and animations.
 
 *lifthrasiir* and *arachneng* are my current nicknames in use. Albeit out of usage now, I have used other nickname, *tokigun*, for years, so you may assume that this nickname also refers to me.
 
