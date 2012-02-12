@@ -8,7 +8,7 @@ Copyright and license is too complicated topic to be enforced extensively in suc
 The License
 ===========
 
-Every material in mearie.org, unless explicitly noted[^1], is copyright © 1999–­2010[^2], [Kang Seonghoon](/about/kang-seonghoon) and covered with the following [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0/deed.en) license:
+Every material in mearie.org, unless explicitly noted[^1], is copyright © 1999–­2012[^2], [Kang Seonghoon](/about/kang-seonghoon) and covered with the following [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0/deed.en) license:
 
 <blockquote>
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
