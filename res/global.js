@@ -130,7 +130,7 @@ var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-
 // show a warning if the page language doesn't match with the browser language.
 // note: it uses UI language; retrieving a language from accept-language header seems to be hard:
 //       http://groups.google.com/group/mozilla-labs-jetpack/browse_thread/thread/8459ccb6a7246656
-if (userlang != lang && !(location.host == 'j.mearie.org' || location.host == 'arachneng.egloos.com')) {
+if (userlang != lang && !(location.host == 'j.mearie.org' || location.host == 'noe.mearie.org' || location.host == 'arachneng.egloos.com')) {
 	var langl = languageName(lang, userlang);
 	var userlangl = languageName(userlang, userlang);
 	var message = {
