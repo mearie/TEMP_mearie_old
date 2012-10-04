@@ -55,6 +55,10 @@ em.lang-ko, .lang-ko em {
 	font-style: normal;
 	text-decoration: underline;
 }
+.lang-ko .mearie-cv small, .mearie-cv small.lang-ko {
+	font-size: 90%;
+	font-style: normal;
+}
 
 /* external link fix
  * - onload handler should convert href="http://..." attributes into class="external"

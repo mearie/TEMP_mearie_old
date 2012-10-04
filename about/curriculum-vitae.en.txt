@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2012-02-13.
+The following rèsumè is correct as of 2012-10-05.
 
 <blockquote class="mearie-cv">
 
@@ -38,7 +38,8 @@ Employment
 ============
 
 2012–
-:	[Wizet Corporation](http://wizet.com/), Software developer
+:	[Move Incorporated](http://move.is/), Software developer  
+	<small>I've developed [Roomie](http://roomie.at/) and [gae9.com](http://gae9.com/).</small>
 
 2008
 :	[NexG, Inc.](http://www.nexg.net/), Software developer  
@@ -66,11 +67,11 @@ See [`http://mearie.org/projects/`](/projects/) for more exhaustive list of my s
 Skills
 ========
 
-I have experiences ranging from low-level system softwares to high-level Web softwares, and can combine them in an efficient manner as needed.
+I have experiences ranging from low-level system softwares to high-level Web services, and can combine them in an efficient manner as needed.
 
 Languages
 :	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
-	Have used D, Ruby and several others.
+	Have used D, Ruby, Ocaml, Haskell and several others.
 
 Platforms
 :	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
@@ -80,8 +81,9 @@ Tools
 :	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial
 
 Miscellaneous
-:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL. Have hosted 10+ websites for years.
+:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL. Have hosted 20+ websites for years.
 	* Ability to write a standard-compliant and accessible (X)HTML and CSS.
+	* Ability to design and implement a domain-specific or general-purpose programming language.
 	* Hobby reverse engineering and software analysis.
 
 I'm a native speaker of Korean, and have working knowledge of oral and written English.
@@ -89,6 +91,9 @@ I'm a native speaker of Korean, and have working knowledge of oral and written E
 
 Awards
 ========
+
+2012
+:	[The International Obfuscated C Code Contest](http://ioccc.org/), Best short program.
 
 2007
 :	[ACM International Collegiate Programming Contest, Regional Contest Seoul](http://acm.kaist.ac.kr/), 8th place (shared).  
