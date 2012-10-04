@@ -658,6 +658,10 @@ td p, td pre {
 	font-size: 100%;
 	font-style: italic;
 }
+.mearie-cv small:lang(ko) {
+	font-size: 90%;
+	font-style: normal;
+}
 .mearie-cv .summary p {
 	text-align: center;
 }
