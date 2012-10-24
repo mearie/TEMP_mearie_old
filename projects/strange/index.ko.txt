@@ -66,6 +66,8 @@ Whirl
 
 **[Text2PNG](text2png)**는 아무 외부 의존성 없이 입력받은 텍스트를 PNG 파일로 바꿔 주는 PHP 스크립트입니다. GD 라이브러리, FreeType 이런 거 다 필요 없습니다. 간단한 스팸 방지 용으로 좋습니다.
 
+저는 IOCCC 2012에서 Best Small Program으로 수상한 적이 있습니다. (어쩌다 보니 첫 한국인 수상자가 되었습니다.) [수상한 코드](http://ioccc.org/2012/kang/kang.c)(`2012/kang`)는 영어로 입력한 숫자(예를 들어 `forty-two`)를 십진법으로 출력해 주는 간단한 유틸리티입니다. 자세한 설명은 [저널](http://j.mearie.org/post/34217569250/ioccc-2012-best-short-program)을 참고하세요.
+
 난해한 프로그래밍 언어 구현
 ---------------------------
 
