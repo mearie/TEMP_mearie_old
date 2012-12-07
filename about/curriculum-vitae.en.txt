@@ -106,8 +106,11 @@ Awards
 Academic Publications
 =======================
 
+2012
+:	Seonghoon Kang and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.
+
 2011
-:	Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing, March 2011.
+:	Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.
 
 2004
 :	Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.
