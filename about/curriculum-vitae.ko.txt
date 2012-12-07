@@ -102,8 +102,11 @@
 학문 출판
 ===========
 
+2012
+:	<span lang="en">Seonghoon Kang and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.</span>
+
 2011
-:	<span lang="en">Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing, March 2011.</span>
+:	<span lang="en">Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.</span>
 
 2004
 :	<span lang="en">Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.</span>
