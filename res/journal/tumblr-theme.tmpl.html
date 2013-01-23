@@ -15,6 +15,17 @@
 <link rel="shortcut icon" href="{text:SiteBase}/res/icon-j.ico" type="image/vnd.microsoft.icon" />
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35872889-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </head>
 <body lang="ko" class="lang-ko">
 <div id="sitebody" lang="ko">
@@ -39,7 +50,8 @@
 	<div class="postbody">{Body}</div>
 	{block:More}<div class="postmore"><a href="{Permalink}">계속…</a></div>{/block:More}{/block:Regular}
 {block:Link}<a href="{URL}" {Target}>{Name}</a></h2>
-	<div class="postbody"><p>{Description}</p></div>{/block:Link}
+	<div class="postbody"><p>{Description}</p></div>
+    {block:More}<div class="postmore"><a href="{Permalink}">계속…</a></div>{/block:More}{/block:Link}
 {block:Quote}{Quote}</h2></blockquote>
 	<div class="postbody"><p>—{Source}</p></div>{/block:Quote}
 {block:Photo}<span class="noicon">{LinkOpenTag}<img src="{PhotoURL-500}" class="faint" alt="{PhotoAlt}"/>{LinkCloseTag}</span></h2>
@@ -84,6 +96,18 @@
 </ul></li>
 <li><a href="http://mearie.org/stuffs/">잡것</a></li>
 </ul>
+<script>/*<![CDATA[*/
+(function() {
+    var lang = document.body.lang;
+    var userlang = (navigator.language || navigator.userLanguage || lang).replace(/-.*$/, '');
+    if (userlang == 'ko') {
+        var warning = '이 저널에서는 사용자 추적을 위해 Google Analytics를 쓰고 있습니다. 추적을 원치 않으신다면 자바스크립트를 꺼도 무방합니다. 이 경고는 <code>j.mearie.org</code> 서브도메인에만 적용됩니다.';
+    } else {
+        var warning = 'This journal uses Google Analytics for user tracking. If you don\'t want this, please turn your JavaScript off and you won\'t be affected. This warning only applies to the subdomain <code>j.mearie.org</code>.';
+    }
+    document.write('<div class="warning"><p>' + warning + '</p></div>');
+})();
+/*]]>*/</script>
 </div>
 </div>
 <!--{block:PostNotes}-->
