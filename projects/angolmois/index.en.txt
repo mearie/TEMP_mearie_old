@@ -4,7 +4,7 @@
 
 **_Angolmois_** is a BM98-like rhythm game which supports the so-called [BMS format](http://en.wikipedia.org/wiki/Be-Music_Script) for playing.
 
-Originally conceived as an extremely minimal rhythm game that will only be appropriate for [strange codes](/projects/strange) section, it has a unique distinction of being only BMS player natively supporting multiple platforms and relatively recent BMS extensions. The name, *Angolmois*, was an homage to [Project Angolmois](http://angolmois.net/), as the final source code was to be shaped as like one of characters of it.[^1] Therefore it is somewhat different from other popular BMS players.
+Originally conceived as an extremely minimal rhythm game that will only be appropriate for [strange codes](/projects/strange) section, it has a unique distinction of being only BMS player natively supporting multiple platforms and recent BMS extensions. The name, *Angolmois*, was an homage to [Project Angolmois](http://angolmois.net/), as the final source code was to be shaped as like one of characters of it.[^1] Therefore it is somewhat different from other popular BMS players.
 
 [^1]: The goal was never reached, and only remaining influences are the icon above and copyright notice in the source code. Still, I deeply thank to everyone who took an interest in this project, including Choi Kaya, the very author of Project Angolmois.
 
@@ -14,17 +14,20 @@ Features
 ========
 
 * Single executable. Every required assets including *fonts* are generated from the source code. (As a result non-ASCII characters will be broken, but this does not affect the game play.)
-* Supports almost every platforms. I have tested at least three platforms (Windows, Linux, Mac OS X) and [SDL](http://libsdl.org/) supports some more.
+* Supports almost every platform. I have tested at least three platforms (Windows, Linux, Mac OS X) and [SDL](http://libsdl.org/) supports some more.
 * No song select interface, everything except the game play is done from the command line.
-* Supports relatively recent (2005) BMS extensions, which are *still* (sigh) a state of the art for non-Windows BMS players.
-	* Seven-key support
+* Supports many recent BMS extensions, which are definitely a state of the art for non-Windows BMS players.
+	* Seven-key (BME) and nine-key (PMS) support
+	* Custom channel mapping for simulating other BMS extensions
 	* Long notes (`#LNTYPE 1`, `#LNTYPE 2`, `#LNOBJ`)
-	* Variable BPMs (positive only)
+	* Bombs (channels `Dx`/`Ex`)
+	* Variable BPMs
+	* Recent random BMS extensions (`#SETRANDOM` etc.)
 	* Image file format other than BMP (as long as [SDL_image](http://www.libsdl.org/projects/SDL_image/) supports it)
 	* Sound file format other than WAV (as long as [SDL_mixer](http://www.libsdl.org/projects/SDL_mixer/) supports it)
-	* Limited movie playback (as long as [smpeg](http://icculus.org/smpeg/) supports it, at most one movie per file)
+	* Multiple movie playback (as long as [smpeg](http://icculus.org/smpeg/) supports it)
 * Supports the basic game play and nothing else.
-	* Playback speed from 0.2x to 99x
+	* Playback speed from 0.1x to 99x
 	* Multiple key reassignments (you can also map the joystick controller to keys)
 	* Grading and score rules that suck
 	* Gauge and clear rules that suck
@@ -38,22 +41,25 @@ Features
 Downloads
 =========
 
-The below links are downloads for *source code*, so you need to set up the C compiler environment. Angolmois does run on Windows, but in most cases you will want to run Angolmois on other platforms (where the executable distribution is not a norm) so there is no link to executables.
+The current version of Angolmois is **2.0 alpha 2**, released in 2013-02-02. This is a major feature release with tons of changes from 2.0 alpha 1. Use one of the following links according to your platform:
 
-* Stable: 1.0 ([source code](http://hg.mearie.org/angolmois/raw-file/angolmois-1.0-final/angolmois.c))
-* Development: 2.0 alpha ([source code](http://hg.mearie.org/angolmois/archive/2.0.tar.gz))
+* [Windows executables](http://cosmic.mearie.org/2013/02/angolmois-2.0-alpha2.zip) (1.7MB)
+* [Source code](http://hg.mearie.org/angolmois/archive/angolmois-2.0-alpha2.tar.gz) for other platforms
 
-Development version, dubbed *2.0 alpha*, is slooooooooooowly being developed without any release on [Mercurial repository](http://hg.mearie.org/angolmois/shortlog/2.0). If you want you may clone the repository:
+The detailed installation method and usage can be found in the included `README.md` or `README.html` file. Alternatively, you can read it from [GitHub](https://github.com/lifthrasiir/angolmois/blob/angolmois-2.0-alpha2/README.md).
 
-	$ hg clone http://hg.mearie.org/angolmois/
+The development snapshot of Angolmois can be found in those places:
+
+* **[mearie.org Mercurial repository](http://hg.mearie.org/angolmois/)** (primary)
+* [Bitbucket mirror](https://bitbucket.org/lifthrasiir/angolmois/)
+* [GitHub mirror](https://github.com/lifthrasiir/angolmois/) (secondary)
+	* We now use a **[GitHub issue tracker](https://github.com/lifthrasiir/angolmois/issues)** for Angolmois.
 
 Angolmois is a free and open source software; you can distribute it in terms of [GNU GPL version 2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) or later.
 
 
 Links
 =====
-
-<!--**Please read the [manual](manual) before downloading or using Angolmois. Angolmois is not like other BMS players.**-->
 
 [theseit project](http://theseit.ruree.net/) was a full-featured BMS player developed right after the release of Angolmois 1.0. Well, it is now on hiatus too.
 
