@@ -2,7 +2,7 @@
 <%inherit file="kang-seonghoon.tmpl.html"/>
 <%! title = u'이력서' %>
 
-다음 이력서는 2012년 10월 5일을 기준으로 합니다.
+다음 이력서는 2013년 2월 4일을 기준으로 합니다.
 
 <blockquote class="mearie-cv">
 
@@ -33,7 +33,10 @@
 직업 경력
 ===========
 
-2012–
+2013–
+:	[(주)아이플래태아 코리아](http://www.iplateia.com/), 소프트웨어 엔지니어
+
+2012
 :	[(주)무브 인코퍼레이티드](http://move.is/), 소프트웨어 엔지니어  
 	<small>[루미](http://roomie.at/) 및 [gae9.com](http://gae9.com/)를 개발하였음.</small>
 
