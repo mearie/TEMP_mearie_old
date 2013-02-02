@@ -16,15 +16,18 @@
 * 아무 외부 글꼴이나 이미지 없이 단 하나의 실행파일로 실행됩니다. *심지어 글꼴조차 소스 코드에 들어 있습니다.* (이 때문에 게임 플레이와는 상관이 없지만 한글이나 일본어 등은 깨져서 출력됩니다.)
 * 거의 모든 운영체제와 플랫폼을 지원합니다. 개발자는 최소 3개 운영체제(윈도, 리눅스, 맥 오에스 텐)에서의 작동을 확인했으며 [SDL](http://libsdl.org/)이 지원하는 다른 운영체제에서도 돌아갈 가능성이 매우 높습니다.
 * 곡 선택 인터페이스가 없이 명령줄에서 파일을 직접 선택해서 플레이합니다.
-* 주요 BMS 확장들을 지원합니다. 이는 (2012년 현재 여전히) 윈도 외의 운영체제를 지원하는 BMS 구동기 중에서는 독보적입니다.
-	* 7키 BMS
+* 주요 BMS 확장들을 지원합니다. 이는 윈도 외의 운영체제를 지원하는 BMS 구동기 중에서는 독보적입니다.
+	* 7키 (BME) 및 9키 (PMS) BMS 확장
+	* 다른 BMS 확장(DDR이라거나)을 사용자 설정을 통해 에뮬레이션할 수 있음
 	* 롱노트 (`#LNTYPE 1`, `#LNTYPE 2`, `#LNOBJ`)
-	* 변속 (음수 BPM 제외)
+	* 지뢰 (채널 `Dx`/`Ex`)
+	* 변속
+	* 최신 랜덤 BMS 확장 (`#SETRANDOM` 등)
 	* BMP 이외의 이미지 파일 ([SDL_image](http://www.libsdl.org/projects/SDL_image/)가 지원하는 모든 포맷)
 	* WAV 이외의 사운드 파일 ([SDL_mixer](http://www.libsdl.org/projects/SDL_mixer/)가 지원하는 모든 포맷)
-	* 제한적인 동영상 재생 ([smpeg](http://icculus.org/smpeg/)가 지원하는 모든 포맷, 한 파일당 한 개 한정)
+	* 다중 동영상 재생 ([smpeg](http://icculus.org/smpeg/)가 지원하는 모든 포맷)
 * 기본적인 게임 플레이가 가능(만) 합니다.
-	* 배속 지정 (0.2x~99x)
+	* 배속 지정 (0.1x~99x)
 	* 다중 키 재지정 (조이스틱으로 인식 가능한 컨트롤러도 사용 가능)
 	* 도저히 감이 안 잡히는 판정 및 점수 제도
 	* 도저히 감이 안 잡히는 게이지 및 클리어 제도
@@ -38,22 +41,25 @@
 내려 받기
 =========
 
-앙골모아는 그 특성상 실행 파일 내려 받기를 지원하지 않습니다. 아래의 모든 링크는 소스 코드로 연결되며, 따라서 소스 코드를 컴파일할 수 있는 환경을 만들어야 사용할 수 있습니다. 따라서 다른 구동기가 많은 윈도에서는 굳이 앙골모아를 쓰실 필요는 없습니다.
+현재 앙골모아의 최신 버전은 2013년 2월 2일에 릴리스된 **2.0 alpha 2**로, 기능 추가에 중점을 둔 메이저 버전입니다. 다음 중 사용하는 환경에 맞는 링크를 사용하세요:
 
-* 안정 버전: 1.0 ([소스 코드](http://hg.mearie.org/angolmois/raw-file/angolmois-1.0-final/angolmois.c))
-* 개발 버전: 2.0 alpha ([소스 코드](http://hg.mearie.org/angolmois/archive/2.0.tar.gz))
+* [윈도 실행파일](http://cosmic.mearie.org/2013/02/angolmois-2.0-alpha2.zip) (1.7MB)
+* 다른 플랫폼을 위한 [소스 코드](http://hg.mearie.org/angolmois/archive/angolmois-2.0-alpha2.tar.gz)
 
-개발 버전은 별도의 리비전명 없이 ~~5년째~~ [머큐리얼 저장소](http://hg.mearie.org/angolmois/shortlog/2.0)에서 개발되고 있습니다. 원하시는 분께서는 다음 명령으로 저장소를 복제할 수 있습니다.
+자세한 설치 방법 및 사용법(영문)은 포함된 `README.md`나 `README.html`을 참고하십시오. 또는 [GitHub](https://github.com/lifthrasiir/angolmois/blob/angolmois-2.0-alpha2/README.md)에서 읽어 볼 수도 있습니다.
 
-	$ hg clone http://hg.mearie.org/angolmois/
+앙골모아의 개발 버전은 다음 장소에서 받을 수 있습니다:
+
+* **[메아리 머큐리얼 저장소](http://hg.mearie.org/angolmois/)** (본가)
+* [Bitbucket 미러](https://bitbucket.org/lifthrasiir/angolmois/)
+* [GitHub 미러](https://github.com/lifthrasiir/angolmois/) (주 미러)
+	* 버그 보고나 기능 제안에는 **[GitHub 이슈 트래커](https://github.com/lifthrasiir/angolmois/issues)**를 사용하십시오.
 
 앙골모아는 [GNU GPL 2판](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) 또는 그 이후의 판에 따라 자유롭게 배포되고 사용될 수 있습니다.
 
 
 링크
 ====
-
-**앙골모아를 내려 받거나 사용하기에 앞서서 [설명서](manual)를 먼저 읽으세요! 앙골모아는 보통의 BMS 플레이어와 많이 다릅니다.**
 
 [theseit project](http://theseit.ruree.net/)는 앙골모아 1.0 이후 실제로 플레이 가능한 게임을 만들기 위해 시작했던 프로젝트입니다...만 현재 개발이 중단된 상태입니다.
 
