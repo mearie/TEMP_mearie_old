@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2013-02-04.
+The following rèsumè is correct as of 2013-03-11.
 
 <blockquote class="mearie-cv">
 
@@ -42,7 +42,7 @@ Employment
 
 2012
 :	[Move Incorporated](http://move.is/), Software developer  
-	<small>I've developed [Roomie](http://roomie.at/) and [gae9.com](http://gae9.com/).</small>
+	<small>I developed [Roomie](http://roomie.at/) and [gae9.com](http://gae9.com/). Involved at server-side Web development, server administration via Amazon Web Services, and Android application development (for Roomie).</small>
 
 2008
 :	[NexG, Inc.](http://www.nexg.net/), Software developer  
@@ -52,13 +52,21 @@ Employment
 Open-Source Development
 =========================
 
-2005– (hiatus)
+2009
+:	[esotope-bfc](http://code.google.com/p/esotope-bfc/), Main developer
+	<small>A Brainfuck-to-C compiler written in Python, later used for my bachelor's thesis. It was (and may be still) a state-of-the-art compiler of this kind at that time, with optimization passes specialized to Brainfuck.</small>
+
+2007–2008
 :	[theseit project](http://theseit.ruree.net/), Founder and primary developer  
 	<small>A music game written in C++ and OpenGL. Includes an extensive cross-platform game library for C++.</small>
 
 2007
 :	[Textcube](http://www.textcube.org/), Committer  
 	<small>A content management software written in PHP. I have refactored the entire WYSIWYG editor system.</small>
+
+2005–
+:	[Angolmois](http://mearie.org/projects/angolmois), Primary developer  
+	<small>A music game written in C. Aimed at very small lines of code and reasonable feature set.</small>
 
 2005
 :	[soojung](http://kldp.net/projects/soojung/), Committer  
@@ -74,7 +82,7 @@ I have experiences ranging from low-level system softwares to high-level Web ser
 
 Languages
 :	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
-	Have used D, Ruby, Ocaml, Haskell and several others.
+	Have used D, Ruby, OCaml, Haskell and several others.
 
 Platforms
 :	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
@@ -98,25 +106,28 @@ Awards
 2012
 :	[The International Obfuscated C Code Contest](http://ioccc.org/), Best short program.
 
+2011
+:	Best Master's Thesis Award, KAIST Computer Science department.
+
 2007
 :	[ACM International Collegiate Programming Contest, Regional Contest Seoul](http://acm.kaist.ac.kr/), 8th place (shared).  
 	<small>Participated with Cha, Hojeong and Lee, Bupjae. Deserved a special prize.</small>
 
 2001
-:	Korea Olympiad in Informatics, Silver prize.
+:	Korea Olympiad in Informatics, Middle school competition, Silver prize.
 
 
 Academic Publications
 =======================
 
 2012
-:	Seonghoon Kang and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.
+:	**Seonghoon Kang** and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.
 
 2011
-:	Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.
+:	**Seonghoon Kang** and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.
 
 2004
-:	Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.
+:	Jooyeop Kim, Joongi Kim, Narae Han, **Seonghoon Kang**, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.
 
 
 Other Activities

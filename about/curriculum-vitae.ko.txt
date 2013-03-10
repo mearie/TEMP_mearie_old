@@ -2,7 +2,7 @@
 <%inherit file="kang-seonghoon.tmpl.html"/>
 <%! title = u'이력서' %>
 
-다음 이력서는 2013년 2월 4일을 기준으로 합니다.
+다음 이력서는 2013년 3월 11일을 기준으로 합니다.
 
 <blockquote class="mearie-cv">
 
@@ -34,27 +34,35 @@
 ===========
 
 2013–
-:	[(주)아이플래태아 코리아](http://www.iplateia.com/), 소프트웨어 엔지니어
+:	[(주)아이플래테아 코리아](http://www.iplateia.com/), 소프트웨어 엔지니어
 
 2012
 :	[(주)무브 인코퍼레이티드](http://move.is/), 소프트웨어 엔지니어  
-	<small>[루미](http://roomie.at/) 및 [gae9.com](http://gae9.com/)를 개발하였음.</small>
+	<small>[루미](http://roomie.at/) 및 [gae9.com](http://gae9.com/)를 개발하였음. 서버 개발, 아마존 웹 서비스(AWS)를 통한 서버 관리 및 루미 안드로이드 앱 개발을 담당함.</small>
 
 2008
 :	[(주)넥스지](http://www.nexg.net/), 소프트웨어 엔지니어  
 	<small>산업기능요원으로 근무. 라우팅 데몬들을 위한 명령줄 프레임워크를 유지보수했으며, SNMP v1/2c/3 클라이언트 및 서버, TACACS+ 및 SSH, SSL 서버를 밑바닥부터 개발하였음.</small>
 
 
-오픈소스 경력
-===============
+오픈소스 및 개인 프로젝트 경력
+================================
 
-2005– (휴지)
+2009
+:	[esotope-bfc](http://code.google.com/p/esotope-bfc/), 주 개발자  
+	<small>Python으로 만들어진, Brainfuck 코드를 C로 컴파일하는 컴파일러. 학사 졸업논문 주제를 겸하며, Brainfuck에 최적화된 최적화 패스를 사용하여 당시 동종의 컴파일러 중 가장 앞선 것으로 알려졌음.</small>
+
+2007–2008
 :	[theseit project](http://theseit.ruree.net/), 주 개발자  
 	<small>C++와 OpenGL로 만들어진 음악 게임. C++를 위한 광범위한 멀티플랫폼 게임 라이브러리를 함께 개발함.</small>
 
 2007
 :	[텍스트큐브](http://www.textcube.org/), 커미터  
 	<small>PHP로 만들어진 컨텐트 관리 소프트웨어(CMS). 위지윅 편집기 체계를 리팩토링함.</small>
+
+2005–현재
+:	[앙골모아](http://mearie.org/projects/angolmois), 주 개발자  
+	<small>C와 SDL로 만들어진 음악 게임. 최소한의 코드로 최대한 많은 기능을 포함하는 것을 목적으로 함.</small>
 
 2005
 :	[수정 블로그](http://kldp.net/projects/soojung/), 커미터  
@@ -69,15 +77,15 @@
 저는 저수준 시스템 소프트웨어로부터 고수준 웹 서비스에 이르기까지 넓은 범위의 경험을 가지고 있으며, 필요에 따라 이들을 통합할 수 있습니다.
 
 프로그래밍 언어
-:	C, C++, PHP, Python, 자바스크립트, 셸 스크립트(bash)를 폭넓게 다룸.  
-	D, 루비, Ocaml, 하스켈 등을 비롯한 다른 언어들을 사용해 본 바 있음.  
+:	C, C++, PHP, Python, JavaScript, 셸 스크립트(bash)를 폭넓게 다룸.  
+	D, Ruby, OCaml, Haskell 등을 비롯한 다른 언어들을 사용해 본 바 있음.  
 
 플랫폼
 :	마이크로소프트 윈도, 리눅스 (x86, ARM, MIPS), OS X를 지속적으로 사용 중.
 	일반 *NIX 플랫폼, 멀티플랫폼 환경 및 현대적인 웹 개발 지식 다수. Win32 API 및 Cocoa에 대한 일부 지식.
 
 도구
-:	Vim, GDB, 마이크로소프트 비주얼 스튜디오, 서브버전(Subversion), 머큐리얼(Mercurial)
+:	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial, git
 
 기타
 :	* 아파치 웹 서버, LightTPD, MySQL 및 PostgreSQL을 사용한 리눅스 서버 운영 가능. 지난 수년간 20개 이상의 웹사이트를 호스팅해왔음.
@@ -94,6 +102,9 @@
 2012
 :	[국제 난독화 C 코드 대회](http://ioccc.org/)(IOCCC), Best short program 부문.
 
+2011
+:	한국과학기술원 전산학과 석사학위 우수논문상 수상.
+
 2007
 :	[ACM 국제 대학생 프로그래밍 대회(ACM ICPC), 서울 지역 예선](http://acm.kaist.ac.kr/), 공동 8위.  
 	<small>차호정 및 이법재와 함께 참가. 특별상을 함께 수상함.</small>
@@ -106,13 +117,13 @@
 ===========
 
 2012
-:	<span lang="en">Seonghoon Kang and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.</span>
+:	<span lang="en">**Seonghoon Kang** and Sukyoung Ryu, *Formal specification of a JavaScript module system*, Proceedings of the ACM international conference on Object oriented programming systems languages and applications (OOPSLA '12), October 2012.</span>
 
 2011
-:	<span lang="en">Seonghoon Kang and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.</span>
+:	<span lang="en">**Seonghoon Kang** and Sukyoung Ryu, *FortressCheck: Automatic Testing for Generic Properties*, Proceedings of the 26th ACM Symposium on Applied Computing (SAC 2011), March 2011.</span>
 
 2004
-:	<span lang="en">Jooyeop Kim, Joongi Kim, Narae Han, Seonghoon Kang, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.</span>
+:	<span lang="en">Jooyeop Kim, Joongi Kim, Narae Han, **Seonghoon Kang**, Sanghoo Lee, Hongjin Yeh, *String Matching Algorithm for Real-time Intrusion Detection and Response*, Proceedings of the 31th KISS Spring Conference.</span>
 
 
 기타 활동
