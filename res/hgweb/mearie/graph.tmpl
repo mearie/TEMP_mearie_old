@@ -10,8 +10,8 @@
 <hgroup><h1>Graph View to {rev}:<code class="rev">{node|short}</code></h1><h2>{repo|escape}</h2></hgroup>
 
 <ul class="nav controls">
-<li class="highlight"><a href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
-<li class="highlight"><a href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
+<li class="highlight"><a rel="nofollow" href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
+<li class="highlight"><a rel="nofollow" href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
 </ul>
 <ul class="nav">{changenav%navgraph}</ul>
 
@@ -38,7 +38,7 @@ graph.edge = function(x0, y0, x1, y1, color) \{
 	this.ctx.stroke();
 }
 
-var revlink = '<li class="row _PARITY" style="_STYLE"><a href="{url}rev/_NODEID{sessionvars%urlparameter}" title="rev _NODEID" class="moreinfo"><span class="age">_DATE</span> <span class="author">by _USER</span><br/>_DESC _TAGS</a></li>'
+var revlink = '<li class="row _PARITY" style="_STYLE"><a rel="nofollow" href="{url}rev/_NODEID{sessionvars%urlparameter}" title="rev _NODEID" class="moreinfo"><span class="age">_DATE</span> <span class="author">by _USER</span><br/>_DESC _TAGS</a></li>'
 
 graph.vertex = function(x, y, color, parity, cur) \{
 	
@@ -88,8 +88,8 @@ graph.render(data);
 </script>
 
 <ul class="nav controls">
-<li class="highlight"><a href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
-<li class="highlight"><a href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
+<li class="highlight"><a rel="nofollow" href="{url}graph/{rev}{lessvars%urlparameter}">less</a></li>
+<li class="highlight"><a rel="nofollow" href="{url}graph/{rev}{morevars%urlparameter}">more</a></li>
 </ul>
 <ul class="nav">{changenav%navgraph}</ul>
 
@@ -103,13 +103,13 @@ graph.render(data);
 	<p class="domain"><a href="/">hg.mearie.org</a></p> 
 	<ul>
 	<li><a href="{url}summary{sessionvars%urlparameter}">{repo|escape}</a><ul>
-	<li><a href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
-	<li><a href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
-	<li><a href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
-	<li><a href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
+	<li><a rel="nofollow" href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a rel="nofollow" href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a rel="nofollow" href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a rel="nofollow" href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
+	<li><a rel="nofollow" href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
+	<li><a rel="nofollow" href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
+	<li><a rel="nofollow" href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
 	</ul></li>
 	<li>Feeds: <a href="{url}rss-log">RSS</a> <a href="{url}atom-log">Atom</a></li>
 	<li><form action="{url}log">{sessionvars%hiddenformentry}Search: <input type="text" name="rev" size="8"/></form></li>
