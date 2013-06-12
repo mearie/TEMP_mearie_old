@@ -11,7 +11,7 @@
 
 <table class="otherrevs"><tr>
 <td class="parent">{parent%filediffparent}</td>
-<td class="current"><a href="{url}rev/{node|short}{sessionvars%urlparameter}"><strong>{rev}:<code class="rev">{node|short}</code></strong></a></td>
+<td class="current"><a rel="nofollow" href="{url}rev/{node|short}{sessionvars%urlparameter}"><strong>{rev}:<code class="rev">{node|short}</code></strong></a></td>
 <td class="child">{child%filediffchild}</td>
 </table>
 
@@ -34,19 +34,19 @@
 	<p class="domain"><a href="/">hg.mearie.org</a></p> 
 	<ul>
 	<li><a href="{url}summary{sessionvars%urlparameter}">{repo|escape}</a><ul>
-	<li><a href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
-	<li><a href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
-	<li><a href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
-	<li><a href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
-	<li><a href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
+	<li><a rel="nofollow" href="{url}shortlog{sessionvars%urlparameter}">Shortlog</a> (to <a rel="nofollow" href="{url}shortlog/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}log{sessionvars%urlparameter}">Changelog</a> (to <a rel="nofollow" href="{url}log/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}graph{sessionvars%urlparameter}">Graph View</a> (to <a rel="nofollow" href="{url}graph/{node|short}{sessionvars%urlparameter}">here</a>)</li>
+	<li><a rel="nofollow" href="{url}tags{sessionvars%urlparameter}">Tags</a></li>
+	<li><a rel="nofollow" href="{url}rev/{node|short}{sessionvars%urlparameter}">Current Changeset</a><ul>
+	<li><a rel="nofollow" href="{url}raw-rev/{node|short}{sessionvars%urlparameter}">Raw Diff</a></li>
+	<li><a rel="nofollow" href="{url}file/{node|short}{sessionvars%urlparameter}">Files</a></li>
 	</ul></li>
-	<li><a href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Current File</a><ul>
-	<li><a href="{url}raw-file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Raw File</a></li>
-	<li><a href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Changelog</a></li>
-	<li><a href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Annotate</a></li>
-	<li><a href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Diff</a></li>
+	<li><a rel="nofollow" href="{url}file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Current File</a><ul>
+	<li><a rel="nofollow" href="{url}raw-file/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Raw File</a></li>
+	<li><a rel="nofollow" href="{url}log/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Changelog</a></li>
+	<li><a rel="nofollow" href="{url}annotate/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Annotate</a></li>
+	<li><a rel="nofollow" href="{url}diff/{node|short}/{file|urlescape}{sessionvars%urlparameter}">Diff</a></li>
 	</ul></li>
 	<li>Feeds: <a href="{url}rss-log">RSS</a> <a href="{url}atom-log">Atom</a></li>
 	<li><form action="{url}log">{sessionvars%hiddenformentry}Search: <input type="text" name="rev" size="8"/></form></li>
