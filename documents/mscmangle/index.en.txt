@@ -36,7 +36,7 @@ Some feature of this scheme depends on Microsoft's C++ extension, such as Manage
 <h2 id="top-changelog">ChangeLog</h2>
 
 * <strong>version 1.2</strong> - Added [nested name](#element-name-nested); added PHP UnDecorateSymbolName as reference.
-* [version 1.1](mscmangle-1.1) - First public document.
+* [version 1.1](http://cosmic.mearie.org/2005/11/vcmangle-1.1) - First public document.
 
 
 <h1 id="basic">Basic Structure</h1>
