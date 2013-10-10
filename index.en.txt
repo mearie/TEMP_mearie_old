@@ -26,11 +26,13 @@ You can watch my recent activity at [FriendFeed](http://friendfeed.com/lifthrasi
 
 <p class="mearie-neighbors">
 Nearby:
-[cosmic.mearie.org](//cosmic.mearie.org/),
-[noe.mearie.org](//noe.mearie.org/),
+{[cosmic](//cosmic.mearie.org/), [noe](//noe.mearie.org/)}.mearie.org,
 [Mercurial repository](//hg.mearie.org/),
 [Subversion repository](//svn.mearie.org/),
-[Twitter](http://twitter.com/senokay/),
-[Bitbucket](http://bitbucket.org/lifthrasiir/)
+[Twitter](https://twitter.com/senokay/),
+[Bitbucket](https://bitbucket.org/lifthrasiir/),
+[Github](https://github.com/lifthrasiir/)  
+Far, far away:
+[Great Trichiliocosm Novel](http://gtnovel.net/)
 </p>
 
