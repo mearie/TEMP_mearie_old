@@ -32,7 +32,9 @@
 [머큐리얼](//hg.mearie.org/),
 [서브버전](//svn.mearie.org/),
 [미투데이](http://me2day.net/arachneng/),
-[트위터](http://twitter.com/senokay/),
-[비트버킷](http://bitbucket.org/lifthrasiir/)
+[트위터](https://twitter.com/senokay/),
+[비트버킷](https://bitbucket.org/lifthrasiir/),
+[깃허브](https://github.com/lifthrasiir/)  
+아무래도 상관 없는 사이트들:
+[삼천세계](http://gtnovel.net/)
 </p>
-
