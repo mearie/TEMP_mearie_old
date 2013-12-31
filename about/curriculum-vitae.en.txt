@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2013-03-11.
+The following rèsumè is correct as of 2014-01-01.
 
 <blockquote class="mearie-cv">
 
@@ -38,7 +38,8 @@ Employment
 ============
 
 2013–
-:	[iPlateia Korea](http://www.iplateia.com/), Software developer
+:	[iPlateia Korea](http://www.iplateia.com/), Software developer  
+	<small>I'm working on the entire server architecture and Android SDK for [dobi.tv](http://dobi.tv).</small>
 
 2012
 :	[Move Incorporated](http://move.is/), Software developer  

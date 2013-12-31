@@ -6,7 +6,7 @@
 
 Kang Seonghoon[^1] is a South Korean software developer have participated in (and sometimes started) several free & open source projects. I have received a Master of Science degree in [computer science](http://cs.kaist.ac.kr/) from [KAIST](http://kaist.edu/). My interest in CS ranges from programming languages to human-computer interaction and World Wide Web, and other interest includes music video games, Japanese comics and animations.
 
-*lifthrasiir*, *arachneng* and *senokay* are my current nicknames in use. Albeit out of usage now, I have used other nickname, *tokigun*, for years, so you may assume that this nickname also refers to me.
+*lifthrasiir*, *arachneng* and *senokay* are my current nicknames in use. For KONAMI music video games, I tend to use FLUEGEL and YURUME handles. Albeit out of usage now, I have used other nickname, *tokigun*, for years, so you may assume that this nickname also refers to me.
 
 See my official [curriculum vitae](curriculum-vitae), or [contact](contact) page for how to get in contact with me.
 
