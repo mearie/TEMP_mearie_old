@@ -1,4 +1,8 @@
 [{
+	"date": "2014-01-01",
+	"ko": "새해 복 많이 받으세요! 서버 부하로 인해 머큐리얼 저장소를 <a href=\"https://bitbucket.org/lifthrasiir\">비트버킷</a>으로 옮겼습니다. 이전 URL은 똑같이 작동합니다.",
+	"en": "Happy new year! Due to the frequent server issues, Mercurial repositories are now moved to <a href=\"https://bitbucket.org/lifthrasiir\">Bitbucket</a>. Existing URLs will continue to work."
+},{
 	"date": "2010-12-31",
 	"ko": "이런 저런 잡글들을 모아 놓기 위한 장소인 <a href=\"http://noe.mearie.org/\">메아리 뇌</a>가 새로 추가되었습니다.",
 	"en": "<a href=\"http://noe.mearie.org/\">noe.mearie.org</a>, a place to put various ideas and rants, is newly added to mearie.org."

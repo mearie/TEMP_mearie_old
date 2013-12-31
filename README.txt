@@ -10,7 +10,7 @@ website of Kang Seonghoon.
                           LICENSE
 
 Unless explicitly stated, mearie.org and its contents are
-copyright (c) 1999-2012 Kang Seonghoon. Some rights
+copyright (c) 1999-2014 Kang Seonghoon. Some rights
 reserved and their details are as follows:
 
 The contents, i.e. every files that does not constitute the
