@@ -2,7 +2,7 @@
 <%inherit file="kang-seonghoon.tmpl.html"/>
 <%! title = u'이력서' %>
 
-다음 이력서는 2014년 1월 1일을 기준으로 합니다.
+다음 이력서는 2014년 6월 13일을 기준으로 합니다.
 
 <blockquote class="mearie-cv">
 
@@ -11,6 +11,7 @@
 **강 성훈 <small>Kang Seonghoon</small>**  
 이메일: <%m:math size="+1">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math>  
 웹사이트: [`http://mearie.org/`](http://mearie.org/)  
+대한민국 서울에 거주 중. 재택 근무는 가능하나 거주지를 옮길 생각은 없습니다.  
 자세한 연락처는 메일로 문의하세요.
 
 </div>
@@ -33,9 +34,9 @@
 직업 경력
 ===========
 
-2013–
+2013–2014
 :	[(주)아이플래테아 코리아](http://www.iplateia.com/), 소프트웨어 엔지니어  
-	<small>[dobi.tv](http://dobi.tv)의 전체 서버 아키텍처와 안드로이드 SDK 개발에 참여하고 있음.</small>
+	<small>[dobi.tv](http://dobi.tv)의 전체 서버 아키텍처를 설계하고 컨텐츠 인식 알고리즘을 최적화했으며, 안드로이드 SDK 개발에 참여하였음.</small>
 
 2012
 :	[(주)무브 인코퍼레이티드](http://move.is/), 소프트웨어 엔지니어  
@@ -49,6 +50,10 @@
 오픈소스 및 개인 프로젝트 경력
 ================================
 
+2012–
+:	[Rust 프로그래밍 언어](http://rust-lang.org/), 기여자 및 라이브러리 관리자
+	<small>Mozilla Research에서 개발한, 컴파일 시간 메모리 안전성을 보장하는 시스템 프로그래밍 언어. [rust-encoding](https://github.com/lifthrasiir/rust-encoding/)를 작성하였으며 다른 여러 라이브러리를 관리하고 있음.</small>
+
 2009
 :	[esotope-bfc](http://code.google.com/p/esotope-bfc/), 주 개발자  
 	<small>Python으로 만들어진, Brainfuck 코드를 C로 컴파일하는 컴파일러. 학사 졸업논문 주제를 겸하며, Brainfuck에 최적화된 최적화 패스를 사용하여 당시 동종의 컴파일러 중 가장 앞선 것으로 알려졌음.</small>
@@ -61,9 +66,9 @@
 :	[텍스트큐브](http://www.textcube.org/), 커미터  
 	<small>PHP로 만들어진 컨텐트 관리 소프트웨어(CMS). 위지윅 편집기 체계를 리팩토링함.</small>
 
-2005–현재
+2005–
 :	[앙골모아](http://mearie.org/projects/angolmois), 주 개발자  
-	<small>C와 SDL로 만들어진 음악 게임. 최소한의 코드로 최대한 많은 기능을 포함하는 것을 목적으로 함.</small>
+	<small>C/Rust와 SDL로 만들어진 음악 게임. 최소한의 코드로 최대한 많은 기능을 포함하는 것을 목적으로 함.</small>
 
 2005
 :	[수정 블로그](http://kldp.net/projects/soojung/), 커미터  
@@ -78,23 +83,23 @@
 저는 저수준 시스템 소프트웨어로부터 고수준 웹 서비스에 이르기까지 넓은 범위의 경험을 가지고 있으며, 필요에 따라 이들을 통합할 수 있습니다.
 
 프로그래밍 언어
-:	C, C++, PHP, Python, JavaScript, 셸 스크립트(bash)를 폭넓게 다룸.  
-	D, Ruby, OCaml, Haskell 등을 비롯한 다른 언어들을 사용해 본 바 있음.  
+:	C, C++, PHP, Python, Rust, JavaScript, 셸 스크립트(bash)를 폭넓게 다룸.  
+	Java, D, Ruby, OCaml, Haskell 등을 비롯한 다른 언어들을 사용해 본 바 있음.  
 
 플랫폼
 :	마이크로소프트 윈도, 리눅스 (x86, ARM, MIPS), OS X를 지속적으로 사용 중.
-	일반 *NIX 플랫폼, 멀티플랫폼 환경 및 현대적인 웹 개발 지식 다수. Win32 API 및 Cocoa에 대한 일부 지식.
+	일반 *NIX 플랫폼, 멀티플랫폼 환경 및 현대적인 웹 개발 지식 다수. Win32 API, Android 및 Cocoa에 대한 일부 지식.
 
 도구
 :	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial, git
 
 기타
-:	* 아파치 웹 서버, LightTPD, MySQL 및 PostgreSQL을 사용한 리눅스 서버 운영 가능. 지난 수년간 20개 이상의 웹사이트를 호스팅해왔음.
+:	* 다양한 목적의 리눅스 서버 운영 가능. 지난 수년간 20개 이상의 웹사이트를 호스팅해왔음.
 	* 표준을 준수하고 접근성 있는 (X)HTML, HTML5 및 CSS 작성 가능.
 	* 도메인 특화 및 일반 목적 프로그래밍 언어의 설계 및 구현 가능.
 	* 취미로 리버스 엔지니어링 및 소프트웨어 분석을 한 바 있음.
 
-저는 한국어 모국어 화자이며, 영어 구어 및 문어 구사를 어느 정도 할 수 있습니다.
+저는 한국어 모국어 화자이며, 영어 구어 및 문어 구사를 어느 정도 할 수 있습니다. 선택 가능할 경우 영어 문어를 선호합니다.
 
 
 수상 경력
@@ -130,6 +135,9 @@
 기타 활동
 ===========
 
+2013
+:	미니 대안언어축제 2013에서 〈난해한 프로그래밍 언어 개론과 Befunge〉라는 제목으로 세션 진행.
+
 2009–
 :	[오징어 IRC 네트워크](http://ozinger.org/)의 설립자 및 공동 운영자.
 
@@ -138,6 +146,9 @@
 
 2006–2008
 :	[한국어 위키백과](http://ko.wikipedia.org/) 관리자직 수행.
+
+2005
+:	제로보드 4 계열의 보안 취약점을 발견하고 제보함 ([CVE-2005-1820](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1820)). PHP의 PCRE 확장을 공격하는 거의 최초의 취약점으로 생각됨.
 
 </blockquote>
 

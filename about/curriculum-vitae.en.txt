@@ -6,7 +6,7 @@
 <h1>Curriculum Vitae (or Rèsumè)</h1>
 </%def>
 
-The following rèsumè is correct as of 2014-01-01.
+The following rèsumè is correct as of 2014-06-13.
 
 <blockquote class="mearie-cv">
 
@@ -15,6 +15,7 @@ The following rèsumè is correct as of 2014-01-01.
 **Kang Seonghoon**  
 E-mail: <%m:math size="+1">\sideset{someone}{\!mearie}{\mathop{@}}\!_\cdot org</%m:math>  
 Website: [`http://mearie.org/`](http://mearie.org/)  
+Available in Seoul, Korea; can work remotely; not willing to relocate.  
 Please refer to my e-mail for detailed contact informations.
 
 </div>
@@ -37,9 +38,9 @@ Education
 Employment
 ============
 
-2013–
+2013–2014
 :	[iPlateia Korea](http://www.iplateia.com/), Software developer  
-	<small>I'm working on the entire server architecture and Android SDK for [dobi.tv](http://dobi.tv).</small>
+	<small>I worked on the entire server architecture, content recognition algorithm optimization and Android SDK for [dobi.tv](http://dobi.tv).</small>
 
 2012
 :	[Move Incorporated](http://move.is/), Software developer  
@@ -52,6 +53,10 @@ Employment
 
 Open-Source Development
 =========================
+
+2012–
+:	[Rust programming language](http://rust-lang.org/), Contributor and library maintainer
+	<small>A systems programming language with statically enforced memory safety, from Mozilla Research. I've written [rust-encoding](https://github.com/lifthrasiir/rust-encoding/) and maintained several other libraries.</small>
 
 2009
 :	[esotope-bfc](http://code.google.com/p/esotope-bfc/), Main developer
@@ -67,7 +72,7 @@ Open-Source Development
 
 2005–
 :	[Angolmois](http://mearie.org/projects/angolmois), Primary developer  
-	<small>A music game written in C. Aimed at very small lines of code and reasonable feature set.</small>
+	<small>A music game written in C (and later Rust). Aimed at very small lines of code and reasonable feature set.</small>
 
 2005
 :	[soojung](http://kldp.net/projects/soojung/), Committer  
@@ -82,23 +87,23 @@ Skills
 I have experiences ranging from low-level system softwares to high-level Web services, and can combine them in an efficient manner as needed.
 
 Languages
-:	Extensively used C, C++, PHP, Python, Javascript and Shell script (bash).  
-	Have used D, Ruby, OCaml, Haskell and several others.
+:	Extensively used C, C++, PHP, Python, Rust, Javascript and Shell script (bash).  
+	Have used Java, D, Ruby, OCaml, Haskell and several others.
 
 Platforms
 :	Regularly using Microsoft Windows, Linux (x86, ARM, MIPS) and Mac OS X.  
-	Good knowledge of general *NIX, cross-platform environments and modern Web development; some knowledge of Win32 API and Cocoa.
+	Good knowledge of general *NIX, cross-platform environments and modern Web development with both standalone servers and Amazon Web Services; some knowledge of Win32 API, Android and Cocoa
 
 Tools
-:	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial
+:	Vim, GDB, Microsoft Visual Studio, Subversion, Mercurial, git
 
 Miscellaneous
-:	* Linux server administration with Apache, LightTPD, MySQL and PostgreSQL. Have hosted 20+ websites for years.
-	* Ability to write a standard-compliant and accessible (X)HTML and CSS.
+:	* Multi-purpose Linux server administration. Have hosted 20+ websites for years.
+	* Ability to write a standard-compliant and accessible (X)HTML, HTML5 and CSS.
 	* Ability to design and implement a domain-specific or general-purpose programming language.
 	* Hobby reverse engineering and software analysis.
 
-I'm a native speaker of Korean, and have working knowledge of oral and written English.
+I'm a native speaker of Korean, and have working knowledge of oral and (preferably) written English.
 
 
 Awards
@@ -142,6 +147,9 @@ Other Activities
 
 2006–2008
 :	Served as one of [Korean Wikipedia](http://ko.wikipedia.org/) administrators.
+
+2005
+:	Discovered and reported a major security vulnerability on Zeroboard 4 ([CVE-2005-1820](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1820)). It was one of the first known examples of attacks on PHP's PCRE extension.
 
 </blockquote>
 
