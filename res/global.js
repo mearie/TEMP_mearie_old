@@ -273,7 +273,7 @@ $('.mearie-activity noscript').each(function(i) {
 				if (lang == 'ko') return; // skip in korean pages
 				if (body.match(/^RT /)) return; // ignore retweets
 				iconurl = 'http://twitter.com/favicon.ico';
-				mainurl = 'http://twitter.com/seonkay/';
+				mainurl = 'http://twitter.com/senokay/';
 				region = (lang=='ko' ? '트위터' : 'Twitter');
 				shorten = false;
 			} else if (via.match(/^http:\/\/me2day\.net\//)) {
